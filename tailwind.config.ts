@@ -55,7 +55,10 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		animation: {
+			'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
