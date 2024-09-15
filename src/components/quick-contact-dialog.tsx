@@ -7,7 +7,7 @@ import { Separator } from "./ui/separator";
 import { IconRocket } from "@tabler/icons-react";
 
 export default function QuickContactDialog() {
-  const titlesDefaultClasses = "font-mono text-gray-400 opacity-65";
+  const titlesDefaultClasses = "font-mono text-sm text-gray-400 opacity-65";
 
   return (
     <Popover>
