@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import QuickContactDialog from "@/components/quick-contact-dialog";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,8 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased p-1 dark`}
       >
+        <header className="flex flex-row-reverse p-2">
+          <QuickContactDialog />
+        </header>
         {children}
       </body>
     </html>
