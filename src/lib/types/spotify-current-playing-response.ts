@@ -1,6 +1,7 @@
 export interface SpotifyCurrentPlayingResponse {
   timestamp: number;
   progress_ms: number;
+  is_playing: boolean;
   item: {
     name: string;
     preview_url: string;

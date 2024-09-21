@@ -12,7 +12,7 @@ export default function AnimatedBadge({
   className,
 }: AnimatedBadgeProps) {
   return (
-    <div className="relative inline-flex overflow-hidden rounded-md p-px">
+    <div className="relative inline-flex overflow-hidden rounded-md p-px w-full">
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
       <span
         className={cn(

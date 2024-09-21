@@ -60,7 +60,7 @@ export const Background = memo(({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "absolute blur-sm h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
+        "absolute transition duration-300 blur-sm hover:blur-none h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
         className
       )}
     >

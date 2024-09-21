@@ -23,7 +23,7 @@ export default function QuickContactDialog() {
           text="Activities"
           textClassName={`${titlesDefaultClasses} uppercase text-sm`}
         />
-        <SpotifyCurrentPlayingBadge />
+        <SpotifyCurrentPlayingBadge title="Listening to" />
         <Separator />
         <h1 className={titlesDefaultClasses}>I'm online! Reach me out 👋</h1>
         <Button variant={"ghost"}>Send a message</Button>
