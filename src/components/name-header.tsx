@@ -1,5 +1,6 @@
 import QuickContactDialog from "@/components/quick-contact-dialog";
 import Name from "./name";
+import RoleTitle from "./role-title";
 
 export default function NameHeader() {
   return (
@@ -8,7 +9,7 @@ export default function NameHeader() {
         <Name />
         <QuickContactDialog />
       </div>
-      <h2 className="font-mono text-sm">Full-stack developper</h2>
+      <RoleTitle />
     </header>
   );
 }
