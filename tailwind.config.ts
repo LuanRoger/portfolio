@@ -53,6 +53,11 @@ const config: Config = {
       },
       fontFamily: {
         mono: "var(--font-commit-mono)",
+        dancing: "var(--font-dancing-script)",
+        jacquard: "var(--font-jacquarda-bastarda)",
+        vt: "var(--font-vt-323)",
+        yellowtail: "var(--font-yellowtail)",
+        ubuntu: "var(--font-ubuntu-mono)",
       },
       borderRadius: {
         lg: "var(--radius)",
