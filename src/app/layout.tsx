@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Background } from "@/components/background";
+import Background from "@/components/background";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -100,10 +100,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${commitMono.variable} ${dancingScript.variable} ${jacquardaBastarda.variable} ${vt323.variable} ${yellowtail.variable} ${ubuntuMono.variable} p-1 dark bg-background`}
+        className={`${geistSans.variable} ${commitMono.variable} ${dancingScript.variable} ${jacquardaBastarda.variable} ${vt323.variable} ${yellowtail.variable} ${ubuntuMono.variable} antialiased dark bg-background`}
       >
-        <main className="relative z-10">{children}</main>
-        <Background />
+        <div className="relative">
+          <main className="flex flex-row justify-center items-center w-full py-4 z-10">
+            {children}
+          </main>
+          <Background />
+        </div>
       </body>
     </html>
   );

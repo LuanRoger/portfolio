@@ -1,10 +1,13 @@
 import { cn } from "@/lib/shadcn-utils";
 
+export type NoiseType = "noise" | "background";
+
 interface GrayniNoiseProps {
   className?: string | undefined;
+  type?: NoiseType;
 }
 
-export function NoiseContainer({ className }: GrayniNoiseProps) {
+export function NoiseContainer({ className, type = "noise" }: GrayniNoiseProps) {
   return (
     <div
       className={cn(
@@ -12,7 +15,7 @@ export function NoiseContainer({ className }: GrayniNoiseProps) {
         className
       )}
     >
-      <div className="noise"></div>
+      <div className={type}></div>
     </div>
   );
 }
