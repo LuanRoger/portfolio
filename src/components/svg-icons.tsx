@@ -403,3 +403,25 @@ export const NextJSIcon = memo((props: SVGProps<SVGSVGElement>) => (
   </svg>
 ));
 NextJSIcon.displayName = "NextJSIcon";
+
+export const AramisLogo = memo((props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    width="26"
+    height="26"
+    viewBox="0 0 22 18"
+    fill="none"
+  >
+    <title> logo </title>
+    <path
+      d="M8.0511 0L0 17.8648H1.99184L9.32716 1.81239H9.58436L16.8958 17.8648H18.9354L10.8843 0H8.0511Z"
+      fill="black"
+    ></path>
+    <path
+      d="M2.96484 11.2891H22.002V9.61426H3.71851L2.96484 11.2891Z"
+      fill="#FF1432"
+    ></path>
+  </svg>
+));
+AramisLogo.displayName = "AramisLogo";
