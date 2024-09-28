@@ -52,6 +52,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        sans: "var(--font-geist-sans)",
         mono: "var(--font-commit-mono)",
         dancing: "var(--font-dancing-script)",
         jacquard: "var(--font-jacquarda-bastarda)",
