@@ -7,7 +7,7 @@ import NavigationHeader from "@/components/sections/navigation-header";
 
 export default function Home() {
   return (
-    <div className="relative rounded-md p-4 border border-border z-20">
+    <div className="relative rounded-md p-4 border border-border w-3/5 z-20">
       <div className="space-y-2">
         <NameHeader />
         <TechStack />
