@@ -9,7 +9,7 @@ import {
 
 export default function AboutSection() {
   return (
-    <section id="about">
+    <section id="about" className="space-y-2">
       <h2 className="text-xl font-bold">About Me</h2>
       <p>
         Hello there! I'm Luan Roger, a software engineer and full-stack

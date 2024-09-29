@@ -252,3 +252,12 @@ export const myStack: Tech[] = [
     icon: <NextJSIcon />,
   },
 ];
+
+export function getTechByName(name: string) {
+  return myStack.find((tech) => tech.name === name);
+}
+
+export function getTechsByName(names: string[]) {
+  const techs = names.map((name) => getTechByName(name));
+  return techs.filter((tech) => tech !== undefined) as Tech[];
+}
