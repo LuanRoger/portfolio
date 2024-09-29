@@ -26,7 +26,7 @@ import {
   RedisIcon,
   NodeIcon,
   GrafanaIcon,
-  NextJSIcon,
+  ViteIcon,
   PrometheusIcon,
   GitHubIcon,
   VercelIcon,
@@ -249,7 +249,14 @@ export const myStack: Tech[] = [
     link: "https://nextjs.org/",
     color: "#000000",
     category: TechCategory.Framework,
-    icon: <NextJSIcon />,
+    icon: <ViteIcon />,
+  },
+  {
+    name: "Vite",
+    link: "https://vitejs.dev/",
+    color: "#646CFF",
+    category: TechCategory.Tool,
+    icon: <ViteIcon />,
   },
 ];
 
