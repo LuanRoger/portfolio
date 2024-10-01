@@ -1,9 +1,14 @@
+import { cn } from "@/lib/shadcn-utils";
 import { NoiseContainer } from "./grayni-noise";
 
-export default function Background() {
+interface BackgroundProps {
+  className?: string | undefined;
+}
+
+export default function Background({ className }: BackgroundProps) {
   return (
-    <div className="absolute w-full h-full top-0">
+    <div className={cn("absolute w-full h-full top-0", className)}>
       <NoiseContainer type="background" />
     </div>
-  )
+  );
 }
