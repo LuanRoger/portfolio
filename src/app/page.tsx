@@ -5,10 +5,11 @@ import { Separator } from "@/components/ui/separator";
 import AboutSection from "@/components/sections/about-section";
 import NavigationHeader from "@/components/sections/navigation-header";
 import ProjectsSection from "@/components/sections/projects-section";
+import ExpirienceSection from "@/components/sections/expirience-section";
 
 export default function Home() {
   return (
-    <div className="relative rounded-md p-4 border border-border w-3/5 z-20 overflow-clip">
+    <div className="relative md:max-2xl:rounded-md p-4 md:max-2xl:border border-border md:max-2xl:w-3/5 z-20">
       <div className="space-y-2">
         <NameHeader />
         <TechStack />
@@ -16,6 +17,7 @@ export default function Home() {
         <NavigationHeader />
         <AboutSection />
         <ProjectsSection />
+        <ExpirienceSection />
       </div>
       <NoiseContainer className="rounded-md" />
     </div>

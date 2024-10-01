@@ -30,6 +30,7 @@ import {
   PrometheusIcon,
   GitHubIcon,
   VercelIcon,
+  NextJSIcon,
 } from "@/components/svg-icons";
 import { Tech, TechCategory } from "./types/tech";
 
@@ -249,7 +250,7 @@ export const myStack: Tech[] = [
     link: "https://nextjs.org/",
     color: "#000000",
     category: TechCategory.Framework,
-    icon: <ViteIcon />,
+    icon: <NextJSIcon />,
   },
   {
     name: "Vite",
