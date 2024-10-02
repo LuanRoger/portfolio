@@ -1,6 +1,6 @@
 import Link from "../link";
 import {
-  AramisLogo,
+  DiscordLogo,
   DotnetIcon,
   ElectronIcon,
   FlutterIcon,
@@ -15,9 +15,9 @@ export default function AboutSection() {
         Hello there! I'm Luan Roger, a software engineer and full-stack
         developer based on Brazil 🇧🇷. Currently, I'm working at{" "}
         <Link href="https://www.aramis.com.br">
-          <AramisLogo className="scale-95 inline-block" /> Aramis
+          <DiscordLogo className="scale-95 inline-block" /> Aramis
         </Link>{" "}
-        as Full Stack Developer. I also provide development services for
+        as Software Engineer. I also provide development services for
         companies and individuals{" "}
         <small>
           <a href="mailto:luanroger.dev@gmail.com">(contact-me)</a>
