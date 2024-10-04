@@ -1,6 +1,5 @@
 import Link from "../link";
 import QuickContactForm from "../quick-contact-form";
-import { GitHubIcon, LinkedInIcon } from "../svg-icons";
 
 export default function ContactSection() {
   return (
