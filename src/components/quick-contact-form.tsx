@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -17,19 +16,45 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
 import LoadingButton from "./loading-button";
 import HoverTooltip from "./hover-tooltip";
 import { IconQuestionMark } from "@tabler/icons-react";
+import { sendMessageAction } from "@/app/actions/contact-messages";
+import { useState, useTransition } from "react";
 
 export default function QuickContactForm() {
+  //TODO: migrato to React 19
+  const [isPending, doAction] = useTransition();
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
+  const [sendSucess, setSendSucess] = useState<boolean | undefined>(undefined);
+
+  async function executeAction(formData: FormData) {
+    const result = await sendMessageAction(formData);
+    const sucess = result !== null;
+    if (sucess) {
+      form.reset();
+    }
+
+    setSendSucess(sucess);
+  }
+
+  async function handleSubmit(formData: FormData) {
+    await doAction(async () => executeAction(formData));
+  }
 
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-2">
+      {sendSucess !== undefined &&
+        (sendSucess ? (
+          <p className="text-green-400">Your message was sent!</p>
+        ) : (
+          <p className="text-red-400">
+            There was an error sending your message. Please try again later.
+          </p>
+        ))}
+      <form className="flex flex-col gap-2" action={handleSubmit}>
         <div className="inline-flex gap-2">
           <FormField
             control={form.control}
@@ -38,7 +63,7 @@ export default function QuickContactForm() {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Name" {...field} />
+                  <Input placeholder="Name" required {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -59,7 +84,7 @@ export default function QuickContactForm() {
                   </HoverTooltip>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...field} />
+                  <Input placeholder="Email" required {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -72,13 +97,17 @@ export default function QuickContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea placeholder="Message" {...field} />
+                <Textarea placeholder="Message" required {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <LoadingButton className="self-end" text="Send message" />
+        <LoadingButton
+          pending={isPending}
+          className="self-end"
+          text="Send message"
+        />
       </form>
     </Form>
   );
