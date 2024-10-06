@@ -7,13 +7,16 @@ import NavigationHeader from "@/components/sections/navigation-header";
 import ProjectsSection from "@/components/sections/projects-section";
 import ExpirienceSection from "@/components/sections/expirience-section";
 import ContactSection from "@/components/sections/contact-section";
+import FooterSection from "@/components/sections/footer-section";
 
 export default function Home() {
   return (
-    <div className="relative md:max-2xl:rounded-md p-4 
+    <div
+      className="relative md:max-2xl:rounded-md 
     md:max-2xl:border border-border md:max-2xl:w-3/5 z-20
-    overflow-clip">
-      <div className="space-y-2">
+    overflow-clip"
+    >
+      <div className="space-y-2 p-4">
         <NameHeader />
         <TechStack />
         <Separator />
@@ -23,6 +26,7 @@ export default function Home() {
         <ExpirienceSection />
         <ContactSection />
       </div>
+      <FooterSection />
       <NoiseContainer className="rounded-md" />
     </div>
   );
