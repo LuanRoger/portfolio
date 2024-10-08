@@ -25,7 +25,7 @@ export default function QuickContactDialog() {
         />
         <SpotifyCurrentPlayingBadge title="Listening to" />
         <Separator />
-        <h1 className={titlesDefaultClasses}>I'm online! Reach me out 👋</h1>
+        <h1 className={titlesDefaultClasses}>I&apos;m online! Reach me out 👋</h1>
         <Button variant={"ghost"}>Send a message</Button>
       </PopoverContent>
     </Popover>

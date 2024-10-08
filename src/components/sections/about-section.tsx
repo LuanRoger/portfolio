@@ -12,8 +12,8 @@ export default function AboutSection() {
     <section id="about" className="space-y-2">
       <h2 className="text-xl font-bold">About Me</h2>
       <p>
-        Hello there! I'm Luan Roger, a software engineer and full-stack
-        developer based on Brazil 🇧🇷. Currently, I'm working at{" "}
+        Hello there! I&apos;m Luan Roger, a software engineer and full-stack
+        developer based on Brazil 🇧🇷. Currently, I&apos;m working at{" "}
         <Link href="https://www.aramis.com.br">
           <AramisLogo className="scale-95 inline-block" /> Aramis
         </Link>{" "}
