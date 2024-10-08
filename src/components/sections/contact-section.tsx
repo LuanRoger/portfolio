@@ -1,5 +1,7 @@
-import Link from "../link";
+import Image from "next/image";
 import QuickContactForm from "../quick-contact-form";
+import QuickFormBadge from "~/public/images/quickform.gif";
+import Link from "../link";
 
 export default function ContactSection() {
   return (
@@ -12,32 +14,15 @@ export default function ContactSection() {
         </Link>
         , or send me a quick message using the form below:
       </p>
-      <div className="p-4 border border-border rounded-md">
+      <div className="p-4 border border-border rounded-md space-y-2">
+        <Image
+          src={QuickFormBadge}
+          alt="Quick Contact Form"
+          width={80}
+          height={15}
+          className="opacity-80"
+        />
         <QuickContactForm />
-      </div>
-      <p>You can also find me on:</p>
-      <div className="flex flex-row justify-evenly">
-        <Link
-          href="https://linkedin.com/in/luan-roger"
-          target="_blank"
-          className="text-muted-foreground"
-        >
-          <h2>LinkedIn</h2>
-        </Link>
-        <Link
-          href="https://github.com/LuanRoger"
-          target="_blank"
-          className="text-muted-foreground"
-        >
-          <h2>GitHub</h2>
-        </Link>
-        <Link
-          href="https://discordapp.com/users/226491187463192576"
-          target="_blank"
-          className="text-muted-foreground"
-        >
-          <h2>Discord</h2>
-        </Link>
       </div>
     </section>
   );

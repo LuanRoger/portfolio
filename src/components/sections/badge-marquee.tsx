@@ -13,8 +13,8 @@ import NotepadBadge from "~/public/images/notepad.gif";
 export default function BadgeMarquee() {
   return (
     <div className="opacity-80">
-      <Marquee speed={20}>
-        <span className="inline-flex gap-2">
+      <Marquee speed={20} className="gap-2">
+        <span className="flex gap-2">
           <Image
             src={FinalFantasyBadge}
             alt="Final Fantasy Badge"

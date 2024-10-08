@@ -2,7 +2,7 @@ import WorkXp from "../work-xp";
 
 export default function ExpirienceSection() {
   return (
-    <section className="space-y-2">
+    <section id="expirience" className="space-y-2">
       <h2 className="text-xl font-bold">Expirience</h2>
       <p>
         In addition to my professional work, I also maintain open-source

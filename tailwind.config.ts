@@ -74,6 +74,17 @@ const config: Config = {
       },
       animation: {
         "ping-slow": "ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "meteor-effect": "meteor 5s linear infinite",
+      },
+      keyframes: {
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
       },
     },
   },
