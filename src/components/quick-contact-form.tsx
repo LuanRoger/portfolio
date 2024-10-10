@@ -55,7 +55,7 @@ export default function QuickContactForm() {
           </p>
         ))}
       <form className="flex flex-col gap-2" action={handleSubmit}>
-        <div className="inline-flex gap-2">
+        <div className="flex flex-col lg:max-2xl:inline-flex gap-2">
           <FormField
             control={form.control}
             name="name"

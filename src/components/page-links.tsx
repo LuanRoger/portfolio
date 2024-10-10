@@ -17,7 +17,7 @@ export default function PageLinks() {
   }
 
   return (
-    <ul className="flex flex-row justify-evenly w-full font-mono">
+    <ul className="flex flex-row flex-wrap justify-evenly w-full font-mono gap-2">
       <li>
         <button
           onClick={scrollToTop}
