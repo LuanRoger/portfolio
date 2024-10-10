@@ -1,4 +1,4 @@
-import QuickContactDialog from "@/components/quick-contact-dialog";
+import ActivitiesDialog from "@/components/activities-dialog";
 import Name from "./name";
 import RoleTitle from "./role-title";
 
@@ -7,7 +7,7 @@ export default function NameHeader() {
     <header>
       <div className="flex flex-row justify-between">
         <Name />
-        <QuickContactDialog />
+        <ActivitiesDialog />
       </div>
       <RoleTitle />
     </header>

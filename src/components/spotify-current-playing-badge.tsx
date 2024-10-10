@@ -1,17 +1,44 @@
+"use client";
+
 import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import AnimatedBadge from "./animated-badge";
 import { IconBrandSpotify } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import { Skeleton } from "./ui/skeleton";
+import { SpotifyCurrentPlayingResponse } from "@/lib/types/spotify-current-playing-response";
 
 interface SpotifyCurrentPlayingBadgeProps {
   title?: string | undefined;
 }
 
-export default async function SpotifyCurrentPlayingBadge({
+export default function SpotifyCurrentPlayingBadge({
   title,
 }: SpotifyCurrentPlayingBadgeProps) {
-  const currentPlayingInfo = await getSpotifyCurrentPlaying();
-  const mainArtist = currentPlayingInfo.item.artists[0].name;
-  const musicLink = currentPlayingInfo.item.external_urls.spotify;
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [currentPlayingInfo, setCurrentPlayingInfo] = useState<
+    SpotifyCurrentPlayingResponse | undefined
+  >(undefined);
+  const [mainArtist, setMainArtist] = useState<string | undefined>(undefined);
+  const [musicLink, setMusicLink] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    async function fetchCurrentPlaying() {
+      const currentPlayingInfo = await getSpotifyCurrentPlaying();
+      return currentPlayingInfo;
+    }
+
+    fetchCurrentPlaying()
+      .then((data) => {
+        setCurrentPlayingInfo(data);
+        setMainArtist(data.item.artists[0].name);
+        setMusicLink(data.item.external_urls.spotify);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading || !currentPlayingInfo) {
+    return <SpotifyCurrentPlayingBadgeLoading />;
+  }
 
   return (
     <div className="flex flex-col gap-1 w-full">
@@ -28,4 +55,8 @@ export default async function SpotifyCurrentPlayingBadge({
       </a>
     </div>
   );
+}
+
+function SpotifyCurrentPlayingBadgeLoading() {
+  return <Skeleton className="w-24 h-9" />;
 }
