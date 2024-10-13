@@ -1,52 +1,40 @@
 "use client";
 
 import {
-  IconArrowUp,
   IconBook2,
   IconBriefcase2,
   IconMail,
   IconUser,
 } from "@tabler/icons-react";
 import IconLabel from "./icon-label";
+import Link from "./link";
 
 export default function PageLinks() {
   const iconSize = 14;
 
-  function scrollToTop() {
-    window.scrollTo(0, 0);
-  }
-
   return (
     <ul className="flex flex-row flex-wrap justify-evenly w-full font-mono gap-2">
       <li>
-        <button
-          onClick={scrollToTop}
-          className="inline-flex gap-1 items-center"
-        >
-          <IconLabel icon={<IconArrowUp size={iconSize} />}>Top</IconLabel>
-        </button>
-      </li>
-      <li>
-        <a href="#about">
+        <Link href="#about">
           <IconLabel icon={<IconUser size={iconSize} />}>About</IconLabel>
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="#projects">
+        <Link href="#projects">
           <IconLabel icon={<IconBook2 size={iconSize} />}>Projects</IconLabel>
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="#expirience">
+        <Link href="#expirience">
           <IconLabel icon={<IconBriefcase2 size={iconSize} />}>
             Expirience
           </IconLabel>
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="#contact">
+        <Link href="#contact">
           <IconLabel icon={<IconMail size={iconSize} />}>Contact</IconLabel>
-        </a>
+        </Link>
       </li>
     </ul>
   );

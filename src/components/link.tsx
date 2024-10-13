@@ -7,14 +7,16 @@ interface LinkProps {
   className?: string;
   href: Url;
   target?: string | undefined;
+  onClick?: () => void;
 }
 
-export default function Link({ children, className, href, target }: LinkProps) {
+export default function Link({ children, className, href, target, onClick }: LinkProps) {
   return (
     <NextLink
       target={target}
       href={href}
       className={cn("hover:underline cursor-pointer font-bold", className)}
+      onClick={onClick}
     >
       {children}
     </NextLink>

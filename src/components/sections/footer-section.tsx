@@ -1,9 +1,10 @@
 import Link from "../link";
+import ScrollTopLink from "../scroll-top-link";
 import BadgeMarquee from "./badge-marquee";
 
 export default function FooterSection() {
   return (
-    <footer className="space-y-2 w-full">
+    <footer className="flex flex-col space-y-2 w-full">
       <div className="flex flex-row justify-evenly">
         <Link
           href="https://linkedin.com/in/luan-roger"
@@ -27,6 +28,7 @@ export default function FooterSection() {
           <h2>Discord</h2>
         </Link>
       </div>
+      <ScrollTopLink className="self-end mr-4" />
       <BadgeMarquee />
     </footer>
   );
