@@ -6,7 +6,7 @@ export default function ExpirienceSection() {
       <h2 className="text-xl font-bold">Expirience</h2>
       <p>
         In addition to my professional work, I also maintain open-source
-        projects and libraries that together have more than 200 stars in
+        projects and libraries, that together, have more than 200 stars in
         repositories and 8,000 downloads.
       </p>
       <ul className="space-y-4">

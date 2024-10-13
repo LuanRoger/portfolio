@@ -27,6 +27,13 @@ export default function FooterSection() {
         >
           <h2>Discord</h2>
         </Link>
+        <Link
+          href="https://lrtechblog.vercel.app"
+          target="_blank"
+          className="text-muted-foreground"
+        >
+          <h2>LR Tech Blog</h2>
+        </Link>
       </div>
       <ScrollTopLink className="self-end mr-4" />
       <BadgeMarquee />
