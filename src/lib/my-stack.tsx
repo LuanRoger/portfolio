@@ -170,7 +170,7 @@ export const myStack: Tech[] = [
   },
   {
     name: "shadcn-ui",
-    link: "https://shadcn-ui.com/",
+    link: "https://ui.shadcn.com/",
     color: "#000000",
     category: TechCategory.Framework,
     icon: <ShadcnIcon />,

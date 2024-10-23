@@ -19,6 +19,7 @@ export function TechBadge({ tech, index }: TechProps) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: index ? index * 0.1 : 0 }}
       href={link}
+      target="_blank"
     >
       <Badge
         variant={"outline"}
