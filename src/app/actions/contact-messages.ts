@@ -22,7 +22,7 @@ export async function sendMessageAction(formData: FormData) {
   try {
     const { id } = await registerMessage(data);
     return id;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
