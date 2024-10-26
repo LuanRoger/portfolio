@@ -25,7 +25,13 @@ export function TechBadge({ tech, index }: TechProps) {
         variant={"outline"}
         className={`gap-1 items hover:bg-primary hover:text-primary-foreground py-2`}
       >
-        {cloneElement(icon, { fill: color, className: "w-4 h-4" })}
+        {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          cloneElement(icon as React.ReactElement<any>, {
+            fill: color,
+            className: "w-4 h-4",
+          })
+        }
         <p>{name}</p>
       </Badge>
     </motion.a>
