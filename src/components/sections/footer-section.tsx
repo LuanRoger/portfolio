@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "../link";
 import ScrollTopLink from "../scroll-top-link";
 import BadgeMarquee from "./badge-marquee";
+import LRLogo from "~/public/images/lr-logo.png";
 
 export default function FooterSection() {
   return (
@@ -35,7 +37,16 @@ export default function FooterSection() {
           <h2>LR Tech Blog</h2>
         </Link>
       </div>
-      <ScrollTopLink className="self-end mr-4" />
+      <div className="flex flex-row justify-between items-center mx-4">
+        <Image
+          src={LRLogo}
+          alt="LR Logo"
+          width={50}
+          height={50}
+          className="opacity-55"
+        />
+        <ScrollTopLink className="self-end" />
+      </div>
       <BadgeMarquee />
     </footer>
   );
