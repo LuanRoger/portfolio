@@ -42,7 +42,13 @@ export const projects: Project[] = [
     title: "WHMonitor",
     description:
       "A hardware monitor made with Web technologies and C#. Powered by Tauri.",
-    techStack: getTechsByName(["React", "TypeScript", ".NET", "Tailwind CSS"]),
+    techStack: getTechsByName([
+      "React",
+      "TypeScript",
+      ".NET",
+      "C#",
+      "Tailwind CSS",
+    ]),
     repoLink: "https://github.com/LuanRoger/WHMonitor",
     imageSrc: WHMonitor,
     imageAlt: "WHMonitor screenshot",
@@ -78,11 +84,12 @@ export const projects: Project[] = [
       "Flutter",
       "Dart",
       ".NET",
+      "C#",
       "Docker",
       "Redis",
       "Firebase",
       "AWS",
-      "DigitalOcean"
+      "DigitalOcean",
     ]),
     repoLink: "https://github.com/LuanRoger/VolumeVault",
     imageSrc: VolumeVault,
@@ -90,11 +97,8 @@ export const projects: Project[] = [
   },
   {
     title: "xinput_gamepad",
-    description:
-      "🎮 Add support to XInput controllers with Win32 API.",
-    techStack: getTechsByName([
-      "Dart",
-    ]),
+    description: "🎮 Add support to XInput controllers with Win32 API.",
+    techStack: getTechsByName(["Dart"]),
     link: "https://pub.dev/packages/xinput_gamepad",
     repoLink: "https://github.com/LuanRoger/xinput_gamepad",
     imageSrc: XinputGamepad,
@@ -104,22 +108,15 @@ export const projects: Project[] = [
     title: "Xbox Launcher",
     description:
       "Launcher with the Xbox Series X/S's dashboard to play Xbox Cloud Gaming (XCloud) games.",
-    techStack: getTechsByName([
-      "Flutter",
-      "Dart",
-      "Python"
-    ]),
+    techStack: getTechsByName(["Flutter", "Dart", "Python"]),
     repoLink: "https://github.com/LuanRoger/xbox_launcher",
     imageSrc: XboxLauncher,
     imageAlt: "Home page screenshot",
   },
   {
     title: "virtual_keyboard",
-    description:
-      "Simulate keystrokes with Win32 API.",
-    techStack: getTechsByName([
-      "Dart",
-    ]),
+    description: "Simulate keystrokes with Win32 API.",
+    techStack: getTechsByName(["Dart"]),
     repoLink: "https://github.com/LuanRoger/virtual_keyboard",
     imageSrc: VirtualKeyboard,
     imageAlt: "GitHub repository's page",
@@ -128,9 +125,7 @@ export const projects: Project[] = [
     title: "GlobalStrings",
     description:
       "🌐 Simple package that helps manage strings for implementing new languages in .NET applications.",
-    techStack: getTechsByName([
-      ".NET",
-    ]),
+    techStack: getTechsByName([".NET", "C#"]),
     link: "https://www.nuget.org/packages/SerializedConfig",
     repoLink: "https://github.com/LuanRoger/GlobalStrings",
     imageSrc: GlobalStrings,
@@ -138,11 +133,8 @@ export const projects: Project[] = [
   },
   {
     title: "SerializedConfiguration",
-    description:
-      "⚙️ Create, manage and save settings in .yaml or .json. ",
-    techStack: getTechsByName([
-      ".NET",
-    ]),
+    description: "⚙️ Create, manage and save settings in .yaml or .json. ",
+    techStack: getTechsByName([".NET", "C#"]),
     link: "https://www.nuget.org/packages/GlobalStrings",
     repoLink: "https://github.com/LuanRoger/SerializedConfiguration",
     imageSrc: SerializedConfiguration,

@@ -31,6 +31,7 @@ import {
   GitHubIcon,
   VercelIcon,
   NextJSIcon,
+  CsharpIcon,
 } from "@/components/svg-icons";
 import { Tech, TechCategory } from "./types/tech";
 
@@ -55,6 +56,13 @@ export const myStack: Tech[] = [
     color: "#F38020",
     category: TechCategory.Cloud,
     icon: <CloudflareIcon />,
+  },
+  {
+    name: "C#",
+    link: "https://dotnet.microsoft.com/",
+    color: "#C026D3",
+    category: TechCategory.Language,
+    icon: <CsharpIcon />,
   },
   {
     name: "Dart",
