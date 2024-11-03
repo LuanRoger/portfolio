@@ -30,7 +30,7 @@ export default function FooterSection() {
           <h2>Discord</h2>
         </Link>
         <Link
-          href="https://lrtechblog.vercel.app"
+          href="https://blog.luanroger.com"
           target="_blank"
           className="text-muted-foreground"
         >
@@ -38,6 +38,7 @@ export default function FooterSection() {
         </Link>
       </div>
       <div className="flex flex-row justify-between items-center mx-4">
+        <ScrollTopLink className="self-end" />
         <Image
           src={LRLogo}
           alt="LR Logo"
@@ -45,7 +46,6 @@ export default function FooterSection() {
           height={50}
           className="opacity-55"
         />
-        <ScrollTopLink className="self-end" />
       </div>
       <BadgeMarquee />
     </footer>
