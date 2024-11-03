@@ -4,18 +4,13 @@ export default function ExpirienceSection() {
   return (
     <section id="expirience" className="space-y-2">
       <h2 className="text-xl font-bold">Expirience</h2>
-      <p>
-        In addition to my professional work, I also maintain open-source
-        projects and libraries, that together, have more than 200 stars in
-        repositories and 8,000 downloads.
-      </p>
       <ul className="space-y-4">
         <WorkXp
           company="Aramis"
           position="Software Engineer"
           startDate="10/2024"
           endDate="Present"
-          description=""
+          description="Aramis is a menswear brand that has been on the market for almost 30 years. I work as a full-stack developer, helping the brand achieve its goal of technological revolution, creating and maintaining large-scale distributed micro-services, as well as developing dynamic UIs that provide an intuitive and efficient user experience, connecting customers and partners to the brand in an innovative and personalized way."
         />
         <WorkXp
           company="Mais Informa"
@@ -32,6 +27,11 @@ export default function ExpirienceSection() {
           endDate="10/2024"
         />
       </ul>
+      <p>
+        💡 In addition to my professional work, I also maintain open-source
+        projects and libraries, that together, have more than 200 stars in
+        repositories and 8,000 downloads.
+      </p>
     </section>
   );
 }
