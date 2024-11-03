@@ -89,7 +89,7 @@ const ubuntuMono = localFont({
 
 export const metadata: Metadata = {
   title: "LR Portfolio",
-  description: "portfolio",
+  description: "my portfolio.",
 };
 
 export default function RootLayout({
