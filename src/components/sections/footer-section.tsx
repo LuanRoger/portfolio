@@ -30,7 +30,7 @@ export default function FooterSection() {
           <h2>Discord</h2>
         </Link>
         <Link
-          href="https://blog.luanroger.com"
+          href="https://blog.luanroger.dev"
           target="_blank"
           className="text-muted-foreground"
         >
