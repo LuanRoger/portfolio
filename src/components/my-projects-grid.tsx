@@ -13,7 +13,7 @@ export default function MyProjectsGrid() {
 
         return (
           <BentoGridProjectItem
-            key={project.title}
+            key={index}
             className={className}
             project={project}
           />
