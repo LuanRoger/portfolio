@@ -31,3 +31,5 @@ export default function Home() {
     </div>
   );
 }
+
+export const experimental_ppr = true;
