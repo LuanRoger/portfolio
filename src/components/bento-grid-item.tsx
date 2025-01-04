@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/shadcn-utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 interface BentoGridItemProps {
   className?: string;

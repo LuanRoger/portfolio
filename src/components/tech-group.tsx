@@ -2,7 +2,7 @@
 
 import { Tech } from "@/lib/types/tech";
 import { TechBadge } from "./tech-badge";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface TechGroupProps {
   groupTechs: Tech[];

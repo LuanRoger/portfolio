@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useAnimationFrame } from "framer-motion";
+import { AnimatePresence, motion, useAnimationFrame } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 
 export default function Name() {

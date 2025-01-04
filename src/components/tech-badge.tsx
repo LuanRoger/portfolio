@@ -3,7 +3,7 @@
 import { Tech } from "@/lib/types/tech";
 import { Badge } from "./ui/badge";
 import { cloneElement } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface TechProps {
   tech: Tech;
