@@ -5,6 +5,8 @@ import Name from "./name";
 import RoleTitle from "./role-title";
 import { Suspense } from "react";
 
+export const experimental_ppr = true;
+
 export default function NameHeader() {
   return (
     <header>
