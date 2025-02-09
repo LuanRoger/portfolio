@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/shadcn-utils";
 import { AnimatePresence, motion, useAnimationFrame } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 
@@ -8,6 +9,7 @@ export default function Name() {
     hidden: { opacity: 0, y: -10 },
     show: { opacity: 1, y: 0 },
   };
+  const sharedClasses = "text-3xl";
 
   const [index, setIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
@@ -19,7 +21,7 @@ export default function Name() {
         initial={"hidden"}
         animate={"show"}
         variants={fontVariant}
-        className="font-jacquard"
+        className={cn("font-jacquard", sharedClasses)}
       >
         Luan Roger
       </motion.h1>,
@@ -28,7 +30,7 @@ export default function Name() {
         initial={"hidden"}
         animate={"show"}
         variants={fontVariant}
-        className="font-dancing"
+        className={cn("font-dancing", sharedClasses)}
       >
         Luan Roger
       </motion.h1>,
@@ -37,7 +39,7 @@ export default function Name() {
         initial={"hidden"}
         animate={"show"}
         variants={fontVariant}
-        className="font-vt"
+        className={cn("font-vt", sharedClasses)}
       >
         Luan Roger
       </motion.h1>,
@@ -46,7 +48,7 @@ export default function Name() {
         initial={"hidden"}
         animate={"show"}
         variants={fontVariant}
-        className="font-yellowtail"
+        className={cn("font-yellowtail", sharedClasses)}
       >
         Luan Roger
       </motion.h1>,
@@ -55,12 +57,12 @@ export default function Name() {
         initial={"hidden"}
         animate={"show"}
         variants={fontVariant}
-        className="font-ubuntu"
+        className={cn("font-ubuntu", sharedClasses)}
       >
         Luan Roger
       </motion.h1>,
     ];
-  }, []);
+  }, [fontVariant]);
 
   const accumulatedTime = useRef(0);
   useAnimationFrame((time, delta) => {
