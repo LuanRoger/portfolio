@@ -1,6 +1,6 @@
 import IconText from "./icon-text";
 import OnlinePresence from "./online-presence";
-import SpotifyCurrentPlayingBadge from "./spotify-current-playing-badge";
+import SpotifyCurrentPlayingIsland from "./spotify-current-playing-island";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Separator } from "./ui/separator";
 import { IconRocket } from "@tabler/icons-react";
@@ -13,7 +13,7 @@ export default async function ActivitiesDialog() {
 
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
 
-  const isOnline = currentPlayingInfo.is_playing;
+  const isOnline = currentPlayingInfo.isPlaying;
   const statusMessage = isOnline
     ? "I'm online! Probably doing something cool 🚀"
     : "I'll be back later ⏳...";
@@ -36,7 +36,7 @@ export default async function ActivitiesDialog() {
               text="Activities"
               textClassName={`${titlesDefaultClasses} uppercase text-sm`}
             />
-            <SpotifyCurrentPlayingBadge
+            <SpotifyCurrentPlayingIsland
               title="Listening to"
               spotifyInfo={currentPlayingInfo}
             />

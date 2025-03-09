@@ -1,0 +1,1 @@
+export { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "./spotify";
