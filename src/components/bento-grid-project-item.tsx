@@ -31,15 +31,15 @@ export default function BentoGridProjectItem({
       }
       links={[
         repoLink && (
-          <Button variant="ghost" size="icon">
-            <a key={"github"} href={repoLink} target="_blank">
+          <Button key={"github"} variant="ghost" size="icon">
+            <a href={repoLink} target="_blank">
               <GitHubIcon className="w-5 h-5 fill-foreground" />
             </a>
           </Button>
         ),
         link && (
-          <Button variant="ghost" size="icon">
-            <a key={"link"} href={link} target="_blank">
+          <Button key={"link"} variant="ghost" size="icon">
+            <a href={link} target="_blank">
               <IconExternalLink className="w-5 h-5 fill-foreground" />
             </a>
           </Button>
