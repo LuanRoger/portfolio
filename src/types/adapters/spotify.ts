@@ -16,7 +16,7 @@ export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
     timestamp: model.timestamp,
     progressMs: model.progress_ms,
     isPlaying: model.is_playing,
-    href: model.href,
+    href: model.item.external_urls.spotify,
     artists: artists,
     image: image,
   };
