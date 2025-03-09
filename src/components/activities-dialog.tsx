@@ -1,8 +1,6 @@
-import Link from "next/link";
 import IconText from "./icon-text";
 import OnlinePresence from "./online-presence";
 import SpotifyCurrentPlayingBadge from "./spotify-current-playing-badge";
-import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Separator } from "./ui/separator";
 import { IconRocket } from "@tabler/icons-react";
@@ -17,8 +15,8 @@ export default async function ActivitiesDialog() {
 
   const isOnline = currentPlayingInfo.is_playing;
   const statusMessage = isOnline
-    ? "I'm online! Reach me out 👋"
-    : "I'll be back later, but in the meantime, send me a message.";
+    ? "I'm online! Probably doing something cool 🚀"
+    : "I'll be back later ⏳...";
 
   return (
     <Popover>
@@ -47,9 +45,6 @@ export default async function ActivitiesDialog() {
         )}
 
         <h1 className={titlesDefaultClasses}>{statusMessage}</h1>
-        <Button variant={"ghost"}>
-          <Link href="#contact">Send a message</Link>
-        </Button>
       </PopoverContent>
     </Popover>
   );
