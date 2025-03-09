@@ -10,28 +10,28 @@ export default function FooterSection() {
       <div className="flex flex-row justify-evenly">
         <Link
           href="https://linkedin.com/in/luan-roger"
-          target="_blank"
+          isExternal
           className="text-muted-foreground"
         >
           <h2>LinkedIn</h2>
         </Link>
         <Link
           href="https://github.com/LuanRoger"
-          target="_blank"
+          isExternal
           className="text-muted-foreground"
         >
           <h2>GitHub</h2>
         </Link>
         <Link
           href="https://discordapp.com/users/226491187463192576"
-          target="_blank"
+          isExternal
           className="text-muted-foreground"
         >
           <h2>Discord</h2>
         </Link>
         <Link
           href="https://blog.luanroger.dev"
-          target="_blank"
+          isExternal
           className="text-muted-foreground"
         >
           <h2>LR Tech Blog</h2>
