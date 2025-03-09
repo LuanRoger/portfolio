@@ -5,16 +5,17 @@ import { AnimatePresence, motion, useAnimationFrame } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 
 export default function Name() {
-  const fontVariant = {
-    hidden: { opacity: 0, y: -10 },
-    show: { opacity: 1, y: 0 },
-  };
   const sharedClasses = "text-3xl";
 
   const [index, setIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
   const possibleHeaders = useMemo(() => {
+    const fontVariant = {
+      hidden: { opacity: 0, y: -10 },
+      show: { opacity: 1, y: 0 },
+    };
+
     return [
       <motion.h1
         key={0}
@@ -62,7 +63,7 @@ export default function Name() {
         Luan Roger
       </motion.h1>,
     ];
-  }, [fontVariant]);
+  }, []);
 
   const accumulatedTime = useRef(0);
   useAnimationFrame((time, delta) => {
