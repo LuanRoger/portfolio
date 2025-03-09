@@ -1,6 +1,6 @@
 "use client";
 
-import { Tech } from "@/lib/types/tech";
+import { Tech } from "@/types/tech";
 import { Badge } from "./ui/badge";
 import { cloneElement } from "react";
 import { motion } from "motion/react";

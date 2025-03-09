@@ -1,5 +1,5 @@
-import { TechCategory } from "@/lib/types/tech";
-import { myStack } from "@/lib/my-stack";
+import { TechCategory } from "@/types/tech";
+import { myStack } from "@/constants/my-stack";
 import { TechGroup } from "../tech-group";
 
 export default function TechStack() {

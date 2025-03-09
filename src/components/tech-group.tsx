@@ -1,6 +1,6 @@
 "use client";
 
-import { Tech } from "@/lib/types/tech";
+import { Tech } from "@/types/tech";
 import { TechBadge } from "./tech-badge";
 import { motion } from "motion/react";
 

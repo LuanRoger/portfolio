@@ -1,4 +1,4 @@
-import { cn } from "@/lib/shadcn-utils";
+import { cn } from "@/utils/shadcn-utils";
 import { Url } from "next/dist/shared/lib/router/router";
 import NextLink from "next/link";
 

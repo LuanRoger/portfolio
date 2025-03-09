@@ -1,4 +1,4 @@
-import { cn } from "@/lib/shadcn-utils";
+import { cn } from "@/utils/shadcn-utils";
 import { IconLoader2 } from "@tabler/icons-react";
 
 interface LoadingIconProps {

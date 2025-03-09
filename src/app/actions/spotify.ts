@@ -1,6 +1,6 @@
 "use server";
 
-import { SpotifyCurrentPlayingResponse } from "@/lib/types/spotify-current-playing-response";
+import { SpotifyCurrentPlayingResponse } from "@/types/spotify-current-playing-response";
 
 async function getSpotifyAccessToken() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;

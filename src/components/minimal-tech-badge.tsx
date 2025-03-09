@@ -1,7 +1,7 @@
-import { Tech } from "@/lib/types/tech";
+import { Tech } from "@/types/tech";
 import { Badge } from "./ui/badge";
 import Dot from "./dot";
-import { cn } from "@/lib/shadcn-utils";
+import { cn } from "@/utils/shadcn-utils";
 
 interface MinimalTechBadgeProps {
   tech: Tech;

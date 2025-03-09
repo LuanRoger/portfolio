@@ -1,4 +1,4 @@
-import { cn } from "@/lib/shadcn-utils";
+import { cn } from "@/utils/shadcn-utils";
 import { ReactNode } from "react";
 
 interface IconTextProps {

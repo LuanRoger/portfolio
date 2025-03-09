@@ -1,4 +1,4 @@
-import { SpotifyCurrentPlayingResponse } from "@/lib/types/spotify-current-playing-response";
+import { SpotifyCurrentPlayingResponse } from "@/types/spotify-current-playing-response";
 import AnimatedBadge from "./animated-badge";
 import { IconBrandSpotify } from "@tabler/icons-react";
 

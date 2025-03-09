@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cn } from "@/lib/shadcn-utils"
+import { cn } from "@/utils/shadcn-utils"
 
 export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
 

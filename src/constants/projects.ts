@@ -1,5 +1,5 @@
 import { getTechsByName } from "./my-stack";
-import { Project } from "./types/project";
+import { Project } from "../types/project";
 import NotionBlogImg from "~/public/images/notion-blog.png";
 import ElectronShadcn from "~/public/images/electron-shadcn.gif";
 import WHMonitor from "~/public/images/whmonitor.png";

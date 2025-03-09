@@ -1,4 +1,4 @@
-import { Project } from "@/lib/types/project";
+import { Project } from "@/types/project";
 import Image from "next/image";
 import { GitHubIcon } from "./svg-icons";
 import MinimalTechBadge from "./minimal-tech-badge";

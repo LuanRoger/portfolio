@@ -1,6 +1,6 @@
 //From https://www.luxeui.com/ui/badge-rotate-border
 
-import { cn } from "@/lib/shadcn-utils";
+import { cn } from "@/utils/shadcn-utils";
 
 interface AnimatedBadgeProps {
   children?: React.ReactNode;

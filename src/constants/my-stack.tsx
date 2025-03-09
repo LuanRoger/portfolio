@@ -33,7 +33,7 @@ import {
   NextJSIcon,
   CsharpIcon,
 } from "@/components/svg-icons";
-import { Tech, TechCategory } from "./types/tech";
+import { Tech, TechCategory } from "../types/tech";
 
 export const myStack: Tech[] = [
   {
