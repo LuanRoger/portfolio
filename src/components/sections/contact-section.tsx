@@ -1,4 +1,3 @@
-import QuickContactForm from "../quick-contact-form";
 import Link from "../link";
 
 export default function ContactSection() {
@@ -10,11 +9,8 @@ export default function ContactSection() {
         <Link href="mailto:luanroger.dev@gmail.com">
           luanroger.dev@gmail.com
         </Link>
-        , or send me a quick message using the form below:
+        , or keep in touch with me on:
       </p>
-      <div className="p-4 border border-border rounded-md space-y-2">
-        <QuickContactForm />
-      </div>
     </section>
   );
 }
