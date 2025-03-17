@@ -1,7 +1,8 @@
 import { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
-import AnimatedBadge from "./animated-badge";
-import { IconBrandSpotify } from "@tabler/icons-react";
 import { formatSpotifyArtistsName } from "@/utils/formater";
+import Image from "next/image";
+import spotifyLogo from "@/app/images/spotify.svg";
+import Link from "./link";
 
 interface SpotifyCurrentPlayingBadgeProps {
   title?: string | undefined;
@@ -16,18 +17,31 @@ export default function SpotifyCurrentPlayingIsland({
   const formatedArtists = formatSpotifyArtistsName(artists);
 
   return (
-    <div className="flex flex-col gap-1 w-full">
-      {title && (
-        <p className="font-mono text-sm text-gray-400 opacity-65">{title}</p>
-      )}
-      <a href={href}>
-        <AnimatedBadge className="gap-1 bg-[#1DB954] dark:text-foreground select-none">
-          <IconBrandSpotify size={20} />
-          <p>
-            {name} - {formatedArtists}
-          </p>
-        </AnimatedBadge>
-      </a>
+    <div className="relative isolate w-full h-36 rounded-lg overflow-clip">
+      <div className="absolute bg-gradient-to-t from-spotifyPrimary z-10 size-full"/>
+      <Image
+        src={image.url}
+        width={300}
+        height={300}
+        alt={`${name} album cover`}
+        className="absolute inset-0 z-0 object-none size-full"
+      />
+      <div className="absolute flex flex-col z-20 p-2 justify-between size-full">
+        <div className="inline-flex items-center gap-2">
+          <Image
+            src={spotifyLogo}
+            width={18}
+            height={18}
+            alt="Spotify Logo"
+            className="filter invert"
+          />
+          <h2 className="text-sm">{title}</h2>
+        </div>
+        <div>
+          <Link href={href} isExternal className="text-white font-bold">{name}</Link>
+          <h2 className="text-white text-sm">{formatedArtists}</h2>
+        </div>
+      </div>
     </div>
   );
 }
