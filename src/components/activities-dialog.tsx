@@ -7,11 +7,14 @@ import { IconRocket } from "@tabler/icons-react";
 import OfflinePresence from "./offline-presence";
 import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import { Skeleton } from "./ui/skeleton";
+import { getCurrentAcordActivity } from "@/app/actions/acord";
+import AcordActivityIsland from "./acord-activity-island";
 
 export default async function ActivitiesDialog() {
   const titlesDefaultClasses = "font-mono text-sm text-gray-400 opacity-65";
 
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
+  const currentAcordActivityInfo = await getCurrentAcordActivity();
 
   const isOnline = currentPlayingInfo.isPlaying;
   const statusMessage = isOnline
@@ -40,6 +43,9 @@ export default async function ActivitiesDialog() {
               title="Listening to"
               spotifyInfo={currentPlayingInfo}
             />
+            {currentAcordActivityInfo && (
+              <AcordActivityIsland acordActivity={currentAcordActivityInfo} />
+            )}
             <Separator />
           </>
         )}
@@ -51,7 +57,5 @@ export default async function ActivitiesDialog() {
 }
 
 export function ActivitiesDialogLoading() {
-  return (
-    <Skeleton className="w-20 h-6 rounded-full" />
-  );
+  return <Skeleton className="w-20 h-6 rounded-full" />;
 }
