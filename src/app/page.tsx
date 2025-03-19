@@ -12,9 +12,8 @@ import FooterSection from "@/components/sections/footer-section";
 export default function Home() {
   return (
     <div
-      className="relative md:max-2xl:rounded-md 
-    md:max-2xl:border border-border md:max-2xl:w-3/5 z-20
-    overflow-clip"
+      className="relative md:max-2xl:rounded-md shadow-inner shadow-zinc-600
+      md:max-2xl:border border-border md:max-2xl:w-3/5 z-20 overflow-clip"
     >
       <div className="space-y-2 p-4">
         <NameHeader />

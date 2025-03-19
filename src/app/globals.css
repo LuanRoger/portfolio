@@ -84,8 +84,8 @@
         rgba(40, 40, 40, 1),
         rgba(0, 0, 0, 0)
       ),
-      linear-gradient(0deg, rgba(60, 56, 54, 1), rgba(255, 255, 0, 0)),
-      linear-gradient(180deg, rgba(40, 40, 40, 1), rgba(255, 255, 255, 0)),
+      linear-gradient(40deg, rgba(40, 40, 40, 1), rgba(255, 255, 255, 0)),
+      linear-gradient(220deg, rgba(60, 56, 54, 1), rgba(255, 255, 0, 0)),
       url(./images/noise.svg);
   }
 }
