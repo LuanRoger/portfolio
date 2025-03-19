@@ -47,7 +47,7 @@ export default function BentoGridItem({
         initial={{ opacity: 0.5 }}
         variants={supportVariants}
         className="absolute flex flex-row flex-wrap gap-2 left-0 top-0
-            z-30 bg-gradient-to-b from-background w-full p-2"
+            z-30 bg-linear-to-b from-background w-full p-2"
       >
         {support}
       </motion.div>

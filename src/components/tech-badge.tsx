@@ -23,13 +23,13 @@ export function TechBadge({ tech, index }: TechProps) {
     >
       <Badge
         variant={"outline"}
-        className={`gap-1 items hover:bg-primary hover:text-primary-foreground py-2`}
+        className={`inline-flex gap-1 items-center hover:bg-primary hover:text-primary-foreground duration-300 py-2`}
       >
         {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           cloneElement(icon as React.ReactElement<any>, {
             fill: color,
-            className: "w-4 h-4",
+            style: { width: "1rem", height: "1rem" },
           })
         }
         <p>{name}</p>

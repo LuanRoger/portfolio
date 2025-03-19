@@ -32,12 +32,12 @@ export default function ActivityIsland({
     <div className="relative isolate w-full h-36 rounded-lg overflow-clip">
       {accentColor && (
         <div
-          className={`absolute bg-gradient-to-t z-10 size-full`}
+          className={`absolute bg-linear-to-t z-10 size-full`}
           style={
             {
-              "--tw-gradient-from": accentColor,
+              "--tw-gradient-to": accentColor,
               "--tw-gradient-from-position": "",
-              "--tw-gradient-to": `${accentColor}00`,
+              "--tw-gradient-from": `${accentColor}00`,
               "--tw-gradient-to-position": "",
               "--tw-gradient-stops":
                 "var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)",
