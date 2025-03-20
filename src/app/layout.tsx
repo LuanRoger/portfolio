@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
-import "./globals.css";
 import Background from "@/components/background";
+import "./globals.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -90,6 +91,22 @@ const ubuntuMono = localFont({
 export const metadata: Metadata = {
   title: "LR Portfolio",
   description: "my portfolio.",
+  keywords: [
+    "portfolio",
+    "web developer",
+    "software engineer",
+    "full stack",
+    "frontend",
+    "backend",
+    "developer",
+    "programmer",
+    "engineer",
+    "web",
+    "software",
+  ],
+  authors: [{ name: "Luan Roger", url: "https://luanroger.dev" }],
+  creator: "Luan Roger",
+  publisher: "Luan Roger",
 };
 
 export default function RootLayout({
@@ -110,6 +127,7 @@ export default function RootLayout({
             {children}
           </main>
           <Background />
+          <Analytics />
         </div>
       </body>
     </html>
