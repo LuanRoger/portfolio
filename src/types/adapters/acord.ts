@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AcordCurrentActivity } from "../acord-current-activity";
 
-export async function adaptAcordActivityToAcordCurrentActivity(
+export function adaptAcordActivityToAcordCurrentActivity(
   model: any
-): Promise<AcordCurrentActivity> {
+): AcordCurrentActivity {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
   }

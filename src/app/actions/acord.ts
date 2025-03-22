@@ -16,7 +16,7 @@ export async function getCurrentAcordActivity() {
   }
 
   const data = await response.json();
-  const actvityData = await adaptAcordActivityToAcordCurrentActivity(data);
+  const actvityData = adaptAcordActivityToAcordCurrentActivity(data);
 
   return actvityData;
 }
