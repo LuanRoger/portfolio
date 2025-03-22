@@ -3,7 +3,10 @@
 import {
   adaptWakatimeProgramLanguageResponseToWakatimeLanguages,
   adaptWakatimeResponseToWakatimeStatus,
+  adaptWakatimeSummaryResponseToWakatimeCategories,
 } from "@/types/adapters/wakatime";
+import { WakatimeDateCategory } from "@/types/wakatime";
+import { getLastDayDate, simpleFormatDate } from "@/utils/time";
 
 export async function getWakatimeStatus() {
   const wakatimeUrl = process.env.WAKATIME_URL;
@@ -53,4 +56,58 @@ export async function getWakatimeLanguages() {
     adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
 
   return statusData;
+}
+
+export async function getWakatimeLastDaysCategoriesSummary() {
+  const wakatimeUrl = process.env.WAKATIME_URL;
+  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  if (!wakatimeUrl || !wakatimeKey) {
+    return;
+  }
+
+  const last7Days = Array.from({ length: 7 }, (_, i) => {
+    const date = getLastDayDate(i);
+    const formattedDate = simpleFormatDate(date);
+
+    return {
+      date,
+      formattedDate,
+    };
+  });
+
+  const last7DaysCategories = last7Days.map(async ({ formattedDate, date }) => {
+    const response = await fetch(
+      `${wakatimeUrl}/users/current/summaries?start=${formattedDate}&end=${formattedDate}`,
+      {
+        headers: {
+          Authorization: `Basic ${wakatimeKey}`,
+        },
+      }
+    );
+    if (!response.ok) {
+      return;
+    }
+
+    const data = await response.json();
+    const category = adaptWakatimeSummaryResponseToWakatimeCategories(data);
+    const coddingCategory = category.find(
+      (category) => category.name === "Coding"
+    );
+    const debuggingCategory = category.find(
+      (category) => category.name === "Debugging"
+    );
+    return {
+      date,
+      dateText: formattedDate,
+      coding: coddingCategory,
+      debugging: debuggingCategory,
+    } satisfies WakatimeDateCategory;
+  });
+
+  const categories = Promise.all(last7DaysCategories);
+  const validCategories = (await categories).filter(
+    (category) => category !== undefined
+  ) as WakatimeDateCategory[];
+
+  return validCategories;
 }
