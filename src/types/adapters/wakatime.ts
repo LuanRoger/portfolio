@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
+  WakatimeCategory,
   WakatimeEditor,
   WakatimeLanguageMetadata,
   WakatimeStatus,
@@ -60,4 +61,23 @@ export function adaptWakatimeProgramLanguageResponseToWakatimeLanguages(
   const data = model.data;
 
   return data.map((language: any) => ({ ...language }));
+}
+
+export function adaptWakatimeSummaryResponseToWakatimeCategories(
+  model: any
+): WakatimeCategory[] {
+  if (!model || typeof model !== "object") {
+    throw new Error("Invalid model: expected an object");
+  }
+
+  const data = model.data[0].categories;
+
+  return data.map((category: any) => ({
+    name: category.name,
+    text: category.text,
+    hours: category.hours,
+    minutes: category.minutes,
+    seconds: category.seconds,
+    percent: category.percent,
+  }));
 }

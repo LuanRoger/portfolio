@@ -23,6 +23,22 @@ export interface WakatimeLanguages {
   metadata?: WakatimeLanguageMetadata;
 }
 
+export interface WakatimeCategory {
+  name: string;
+  text: string;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  percent: number;
+}
+
+export interface WakatimeDateCategory {
+  date: Date;
+  dateText: string;
+  coding?: WakatimeCategory;
+  debugging?: WakatimeCategory;
+}
+
 export interface WakatimeStatus {
   status: string;
   humanReadableTotalIncludingOtherLanguage: string;
