@@ -16,7 +16,7 @@ export default async function ActivitiesDialog() {
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
   const currentAcordActivityInfo = await getCurrentAcordActivity();
 
-  const isOnline = currentPlayingInfo.isPlaying;
+  const isOnline = currentPlayingInfo && currentPlayingInfo.isPlaying;
   const statusMessage = isOnline
     ? "I'm online! Probably doing something cool 🚀"
     : "I'll be back later ⏳...";

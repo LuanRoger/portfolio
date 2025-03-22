@@ -32,6 +32,9 @@ export async function getSpotifyCurrentPlaying() {
       next: { revalidate: 180 },
     }
   );
+  if (result.status !== 200) {
+    return;
+  }
 
   const response = await result.json();
   const trackInfo =
