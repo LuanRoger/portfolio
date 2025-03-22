@@ -16,6 +16,9 @@ export default function Home() {
       md:max-2xl:border border-border md:max-2xl:w-3/5 z-20 overflow-clip"
     >
       <div className="space-y-2 p-4">
+        <figure>
+          <embed src="https://wakatime.com/share/@TheROG/fed1cba9-3d61-4a2f-81cd-dd5c6cb98399.svg"></embed>
+        </figure>
         <NameHeader />
         <TechStack />
         <Separator />
