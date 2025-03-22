@@ -1,3 +1,9 @@
+export interface WakatimeLanguageMetadata {
+  id: string;
+  name: string;
+  color: string;
+}
+
 export interface WakatimeEditor {
   totalSeconds: number;
   name: string;
@@ -14,11 +20,13 @@ export interface WakatimeLanguages {
   text: string;
   hours: number;
   minutes: number;
+  metadata?: WakatimeLanguageMetadata;
 }
 
 export interface WakatimeStatus {
   status: string;
   humanReadableTotalIncludingOtherLanguage: string;
+  totalInSeconds: number;
   editors: WakatimeEditor[];
   languages: WakatimeLanguages[];
 }

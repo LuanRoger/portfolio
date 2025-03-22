@@ -1,15 +1,18 @@
 "use server";
 
-import { adaptWakatimeResponseToWakatimeStatus } from "@/types/adapters/wakatime";
+import {
+  adaptWakatimeProgramLanguageResponseToWakatimeLanguages,
+  adaptWakatimeResponseToWakatimeStatus,
+} from "@/types/adapters/wakatime";
 
 export async function getWakatimeStatus() {
   const wakatimeUrl = process.env.WAKATIME_URL;
-  const wakatimeKey = process.env.WAKATIME_KEY;
+  const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
     return;
   }
 
-  const response = await fetch(wakatimeUrl, {
+  const response = await fetch(`${wakatimeUrl}/users/current/stats`, {
     headers: {
       Authorization: `Basic ${wakatimeKey}`,
     },
@@ -20,7 +23,34 @@ export async function getWakatimeStatus() {
   }
 
   const data = await response.json();
-  const statusData = adaptWakatimeResponseToWakatimeStatus(data);
+  const languageMetadataResponse = await getWakatimeLanguages();
+  const statusData = adaptWakatimeResponseToWakatimeStatus(
+    data,
+    languageMetadataResponse
+  );
+
+  return statusData;
+}
+
+export async function getWakatimeLanguages() {
+  const wakatimeUrl = process.env.WAKATIME_URL;
+  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  if (!wakatimeUrl || !wakatimeKey) {
+    return;
+  }
+
+  const response = await fetch(`${wakatimeUrl}/program_languages`, {
+    headers: {
+      Authorization: `Basic ${wakatimeKey}`,
+    },
+  });
+  if (!response.ok) {
+    return;
+  }
+
+  const data = await response.json();
+  const statusData =
+    adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
 
   return statusData;
 }

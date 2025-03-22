@@ -1,15 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { WakatimeEditor, WakatimeStatus } from "../wakatime-status";
+import {
+  WakatimeEditor,
+  WakatimeLanguageMetadata,
+  WakatimeStatus,
+} from "../wakatime";
 
 export function adaptWakatimeResponseToWakatimeStatus(
-  model: any
+  model: any,
+  langaugeMetadata?: WakatimeLanguageMetadata[]
 ): WakatimeStatus {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
   }
+  const data = model.data;
 
-  const editors: WakatimeEditor[] = model.editors.map((editor: any) => ({
+  const editors: WakatimeEditor[] = data.editors.map((editor: any) => ({
     totalSeconds: editor.total_seconds,
     name: editor.name,
     percent: editor.percent,
@@ -18,20 +24,40 @@ export function adaptWakatimeResponseToWakatimeStatus(
     minutes: editor.minutes,
   }));
 
-  const languages = model.languages.map((language: any) => ({
-    name: language.name,
-    totalSeconds: language.total_seconds,
-    percent: language.percent,
-    text: language.text,
-    hours: language.hours,
-    minutes: language.minutes,
-  }));
+  const languages = data.languages.map((language: any) => {
+    const metadata = langaugeMetadata?.find(
+      (lang) => lang.name === language.name
+    );
+
+    return {
+      name: language.name,
+      totalSeconds: language.total_seconds,
+      percent: language.percent,
+      text: language.text,
+      hours: language.hours,
+      minutes: language.minutes,
+      metadata,
+    };
+  });
 
   return {
-    status: model.status,
+    status: data.status,
     humanReadableTotalIncludingOtherLanguage:
-      model.human_readable_total_including_other_language,
+      data.human_readable_total_including_other_language,
+    totalInSeconds: data.total_seconds,
     editors,
     languages,
   };
+}
+
+export function adaptWakatimeProgramLanguageResponseToWakatimeLanguages(
+  model: any
+): WakatimeLanguageMetadata[] {
+  if (!model || typeof model !== "object") {
+    throw new Error("Invalid model: expected an object");
+  }
+
+  const data = model.data;
+
+  return data.map((language: any) => ({ ...language }));
 }
