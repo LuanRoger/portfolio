@@ -44,7 +44,7 @@ export default function WakatimeLanguages({
   const hours = secondsToHours(totalInSeconds);
 
   return (
-    <Card className="background flex flex-col">
+    <Card className="fnoise flex flex-col">
       <CardHeader className="items-center pb-0">
         <CardTitle>Languages</CardTitle>
         <CardDescription>
