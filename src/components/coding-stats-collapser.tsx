@@ -26,11 +26,15 @@ export default async function CodingStatsCollapser() {
           <WakatimeSummaryCategories />
           <WakatimeRawMetrics />
           <div className="flex justify-between text-sm text-muted-foreground">
-            <p>Collecting data since 23 December 2022</p>
+            <p>
+              Collecting data since 23 December 2022.
+              <br />
+              Some informations are not update with today&apos;s data.
+            </p>
             <Link
               href={"https://wakatime.com"}
               isExternal
-              className="inline-block gap-2 font-medium"
+              className="gap-2 font-medium self-end"
             >
               Powered by{" "}
               <WakaTimeIcon className="inline-block fill-muted-foreground size-5" />
