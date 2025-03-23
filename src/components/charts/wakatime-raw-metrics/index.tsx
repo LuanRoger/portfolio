@@ -1,8 +1,9 @@
-import { getWakatimeAllTimeMetrics } from "@/app/actions/wakatime";
-import WakatimeAllTimeChart from "./client";
+import { getWakatimeAllTimeMetrics, getWakatimeStats } from "@/app/actions/wakatime";
+import WakatimeAllTimeChart from "./wakatime-all-time-chart";
 
-export default async function WakatimeAllTime() {
+export default async function WakatimeRawMetrics() {
   const allTimeMetrics = await getWakatimeAllTimeMetrics();
+  const stats = await getWakatimeStats
   if (!allTimeMetrics) {
     return <div className="text-center">No data available</div>;
   }

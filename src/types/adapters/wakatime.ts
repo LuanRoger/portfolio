@@ -5,13 +5,13 @@ import {
   WakatimeCategory,
   WakatimeEditor,
   WakatimeLanguageMetadata,
-  WakatimeStatus,
+  WakatimeStats,
 } from "../wakatime";
 
-export function adaptWakatimeResponseToWakatimeStatus(
+export function adaptWakatimeResponseToWakatimeStats(
   model: any,
   langaugeMetadata?: WakatimeLanguageMetadata[]
-): WakatimeStatus {
+): WakatimeStats {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
   }

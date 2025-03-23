@@ -3,13 +3,13 @@
 import {
   adaptWakatimeAllTimeResponseToWakatimeAllTime,
   adaptWakatimeProgramLanguageResponseToWakatimeLanguages,
-  adaptWakatimeResponseToWakatimeStatus,
+  adaptWakatimeResponseToWakatimeStats,
   adaptWakatimeSummaryResponseToWakatimeCategories,
 } from "@/types/adapters/wakatime";
 import { WakatimeDateCategory } from "@/types/wakatime";
 import { getLastDayDate, simpleFormatDate } from "@/utils/time";
 
-export async function getWakatimeStatus() {
+export async function getWakatimeStats() {
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -28,12 +28,12 @@ export async function getWakatimeStatus() {
 
   const data = await response.json();
   const languageMetadataResponse = await getWakatimeLanguages();
-  const statusData = adaptWakatimeResponseToWakatimeStatus(
+  const statsData = adaptWakatimeResponseToWakatimeStats(
     data,
     languageMetadataResponse
   );
 
-  return statusData;
+  return statsData;
 }
 
 export async function getWakatimeLanguages() {
@@ -53,10 +53,10 @@ export async function getWakatimeLanguages() {
   }
 
   const data = await response.json();
-  const statusData =
+  const languageData =
     adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
 
-  return statusData;
+  return languageData;
 }
 
 export async function getWakatimeLastDaysCategoriesSummary() {

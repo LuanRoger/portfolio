@@ -1,4 +1,4 @@
-import CodingStatusCollapser from "../coding-status-collapser";
+import CodingStatsCollapser from "../coding-stats-collapser";
 import Link from "../link";
 import {
   AramisLogo,
@@ -35,7 +35,7 @@ export default function AboutSection() {
         always looking for new challenges and opportunities to learn and help
         the community.
       </p>
-      <CodingStatusCollapser />
+      <CodingStatsCollapser />
     </section>
   );
 }

@@ -44,7 +44,7 @@ export interface WakatimeAllTimeMetrics {
   text: string;
 }
 
-export interface WakatimeStatus {
+export interface WakatimeStats {
   status: string;
   humanReadableTotalIncludingOtherLanguage: string;
   totalInSeconds: number;

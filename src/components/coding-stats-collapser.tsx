@@ -9,9 +9,9 @@ import { WakaTimeIcon } from "./svg-icons";
 import WakatimeLanguages from "./charts/wakatime-language";
 import WakatimeSummaryCategories from "./charts/wakatime-summary";
 import Link from "./link";
-import WakatimeAllTime from "./charts/wakatime-alltime";
+import WakatimeRawMetrics from "./charts/wakatime-raw-metrics";
 
-export default async function CodingStatusCollapser() {
+export default async function CodingStatsCollapser() {
   return (
     <Accordion type="multiple">
       <AccordionItem value="1">
@@ -24,7 +24,7 @@ export default async function CodingStatusCollapser() {
         <AccordionContent className="flex flex-col gap-4">
           <WakatimeLanguages />
           <WakatimeSummaryCategories />
-          <WakatimeAllTime />
+          <WakatimeRawMetrics />
           <div className="flex justify-between text-sm text-muted-foreground">
             <p>Collecting data since 23 December 2022</p>
             <Link
