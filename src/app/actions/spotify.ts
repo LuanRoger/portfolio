@@ -1,6 +1,7 @@
 "use server";
 
 import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 async function getSpotifyAccessToken() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -21,6 +22,9 @@ async function getSpotifyAccessToken() {
 }
 
 export async function getSpotifyCurrentPlaying() {
+  "use cache";
+  cacheLife("minutes");
+
   const accessToken = await getSpotifyAccessToken();
 
   const result = await fetch(
