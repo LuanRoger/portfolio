@@ -11,7 +11,7 @@ import WakatimeSummaryCategories from "./charts/wakatime-summary";
 import Link from "./link";
 import WakatimeRawMetrics from "./charts/wakatime-raw-metrics";
 
-export default async function CodingStatsCollapser() {
+export default function CodingStatsCollapser() {
   return (
     <Accordion type="multiple">
       <AccordionItem value="1">
