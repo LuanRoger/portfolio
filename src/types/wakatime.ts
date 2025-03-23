@@ -39,6 +39,11 @@ export interface WakatimeDateCategory {
   debugging?: WakatimeCategory;
 }
 
+export interface WakatimeAllTimeMetrics {
+  totalSeconds: number;
+  text: string;
+}
+
 export interface WakatimeStatus {
   status: string;
   humanReadableTotalIncludingOtherLanguage: string;

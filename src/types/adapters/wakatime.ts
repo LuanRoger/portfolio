@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
+  WakatimeAllTimeMetrics,
   WakatimeCategory,
   WakatimeEditor,
   WakatimeLanguageMetadata,
@@ -80,4 +81,19 @@ export function adaptWakatimeSummaryResponseToWakatimeCategories(
     seconds: category.seconds,
     percent: category.percent,
   }));
+}
+
+export function adaptWakatimeAllTimeResponseToWakatimeAllTime(
+  model: any
+): WakatimeAllTimeMetrics {
+  if (!model || typeof model !== "object") {
+    throw new Error("Invalid model: expected an object");
+  }
+
+  const data = model.data;
+
+  return {
+    totalSeconds: data.total_seconds,
+    text: data.text,
+  };
 }
