@@ -7,8 +7,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../ui/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
+} from "../../ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../../ui/chart";
 
 interface CategoryChartData {
   data: {
@@ -18,7 +18,7 @@ interface CategoryChartData {
   }[];
 }
 
-export default function WakatimeSummaryCategories({ data }: CategoryChartData) {
+export default function WakatimeSummaryCategoriesChart({ data }: CategoryChartData) {
   const chartConfig = {
     codingHours: {
       label: "Coding",

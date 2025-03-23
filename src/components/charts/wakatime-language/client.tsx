@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../ui/card";
+} from "../../ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -15,7 +15,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "../ui/chart";
+} from "../../ui/chart";
 import { Label, Pie, PieChart } from "recharts";
 
 interface LanguageChartData {
@@ -27,7 +27,7 @@ interface LanguageChartData {
   }[];
 }
 
-export default function WakatimeLanguages({
+export default function WakatimeLanguagesChart({
   data,
   totalInSeconds,
 }: LanguageChartData) {
