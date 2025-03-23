@@ -44,8 +44,8 @@ export function adaptWakatimeResponseToWakatimeStats(
 
   return {
     status: data.status,
-    humanReadableTotalIncludingOtherLanguage:
-      data.human_readable_total_including_other_language,
+    totalText: data.human_readable_total_including_other_language,
+    avarengeText: data.human_readable_daily_average_including_other_language,
     totalInSeconds: data.total_seconds,
     editors,
     languages,

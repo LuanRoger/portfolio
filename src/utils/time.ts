@@ -18,7 +18,6 @@ export function simpleFormatDate(date: Date): string {
   const month = date.getMonth();
   const year = date.getFullYear();
 
-  // Pad day and month with leading zeros if needed
   const dayStr = day < 10 ? `0${day}` : `${day}`;
   const monthStr = month + 1 < 10 ? `0${month + 1}` : `${month + 1}`;
 
@@ -27,8 +26,8 @@ export function simpleFormatDate(date: Date): string {
 
 export function formatDateAsHumanReadable(date: Date): string {
   const options: Intl.DateTimeFormatOptions = {
-    month: 'long',
-    day: 'numeric',
+    month: "long",
+    day: "numeric",
   };
 
   return date.toLocaleDateString("en-US", options);
