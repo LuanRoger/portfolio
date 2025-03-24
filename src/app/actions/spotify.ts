@@ -33,7 +33,6 @@ export async function getSpotifyCurrentPlaying() {
       headers: {
         Authorization: `Bearer ${accessToken.access_token}`,
       },
-      next: { revalidate: 180 },
     }
   );
   if (result.status !== 200) {

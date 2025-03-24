@@ -24,7 +24,6 @@ export async function getWakatimeStats() {
     headers: {
       Authorization: `Basic ${wakatimeKey}`,
     },
-    next: { revalidate: 3600 },
   });
   if (!response.ok) {
     return;

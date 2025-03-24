@@ -5,7 +5,7 @@ import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export async function getCurrentAcordActivity() {
   "use cache";
-  cacheLife("minutes");
+  cacheLife("seconds");
 
   const acordUrl = process.env.ACORD_URL;
   if (!acordUrl) {
