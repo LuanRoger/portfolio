@@ -1,19 +1,25 @@
 import IconText from "./icon-text";
 import OnlinePresence from "./online-presence";
-import SpotifyCurrentPlayingBadge from "./spotify-current-playing-badge";
+import SpotifyCurrentPlayingIsland from "./spotify-current-playing-island";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Separator } from "./ui/separator";
 import { IconRocket } from "@tabler/icons-react";
 import OfflinePresence from "./offline-presence";
 import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import { Skeleton } from "./ui/skeleton";
+import { getCurrentAcordActivity } from "@/app/actions/acord";
+import AcordActivityIsland from "./acord-activity-island";
 
 export default async function ActivitiesDialog() {
   const titlesDefaultClasses = "font-mono text-sm text-gray-400 opacity-65";
 
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
+  const currentAcordActivityInfo = await getCurrentAcordActivity();
 
-  const isOnline = currentPlayingInfo.is_playing;
+  const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
+  const isAcordActivity = !!currentAcordActivityInfo;
+  const isOnline = isSpotifyPlaying || isAcordActivity;
+
   const statusMessage = isOnline
     ? "I'm online! Probably doing something cool 🚀"
     : "I'll be back later ⏳...";
@@ -36,10 +42,15 @@ export default async function ActivitiesDialog() {
               text="Activities"
               textClassName={`${titlesDefaultClasses} uppercase text-sm`}
             />
-            <SpotifyCurrentPlayingBadge
-              title="Listening to"
-              spotifyInfo={currentPlayingInfo}
-            />
+            {isSpotifyPlaying && (
+              <SpotifyCurrentPlayingIsland
+                title="Listening to"
+                spotifyInfo={currentPlayingInfo}
+              />
+            )}
+            {currentAcordActivityInfo && (
+              <AcordActivityIsland acordActivity={currentAcordActivityInfo} />
+            )}
             <Separator />
           </>
         )}
@@ -51,7 +62,5 @@ export default async function ActivitiesDialog() {
 }
 
 export function ActivitiesDialogLoading() {
-  return (
-    <Skeleton className="w-20 h-6 rounded-full" />
-  );
+  return <Skeleton className="w-20 h-6 rounded-full" />;
 }

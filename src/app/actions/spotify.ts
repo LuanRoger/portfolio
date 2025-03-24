@@ -1,6 +1,7 @@
 "use server";
 
-import { SpotifyCurrentPlayingResponse } from "@/types/spotify-current-playing-response";
+import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 async function getSpotifyAccessToken() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -21,6 +22,9 @@ async function getSpotifyAccessToken() {
 }
 
 export async function getSpotifyCurrentPlaying() {
+  "use cache";
+  cacheLife("minutes");
+
   const accessToken = await getSpotifyAccessToken();
 
   const result = await fetch(
@@ -29,11 +33,15 @@ export async function getSpotifyCurrentPlaying() {
       headers: {
         Authorization: `Bearer ${accessToken.access_token}`,
       },
-      next: { revalidate: 180 },
     }
   );
+  if (result.status !== 200) {
+    return;
+  }
 
   const response = await result.json();
+  const trackInfo =
+    adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(response);
 
-  return response as SpotifyCurrentPlayingResponse;
+  return trackInfo;
 }

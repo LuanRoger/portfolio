@@ -6,16 +6,27 @@ interface LinkProps {
   children: React.ReactNode;
   className?: string;
   href: Url;
-  target?: string | undefined;
+  isExternal?: boolean;
   onClick?: () => void;
 }
 
-export default function Link({ children, className, href, target, onClick }: LinkProps) {
+export default function Link({
+  children,
+  className,
+  href,
+  isExternal,
+  onClick,
+}: LinkProps) {
+  const target = isExternal ? "_blank" : "_self";
+
   return (
     <NextLink
       target={target}
       href={href}
-      className={cn("hover:underline cursor-pointer font-bold", className)}
+      className={cn(
+        "hover:underline cursor-pointer font-bold",
+        className
+      )}
       onClick={onClick}
     >
       {children}

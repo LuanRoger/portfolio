@@ -27,7 +27,7 @@ export default function Dot({
       )}
       <span
         className={cn(
-          "bg-green-400 shadow-sm rounded-full h-full w-full",
+          "bg-green-400 shadow-xs rounded-full h-full w-full",
           dotClassName
         )}
         style={style}

@@ -5,7 +5,7 @@ import Link from "./link";
 export default function Certifications() {
   return (
     <div className="flex flex-row justify-evenly">
-      <Link target="_blank" href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/linked_in_profile">
+      <Link isExternal href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/linked_in_profile">
         <Image
           src={GitHubFoundations}
           width={150}
