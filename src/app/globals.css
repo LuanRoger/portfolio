@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -129,8 +129,6 @@
   }
 
   .fnoise {
-    width: 100%;
-    height: 100%;
     filter: contrast(100%) brightness(100%);
     background: radial-gradient(
         circle at 50% 50%,

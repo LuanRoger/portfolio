@@ -22,7 +22,7 @@ export default function WakatimeAllTimeChart({
         <CardTitle>Total time coding</CardTitle>
         <CardDescription>Since 23 December 2022</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="size-full">
         <span className="font-bold text-lg">{timeText}</span>
       </CardContent>
     </Card>

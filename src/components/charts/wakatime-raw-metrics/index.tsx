@@ -16,9 +16,9 @@ export default async function WakatimeRawMetrics() {
   const { text: allTimeText } = allTimeMetrics;
   const { avarengeText } = statsData;
   return (
-    <div className="flex grow gap-4">
-      <WakatimeAllTimeChart timeText={allTimeText} />
-      <WakatimeDailyAverage timeText={avarengeText} />
+    <div className="flex gap-4 justify-between">
+      <WakatimeAllTimeChart timeText={allTimeText} className="flex-1" />
+      <WakatimeDailyAverage timeText={avarengeText} className="flex-1" />
     </div>
   );
 }

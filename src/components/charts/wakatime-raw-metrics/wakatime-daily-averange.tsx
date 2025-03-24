@@ -27,7 +27,7 @@ export default function WakatimeDailyAverage({
         <CardTitle>Daily average</CardTitle>
         <CardDescription>{requestDate}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="size-full">
         <span className="font-bold text-lg">{timeText}</span>
       </CardContent>
     </Card>
