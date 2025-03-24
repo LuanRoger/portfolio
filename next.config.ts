@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
   experimental: {
     ppr: true,
     useCache: true,
-    dynamicIO: true,
   },
 };
 
