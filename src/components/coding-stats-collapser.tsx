@@ -10,6 +10,7 @@ import WakatimeLanguages from "./charts/wakatime-language";
 import WakatimeSummaryCategories from "./charts/wakatime-summary";
 import Link from "./link";
 import WakatimeRawMetrics from "./charts/wakatime-raw-metrics";
+import { Suspense } from "react";
 
 export default function CodingStatsCollapser() {
   return (
@@ -22,9 +23,11 @@ export default function CodingStatsCollapser() {
           </span>
         </AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4">
-          <WakatimeLanguages />
-          <WakatimeSummaryCategories />
-          <WakatimeRawMetrics />
+          <Suspense>
+            <WakatimeLanguages />
+            <WakatimeSummaryCategories />
+            <WakatimeRawMetrics />
+          </Suspense>
           <div className="flex justify-between text-sm text-muted-foreground">
             <p>
               Collecting data since 23 December 2022.
