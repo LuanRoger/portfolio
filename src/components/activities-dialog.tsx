@@ -16,7 +16,10 @@ export default async function ActivitiesDialog() {
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
   const currentAcordActivityInfo = await getCurrentAcordActivity();
 
-  const isOnline = currentPlayingInfo.isPlaying;
+  const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
+  const isAcordActivity = !!currentAcordActivityInfo;
+  const isOnline = isSpotifyPlaying || isAcordActivity;
+
   const statusMessage = isOnline
     ? "I'm online! Probably doing something cool 🚀"
     : "I'll be back later ⏳...";
@@ -39,10 +42,12 @@ export default async function ActivitiesDialog() {
               text="Activities"
               textClassName={`${titlesDefaultClasses} uppercase text-sm`}
             />
-            <SpotifyCurrentPlayingIsland
-              title="Listening to"
-              spotifyInfo={currentPlayingInfo}
-            />
+            {isSpotifyPlaying && (
+              <SpotifyCurrentPlayingIsland
+                title="Listening to"
+                spotifyInfo={currentPlayingInfo}
+              />
+            )}
             {currentAcordActivityInfo && (
               <AcordActivityIsland acordActivity={currentAcordActivityInfo} />
             )}
