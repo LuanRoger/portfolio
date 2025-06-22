@@ -8,12 +8,8 @@ import {
 } from "@/types/adapters/wakatime";
 import { WakatimeDateCategory } from "@/types/wakatime";
 import { getLastDayDate, simpleFormatDate } from "@/utils/time";
-import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export async function getWakatimeStats() {
-  "use cache";
-  cacheLife("hours");
-  
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -40,9 +36,6 @@ export async function getWakatimeStats() {
 }
 
 export async function getWakatimeLanguages() {
-  "use cache";
-  cacheLife("days");
-
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -66,9 +59,6 @@ export async function getWakatimeLanguages() {
 }
 
 export async function getWakatimeLastDaysCategoriesSummary() {
-  "use cache";
-  cacheLife("days");
-
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -123,9 +113,6 @@ export async function getWakatimeLastDaysCategoriesSummary() {
 }
 
 export async function getWakatimeAllTimeMetrics() {
-  "use cache";
-  cacheLife("days");
-
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
