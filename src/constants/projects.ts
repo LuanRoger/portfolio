@@ -11,6 +11,7 @@ import XinputGamepad from "~/public/images/xinputGamepad.png";
 import VirtualKeyboard from "~/public/images/virtualKeyboard.png";
 import GlobalStrings from "~/public/images/globalStrings.png";
 import SerializedConfiguration from "~/public/images/serializedConfiguration.png";
+import Dropnote from "~/public/images/dropnote.gif";
 
 export const projects: Project[] = [
   {
@@ -139,5 +140,14 @@ export const projects: Project[] = [
     repoLink: "https://github.com/LuanRoger/SerializedConfiguration",
     imageSrc: SerializedConfiguration,
     imageAlt: "GitHub repository's page",
+  },
+  {
+    title: "Dropnote",
+    description: "Create, edit and share text instantly.",
+    techStack: getTechsByName(["Next.js", "MongoDB", "TypeScript"]),
+    link: "https://dropnote.luanroger.dev",
+    repoLink: "https://github.com/LuanRoger/dropnote",
+    imageSrc: Dropnote,
+    imageAlt: "Dropnote demo",
   },
 ];
