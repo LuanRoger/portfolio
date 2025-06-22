@@ -1,7 +1,6 @@
 "use server";
 
 import { adaptAcordActivityToAcordCurrentActivity } from "@/types/adapters";
-import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export async function getCurrentAcordActivity() {
   const acordUrl = process.env.ACORD_URL;

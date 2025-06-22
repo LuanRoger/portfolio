@@ -21,7 +21,7 @@ export default async function ActivitiesDialog() {
   const isOnline = isSpotifyPlaying || isAcordActivity;
 
   const statusMessage = isOnline
-    ? "I'm online! Probably doing something cool 🚀"
+    ? "I'm online! Probably doing something awesome 🚀"
     : "I'll be back later ⏳...";
 
   return (

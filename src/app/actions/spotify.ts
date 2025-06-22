@@ -12,6 +12,9 @@ async function getSpotifyAccessToken() {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    next: {
+      revalidate: 60 * 60, // Revalidate every hour
+    },
     body: `grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${clientId}&client_secret=${clientSecret}`,
   });
 
@@ -29,7 +32,10 @@ export async function getSpotifyCurrentPlaying() {
       headers: {
         Authorization: `Bearer ${accessToken.access_token}`,
       },
-    }
+      next: {
+        revalidate: 60 * 2, // Revalidate every 2 minutes
+      }
+    },
   );
   if (result.status !== 200) {
     return;

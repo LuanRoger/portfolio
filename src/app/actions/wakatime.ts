@@ -20,6 +20,9 @@ export async function getWakatimeStats() {
     headers: {
       Authorization: `Basic ${wakatimeKey}`,
     },
+    next: {
+      revalidate: 60 * 60 * 24, // Revalidate every 24 hours
+    },
   });
   if (!response.ok) {
     return;
@@ -45,6 +48,9 @@ export async function getWakatimeLanguages() {
   const response = await fetch(`${wakatimeUrl}/program_languages`, {
     headers: {
       Authorization: `Basic ${wakatimeKey}`,
+    },
+    next: {
+      revalidate: 60 * 60 * 24, // Revalidate every 24 hours
     },
   });
   if (!response.ok) {
@@ -81,6 +87,9 @@ export async function getWakatimeLastDaysCategoriesSummary() {
       {
         headers: {
           Authorization: `Basic ${wakatimeKey}`,
+        },
+        next: {
+          revalidate: 60 * 60 * 24, // Revalidate every 24 hours
         },
       }
     );
@@ -124,6 +133,9 @@ export async function getWakatimeAllTimeMetrics() {
     {
       headers: {
         Authorization: `Basic ${wakatimeKey}`,
+      },
+      next: {
+        revalidate: 60 * 60 * 24, // Revalidate every 24 hours
       },
     }
   );
