@@ -21,7 +21,7 @@ export async function getWakatimeStats() {
       Authorization: `Basic ${wakatimeKey}`,
     },
     next: {
-      revalidate: 60 * 60 * 24, // Revalidate every 24 hours
+      revalidate: 60 * 60, // Revalidate every hour
     },
   });
   if (!response.ok) {
@@ -50,7 +50,7 @@ export async function getWakatimeLanguages() {
       Authorization: `Basic ${wakatimeKey}`,
     },
     next: {
-      revalidate: 60 * 60 * 24, // Revalidate every 24 hours
+      revalidate: 60 * 60, // Revalidate every hour
     },
   });
   if (!response.ok) {
@@ -89,7 +89,7 @@ export async function getWakatimeLastDaysCategoriesSummary() {
           Authorization: `Basic ${wakatimeKey}`,
         },
         next: {
-          revalidate: 60 * 60 * 24, // Revalidate every 24 hours
+          revalidate: 60 * 60, // Revalidate every hour
         },
       }
     );
@@ -135,7 +135,7 @@ export async function getWakatimeAllTimeMetrics() {
         Authorization: `Basic ${wakatimeKey}`,
       },
       next: {
-        revalidate: 60 * 60 * 24, // Revalidate every 24 hours
+        revalidate: 60 * 60, // Revalidate every hour
       },
     }
   );

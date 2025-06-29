@@ -8,7 +8,11 @@ export async function getCurrentAcordActivity() {
     return;
   }
 
-  const response = await fetch(acordUrl);
+  const response = await fetch(acordUrl, {
+    next: {
+      revalidate: 60 * 2, // Revalidate every 2 minutes
+    },
+  });
   if (!response.ok) {
     return;
   }
