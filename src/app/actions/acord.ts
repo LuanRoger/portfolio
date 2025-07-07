@@ -4,7 +4,8 @@ import { adaptAcordActivityToAcordCurrentActivity } from "@/types/adapters";
 
 export async function getCurrentAcordActivity() {
   const acordUrl = process.env.ACORD_URL;
-  if (!acordUrl) {
+  const acordKey = process.env.ACORD_KEY;
+  if (!acordUrl || !acordKey) {
     return;
   }
 
@@ -12,13 +13,16 @@ export async function getCurrentAcordActivity() {
     next: {
       revalidate: 60 * 2, // Revalidate every 2 minutes
     },
+    headers: {
+      Authorization: acordKey,
+    },
   });
   if (!response.ok) {
     return;
   }
 
   const data = await response.json();
-  const actvityData = adaptAcordActivityToAcordCurrentActivity(data);
+  const activityData = adaptAcordActivityToAcordCurrentActivity(data);
 
-  return actvityData;
+  return activityData;
 }

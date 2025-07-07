@@ -7,13 +7,15 @@ export function adaptAcordActivityToAcordCurrentActivity(
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
   }
+  
+  const data = model.data;
 
   return {
-    activity: model.state,
-    details: model.details,
-    imageUrl: model.largeImageKey,
-    caption: model.largeImageText,
-    environment: model.smallImageText,
-    color: model.dominantColor	,
+    activity: data.state,
+    details: data.details,
+    imageUrl: data.largeImageKey,
+    caption: data.largeImageText,
+    environment: data.smallImageText,
+    color: data.dominantColor,
   };
 }
