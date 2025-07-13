@@ -5,7 +5,7 @@ import Link from "./link";
 import IconLabel from "./icon-label";
 
 interface ScrollTopLinkProps {
-  className?: string; 
+  className?: string;
 }
 
 export default function ScrollTopLink({ className }: ScrollTopLinkProps) {

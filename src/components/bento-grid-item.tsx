@@ -39,21 +39,20 @@ export default function BentoGridItem({
       whileHover={"hover"}
       whileTap={"hover"}
       className={cn(
-        "relative rounded-xl overflow-clip border border-border justify-between flex flex-col sm:max-lg:min-h-80",
-        className
+        "border-border relative flex flex-col justify-between overflow-clip rounded-xl border sm:max-lg:min-h-80",
+        className,
       )}
     >
       <motion.div
         initial={{ opacity: 0.5 }}
         variants={supportVariants}
-        className="absolute flex flex-row flex-wrap gap-2 left-0 top-0
-            z-30 bg-linear-to-b from-background w-full p-2"
+        className="from-background absolute top-0 left-0 z-30 flex w-full flex-row flex-wrap gap-2 bg-linear-to-b p-2"
       >
         {support}
       </motion.div>
       <motion.div
         variants={descriptionVariants}
-        className="flex flex-col items-end gap-2 z-30 max-h-full w-full absolute left-0 bottom-0"
+        className="absolute bottom-0 left-0 z-30 flex max-h-full w-full flex-col items-end gap-2"
       >
         <motion.div
           variants={linksContainerVariants}
@@ -75,14 +74,14 @@ export default function BentoGridItem({
         </motion.div>
         <motion.div
           variants={descriptionContainerVariants}
-          className="w-full h-full fnoise space-y-2 p-4"
+          className="fnoise h-full w-full space-y-2 p-4"
         >
           {header}
           <div className="font-bold">{title}</div>
-          <div className="font-normal text-sm">{description}</div>
+          <div className="text-sm font-normal">{description}</div>
         </motion.div>
       </motion.div>
-      <div className="transition absolute z-10 w-full h-full">{banner}</div>
+      <div className="absolute z-10 h-full w-full transition">{banner}</div>
     </motion.div>
   );
 }

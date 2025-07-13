@@ -82,7 +82,7 @@ export default function Name() {
 
   return (
     <motion.div
-      className="font-bold text-2xl select-none"
+      className="text-2xl font-bold select-none"
       onHoverStart={() => setIsHovering(true)}
       onHoverEnd={() => setIsHovering(false)}
       whileHover={{ scale: 1.2, x: 5 }}

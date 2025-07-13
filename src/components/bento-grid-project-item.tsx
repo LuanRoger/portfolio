@@ -33,14 +33,14 @@ export default function BentoGridProjectItem({
         repoLink && (
           <Button key={"github"} variant="ghost" size="icon">
             <a href={repoLink} target="_blank">
-              <GitHubIcon className="w-5 h-5 fill-foreground" />
+              <GitHubIcon className="fill-foreground h-5 w-5" />
             </a>
           </Button>
         ),
         link && (
           <Button key={"link"} variant="ghost" size="icon">
             <a href={link} target="_blank">
-              <IconExternalLink className="w-5 h-5 fill-foreground" />
+              <IconExternalLink className="fill-foreground h-5 w-5" />
             </a>
           </Button>
         ),
@@ -54,7 +54,7 @@ export default function BentoGridProjectItem({
         <Image
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       }
     />

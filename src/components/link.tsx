@@ -23,10 +23,7 @@ export default function Link({
     <NextLink
       target={target}
       href={href}
-      className={cn(
-        "hover:underline cursor-pointer font-bold",
-        className
-      )}
+      className={cn("cursor-pointer font-bold hover:underline", className)}
       onClick={onClick}
     >
       {children}

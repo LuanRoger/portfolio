@@ -23,7 +23,7 @@ export function TechBadge({ tech, index }: TechProps) {
     >
       <Badge
         variant={"outline"}
-        className={`inline-flex gap-1 items-center hover:bg-primary hover:text-primary-foreground duration-300 py-2`}
+        className={`hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-1 py-2 duration-300`}
       >
         {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any

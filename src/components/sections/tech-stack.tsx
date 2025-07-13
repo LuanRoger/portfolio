@@ -4,14 +4,14 @@ import { TechGroup } from "../tech-group";
 
 export default function TechStack() {
   const langauges = myStack.filter(
-    (tech) => tech.category === TechCategory.Language
+    (tech) => tech.category === TechCategory.Language,
   );
   const frameworks = myStack.filter(
-    (tech) => tech.category === TechCategory.Framework
+    (tech) => tech.category === TechCategory.Framework,
   );
   const tools = myStack.filter((tech) => tech.category === TechCategory.Tool);
   const databases = myStack.filter(
-    (tech) => tech.category === TechCategory.Database
+    (tech) => tech.category === TechCategory.Database,
   );
   const clouds = myStack.filter((tech) => tech.category === TechCategory.Cloud);
   const others = myStack.filter((tech) => tech.category === TechCategory.Other);

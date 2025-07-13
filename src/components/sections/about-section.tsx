@@ -16,18 +16,18 @@ export default function AboutSection() {
         Hello there! I&apos;m Luan Roger, a software engineer, full-stack
         developer and student based in Brazil 🇧🇷. Currently, I&apos;m working at{" "}
         <Link href="https://www.aramis.com.br">
-          <AramisLogo className="scale-95 inline-block" /> Aramis
+          <AramisLogo className="inline-block scale-95" /> Aramis
         </Link>{" "}
         as Software Engineer while studying Software Engineering at UFC
         (Universidade Federal do Ceará).
         <br />
         In my spare time, I create and maintain open-source projects using{" "}
-        <ReactIcon className="inline-block w-5 h-5 fill-foreground" /> React,{" "}
-        <ElectronIcon className="inline-block w-5 h-5 fill-foreground" />{" "}
+        <ReactIcon className="fill-foreground inline-block h-5 w-5" /> React,{" "}
+        <ElectronIcon className="fill-foreground inline-block h-5 w-5" />{" "}
         Electron,{" "}
-        <DotnetIcon className="inline-block w-5 h-5 fill-foreground" /> .NET
+        <DotnetIcon className="fill-foreground inline-block h-5 w-5" /> .NET
         (C#/ASP.NET),{" "}
-        <FlutterIcon className="inline-block w-5 h-5 fill-foreground" />{" "}
+        <FlutterIcon className="fill-foreground inline-block h-5 w-5" />{" "}
         Flutter, and other technologies for my GitHub. I also write articles and
         tutorials about programming on my blog.
         <br />I love playing games, especially RPGs—my favorites include the

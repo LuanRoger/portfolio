@@ -39,7 +39,7 @@ export default function WakatimeLanguagesChart({
         color: item.fill ? `hex(${item.fill})` : "hsl(var(--chart-1))",
       },
     }),
-    {}
+    {},
   );
   const hours = secondsToHours(totalInSeconds);
 

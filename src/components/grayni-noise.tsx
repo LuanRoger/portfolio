@@ -7,12 +7,15 @@ interface GrayniNoiseProps {
   type?: NoiseType;
 }
 
-export function NoiseContainer({ className, type = "noise" }: GrayniNoiseProps) {
+export function NoiseContainer({
+  className,
+  type = "noise",
+}: GrayniNoiseProps) {
   return (
     <div
       className={cn(
-        "absolute isolate h-full w-full top-0 left-0 -z-10",
-        className
+        "absolute top-0 left-0 isolate -z-10 h-full w-full",
+        className,
       )}
     >
       <div className={type}></div>

@@ -7,7 +7,7 @@ interface BackgroundProps {
 
 export default function Background({ className }: BackgroundProps) {
   return (
-    <div className={cn("absolute w-full h-full top-0", className)}>
+    <div className={cn("absolute top-0 h-full w-full", className)}>
       <NoiseContainer type="background" />
     </div>
   );

@@ -30,7 +30,7 @@ export default async function ActivitiesDialog() {
         {isOnline ? <OnlinePresence /> : <OfflinePresence />}
       </PopoverTrigger>
       <PopoverContent
-        className="max-w-72 flex flex-col items-center gap-2 text-gra"
+        className="text-gra flex max-w-72 flex-col items-center gap-2"
         side="left"
       >
         {isOnline && (
@@ -62,5 +62,5 @@ export default async function ActivitiesDialog() {
 }
 
 export function ActivitiesDialogLoading() {
-  return <Skeleton className="w-20 h-6 rounded-full" />;
+  return <Skeleton className="h-6 w-20 rounded-full" />;
 }

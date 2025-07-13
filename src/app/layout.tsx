@@ -120,10 +120,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${commitMono.variable} ${dancingScript.variable} ${jacquardaBastarda.variable} ${vt323.variable} ${yellowtail.variable} ${ubuntuMono.variable} dark bg-background`}
       >
         <div className="relative">
-          <main
-            className="md:max-2xl:flex md:max-2xl:flex-row md:max-2xl:justify-center md:max-2xl:items-center 
-            w-full py-0 md:max-2xl:py-4 z-10"
-          >
+          <main className="z-10 w-full py-0 md:max-2xl:flex md:max-2xl:flex-row md:max-2xl:items-center md:max-2xl:justify-center md:max-2xl:py-4">
             {children}
           </main>
           <Background />
