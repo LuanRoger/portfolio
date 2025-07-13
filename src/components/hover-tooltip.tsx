@@ -1,4 +1,9 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 interface HoverTooltipProps {
   text: string;
@@ -8,14 +13,14 @@ interface HoverTooltipProps {
 export default function HoverTooltip({ text, children }: HoverTooltipProps) {
   return (
     <TooltipProvider>
-    <Tooltip>
+      <Tooltip>
         <TooltipTrigger asChild className="cursor-pointer">
-            {children}
+          {children}
         </TooltipTrigger>
         <TooltipContent>
-            <p>{text}</p>
+          <p>{text}</p>
         </TooltipContent>
-    </Tooltip>
+      </Tooltip>
     </TooltipProvider>
   );
 }

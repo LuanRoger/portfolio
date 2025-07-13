@@ -34,7 +34,7 @@ export async function getSpotifyCurrentPlaying() {
       },
       next: {
         revalidate: 60 * 2, // Revalidate every 2 minutes
-      }
+      },
     },
   );
   if (result.status !== 200) {

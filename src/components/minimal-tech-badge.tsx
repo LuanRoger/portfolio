@@ -16,10 +16,10 @@ export default function MinimalTechBadge({
 
   return (
     <Badge
-      className={cn("gap-1 w-fit cursor-default", className)}
+      className={cn("w-fit cursor-default gap-1", className)}
       variant={"outline"}
     >
-      <Dot className="w-2 h-2" style={{ backgroundColor: color }} />
+      <Dot className="h-2 w-2" style={{ backgroundColor: color }} />
       {name}
     </Badge>
   );

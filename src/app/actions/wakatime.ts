@@ -32,7 +32,7 @@ export async function getWakatimeStats() {
   const languageMetadataResponse = await getWakatimeLanguages();
   const statsData = adaptWakatimeResponseToWakatimeStats(
     data,
-    languageMetadataResponse
+    languageMetadataResponse,
   );
 
   return statsData;
@@ -91,7 +91,7 @@ export async function getWakatimeLastDaysCategoriesSummary() {
         next: {
           revalidate: 60 * 60, // Revalidate every hour
         },
-      }
+      },
     );
     if (!response.ok) {
       return;
@@ -100,10 +100,10 @@ export async function getWakatimeLastDaysCategoriesSummary() {
     const data = await response.json();
     const category = adaptWakatimeSummaryResponseToWakatimeCategories(data);
     const coddingCategory = category.find(
-      (category) => category.name === "Coding"
+      (category) => category.name === "Coding",
     );
     const debuggingCategory = category.find(
-      (category) => category.name === "Debugging"
+      (category) => category.name === "Debugging",
     );
     return {
       date,
@@ -115,7 +115,7 @@ export async function getWakatimeLastDaysCategoriesSummary() {
 
   const categories = Promise.all(last7DaysCategories);
   const validCategories = (await categories).filter(
-    (category) => category !== undefined
+    (category) => category !== undefined,
   ) as WakatimeDateCategory[];
 
   return validCategories;
@@ -137,7 +137,7 @@ export async function getWakatimeAllTimeMetrics() {
       next: {
         revalidate: 60 * 60, // Revalidate every hour
       },
-    }
+    },
   );
   if (!response.ok) {
     return;

@@ -2,7 +2,7 @@
 import { SpotifyCurrentPlayingTrackInfo } from "../spotify-current-playing-track-info";
 
 export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
-  model: any
+  model: any,
 ): SpotifyCurrentPlayingTrackInfo {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");

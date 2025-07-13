@@ -28,7 +28,7 @@ export default function CodingStatsCollapser() {
             <WakatimeSummaryCategories />
             <WakatimeRawMetrics />
           </Suspense>
-          <div className="flex justify-between text-sm text-muted-foreground">
+          <div className="text-muted-foreground flex justify-between text-sm">
             <p>
               Collecting data since 23 December 2022.
               <br />
@@ -37,10 +37,10 @@ export default function CodingStatsCollapser() {
             <Link
               href={"https://wakatime.com"}
               isExternal
-              className="gap-2 font-medium self-end"
+              className="gap-2 self-end font-medium"
             >
               Powered by{" "}
-              <WakaTimeIcon className="inline-block fill-muted-foreground size-5" />
+              <WakaTimeIcon className="fill-muted-foreground inline-block size-5" />
             </Link>
           </div>
         </AccordionContent>

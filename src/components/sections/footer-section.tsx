@@ -6,7 +6,7 @@ import LRLogo from "~/public/images/lr-logo.png";
 
 export default function FooterSection() {
   return (
-    <footer className="flex flex-col space-y-2 w-full">
+    <footer className="flex w-full flex-col space-y-2">
       <div className="flex flex-row justify-evenly">
         <Link
           href="https://linkedin.com/in/luan-roger"
@@ -37,7 +37,7 @@ export default function FooterSection() {
           <h2>LR Tech Blog</h2>
         </Link>
       </div>
-      <div className="flex flex-row justify-between items-center mx-4">
+      <div className="mx-4 flex flex-row items-center justify-between">
         <ScrollTopLink className="self-end" />
         <Image
           src={LRLogo}

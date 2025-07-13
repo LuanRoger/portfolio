@@ -118,11 +118,8 @@
     width: 100%;
     height: 100%;
     filter: contrast(100%) brightness(100%);
-    background: radial-gradient(
-        circle at 50% 50%,
-        rgba(9, 9, 11, 1),
-        rgba(0, 0, 0, 0)
-      ),
+    background:
+      radial-gradient(circle at 50% 50%, rgba(9, 9, 11, 1), rgba(0, 0, 0, 0)),
       linear-gradient(270deg, rgba(9, 9, 11, 1), rgba(255, 255, 0, 0)),
       linear-gradient(80deg, rgba(9, 9, 11, 1), rgba(255, 255, 255, 0)),
       url(./images/noise.svg);
@@ -130,11 +127,8 @@
 
   .fnoise {
     filter: contrast(100%) brightness(100%);
-    background: radial-gradient(
-        circle at 50% 50%,
-        rgba(9, 9, 11, 1),
-        rgba(0, 0, 0, 0)
-      ),
+    background:
+      radial-gradient(circle at 50% 50%, rgba(9, 9, 11, 1), rgba(0, 0, 0, 0)),
       linear-gradient(30deg, rgba(9, 9, 11, 1), rgba(255, 255, 0, 0)),
       linear-gradient(190deg, rgba(9, 9, 11, 1), rgba(255, 255, 255, 0)),
       url(./images/noise.svg);
@@ -144,11 +138,8 @@
     width: 100%;
     height: 100%;
     filter: contrast(150%) brightness(100%);
-    background: radial-gradient(
-        circle at 50% 50%,
-        rgba(40, 40, 40, 1),
-        rgba(0, 0, 0, 0)
-      ),
+    background:
+      radial-gradient(circle at 50% 50%, rgba(40, 40, 40, 1), rgba(0, 0, 0, 0)),
       linear-gradient(40deg, rgba(40, 40, 40, 1), rgba(255, 255, 255, 0)),
       linear-gradient(220deg, rgba(60, 56, 54, 1), rgba(255, 255, 0, 0)),
       url(./images/noise.svg);

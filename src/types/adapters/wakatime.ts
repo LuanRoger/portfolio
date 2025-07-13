@@ -10,7 +10,7 @@ import {
 
 export function adaptWakatimeResponseToWakatimeStats(
   model: any,
-  langaugeMetadata?: WakatimeLanguageMetadata[]
+  langaugeMetadata?: WakatimeLanguageMetadata[],
 ): WakatimeStats {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
@@ -28,7 +28,7 @@ export function adaptWakatimeResponseToWakatimeStats(
 
   const languages = data.languages.map((language: any) => {
     const metadata = langaugeMetadata?.find(
-      (lang) => lang.name === language.name
+      (lang) => lang.name === language.name,
     );
 
     return {
@@ -53,7 +53,7 @@ export function adaptWakatimeResponseToWakatimeStats(
 }
 
 export function adaptWakatimeProgramLanguageResponseToWakatimeLanguages(
-  model: any
+  model: any,
 ): WakatimeLanguageMetadata[] {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
@@ -65,7 +65,7 @@ export function adaptWakatimeProgramLanguageResponseToWakatimeLanguages(
 }
 
 export function adaptWakatimeSummaryResponseToWakatimeCategories(
-  model: any
+  model: any,
 ): WakatimeCategory[] {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
@@ -84,7 +84,7 @@ export function adaptWakatimeSummaryResponseToWakatimeCategories(
 }
 
 export function adaptWakatimeAllTimeResponseToWakatimeAllTime(
-  model: any
+  model: any,
 ): WakatimeAllTimeMetrics {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");

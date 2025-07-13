@@ -12,7 +12,7 @@ export default function IconLabel({
   className,
 }: AnimatedIconLabelProps) {
   return (
-    <div className={cn("flex flex-row gap-1 items-center", className)}>
+    <div className={cn("flex flex-row items-center gap-1", className)}>
       <span>{icon}</span>
       {children}
     </div>

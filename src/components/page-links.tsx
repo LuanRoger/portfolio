@@ -13,7 +13,7 @@ export default function PageLinks() {
   const iconSize = 14;
 
   return (
-    <ul className="flex flex-row flex-wrap justify-evenly w-full font-mono gap-2">
+    <ul className="flex w-full flex-row flex-wrap justify-evenly gap-2 font-mono">
       <li>
         <Link href="#about">
           <IconLabel icon={<IconUser size={iconSize} />}>About</IconLabel>

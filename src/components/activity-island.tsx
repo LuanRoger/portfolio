@@ -29,10 +29,10 @@ export default function ActivityIsland({
   const titleDefaultClasses = "text-white font-bold";
 
   return (
-    <div className="relative isolate w-full h-36 rounded-lg overflow-clip">
+    <div className="relative isolate h-36 w-full overflow-clip rounded-lg">
       {accentColor && (
         <div
-          className={`absolute bg-linear-to-t z-10 size-full`}
+          className={`absolute z-10 size-full bg-linear-to-t`}
           style={
             {
               "--tw-gradient-to": accentColor,
@@ -50,16 +50,16 @@ export default function ActivityIsland({
         width={300}
         height={300}
         alt={imageAlt}
-        className="absolute inset-0 z-0 object-none size-full"
+        className="absolute inset-0 z-0 size-full object-none"
       />
-      <div className="absolute flex flex-col z-20 p-2 justify-between size-full">
+      <div className="absolute z-20 flex size-full flex-col justify-between p-2">
         <div className="inline-flex items-center gap-2">
           <Image
             src={iconSrc}
             width={18}
             height={18}
             alt={iconAlt}
-            className="filter invert"
+            className="invert filter"
           />
           <h2 className="text-sm">{activityDescription}</h2>
         </div>
@@ -71,7 +71,7 @@ export default function ActivityIsland({
           ) : (
             <h1 className={cn(titleDefaultClasses)}>{title}</h1>
           )}
-          <h2 className="text-white text-sm">{description}</h2>
+          <h2 className="text-sm text-white">{description}</h2>
         </div>
       </div>
     </div>
