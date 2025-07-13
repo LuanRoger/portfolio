@@ -1,6 +1,7 @@
 export interface GitHubUser {
   id: number;
   login: string;
+  name: string;
   url: string;
   htmlUrl: string;
   avatarUrl: string;
@@ -9,6 +10,7 @@ export interface GitHubUser {
   followers: number;
   publicRepos: number;
   publicGists: number;
+  diskUsage: number;
   createdAt: string;
 }
 
@@ -22,6 +24,8 @@ export interface GitHubRepository {
   description: string | null;
   private: boolean;
   fork: boolean;
+  size: number;
+  stargazersCount: number;
   languagesUrl: string;
   languages?: GitHubRepositoryLanguage[];
 }

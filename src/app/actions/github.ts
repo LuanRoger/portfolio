@@ -34,12 +34,15 @@ export async function getGithubProfileRepositories() {
     return null;
   }
 
-  const result = await fetch("https://api.github.com/user/repos", {
-    headers: {
-      Authorization: `Bearer ${githubToken}`,
-      Accept: "application/vnd.github+json",
+  const result = await fetch(
+    "https://api.github.com/user/repos?sort=updated&per_page=100",
+    {
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        Accept: "application/vnd.github+json",
+      },
     },
-  });
+  );
 
   if (!result.ok) {
     return null;

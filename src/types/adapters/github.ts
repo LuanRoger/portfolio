@@ -13,6 +13,7 @@ export function adaptGitHubUserResponseToGitHubUser(response: any): GitHubUser {
   return {
     id: response.id,
     login: response.login,
+    name: response.name,
     url: response.html_url,
     htmlUrl: response.html_url,
     avatarUrl: response.avatar_url,
@@ -21,6 +22,7 @@ export function adaptGitHubUserResponseToGitHubUser(response: any): GitHubUser {
     followers: response.followers || 0,
     publicRepos: response.public_repos || 0,
     publicGists: response.public_gists || 0,
+    diskUsage: response.disk_usage || 0,
     createdAt: response.created_at || "",
   };
 }
@@ -40,6 +42,8 @@ export function adaptGitHubRepositoryResponseToGitHubRepository(
     htmlUrl: response.html_url,
     description: response.description || null,
     fork: response.fork || false,
+    stargazersCount: response.stargazers_count || 0,
+    size: response.size,
     createdAt: response.created_at || "",
     updatedAt: response.updated_at || "",
     languagesUrl: response.languages_url || "",
