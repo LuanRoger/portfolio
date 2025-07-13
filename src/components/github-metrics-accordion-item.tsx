@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import GithubProfileMetrics from "./github-profile-metrics";
+import Link from "./link";
 
 interface GithubMetricsAccordionItemProps {
   value: string;
@@ -22,10 +23,20 @@ export default function GithubMetricsAccordionItem({
           GitHub Metrics
         </span>
       </AccordionTrigger>
-      <AccordionContent>
+      <AccordionContent className="flex flex-col gap-4">
         <Suspense>
           <GithubProfileMetrics />
         </Suspense>
+        <div className="text-muted-foreground flex justify-between self-end text-sm">
+          <Link
+            href={"https://docs.github.com/en/rest"}
+            isExternal
+            className="inline-flex items-center gap-2 self-end font-medium"
+          >
+            Powered by{" "}
+            <GitHubIcon className="fill-muted-foreground inline-block size-5" />
+          </Link>
+        </div>
       </AccordionContent>
     </AccordionItem>
   );

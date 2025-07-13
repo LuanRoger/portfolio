@@ -41,7 +41,7 @@ export default function WakatimeCodingMetricsAccordionItem({
           <Link
             href={"https://wakatime.com"}
             isExternal
-            className="gap-2 self-end font-medium"
+            className="inline-flex items-center gap-2 self-end font-medium"
           >
             Powered by{" "}
             <WakaTimeIcon className="fill-muted-foreground inline-block size-5" />

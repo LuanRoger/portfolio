@@ -2,7 +2,13 @@
 
 import { Pie, PieChart } from "recharts";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -41,6 +47,10 @@ export default function GitHubLanguagesChart({
     <Card className="fnoise flex flex-col">
       <CardHeader className="items-center pb-0">
         <CardTitle>Languages</CardTitle>
+        <CardDescription>
+          Distribution of programming languages used in my last updated
+          repositories.
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
