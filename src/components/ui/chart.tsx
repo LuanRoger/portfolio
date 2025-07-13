@@ -192,8 +192,29 @@ function ChartTooltipContent({
                 indicator === "dot" && "items-center",
               )}
             >
-              {formatter && item?.value !== undefined && item.name ? (
-                formatter(item.value, item.name, item, index, item.payload)
+              {formatter && item?.value !== undefined ? (
+                <div className="flex w-full items-center gap-2">
+                  {!hideIndicator && (
+                    <div
+                      className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
+                      style={{ backgroundColor: indicatorColor }}
+                    />
+                  )}
+                  <div className="flex flex-1 items-center justify-between leading-none">
+                    <span className="text-muted-foreground">
+                      {itemConfig?.label || item.name}
+                    </span>
+                    <span className="text-foreground font-mono font-medium tabular-nums">
+                      {formatter(
+                        item.value,
+                        item.name || "",
+                        item,
+                        index,
+                        item.payload,
+                      )}
+                    </span>
+                  </div>
+                </div>
               ) : (
                 <>
                   {itemConfig?.icon ? (

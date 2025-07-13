@@ -1,2 +1,4 @@
-export { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "./spotify";
-export { adaptAcordActivityToAcordCurrentActivity } from "./acord";
+export * from "./spotify";
+export * from "./acord";
+export * from "./github";
+export * from "./wakatime";
