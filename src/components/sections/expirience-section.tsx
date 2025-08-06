@@ -1,4 +1,3 @@
-import CertificationsBadge from "../certifications-badge";
 import WorkXp from "../work-xp";
 
 export default function ExpirienceSection() {
