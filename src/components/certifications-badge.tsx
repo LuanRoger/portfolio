@@ -3,9 +3,9 @@ import MongoCertification from "~/public/images/mongodb-associate-developer.png"
 import Link from "./link";
 import TiltedCard from "./tilted-card";
 
-export default function Certifications() {
+export default function CertificationsBadge() {
   return (
-    <div className="flex flex-row justify-evenly">
+    <div className="flex flex-col lg:flex-row lg:justify-evenly">
       <Link
         isExternal
         href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/public_url"
