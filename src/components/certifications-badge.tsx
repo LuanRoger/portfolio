@@ -11,7 +11,7 @@ export default function CertificationsBadge() {
         href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/public_url"
       >
         <TiltedCard
-          imageSrc={GitHubFoundations.src}
+          imageSrc={GitHubFoundations}
           altText="GitHub Foundations Certificate Badge"
           imageWidth={150}
           imageHeight={150}
@@ -24,7 +24,7 @@ export default function CertificationsBadge() {
         href="https://www.credly.com/badges/940e60e3-96b1-4595-96ee-9830d87081aa/public_url"
       >
         <TiltedCard
-          imageSrc={MongoCertification.src}
+          imageSrc={MongoCertification}
           altText="MongoDB Associate Developer Certificate Badge"
           imageWidth={150}
           imageHeight={150}

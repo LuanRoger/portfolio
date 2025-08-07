@@ -1,11 +1,12 @@
 "use client";
 
-import type { SpringOptions } from "framer-motion";
+import type { SpringOptions } from "motion";
 import { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "motion/react";
+import Image, { StaticImageData } from "next/image";
 
 interface TiltedCardProps {
-  imageSrc: React.ComponentProps<"img">["src"];
+  imageSrc: StaticImageData;
   altText?: string;
   imageHeight?: React.CSSProperties["height"];
   imageWidth?: React.CSSProperties["width"];
@@ -106,15 +107,15 @@ export default function TiltedCard({
           scale,
         }}
       >
-        <motion.img
-          src={imageSrc}
-          alt={altText}
+        <motion.div
           className="absolute top-0 left-0 [transform:translateZ(0)] rounded-[15px] object-cover will-change-transform"
           style={{
             width: imageWidth,
             height: imageHeight,
           }}
-        />
+        >
+          <Image src={imageSrc} alt={altText} />
+        </motion.div>
 
         {displayOverlayContent && overlayContent && (
           <motion.div className="absolute top-0 left-0 z-[2] [transform:translateZ(30px)] will-change-transform">
