@@ -1,4 +1,3 @@
-import Certifications from "../certifications";
 import WorkXp from "../work-xp";
 
 export default function ExpirienceSection() {
@@ -33,8 +32,6 @@ export default function ExpirienceSection() {
         projects and libraries, that together, have more than 200 stars in
         repositories and 8,000 downloads.
       </p>
-      <h3 className="text-lg font-bold">Certifications</h3>
-      <Certifications />
     </section>
   );
 }
