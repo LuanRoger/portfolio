@@ -5,8 +5,11 @@ export interface Project {
   title: string;
   description: string;
   techStack: Tech[];
-  imageSrc: string | StaticImageData;
-  imageAlt: string;
+  image: {
+    src: string | StaticImageData;
+    alt: string;
+    animated?: boolean;
+  };
   repoLink?: string | undefined;
   link?: string | undefined;
 }
