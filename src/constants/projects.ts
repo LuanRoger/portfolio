@@ -1,17 +1,17 @@
 import { getTechsByName } from "./my-stack";
 import { Project } from "../types/project";
-import NotionBlogImg from "~/public/images/notion-blog.png";
-import ElectronShadcn from "~/public/images/electron-shadcn.gif";
-import WHMonitor from "~/public/images/whmonitor.png";
-import Yaste from "~/public/images/yaste.png";
-import TodoSync from "~/public/images/todoSync.gif";
-import VolumeVault from "~/public/images/volumeVault.png";
-import XboxLauncher from "~/public/images/xboxLauncher.png";
-import XinputGamepad from "~/public/images/xinputGamepad.png";
-import VirtualKeyboard from "~/public/images/virtualKeyboard.png";
-import GlobalStrings from "~/public/images/globalStrings.png";
-import SerializedConfiguration from "~/public/images/serializedConfiguration.png";
-import Dropnote from "~/public/images/dropnote.gif";
+import NotionBlogImg from "~/public/images/projects/notion-blog.png";
+import ElectronShadcn from "~/public/images/projects/electron-shadcn.png";
+import WHMonitor from "~/public/images/projects/whmonitor.png";
+import Yaste from "~/public/images/projects/yaste.png";
+import TodoSync from "~/public/images/projects/todoSync.png";
+import VolumeVault from "~/public/images/projects/volumeVault.png";
+import XboxLauncher from "~/public/images/projects/xboxLauncher.png";
+import XinputGamepad from "~/public/images/projects/xinputGamepad.png";
+import VirtualKeyboard from "~/public/images/projects/virtualKeyboard.png";
+import GlobalStrings from "~/public/images/projects/globalStrings.png";
+import SerializedConfiguration from "~/public/images/projects/serializedConfiguration.png";
+import Dropnote from "~/public/images/projects/dropnote.gif";
 
 export const projects: Project[] = [
   {

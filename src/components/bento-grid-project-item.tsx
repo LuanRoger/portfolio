@@ -55,6 +55,8 @@ export default function BentoGridProjectItem({
           src={imageSrc}
           alt={imageAlt}
           className="h-full w-full object-cover"
+          width={400}
+          height={300}
         />
       }
     />
