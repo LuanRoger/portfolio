@@ -3,24 +3,17 @@
 import { Tech } from "@/types/tech";
 import { Badge } from "./ui/badge";
 import { cloneElement } from "react";
-import { motion } from "motion/react";
 
 interface TechProps {
   tech: Tech;
   index?: number | undefined;
 }
 
-export function TechBadge({ tech, index }: TechProps) {
+export function TechBadge({ tech }: TechProps) {
   const { name, color, link, icon } = tech;
 
   return (
-    <motion.a
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: index ? index * 0.1 : 0 }}
-      href={link}
-      target="_blank"
-    >
+    <a href={link} target="_blank">
       <Badge
         variant={"outline"}
         className={`hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-1 py-2 duration-300`}
@@ -34,6 +27,6 @@ export function TechBadge({ tech, index }: TechProps) {
         }
         <p>{name}</p>
       </Badge>
-    </motion.a>
+    </a>
   );
 }

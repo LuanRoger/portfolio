@@ -1,8 +1,5 @@
-"use client";
-
 import { Tech } from "@/types/tech";
 import { TechBadge } from "./tech-badge";
-import { motion } from "motion/react";
 
 interface TechGroupProps {
   groupTechs: Tech[];
@@ -13,17 +10,10 @@ export function TechGroup({ groupTechs }: TechGroupProps) {
 
   return (
     <>
-      <motion.h2
-        initial={{ x: -10, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="font-bold"
-      >
-        {category}
-      </motion.h2>
+      <h2 className="font-bold">{category}</h2>
       <div className="flex flex-wrap gap-2">
-        {groupTechs.map((tech, index) => (
-          <TechBadge key={tech.name} tech={tech} index={index} />
+        {groupTechs.map((tech) => (
+          <TechBadge key={tech.name} tech={tech} />
         ))}
       </div>
     </>

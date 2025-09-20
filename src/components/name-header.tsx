@@ -2,7 +2,6 @@ import ActivitiesDialog, {
   ActivitiesDialogLoading,
 } from "@/components/activities-dialog";
 import Name from "./name";
-import RoleTitle from "./role-title";
 import { Suspense } from "react";
 
 export default function NameHeader() {
@@ -14,7 +13,7 @@ export default function NameHeader() {
           <ActivitiesDialog />
         </Suspense>
       </div>
-      <RoleTitle />
+      <p className="font-mono text-sm">Full-stack developer</p>
     </header>
   );
 }
