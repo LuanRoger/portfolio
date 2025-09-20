@@ -15,8 +15,8 @@ export default function BentoGridProjectItem({
   project,
   className,
 }: BentoGridProjectItemProps) {
-  const { title, imageSrc, imageAlt, description, link, repoLink, techStack } =
-    project;
+  const { title, image, description, link, repoLink, techStack } = project;
+  const { src: imageSrc, alt: imageAlt, animated: isImageAnimated } = image;
 
   return (
     <BentoGridItem
@@ -54,7 +54,10 @@ export default function BentoGridProjectItem({
         <Image
           src={imageSrc}
           alt={imageAlt}
+          unoptimized={isImageAnimated}
           className="h-full w-full object-cover"
+          width={400}
+          height={300}
         />
       }
     />

@@ -1,17 +1,17 @@
 import { getTechsByName } from "./my-stack";
 import { Project } from "../types/project";
-import NotionBlogImg from "~/public/images/notion-blog.png";
-import ElectronShadcn from "~/public/images/electron-shadcn.gif";
-import WHMonitor from "~/public/images/whmonitor.png";
-import Yaste from "~/public/images/yaste.png";
-import TodoSync from "~/public/images/todoSync.gif";
-import VolumeVault from "~/public/images/volumeVault.png";
-import XboxLauncher from "~/public/images/xboxLauncher.png";
-import XinputGamepad from "~/public/images/xinputGamepad.png";
-import VirtualKeyboard from "~/public/images/virtualKeyboard.png";
-import GlobalStrings from "~/public/images/globalStrings.png";
-import SerializedConfiguration from "~/public/images/serializedConfiguration.png";
-import Dropnote from "~/public/images/dropnote.gif";
+import NotionBlogImg from "~/public/images/projects/notion-blog.png";
+import ElectronShadcn from "~/public/images/projects/electron-shadcn.png";
+import WHMonitor from "~/public/images/projects/whmonitor.png";
+import Yaste from "~/public/images/projects/yaste.png";
+import TodoSync from "~/public/images/projects/todoSync.png";
+import VolumeVault from "~/public/images/projects/volumeVault.png";
+import XboxLauncher from "~/public/images/projects/xboxLauncher.png";
+import XinputGamepad from "~/public/images/projects/xinputGamepad.png";
+import VirtualKeyboard from "~/public/images/projects/virtualKeyboard.png";
+import GlobalStrings from "~/public/images/projects/globalStrings.png";
+import SerializedConfiguration from "~/public/images/projects/serializedConfiguration.png";
+import Dropnote from "~/public/images/projects/dropnote.gif";
 
 export const projects: Project[] = [
   {
@@ -26,8 +26,10 @@ export const projects: Project[] = [
       "shadcn-ui",
     ]),
     repoLink: "https://github.com/LuanRoger/electron-shadcn",
-    imageSrc: ElectronShadcn,
-    imageAlt: "Template demo",
+    image: {
+      src: ElectronShadcn,
+      alt: "Template demo",
+    },
   },
   {
     title: "Notion Blog",
@@ -36,8 +38,10 @@ export const projects: Project[] = [
     techStack: getTechsByName(["React", "TypeScript", "Vercel"]),
     link: "https://notion-blog-luanroger.vercel.app/",
     repoLink: "https://github.com/LuanRoger/notion-blog",
-    imageSrc: NotionBlogImg,
-    imageAlt: "Notion Blog example",
+    image: {
+      src: NotionBlogImg,
+      alt: "Notion Blog example",
+    },
   },
   {
     title: "WHMonitor",
@@ -51,8 +55,10 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ]),
     repoLink: "https://github.com/LuanRoger/WHMonitor",
-    imageSrc: WHMonitor,
-    imageAlt: "WHMonitor screenshot",
+    image: {
+      src: WHMonitor,
+      alt: "WHMonitor screenshot",
+    },
   },
   {
     title: "yaste",
@@ -65,8 +71,10 @@ export const projects: Project[] = [
       "Electron",
     ]),
     repoLink: "https://github.com/LuanRoger/yaste",
-    imageSrc: Yaste,
-    imageAlt: "yaste screenshot",
+    image: {
+      src: Yaste,
+      alt: "yaste screenshot",
+    },
   },
   {
     title: "Todo Sync",
@@ -74,8 +82,10 @@ export const projects: Project[] = [
       "Event Soucing as synchronization mechanism using Flutter with Riverpod and Realm.",
     techStack: getTechsByName(["Flutter", "Dart"]),
     repoLink: "https://github.com/LuanRoger/todo_sync",
-    imageSrc: TodoSync,
-    imageAlt: "Sync demo",
+    image: {
+      src: TodoSync,
+      alt: "Sync demo",
+    },
   },
   {
     title: "Volume Vault",
@@ -93,8 +103,10 @@ export const projects: Project[] = [
       "DigitalOcean",
     ]),
     repoLink: "https://github.com/LuanRoger/VolumeVault",
-    imageSrc: VolumeVault,
-    imageAlt: "Home page screenshot",
+    image: {
+      src: VolumeVault,
+      alt: "Home page screenshot",
+    },
   },
   {
     title: "xinput_gamepad",
@@ -102,8 +114,10 @@ export const projects: Project[] = [
     techStack: getTechsByName(["Dart"]),
     link: "https://pub.dev/packages/xinput_gamepad",
     repoLink: "https://github.com/LuanRoger/xinput_gamepad",
-    imageSrc: XinputGamepad,
-    imageAlt: "GitHub repository's page",
+    image: {
+      src: XinputGamepad,
+      alt: "GitHub repository's page",
+    },
   },
   {
     title: "Xbox Launcher",
@@ -111,16 +125,20 @@ export const projects: Project[] = [
       "Launcher with the Xbox Series X/S's dashboard to play Xbox Cloud Gaming (XCloud) games.",
     techStack: getTechsByName(["Flutter", "Dart", "Python"]),
     repoLink: "https://github.com/LuanRoger/xbox_launcher",
-    imageSrc: XboxLauncher,
-    imageAlt: "Home page screenshot",
+    image: {
+      src: XboxLauncher,
+      alt: "Home page screenshot",
+    },
   },
   {
     title: "virtual_keyboard",
     description: "Simulate keystrokes with Win32 API.",
     techStack: getTechsByName(["Dart"]),
     repoLink: "https://github.com/LuanRoger/virtual_keyboard",
-    imageSrc: VirtualKeyboard,
-    imageAlt: "GitHub repository's page",
+    image: {
+      src: VirtualKeyboard,
+      alt: "GitHub repository's page",
+    },
   },
   {
     title: "GlobalStrings",
@@ -129,8 +147,10 @@ export const projects: Project[] = [
     techStack: getTechsByName([".NET", "C#"]),
     link: "https://www.nuget.org/packages/GlobalStrings",
     repoLink: "https://github.com/LuanRoger/GlobalStrings",
-    imageSrc: GlobalStrings,
-    imageAlt: "GitHub repository's page",
+    image: {
+      src: GlobalStrings,
+      alt: "GitHub repository's page",
+    },
   },
   {
     title: "Serialized Configuration",
@@ -138,8 +158,10 @@ export const projects: Project[] = [
     techStack: getTechsByName([".NET", "C#"]),
     link: "https://www.nuget.org/packages/SerializedConfig",
     repoLink: "https://github.com/LuanRoger/SerializedConfiguration",
-    imageSrc: SerializedConfiguration,
-    imageAlt: "GitHub repository's page",
+    image: {
+      src: SerializedConfiguration,
+      alt: "GitHub repository's page",
+    },
   },
   {
     title: "Dropnote",
@@ -147,7 +169,10 @@ export const projects: Project[] = [
     techStack: getTechsByName(["Next.js", "MongoDB", "TypeScript"]),
     link: "https://dropnote.luanroger.dev",
     repoLink: "https://github.com/LuanRoger/dropnote",
-    imageSrc: Dropnote,
-    imageAlt: "Dropnote demo",
+    image: {
+      src: Dropnote,
+      alt: "Dropnote demo",
+      animated: true,
+    },
   },
 ];
