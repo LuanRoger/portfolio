@@ -1,6 +1,6 @@
 import {
   AstroIcon,
-  AwsIcon,
+  BunIcon,
   CloudflareIcon,
   DartIcon,
   DigitalOceanIcon,
@@ -19,7 +19,6 @@ import {
   ReactIcon,
   ShadcnIcon,
   StrapiIcon,
-  SupabaseIcon,
   TailwindIcon,
   TurborepoIcon,
   TypeScriptIcon,
@@ -32,6 +31,7 @@ import {
   VercelIcon,
   NextJSIcon,
   CsharpIcon,
+  RolldownIcon,
 } from "@/components/svg-icons";
 import { Tech, TechCategory } from "../types/tech";
 
@@ -42,6 +42,13 @@ export const myStack: Tech[] = [
     color: "#BC52EE",
     category: TechCategory.Frontend,
     icon: <AstroIcon />,
+  },
+  {
+    name: "Bun",
+    link: "https://bun.com/",
+    color: "#FBf0Df",
+    category: TechCategory.Backend,
+    icon: <BunIcon />,
   },
   {
     name: "Cloudflare",
@@ -170,6 +177,20 @@ export const myStack: Tech[] = [
     icon: <ReactIcon />,
   },
   {
+    name: "React Native",
+    link: "https://reactnative.dev/",
+    color: "#61DAFB",
+    category: TechCategory.MobileDesktop,
+    icon: <ReactIcon />,
+  },
+  {
+    name: "Rolldown",
+    link: "https://rolldown.rs/",
+    color: "#FF7E17",
+    category: TechCategory.DevOps,
+    icon: <RolldownIcon />,
+  },
+  {
     name: "shadcn-ui",
     link: "https://ui.shadcn.com/",
     color: "#000000",
@@ -250,7 +271,7 @@ export const myStack: Tech[] = [
     name: "Vite",
     link: "https://vitejs.dev/",
     color: "#646CFF",
-    category: TechCategory.DevOps,
+    category: TechCategory.Frontend,
     icon: <ViteIcon />,
   },
 ] as const;
