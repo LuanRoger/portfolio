@@ -18,6 +18,8 @@ export default function MyProjectsGrid() {
       "",
       "",
       "col-span-3",
+      "col-span-2",
+      "",
     ],
     [],
   );

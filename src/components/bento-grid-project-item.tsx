@@ -56,8 +56,8 @@ export default function BentoGridProjectItem({
           alt={imageAlt}
           unoptimized={isImageAnimated}
           className="h-full w-full object-cover"
-          width={400}
-          height={300}
+          width={500}
+          height={400}
         />
       }
     />
