@@ -7,10 +7,14 @@ export interface Tech {
 }
 
 export enum TechCategory {
-  Language = "Language",
-  Framework = "Framework",
-  Tool = "Tool",
-  Database = "Database",
-  Cloud = "Cloud",
-  Other = "Other",
+  Language = "Languages",
+  Frontend = "Frontend Frameworks",
+  Backend = "Backend & Runtime",
+  UILibrary = "UI Libraries",
+  MobileDesktop = "Mobile & Desktop",
+  Database = "Databases",
+  Cloud = "Cloud & Hosting",
+  DevOps = "DevOps & Build Tools",
+  Infrastructure = "Infrastructure & Monitoring",
+  CMS = "CMS & Backend Services",
 }
