@@ -167,7 +167,6 @@ export const projects: Project[] = [
     title: "Dropnote",
     description: "Create, edit and share text instantly.",
     techStack: getTechsByName(["Next.js", "MongoDB", "TypeScript"]),
-    link: "https://dropnote.luanroger.dev",
     repoLink: "https://github.com/LuanRoger/dropnote",
     image: {
       src: Dropnote,
