@@ -12,6 +12,8 @@ import VirtualKeyboard from "~/public/images/projects/virtualKeyboard.png";
 import GlobalStrings from "~/public/images/projects/globalStrings.png";
 import SerializedConfiguration from "~/public/images/projects/serializedConfiguration.png";
 import Dropnote from "~/public/images/projects/dropnote.gif";
+import TsPackageTemplate from "~/public/images/projects/ts-package-template.png";
+import unpluginUseWasm from "~/public/images/projects/unplugin-use-wasm.png";
 
 export const projects: Project[] = [
   {
@@ -166,12 +168,34 @@ export const projects: Project[] = [
   {
     title: "Dropnote",
     description: "Create, edit and share text instantly.",
-    techStack: getTechsByName(["Next.js", "MongoDB", "TypeScript"]),
+    techStack: getTechsByName(["Next.js", "React", "MongoDB", "TypeScript"]),
     repoLink: "https://github.com/LuanRoger/dropnote",
     image: {
       src: Dropnote,
       alt: "Dropnote demo",
       animated: true,
+    },
+  },
+  {
+    title: "ts-package-template",
+    description: "Modern tools to build an NPM package with TypeScript support",
+    techStack: getTechsByName(["TypeScript", "Node.js", "Rolldown"]),
+    repoLink: "https://github.com/LuanRoger/ts-package-template",
+    link: "https://www.npmjs.com/package/@luanroger/ts-package-template",
+    image: {
+      src: TsPackageTemplate,
+      alt: "ts-package-template repository screenshot",
+    },
+  },
+  {
+    title: "unplugin-use-wasm",
+    description: 'Support to "use wasm" directive to compile to WebAssembly.',
+    techStack: getTechsByName(["TypeScript", "Vite", "Rolldown"]),
+    repoLink: "https://github.com/LuanRoger/unplugin-use-wasm",
+    link: "https://www.npmjs.com/package/unplugin-use-wasm",
+    image: {
+      src: unpluginUseWasm,
+      alt: "unplugin-use-wasm repository screenshot",
     },
   },
 ];

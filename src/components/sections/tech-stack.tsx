@@ -3,27 +3,24 @@ import { myStack } from "@/constants/my-stack";
 import { TechGroup } from "../tech-group";
 
 export default function TechStack() {
-  const langauges = myStack.filter(
-    (tech) => tech.category === TechCategory.Language,
+  const techsByCategory = myStack.reduce(
+    (acc, tech) => {
+      if (!acc[tech.category]) {
+        acc[tech.category] = [];
+      }
+      acc[tech.category].push(tech);
+      return acc;
+    },
+    {} as Record<TechCategory, typeof myStack>,
   );
-  const frameworks = myStack.filter(
-    (tech) => tech.category === TechCategory.Framework,
-  );
-  const tools = myStack.filter((tech) => tech.category === TechCategory.Tool);
-  const databases = myStack.filter(
-    (tech) => tech.category === TechCategory.Database,
-  );
-  const clouds = myStack.filter((tech) => tech.category === TechCategory.Cloud);
-  const others = myStack.filter((tech) => tech.category === TechCategory.Other);
 
   return (
     <section className="flex flex-col gap-2">
-      <TechGroup groupTechs={langauges} />
-      <TechGroup groupTechs={frameworks} />
-      <TechGroup groupTechs={tools} />
-      <TechGroup groupTechs={databases} />
-      <TechGroup groupTechs={clouds} />
-      <TechGroup groupTechs={others} />
+      {Object.values(TechCategory).map((category) => {
+        const groupTechs = techsByCategory[category];
+        if (!groupTechs) return null;
+        return <TechGroup key={category} groupTechs={groupTechs} />;
+      })}
     </section>
   );
 }
