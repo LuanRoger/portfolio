@@ -2,6 +2,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "./link";
 import { cn } from "@/utils/shadcn-utils";
+import { FadeVignette } from "./fade-vignette";
 
 interface ActivityIslandProps {
   title: string;
@@ -30,21 +31,7 @@ export default function ActivityIsland({
 
   return (
     <div className="relative isolate h-36 w-full overflow-clip rounded-lg">
-      {accentColor && (
-        <div
-          className={`absolute z-10 size-full bg-linear-to-t`}
-          style={
-            {
-              "--tw-gradient-to": accentColor,
-              "--tw-gradient-from-position": "",
-              "--tw-gradient-from": `${accentColor}00`,
-              "--tw-gradient-to-position": "",
-              "--tw-gradient-stops":
-                "var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)",
-            } as React.CSSProperties
-          }
-        />
-      )}
+      {accentColor && <FadeVignette accentColor={accentColor} />}
       <Image
         src={imageSrc}
         width={300}
