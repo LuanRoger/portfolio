@@ -6,8 +6,12 @@ import {
   adaptGitHubUserResponseToGitHubUser,
 } from "@/types/adapters";
 import { GitHubRepository } from "@/types/github";
+import { cacheLife } from "next/cache";
 
 export async function getGithubProfile() {
+  "use cache";
+  cacheLife("days");
+
   const githubToken = process.env.GITHUB_TOKEN;
   if (!githubToken) {
     return null;
@@ -29,6 +33,9 @@ export async function getGithubProfile() {
 }
 
 export async function getGithubProfileRepositories() {
+  "use cache";
+  cacheLife("days");
+
   const githubToken = process.env.GITHUB_TOKEN;
   if (!githubToken) {
     return null;
@@ -77,6 +84,9 @@ export async function getGithubProfileRepositories() {
 }
 
 export async function getGithubRepositoryLanguages(languageUrl: string) {
+  "use cache";
+  cacheLife("days");
+
   const githubToken = process.env.GITHUB_TOKEN;
   if (!githubToken) {
     return null;
@@ -86,9 +96,6 @@ export async function getGithubRepositoryLanguages(languageUrl: string) {
     headers: {
       Authorization: `Bearer ${githubToken}`,
       Accept: "application/vnd.github+json",
-    },
-    next: {
-      revalidate: 60 * 60, // Revalidate every hour
     },
   });
 

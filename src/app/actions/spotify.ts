@@ -1,6 +1,7 @@
 "use server";
 
 import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters";
+import { cacheLife } from "next/cache";
 
 async function getSpotifyAccessToken() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -12,9 +13,6 @@ async function getSpotifyAccessToken() {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    next: {
-      revalidate: 60 * 60, // Revalidate every hour
-    },
     body: `grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${clientId}&client_secret=${clientSecret}`,
   });
 
@@ -24,6 +22,9 @@ async function getSpotifyAccessToken() {
 }
 
 export async function getSpotifyCurrentPlaying() {
+  "use cache";
+  cacheLife("minutes");
+
   const accessToken = await getSpotifyAccessToken();
 
   const result = await fetch(
@@ -31,9 +32,6 @@ export async function getSpotifyCurrentPlaying() {
     {
       headers: {
         Authorization: `Bearer ${accessToken.access_token}`,
-      },
-      next: {
-        revalidate: 60 * 2, // Revalidate every 2 minutes
       },
     },
   );

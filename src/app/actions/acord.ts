@@ -1,8 +1,12 @@
 "use server";
 
 import { adaptAcordActivityToAcordCurrentActivity } from "@/types/adapters";
+import { cacheLife } from "next/cache";
 
 export async function getCurrentAcordActivity() {
+  "use cache";
+  cacheLife("minutes");
+
   const acordUrl = process.env.ACORD_URL;
   const acordKey = process.env.ACORD_KEY;
   if (!acordUrl || !acordKey) {
@@ -10,9 +14,6 @@ export async function getCurrentAcordActivity() {
   }
 
   const response = await fetch(acordUrl, {
-    next: {
-      revalidate: 60 * 2, // Revalidate every 2 minutes
-    },
     headers: {
       Authorization: acordKey,
     },
