@@ -8,8 +8,12 @@ import {
 } from "@/types/adapters/wakatime";
 import { WakatimeDateCategory } from "@/types/wakatime";
 import { getLastDayDate, simpleFormatDate } from "@/utils/time";
+import { cacheLife } from "next/cache";
 
 export async function getWakatimeStats() {
+  "use cache";
+  cacheLife("hours");
+
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -19,9 +23,6 @@ export async function getWakatimeStats() {
   const response = await fetch(`${wakatimeUrl}/users/current/stats`, {
     headers: {
       Authorization: `Basic ${wakatimeKey}`,
-    },
-    next: {
-      revalidate: 60 * 60, // Revalidate every hour
     },
   });
   if (!response.ok) {
@@ -39,6 +40,9 @@ export async function getWakatimeStats() {
 }
 
 export async function getWakatimeLanguages() {
+  "use cache";
+  cacheLife("hours");
+
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -48,9 +52,6 @@ export async function getWakatimeLanguages() {
   const response = await fetch(`${wakatimeUrl}/program_languages`, {
     headers: {
       Authorization: `Basic ${wakatimeKey}`,
-    },
-    next: {
-      revalidate: 60 * 60, // Revalidate every hour
     },
   });
   if (!response.ok) {
@@ -65,6 +66,9 @@ export async function getWakatimeLanguages() {
 }
 
 export async function getWakatimeLastDaysCategoriesSummary() {
+  "use cache";
+  cacheLife("hours");
+
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -87,9 +91,6 @@ export async function getWakatimeLastDaysCategoriesSummary() {
       {
         headers: {
           Authorization: `Basic ${wakatimeKey}`,
-        },
-        next: {
-          revalidate: 60 * 60, // Revalidate every hour
         },
       },
     );
@@ -122,6 +123,9 @@ export async function getWakatimeLastDaysCategoriesSummary() {
 }
 
 export async function getWakatimeAllTimeMetrics() {
+  "use cache";
+  cacheLife("hours");
+
   const wakatimeUrl = process.env.WAKATIME_URL;
   const wakatimeKey = process.env.WAKATIME_API_KEY;
   if (!wakatimeUrl || !wakatimeKey) {
@@ -133,9 +137,6 @@ export async function getWakatimeAllTimeMetrics() {
     {
       headers: {
         Authorization: `Basic ${wakatimeKey}`,
-      },
-      next: {
-        revalidate: 60 * 60, // Revalidate every hour
       },
     },
   );
