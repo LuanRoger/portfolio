@@ -10,8 +10,12 @@ import {
   IconUsersGroup,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import { cacheLife } from "next/cache";
 
 export default async function GitHubProfileInfo() {
+  "use cache";
+  cacheLife("days");
+
   const userData = await getGithubProfile();
   const repositoriesData = await getGithubProfileRepositories();
 
