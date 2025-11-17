@@ -39,7 +39,7 @@ export default function BentoGridItem({
       whileHover={"hover"}
       whileTap={"hover"}
       className={cn(
-        "border-border relative flex flex-col justify-between overflow-clip rounded-xl border sm:max-lg:min-h-80",
+        "border-border relative flex flex-col justify-between overflow-clip rounded-xl border min-h-80",
         className,
       )}
     >
