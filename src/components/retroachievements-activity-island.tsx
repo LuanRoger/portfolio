@@ -1,28 +1,34 @@
 import retroachievementsLogo from "@/app/images/retroachievements.svg";
 import ActivityIsland from "./activity-island";
-import { LastPlayedGame } from "@/types/retroachievements";
+import {
+  LastPlayedGame,
+  RetroachievementsUserProfile,
+} from "@/types/retroachievements";
 
 interface RetroachievementsActivityIslandProps {
   lastGamePlayedInfo: LastPlayedGame;
+  userProfile: RetroachievementsUserProfile;
 }
 
 export default function RetroachievementsActivityIsland({
   lastGamePlayedInfo,
+  userProfile,
 }: RetroachievementsActivityIslandProps) {
-  const { title, numAchieved, achievementsTotal, imageBoxArt, imageTitle } =
-    lastGamePlayedInfo;
-  const description = `Got ${numAchieved} out of ${achievementsTotal} achievements`;
-  const details = `Playing on Retroachievements`;
+  const { title, consoleName, imageBoxArt, imageTitle } = lastGamePlayedInfo;
+  const { richPresenceMsg } = userProfile;
+  const details = `Playing on ${consoleName}`;
+  const retroachievementsUrl = `${process.env.RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
 
   return (
     <ActivityIsland
       title={title}
-      description={description}
+      description={richPresenceMsg}
       activityDescription={details}
       imageSrc={imageBoxArt}
       imageAlt={imageTitle}
       iconSrc={retroachievementsLogo}
       iconAlt={"Retroachievements Logo"}
+      href={retroachievementsUrl}
       accentColor={"#ffcc00"}
     />
   );

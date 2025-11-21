@@ -10,7 +10,7 @@ import { Skeleton } from "./ui/skeleton";
 import { getCurrentAcordActivity } from "@/app/actions/acord";
 import AcordActivityIsland from "./acord-activity-island";
 import RetroachievementsActivityIsland from "./retroachievements-activity-island";
-import { getLastGamePlayed } from "@/app/actions/retroachievements";
+import { getLastGamePlayed, getRetroachievementsUserProfile } from "@/app/actions/retroachievements";
 import { hoursSince } from "@/utils/time";
 import { cacheLife } from "next/cache";
 
@@ -22,6 +22,7 @@ export default async function ActivitiesDialog() {
 
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
   const currentAcordActivityInfo = await getCurrentAcordActivity();
+  const retroachievementsUserProfile = await getRetroachievementsUserProfile();
   const lastGamePlayedInfo = await getLastGamePlayed();
 
   const isSpotifyPlaying =
@@ -68,6 +69,7 @@ export default async function ActivitiesDialog() {
             {isRetroachievementsActive && (
               <RetroachievementsActivityIsland
                 lastGamePlayedInfo={lastGamePlayedInfo}
+                userProfile={retroachievementsUserProfile}
               />
             )}
             <Separator />
