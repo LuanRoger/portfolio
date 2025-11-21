@@ -40,6 +40,7 @@ export default function BadgeMarquee() {
             alt="I Love Music Badge"
             width={80}
             height={15}
+            unoptimized
           />
           <Image
             src={MozillaBadge}
