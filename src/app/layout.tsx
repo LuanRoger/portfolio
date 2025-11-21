@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import Background from "@/components/background";
 import "./globals.css";
@@ -124,7 +123,6 @@ export default function RootLayout({
             {children}
           </main>
           <Background />
-          <Analytics />
         </div>
       </body>
     </html>
