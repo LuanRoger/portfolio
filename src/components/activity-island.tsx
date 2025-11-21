@@ -30,7 +30,7 @@ export default function ActivityIsland({
   const titleDefaultClasses = "text-white font-bold";
 
   return (
-    <div className="relative isolate h-36 w-full overflow-clip rounded-lg">
+    <div className="relative isolate h-40 w-full overflow-clip rounded-lg inset-shadow-xs">
       {accentColor && <FadeVignette accentColor={accentColor} />}
       <Image
         src={imageSrc}
@@ -38,6 +38,13 @@ export default function ActivityIsland({
         height={300}
         alt={imageAlt}
         className="absolute inset-0 z-0 size-full object-none"
+      />
+      <Image
+        src={imageSrc}
+        width={30}
+        height={30}
+        alt={imageAlt}
+        className="absolute inset-0 -z-10 size-full object-cover blur-lg"
       />
       <div className="absolute z-20 flex size-full flex-col justify-between p-2">
         <div className="inline-flex items-center gap-2">
