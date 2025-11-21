@@ -9,16 +9,31 @@ import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import { Skeleton } from "./ui/skeleton";
 import { getCurrentAcordActivity } from "@/app/actions/acord";
 import AcordActivityIsland from "./acord-activity-island";
+import RetroachievementsActivityIsland from "./retroachievements-activity-island";
+import { getLastGamePlayed, getRetroachievementsUserProfile } from "@/app/actions/retroachievements";
+import { hoursSince } from "@/utils/time";
+import { cacheLife } from "next/cache";
 
 export default async function ActivitiesDialog() {
+  "use cache";
+  cacheLife("minutes");
+
   const titlesDefaultClasses = "font-mono text-sm text-gray-400 opacity-65";
 
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
   const currentAcordActivityInfo = await getCurrentAcordActivity();
+  const retroachievementsUserProfile = await getRetroachievementsUserProfile();
+  const lastGamePlayedInfo = await getLastGamePlayed();
 
-  const isSpotifyPlaying = currentPlayingInfo?.isPlaying || false;
+  const isSpotifyPlaying =
+    currentPlayingInfo && (currentPlayingInfo?.isPlaying || false);
   const isAcordActivity = !!currentAcordActivityInfo;
-  const isOnline = isSpotifyPlaying || isAcordActivity;
+  const hoursSinceLastRetroachievementsPlay = hoursSince(
+    lastGamePlayedInfo.lastPlayed,
+  );
+  const isRetroachievementsActive = hoursSinceLastRetroachievementsPlay < 1;
+  const isOnline =
+    isSpotifyPlaying || isAcordActivity || isRetroachievementsActive;
 
   const statusMessage = isOnline
     ? "I'm online! Probably doing something awesome 🚀"
@@ -42,7 +57,7 @@ export default async function ActivitiesDialog() {
               text="Activities"
               textClassName={`${titlesDefaultClasses} uppercase text-sm`}
             />
-            {isSpotifyPlaying && currentPlayingInfo && (
+            {isSpotifyPlaying && (
               <SpotifyCurrentPlayingIsland
                 title="Listening to"
                 spotifyInfo={currentPlayingInfo}
@@ -51,10 +66,15 @@ export default async function ActivitiesDialog() {
             {isAcordActivity && currentAcordActivityInfo && (
               <AcordActivityIsland acordActivity={currentAcordActivityInfo} />
             )}
+            {isRetroachievementsActive && (
+              <RetroachievementsActivityIsland
+                lastGamePlayedInfo={lastGamePlayedInfo}
+                userProfile={retroachievementsUserProfile}
+              />
+            )}
             <Separator />
           </>
         )}
-
         <h1 className={titlesDefaultClasses}>{statusMessage}</h1>
       </PopoverContent>
     </Popover>

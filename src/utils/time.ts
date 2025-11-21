@@ -32,3 +32,11 @@ export function formatDateAsHumanReadable(date: Date): string {
 
   return date.toLocaleDateString("en-US", options);
 }
+
+export function hoursSince(date: Date): number {
+  const now = new Date();
+  const diffInMs = now.getTime() - date.getTime();
+  const diffInHours = diffInMs / (1000 * 60 * 60);
+
+  return diffInHours;
+}
