@@ -2,11 +2,13 @@
 
 import { cn } from "@/utils/shadcn-utils";
 import { AnimatePresence, motion } from "motion/react";
+import RepoUpdateBadge from "./repo-update-badge";
 
 interface BentoGridItemProps {
   className?: string;
   title?: string | React.ReactNode;
   support?: string | React.ReactNode;
+  repoName?: string;
   links?: (string | React.ReactNode)[];
   description?: string | React.ReactNode;
   header?: React.ReactNode;
@@ -17,6 +19,7 @@ export default function BentoGridItem({
   className,
   title,
   support,
+  repoName,
   links,
   description,
   header,
@@ -39,7 +42,7 @@ export default function BentoGridItem({
       whileHover={"hover"}
       whileTap={"hover"}
       className={cn(
-        "border-border relative flex flex-col justify-between overflow-clip rounded-xl border min-h-80",
+        "border-border relative flex min-h-80 flex-col justify-between overflow-clip rounded-xl border",
         className,
       )}
     >
@@ -77,7 +80,12 @@ export default function BentoGridItem({
           className="fnoise h-full w-full space-y-2 p-4"
         >
           {header}
-          <div className="font-bold">{title}</div>
+          <span className="flex gap-2">
+            <h4 className="font-bold">{title}</h4>
+            {repoName && (
+              <RepoUpdateBadge repoName={repoName} prefix={<span>•</span>} />
+            )}
+          </span>
           <div className="text-sm font-normal">{description}</div>
         </motion.div>
       </motion.div>

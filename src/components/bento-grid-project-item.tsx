@@ -15,13 +15,16 @@ export default function BentoGridProjectItem({
   project,
   className,
 }: BentoGridProjectItemProps) {
-  const { title, image, description, link, repoLink, techStack } = project;
+  const { title, image, description, link, repoName, techStack } = project;
   const { src: imageSrc, alt: imageAlt, animated: isImageAnimated } = image;
+  const githubUrl = process.env.GITHUB_URL;
+  const githubUsername = process.env.GITHUB_USERNAME;
 
   return (
     <BentoGridItem
       className={className}
       title={title}
+      repoName={repoName}
       support={
         <>
           {techStack.map((tech) => (
@@ -30,9 +33,12 @@ export default function BentoGridProjectItem({
         </>
       }
       links={[
-        repoLink && (
+        (githubUrl || githubUsername || repoName) && (
           <Button key={"github"} variant="ghost" size="icon">
-            <a href={repoLink} target="_blank">
+            <a
+              href={`${githubUrl}/${githubUsername}/${repoName}`}
+              target="_blank"
+            >
               <GitHubIcon className="fill-foreground h-5 w-5" />
             </a>
           </Button>

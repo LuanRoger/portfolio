@@ -27,7 +27,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "shadcn-ui",
     ]),
-    repoLink: "https://github.com/LuanRoger/electron-shadcn",
+    repoName: "electron-shadcn",
     image: {
       src: ElectronShadcn,
       alt: "Template demo",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       "A simple blog powered by Astro 🚀. It uses the Notion API as CMS.",
     techStack: getTechsByName(["React", "TypeScript", "Vercel"]),
     link: "https://notion-blog-luanroger.vercel.app/",
-    repoLink: "https://github.com/LuanRoger/notion-blog",
+    repoName: "notion-blog",
     image: {
       src: NotionBlogImg,
       alt: "Notion Blog example",
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "C#",
       "Tailwind CSS",
     ]),
-    repoLink: "https://github.com/LuanRoger/WHMonitor",
+    repoName: "WHMonitor",
     image: {
       src: WHMonitor,
       alt: "WHMonitor screenshot",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Electron",
     ]),
-    repoLink: "https://github.com/LuanRoger/yaste",
+    repoName: "yaste",
     image: {
       src: Yaste,
       alt: "yaste screenshot",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     description:
       "Event Soucing as synchronization mechanism using Flutter with Riverpod and Realm.",
     techStack: getTechsByName(["Flutter", "Dart"]),
-    repoLink: "https://github.com/LuanRoger/todo_sync",
+    repoName: "todo_sync",
     image: {
       src: TodoSync,
       alt: "Sync demo",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
       "AWS",
       "DigitalOcean",
     ]),
-    repoLink: "https://github.com/LuanRoger/VolumeVault",
+    repoName: "VolumeVault",
     image: {
       src: VolumeVault,
       alt: "Home page screenshot",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     description: "🎮 Add support to XInput controllers with Win32 API.",
     techStack: getTechsByName(["Dart"]),
     link: "https://pub.dev/packages/xinput_gamepad",
-    repoLink: "https://github.com/LuanRoger/xinput_gamepad",
+    repoName: "xinput_gamepad",
     image: {
       src: XinputGamepad,
       alt: "GitHub repository's page",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     description:
       "Launcher with the Xbox Series X/S's dashboard to play Xbox Cloud Gaming (XCloud) games.",
     techStack: getTechsByName(["Flutter", "Dart", "Python"]),
-    repoLink: "https://github.com/LuanRoger/xbox_launcher",
+    repoName: "xbox_launcher",
     image: {
       src: XboxLauncher,
       alt: "Home page screenshot",
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     title: "virtual_keyboard",
     description: "Simulate keystrokes with Win32 API.",
     techStack: getTechsByName(["Dart"]),
-    repoLink: "https://github.com/LuanRoger/virtual_keyboard",
+    repoName: "virtual_keyboard",
     image: {
       src: VirtualKeyboard,
       alt: "GitHub repository's page",
@@ -148,7 +148,7 @@ export const projects: Project[] = [
       "🌐 Simple package that helps manage strings for implementing new languages in .NET applications.",
     techStack: getTechsByName([".NET", "C#"]),
     link: "https://www.nuget.org/packages/GlobalStrings",
-    repoLink: "https://github.com/LuanRoger/GlobalStrings",
+    repoName: "GlobalStrings",
     image: {
       src: GlobalStrings,
       alt: "GitHub repository's page",
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     description: "⚙️ Create, manage and save settings in .yaml or .json. ",
     techStack: getTechsByName([".NET", "C#"]),
     link: "https://www.nuget.org/packages/SerializedConfig",
-    repoLink: "https://github.com/LuanRoger/SerializedConfiguration",
+    repoName: "SerializedConfiguration",
     image: {
       src: SerializedConfiguration,
       alt: "GitHub repository's page",
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     title: "Dropnote",
     description: "Create, edit and share text instantly.",
     techStack: getTechsByName(["Next.js", "React", "MongoDB", "TypeScript"]),
-    repoLink: "https://github.com/LuanRoger/dropnote",
+    repoName: "dropnote",
     image: {
       src: Dropnote,
       alt: "Dropnote demo",
@@ -180,7 +180,7 @@ export const projects: Project[] = [
     title: "ts-package-template",
     description: "Modern tools to build an NPM package with TypeScript support",
     techStack: getTechsByName(["TypeScript", "Node.js", "Rolldown"]),
-    repoLink: "https://github.com/LuanRoger/ts-package-template",
+    repoName: "ts-package-template",
     link: "https://www.npmjs.com/package/@luanroger/ts-package-template",
     image: {
       src: TsPackageTemplate,
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     title: "unplugin-use-wasm",
     description: 'Support to "use wasm" directive to compile to WebAssembly.',
     techStack: getTechsByName(["TypeScript", "Vite", "Rolldown"]),
-    repoLink: "https://github.com/LuanRoger/unplugin-use-wasm",
+    repoName: "unplugin-use-wasm",
     link: "https://www.npmjs.com/package/unplugin-use-wasm",
     image: {
       src: unpluginUseWasm,
