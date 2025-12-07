@@ -37,7 +37,7 @@ export const projects: Project[] = [
     title: "Notion Blog",
     description:
       "A simple blog powered by Astro 🚀. It uses the Notion API as CMS.",
-    techStack: getTechsByName(["React", "TypeScript", "Vercel"]),
+    techStack: getTechsByName(["Astro", "React", "TypeScript", "Tailwind CSS", "Vercel"]),
     link: "https://notion-blog-luanroger.vercel.app/",
     repoName: "notion-blog",
     image: {
