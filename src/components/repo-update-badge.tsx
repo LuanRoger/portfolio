@@ -1,33 +1,22 @@
-"use client";
-
-import { ReactNode, useEffect, useState, useTransition } from "react";
-import { GitHubRepository } from "@/types/github";
+import { ReactNode } from "react";
 import { getGitHubProfileRepository } from "@/app/actions/github";
 import { Badge } from "./ui/badge";
 import { Skeleton } from "./ui/skeleton";
+import { cacheLife } from "next/cache";
 
 interface RepoUpdateBadgeProps {
   repoName: string;
   prefix?: ReactNode;
 }
 
-export default function RepoUpdateBadge({
+export default async function RepoUpdateBadge({
   prefix,
   repoName,
 }: RepoUpdateBadgeProps) {
-  const [repoInfo, setRepoInfo] = useState<GitHubRepository | null>(null);
-  const [isPending, startAction] = useTransition();
+  "use cache";
+  cacheLife("days");
 
-  useEffect(() => {
-    startAction(async () => {
-      const result = await getGitHubProfileRepository(repoName);
-      setRepoInfo(result);
-    });
-  }, [repoName]);
-
-  if (isPending) {
-    return <RepoUpdateBadgeLoading />;
-  }
+  const repoInfo = await getGitHubProfileRepository(repoName);
 
   if (!repoInfo) {
     return null;
@@ -50,6 +39,6 @@ export default function RepoUpdateBadge({
   );
 }
 
-function RepoUpdateBadgeLoading() {
-  return <Skeleton className="h-6 w-4 rounded-full" />;
+export function RepoUpdateBadgeLoading() {
+  return <Skeleton className="h-6 w-16 rounded-full" />;
 }
