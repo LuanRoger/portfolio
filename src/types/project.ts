@@ -10,6 +10,6 @@ export interface Project {
     alt: string;
     animated?: boolean;
   };
-  repoLink?: string | undefined;
+  repoName?: string | undefined;
   link?: string | undefined;
 }
