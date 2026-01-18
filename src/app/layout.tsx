@@ -17,9 +17,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${GeistSans.variable} ${GeistMono.variable} dark bg-background`}
-      >
+      <body className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
         <div className="relative">
           <main className="z-10 w-full py-0 md:max-2xl:flex md:max-2xl:flex-row md:max-2xl:items-center md:max-2xl:justify-center md:max-2xl:py-4">
             {children}
