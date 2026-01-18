@@ -3,7 +3,7 @@ export interface Tech {
   link: string;
   color: string;
   category: TechCategory;
-  icon: React.ReactElement;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 export enum TechCategory {

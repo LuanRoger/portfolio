@@ -1,8 +1,6 @@
-"use client";
-
 import { Tech } from "@/types/tech";
-import { Badge } from "./ui/badge";
-import { cloneElement } from "react";
+import Link from "./link";
+import { Button } from "./ui/button";
 
 interface TechProps {
   tech: Tech;
@@ -10,23 +8,14 @@ interface TechProps {
 }
 
 export function TechBadge({ tech }: TechProps) {
-  const { name, color, link, icon } = tech;
+  const { name, color, link, icon: Icon } = tech;
 
   return (
-    <a href={link} target="_blank">
-      <Badge
-        variant={"outline"}
-        className={`hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-1 py-2 duration-300`}
-      >
-        {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          cloneElement(icon as React.ReactElement<any>, {
-            fill: color,
-            style: { width: "1rem", height: "1rem" },
-          })
-        }
+    <Button variant="outline" size="sm" className="bg-transparent" asChild>
+      <Link href={link} isExternal style={{ backgroundColor: `${color}25` }}>
+        <Icon fill={color} style={{ width: "1rem", height: "1rem" }} />
         <p>{name}</p>
-      </Badge>
-    </a>
+      </Link>
+    </Button>
   );
 }
