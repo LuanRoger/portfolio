@@ -45,12 +45,7 @@
   --color-chart-5: hsl(var(--chart-5));
 
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-commit-mono);
-  --font-dancing: var(--font-dancing-script);
-  --font-jacquard: var(--font-jacquarda-bastarda);
-  --font-vt: var(--font-vt-323);
-  --font-yellowtail: var(--font-yellowtail);
-  --font-ubuntu: var(--font-ubuntu-mono);
+  --font-mono: var(--font-geist-mono);
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);

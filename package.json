@@ -25,6 +25,7 @@
     "@upstash/ratelimit": "^2.0.7",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "geist": "^1.5.1",
     "motion": "^12.25.0",
     "next": "16.1.1",
     "posthog-js": "^1.318.1",
