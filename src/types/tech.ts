@@ -4,6 +4,7 @@ export interface Tech {
   color: string;
   category: TechCategory;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  hide?: boolean;
 }
 
 export enum TechCategory {

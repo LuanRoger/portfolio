@@ -32,6 +32,7 @@ import {
   NextJSIcon,
   CsharpIcon,
   RolldownIcon,
+  RustIcon,
 } from "@/components/svg-icons";
 import { Tech, TechCategory } from "../types/tech";
 
@@ -63,6 +64,7 @@ export const myStack: Tech[] = [
     color: "#C026D3",
     category: TechCategory.Language,
     icon: CsharpIcon,
+    hide: true,
   },
   {
     name: "Dart",
@@ -70,6 +72,7 @@ export const myStack: Tech[] = [
     color: "#0175C2",
     category: TechCategory.Language,
     icon: DartIcon,
+    hide: true,
   },
   {
     name: "DigitalOcean",
@@ -91,6 +94,7 @@ export const myStack: Tech[] = [
     color: "#512BD4",
     category: TechCategory.Backend,
     icon: DotnetIcon,
+    hide: true,
   },
   {
     name: "Electron",
@@ -112,6 +116,7 @@ export const myStack: Tech[] = [
     color: "#02569B",
     category: TechCategory.MobileDesktop,
     icon: FlutterIcon,
+    hide: true,
   },
   {
     name: "Git",
@@ -161,6 +166,7 @@ export const myStack: Tech[] = [
     color: "#3776AB",
     category: TechCategory.Language,
     icon: PythonIcon,
+    hide: true,
   },
   {
     name: "RabbitMQ",
@@ -189,6 +195,13 @@ export const myStack: Tech[] = [
     color: "#FF7E17",
     category: TechCategory.DevOps,
     icon: RolldownIcon,
+  },
+  {
+    name: "Rust",
+    link: "https://rust-lang.org",
+    color: "#000000",
+    category: TechCategory.Language,
+    icon: RustIcon,
   },
   {
     name: "shadcn-ui",
