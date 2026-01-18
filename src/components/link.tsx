@@ -2,13 +2,11 @@ import { cn } from "@/utils/shadcn-utils";
 import { Url } from "next/dist/shared/lib/router/router";
 import NextLink from "next/link";
 
-interface LinkProps {
-  children: React.ReactNode;
-  className?: string;
+type LinkProps = {
   href: Url;
   isExternal?: boolean;
   onClick?: () => void;
-}
+} & React.ComponentProps<"a">;
 
 export default function Link({
   children,
@@ -16,6 +14,7 @@ export default function Link({
   href,
   isExternal,
   onClick,
+  ...props
 }: LinkProps) {
   const target = isExternal ? "_blank" : "_self";
 
@@ -25,6 +24,7 @@ export default function Link({
       href={href}
       className={cn("cursor-pointer font-bold hover:underline", className)}
       onClick={onClick}
+      {...props}
     >
       {children}
     </NextLink>

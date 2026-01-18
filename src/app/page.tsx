@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="border-border relative z-20 overflow-clip shadow-inner shadow-zinc-600 md:max-2xl:w-3/5 md:max-2xl:rounded-md md:max-2xl:border">
+    <div className="border-border relative z-20 overflow-clip md:max-2xl:w-3/5 md:max-2xl:rounded-md md:max-2xl:border">
       <div className="space-y-2 p-4">
         <NameHeader />
         <TechStack />
