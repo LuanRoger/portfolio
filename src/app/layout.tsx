@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Background from "@/components/background";
 import "./globals.css";
+import { jsonLd } from "@/constants/json-ld";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -87,27 +87,6 @@ const ubuntuMono = localFont({
   weight: "400 700",
 });
 
-export const metadata: Metadata = {
-  title: "LR Portfolio",
-  description: "my portfolio.",
-  keywords: [
-    "portfolio",
-    "web developer",
-    "software engineer",
-    "full stack",
-    "frontend",
-    "backend",
-    "developer",
-    "programmer",
-    "engineer",
-    "web",
-    "software",
-  ],
-  authors: [{ name: "Luan Roger", url: "https://luanroger.dev" }],
-  creator: "Luan Roger",
-  publisher: "Luan Roger",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -115,6 +94,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${commitMono.variable} ${dancingScript.variable} ${jacquardaBastarda.variable} ${vt323.variable} ${yellowtail.variable} ${ubuntuMono.variable} dark bg-background`}
       >

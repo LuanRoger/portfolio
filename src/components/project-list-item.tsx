@@ -42,12 +42,16 @@ export default function ProjectListItem({
           ))}
         </div>
         <div className="fnoise border-border m-1 flex flex-col gap-2 rounded-md border p-4">
-          <h4 className="font-bold">{title}</h4>
+          <h3 className="font-bold">{title}</h3>
           <div className="text-sm font-normal">{description}</div>
           <div className="inline-flex gap-2">
             {repoLink && (
               <Button key={"github"} variant="ghost" asChild>
-                <Link href={repoLink} target="_blank">
+                <Link
+                  href={repoLink}
+                  target="_blank"
+                  aria-label={`GitHub repository for ${repoName}`}
+                >
                   <GitHubIcon className="fill-foreground" />
                   {repoName && (
                     <Suspense fallback={<RepoUpdateBadgeLoading />}>
@@ -63,8 +67,12 @@ export default function ProjectListItem({
               </Button>
             )}
             {link && (
-              <Button key={"link"} variant="ghost" size="icon">
-                <Link href={link} target="_blank">
+              <Button key={"link"} variant="ghost" size="icon" asChild>
+                <Link
+                  href={link}
+                  target="_blank"
+                  aria-label={`Project link to ${title}`}
+                >
                   <IconExternalLink className="fill-foreground h-5 w-5" />
                 </Link>
               </Button>
