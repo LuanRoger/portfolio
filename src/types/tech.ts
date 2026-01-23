@@ -4,17 +4,21 @@ export interface Tech {
   color: string;
   category: TechCategory;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  hide?: boolean;
 }
 
 export enum TechCategory {
   Language = "Languages",
-  Frontend = "Frontend Frameworks",
-  Backend = "Backend & Runtime",
-  UILibrary = "UI Libraries",
-  MobileDesktop = "Mobile & Desktop",
+  Frontend = "Frontend",
+  Styling = "Styling",
+  Runtime = "Runtimes",
+  Backend = "Backend",
+  CrossPlatform = "Cross-Platform",
   Database = "Databases",
-  Cloud = "Cloud & Hosting",
-  DevOps = "DevOps & Build Tools",
-  Infrastructure = "Infrastructure & Monitoring",
-  CMS = "CMS & Backend Services",
+  Infrastructure = "Infrastructure",
+  BuildTools = "Build Tools",
+  DevOps = "DevOps",
+  CloudHosting = "Cloud & Hosting",
+  BackendServices = "Backend Services",
+  Observability = "Observability",
 }

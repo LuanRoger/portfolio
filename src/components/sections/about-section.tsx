@@ -5,7 +5,9 @@ import {
   DotnetIcon,
   ElectronIcon,
   FlutterIcon,
+  NextJSIcon,
   ReactIcon,
+  RustIcon,
 } from "../svg-icons";
 
 export default function AboutSection() {
@@ -13,27 +15,27 @@ export default function AboutSection() {
     <section id="about" className="space-y-2">
       <h2 className="text-xl font-bold">About Me</h2>
       <p>
-        Hello there! I&apos;m Luan Roger, a software engineer, full-stack
-        developer and student based in Brazil 🇧🇷. Currently, I&apos;m working at{" "}
+        I&apos;m Luan Roger, a software engineer and full-stack developer based
+        in Brazil 🇧🇷. I currently work as a Software Engineer at{" "}
         <Link href="https://www.aramis.com.br">
           <AramisLogo className="inline-block scale-95" /> Aramis
-        </Link>{" "}
-        as Software Engineer while studying Software Engineering at UFC
-        (Universidade Federal do Ceará).
-        <br />
-        In my spare time, I create and maintain open-source projects using{" "}
-        <ReactIcon className="fill-foreground inline-block h-5 w-5" /> React,{" "}
+        </Link>
+        , while pursuing my Bachelor&apos;s degree in Software Engineering at
+        UFC (Universidade Federal do Ceará).
+        <br />I actively contribute to the open-source community, developing and
+        maintaining projects with{" "}
+        <NextJSIcon className="fill-foreground inline-block h-5 w-5" /> Next.js,{" "}
         <ElectronIcon className="fill-foreground inline-block h-5 w-5" />{" "}
-        Electron,{" "}
-        <DotnetIcon className="fill-foreground inline-block h-5 w-5" /> .NET
-        (C#/ASP.NET),{" "}
-        <FlutterIcon className="fill-foreground inline-block h-5 w-5" />{" "}
-        Flutter, and other technologies for my GitHub. I also write articles and
-        tutorials about programming on my blog.
-        <br />I love playing games, especially RPGs—my favorites include the
-        Final Fantasy series, Chrono Trigger and The Legend of Zelda. I&apos;m
-        always looking for new challenges and opportunities to learn and help
-        the community.
+        Electron and other modern technologies. In parallel, I am expanding my
+        expertise in{" "}
+        <RustIcon className="fill-foreground inline-block h-5 w-5" /> Rust and
+        regularly share my knowledge through technical articles and tutorials
+        published on my blog.
+        <br />
+        Beyond coding, I often play some RPGs, particularly, the Final Fantasy
+        series, Chrono Trigger, and The Legend of Zelda. I&apos;m continually
+        seeking new challenges and opportunities to expand my expertise while
+        contributing to the developer community.
       </p>
       <CodingStatsCollapser />
     </section>

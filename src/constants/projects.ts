@@ -34,15 +34,14 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "Notion Blog",
-    description:
-      "A simple blog powered by Astro 🚀. It uses the Notion API as CMS.",
-    techStack: getTechsByName(["Astro", "React", "TypeScript", "Tailwind CSS", "Vercel"]),
-    link: "https://notion-blog-luanroger.vercel.app/",
-    repoName: "notion-blog",
+    title: "Dropnote",
+    description: "Create, edit and share text instantly.",
+    techStack: getTechsByName(["Next.js", "React", "MongoDB", "TypeScript"]),
+    repoName: "dropnote",
     image: {
-      src: NotionBlogImg,
-      alt: "Notion Blog example",
+      src: Dropnote,
+      alt: "Dropnote demo",
+      animated: true,
     },
   },
   {
@@ -133,50 +132,6 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "virtual_keyboard",
-    description: "Simulate keystrokes with Win32 API.",
-    techStack: getTechsByName(["Dart"]),
-    repoName: "virtual_keyboard",
-    image: {
-      src: VirtualKeyboard,
-      alt: "GitHub repository's page",
-    },
-  },
-  {
-    title: "GlobalStrings",
-    description:
-      "🌐 Simple package that helps manage strings for implementing new languages in .NET applications.",
-    techStack: getTechsByName([".NET", "C#"]),
-    link: "https://www.nuget.org/packages/GlobalStrings",
-    repoName: "GlobalStrings",
-    image: {
-      src: GlobalStrings,
-      alt: "GitHub repository's page",
-    },
-  },
-  {
-    title: "Serialized Configuration",
-    description: "⚙️ Create, manage and save settings in .yaml or .json. ",
-    techStack: getTechsByName([".NET", "C#"]),
-    link: "https://www.nuget.org/packages/SerializedConfig",
-    repoName: "SerializedConfiguration",
-    image: {
-      src: SerializedConfiguration,
-      alt: "GitHub repository's page",
-    },
-  },
-  {
-    title: "Dropnote",
-    description: "Create, edit and share text instantly.",
-    techStack: getTechsByName(["Next.js", "React", "MongoDB", "TypeScript"]),
-    repoName: "dropnote",
-    image: {
-      src: Dropnote,
-      alt: "Dropnote demo",
-      animated: true,
-    },
-  },
-  {
     title: "ts-package-template",
     description: "Modern tools to build an NPM package with TypeScript support",
     techStack: getTechsByName(["TypeScript", "Node.js", "Rolldown"]),
@@ -189,7 +144,8 @@ export const projects: Project[] = [
   },
   {
     title: "unplugin-use-wasm",
-    description: 'Support to "use wasm" directive to compile to WebAssembly.',
+    description:
+      'Plugin for Vite to add support to "use wasm" directive. The file with this directive will be compiled to WebAssembly.',
     techStack: getTechsByName(["TypeScript", "Vite", "Rolldown"]),
     repoName: "unplugin-use-wasm",
     link: "https://www.npmjs.com/package/unplugin-use-wasm",
