@@ -28,7 +28,7 @@ export default async function ActivitiesDialog() {
   const retroachievementsUserProfile = await getRetroachievementsUserProfile();
   const lastGamePlayedInfo = await getLastGamePlayed();
 
-  const isSpotifyPlaying = currentPlayingInfo && currentPlayingInfo?.isPlaying;
+  const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
   const isAcordActivity = !!currentAcordActivityInfo;
   const hoursSinceLastRetroachievementsPlay = hoursSince(
     lastGamePlayedInfo.lastPlayed

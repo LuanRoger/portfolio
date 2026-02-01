@@ -8,9 +8,9 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
-interface GithubMetricsAccordionItemProps {
+type GithubMetricsAccordionItemProps = {
   value: string;
-}
+};
 
 export default function GithubMetricsAccordionItem({
   value,

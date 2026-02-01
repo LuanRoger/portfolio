@@ -4,10 +4,10 @@ import { getGitHubProfileRepository } from "@/app/actions/github";
 import { Badge } from "./ui/badge";
 import { Skeleton } from "./ui/skeleton";
 
-interface RepoUpdateBadgeProps {
+type RepoUpdateBadgeProps = {
   repoName: string;
   prefix?: ReactNode;
-}
+};
 
 export default async function RepoUpdateBadge({
   prefix,
@@ -22,7 +22,7 @@ export default async function RepoUpdateBadge({
     return null;
   }
 
-  const currentDateTime = new Date().getTime();
+  const currentDateTime = Date.now();
   const updatedAt = new Date(repoInfo.updatedAt);
   const wasUpdatedRecently =
     (currentDateTime - updatedAt.getTime()) / (1000 * 60 * 60 * 24) <= 7;

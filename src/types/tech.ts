@@ -1,11 +1,11 @@
-export interface Tech {
+export type Tech = {
   name: string;
   link: string;
   color: string;
   category: TechCategory;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   hide?: boolean;
-}
+};
 
 export enum TechCategory {
   Language = "Languages",

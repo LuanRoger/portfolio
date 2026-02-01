@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/** biome-ignore-all lint/suspicious/noExplicitAny: Can't know the type will be adapted */
 import type {
   GitHubRepository,
   GitHubRepositoryLanguage,

@@ -11,9 +11,9 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
-interface WakatimeCodingMetricsAccordionItemProps {
+type WakatimeCodingMetricsAccordionItemProps = {
   value: string;
-}
+};
 
 export default function WakatimeCodingMetricsAccordionItem({
   value,

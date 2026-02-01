@@ -1,9 +1,9 @@
 import { cn } from "@/utils/shadcn-utils";
 import { NoiseContainer } from "./grayni-noise";
 
-interface BackgroundProps {
+type BackgroundProps = {
   className?: string | undefined;
-}
+};
 
 export default function Background({ className }: BackgroundProps) {
   return (

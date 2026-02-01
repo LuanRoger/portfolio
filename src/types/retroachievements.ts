@@ -1,4 +1,4 @@
-export interface RetroachievementsUserProfile {
+export type RetroachievementsUserProfile = {
   user: string;
   ulid: string;
   userPic: string;
@@ -15,9 +15,9 @@ export interface RetroachievementsUserProfile {
   id: number;
   userWallActive: boolean;
   motto: string;
-}
+};
 
-export interface LastPlayedGame {
+export type LastPlayedGame = {
   gameId: number;
   consoleId: number;
   consoleName: string;
@@ -34,4 +34,4 @@ export interface LastPlayedGame {
   scoreAchieved: number;
   numAchievedHardcore: number;
   scoreAchievedHardcore: number;
-}
+};

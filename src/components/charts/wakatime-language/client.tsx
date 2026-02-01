@@ -18,29 +18,26 @@ import {
   ChartTooltipContent,
 } from "../../ui/chart";
 
-interface LanguageChartData {
+type LanguageChartData = {
   totalInSeconds: number;
   data: {
     name: string;
     value: number;
     fill?: string;
   }[];
-}
+};
 
 export default function WakatimeLanguagesChart({
   data,
   totalInSeconds,
 }: LanguageChartData) {
-  const chartConfig: ChartConfig = data.reduce(
-    (config, item) => ({
-      ...config,
-      [item.name]: {
-        label: item.name,
-        color: item.fill ? `hex(${item.fill})` : "hsl(var(--chart-1))",
-      },
-    }),
-    {}
-  );
+  const chartConfig: ChartConfig = data.reduce((config, item) => {
+    config[item.name] = {
+      label: item.name,
+      color: item.fill ? `hex(${item.fill})` : "hsl(var(--chart-1))",
+    };
+    return config;
+  }, {} as ChartConfig);
   const hours = secondsToHours(totalInSeconds);
 
   return (

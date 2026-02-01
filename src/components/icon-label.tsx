@@ -1,10 +1,10 @@
 import { cn } from "@/utils/shadcn-utils";
 
-interface AnimatedIconLabelProps {
+type AnimatedIconLabelProps = {
   children: React.ReactNode;
   icon: React.ReactNode;
   className?: string;
-}
+};
 
 export default function IconLabel({
   children,

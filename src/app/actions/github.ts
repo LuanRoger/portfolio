@@ -104,12 +104,12 @@ export async function getGithubProfileRepositories() {
     })
   );
 
-  languagesResults.forEach((result) => {
+  for (const result of languagesResults) {
     const repo = filteredRepositories.find((r) => r.id === result.id);
     if (repo && result.languages) {
       repo.languages = result.languages;
     }
-  });
+  }
 
   return filteredRepositories;
 }

@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 import Image, { type StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 
-interface TiltedCardProps {
+type TiltedCardProps = {
   imageSrc: StaticImageData;
   altText?: string;
   imageHeight?: React.CSSProperties["height"];
@@ -14,7 +14,7 @@ interface TiltedCardProps {
   rotateAmplitude?: number;
   overlayContent?: React.ReactNode;
   displayOverlayContent?: boolean;
-}
+};
 
 const springValues: SpringOptions = {
   damping: 30,
@@ -48,7 +48,9 @@ export default function TiltedCard({
   const [lastY, setLastY] = useState(0);
 
   function handleMouse(e: React.MouseEvent<HTMLElement>) {
-    if (!ref.current) return;
+    if (!ref.current) {
+      return;
+    }
 
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
@@ -82,6 +84,7 @@ export default function TiltedCard({
   }
 
   return (
+    // biome-ignore lint/a11y/noNoninteractiveElementInteractions: Needed for hover effect
     <figure
       className="relative flex flex-col items-center justify-center [perspective:800px]"
       onMouseEnter={handleMouseEnter}

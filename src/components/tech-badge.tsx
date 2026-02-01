@@ -2,10 +2,10 @@ import type { Tech } from "@/types/tech";
 import Link from "./link";
 import { Button } from "./ui/button";
 
-interface TechProps {
+type TechProps = {
   tech: Tech;
   index?: number | undefined;
-}
+};
 
 export function TechBadge({ tech }: TechProps) {
   const { name, color, link, icon: Icon } = tech;

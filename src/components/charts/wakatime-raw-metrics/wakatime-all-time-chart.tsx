@@ -7,10 +7,10 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/utils/shadcn-utils";
 
-interface WakatimeAllTimeChartProps {
+type WakatimeAllTimeChartProps = {
   className?: string;
   timeText: string;
-}
+};
 
 export default function WakatimeAllTimeChart({
   className,

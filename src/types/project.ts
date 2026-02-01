@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 import type { Tech } from "./tech";
 
-export interface Project {
+export type Project = {
   title: string;
   description: string;
   techStack: Tech[];
@@ -12,4 +12,4 @@ export interface Project {
   };
   repoName?: string | undefined;
   link?: string | undefined;
-}
+};

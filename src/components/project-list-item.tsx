@@ -9,10 +9,10 @@ import RepoUpdateBadge, { RepoUpdateBadgeLoading } from "./repo-update-badge";
 import { GitHubIcon } from "./svg-icons";
 import { Button } from "./ui/button";
 
-interface ProjectListItemProps {
+type ProjectListItemProps = {
   project: Project;
   className?: string | undefined;
-}
+};
 
 export default function ProjectListItem({
   project,

@@ -4,9 +4,9 @@ import { IconArrowUp } from "@tabler/icons-react";
 import IconLabel from "./icon-label";
 import Link from "./link";
 
-interface ScrollTopLinkProps {
+type ScrollTopLinkProps = {
   className?: string;
-}
+};
 
 export default function ScrollTopLink({ className }: ScrollTopLinkProps) {
   function scrollToTop() {

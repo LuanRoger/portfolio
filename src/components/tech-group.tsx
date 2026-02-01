@@ -1,9 +1,9 @@
 import type { Tech } from "@/types/tech";
 import { TechBadge } from "./tech-badge";
 
-interface TechGroupProps {
+type TechGroupProps = {
   groupTechs: Tech[];
-}
+};
 
 export function TechGroup({ groupTechs }: TechGroupProps) {
   const category = groupTechs[0].category;

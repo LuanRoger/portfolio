@@ -20,7 +20,10 @@ export default function TechStack() {
     <section className="flex flex-col gap-2">
       {Object.values(TechCategory).map((category) => {
         const groupTechs = techsByCategory[category];
-        if (!groupTechs) return null;
+        if (!groupTechs) {
+          return null;
+        }
+
         return <TechGroup groupTechs={groupTechs} key={category} />;
       })}
     </section>

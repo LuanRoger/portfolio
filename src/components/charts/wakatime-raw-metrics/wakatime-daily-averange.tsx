@@ -10,10 +10,10 @@ import {
 import { cn } from "@/utils/shadcn-utils";
 import { formatDateAsHumanReadable } from "@/utils/time";
 
-interface WakatimeDailyAverageProps {
+type WakatimeDailyAverageProps = {
   timeText: string;
   className?: string;
-}
+};
 
 export default function WakatimeDailyAverage({
   className,

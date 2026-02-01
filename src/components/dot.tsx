@@ -1,12 +1,12 @@
 import { cn } from "@/utils/shadcn-utils";
 
-interface DotProps {
+type DotProps = {
   className?: string;
   animate?: boolean;
   animationClass?: string;
   dotClassName?: string;
   style?: React.CSSProperties | undefined;
-}
+};
 
 export default function Dot({
   className,

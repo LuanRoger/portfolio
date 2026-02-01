@@ -1,10 +1,10 @@
-interface WorkXpProps {
+type WorkXpProps = {
   company: string;
   position: string;
   startDate: string;
   endDate: string;
   description: string;
-}
+};
 
 export default function WorkXp({
   company,

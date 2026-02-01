@@ -14,13 +14,13 @@ import {
   ChartTooltipContent,
 } from "../../ui/chart";
 
-interface CategoryChartData {
+type CategoryChartData = {
   data: {
     day: string;
     codingHours?: number;
     debuggingHours?: number;
   }[];
-}
+};
 
 export default function WakatimeSummaryCategoriesChart({
   data,

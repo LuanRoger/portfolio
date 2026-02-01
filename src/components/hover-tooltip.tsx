@@ -5,10 +5,10 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
-interface HoverTooltipProps {
+type HoverTooltipProps = {
   text: string;
   children: React.ReactNode;
-}
+};
 
 export default function HoverTooltip({ text, children }: HoverTooltipProps) {
   return (

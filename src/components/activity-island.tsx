@@ -4,7 +4,7 @@ import { cn } from "@/utils/shadcn-utils";
 import { FadeVignette } from "./fade-vignette";
 import Link from "./link";
 
-interface ActivityIslandProps {
+type ActivityIslandProps = {
   title: string;
   description: string;
   activityDescription: string;
@@ -14,7 +14,7 @@ interface ActivityIslandProps {
   imageAlt: string;
   href?: string;
   accentColor?: string;
-}
+};
 
 export default function ActivityIsland({
   title,

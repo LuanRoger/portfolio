@@ -14,6 +14,7 @@ export default function RootLayout({
       <head>
         <link href="https://luanroger.dev/" rel="canonical" />
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: This is required for JSON-LD
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           type="application/ld+json"
         />

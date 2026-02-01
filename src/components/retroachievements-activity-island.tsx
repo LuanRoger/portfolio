@@ -5,10 +5,10 @@ import type {
 } from "@/types/retroachievements";
 import ActivityIsland from "./activity-island";
 
-interface RetroachievementsActivityIslandProps {
+type RetroachievementsActivityIslandProps = {
   lastGamePlayedInfo: LastPlayedGame;
   userProfile: RetroachievementsUserProfile;
-}
+};
 
 export default function RetroachievementsActivityIsland({
   lastGamePlayedInfo,

@@ -2,10 +2,10 @@
 
 import { cn } from "@/utils/shadcn-utils";
 
-interface AnimatedBadgeProps {
+type AnimatedBadgeProps = {
   children?: React.ReactNode;
   className?: string;
-}
+};
 
 export default function AnimatedBadge({
   children,

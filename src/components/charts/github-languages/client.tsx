@@ -19,22 +19,22 @@ import {
 } from "@/components/ui/chart";
 import { formatBytesInMB } from "@/utils/formater";
 
-interface GitHubLanguagesChartProps {
+type GitHubLanguagesChartProps = {
   data: { [name: string]: { size: number; color: string } };
-}
+};
 
 export default function GitHubLanguagesChart({
   data,
 }: GitHubLanguagesChartProps) {
   const chartConfig: ChartConfig = Object.entries(data).reduce(
-    (acc, [name, { color }]) => ({
-      ...acc,
-      [name]: {
+    (acc, [name, { color }]) => {
+      acc[name] = {
         label: name,
-        fill: `hex(${color})`,
-      },
-    }),
-    {}
+        color: `hex(${color})`,
+      };
+      return acc;
+    },
+    {} as ChartConfig
   );
   const chartData = Object.entries(data).map(([name, { size, color }]) => ({
     name,

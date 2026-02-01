@@ -3,10 +3,10 @@ import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-pla
 import { formatSpotifyArtistsName } from "@/utils/formater";
 import ActivityIsland from "./activity-island";
 
-interface SpotifyCurrentPlayingBadgeProps {
+type SpotifyCurrentPlayingBadgeProps = {
   title?: string | undefined;
   spotifyInfo: SpotifyCurrentPlayingTrackInfo;
-}
+};
 
 export default function SpotifyCurrentPlayingIsland({
   title,
