@@ -24,7 +24,7 @@ function AccordionItem({
 }: React.ComponentProps<typeof AccordionPrimitive.Item>) {
   return (
     <AccordionPrimitive.Item
-      className={cn("not-last:border-b", className)}
+      className={cn("border-border not-last:border-b", className)}
       data-slot="accordion-item"
       {...props}
     />
