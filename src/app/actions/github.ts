@@ -5,7 +5,7 @@ import {
   adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages,
   adaptGitHubRepositoryResponseToGitHubRepository,
   adaptGitHubUserResponseToGitHubUser,
-} from "@/types/adapters";
+} from "@/types/adapters/github";
 import type { GitHubRepository } from "@/types/github";
 
 export async function getGithubProfile() {

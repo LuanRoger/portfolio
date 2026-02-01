@@ -1,7 +1,7 @@
 "use server";
 
 import { cacheLife } from "next/cache";
-import { adaptAcordActivityToAcordCurrentActivity } from "@/types/adapters";
+import { adaptAcordActivityToAcordCurrentActivity } from "@/types/adapters/acord";
 
 export async function getCurrentAcordActivity() {
   "use cache";

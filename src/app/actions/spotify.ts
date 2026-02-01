@@ -1,7 +1,7 @@
 "use server";
 
 import { cacheLife } from "next/cache";
-import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters";
+import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters/spotify";
 
 async function getSpotifyAccessToken() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
