@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/performance/noNamespaceImport: shadcn/ui component */
 "use client";
 
 import * as React from "react";
