@@ -1,16 +1,16 @@
 import { Suspense } from "react";
+import GithubProfileMetrics from "./github-profile-metrics";
+import Link from "./link";
 import { GitHubIcon } from "./svg-icons";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
-import GithubProfileMetrics from "./github-profile-metrics";
-import Link from "./link";
 
-interface GithubMetricsAccordionItemProps {
+type GithubMetricsAccordionItemProps = {
   value: string;
-}
+};
 
 export default function GithubMetricsAccordionItem({
   value,
@@ -27,14 +27,14 @@ export default function GithubMetricsAccordionItem({
         <Suspense>
           <GithubProfileMetrics />
         </Suspense>
-        <div className="text-muted-foreground flex justify-between self-end text-sm">
+        <div className="flex justify-between self-end text-muted-foreground text-sm">
           <Link
+            className="inline-flex items-center gap-2 self-end font-medium"
             href={"https://docs.github.com/en/rest"}
             isExternal
-            className="inline-flex items-center gap-2 self-end font-medium"
           >
             Powered by{" "}
-            <GitHubIcon className="fill-muted-foreground inline-block size-5" />
+            <GitHubIcon className="inline-block size-5 fill-muted-foreground" />
           </Link>
         </div>
       </AccordionContent>

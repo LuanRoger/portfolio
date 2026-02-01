@@ -1,19 +1,15 @@
-import { getTechsByName } from "./my-stack";
-import { Project } from "../types/project";
-import NotionBlogImg from "~/public/images/projects/notion-blog.png";
-import ElectronShadcn from "~/public/images/projects/electron-shadcn.png";
-import WHMonitor from "~/public/images/projects/whmonitor.png";
-import Yaste from "~/public/images/projects/yaste.png";
-import TodoSync from "~/public/images/projects/todoSync.png";
-import VolumeVault from "~/public/images/projects/volumeVault.png";
-import XboxLauncher from "~/public/images/projects/xboxLauncher.png";
-import XinputGamepad from "~/public/images/projects/xinputGamepad.png";
-import VirtualKeyboard from "~/public/images/projects/virtualKeyboard.png";
-import GlobalStrings from "~/public/images/projects/globalStrings.png";
-import SerializedConfiguration from "~/public/images/projects/serializedConfiguration.png";
 import Dropnote from "~/public/images/projects/dropnote.gif";
+import ElectronShadcn from "~/public/images/projects/electron-shadcn.png";
+import TodoSync from "~/public/images/projects/todoSync.png";
 import TsPackageTemplate from "~/public/images/projects/ts-package-template.png";
 import unpluginUseWasm from "~/public/images/projects/unplugin-use-wasm.png";
+import VolumeVault from "~/public/images/projects/volumeVault.png";
+import WHMonitor from "~/public/images/projects/whmonitor.png";
+import XboxLauncher from "~/public/images/projects/xboxLauncher.png";
+import XinputGamepad from "~/public/images/projects/xinputGamepad.png";
+import Yaste from "~/public/images/projects/yaste.png";
+import type { Project } from "../types/project";
+import { getTechsByName } from "./my-stack";
 
 export const projects: Project[] = [
   {

@@ -1,18 +1,21 @@
+import { IconRocket } from "@tabler/icons-react";
+import { cacheLife } from "next/cache";
+import { getCurrentAcordActivity } from "@/app/actions/acord";
+import {
+  getLastGamePlayed,
+  getRetroachievementsUserProfile,
+} from "@/app/actions/retroachievements";
+import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
+import { hoursSince } from "@/utils/time";
+import AcordActivityIsland from "./acord-activity-island";
 import IconText from "./icon-text";
+import OfflinePresence from "./offline-presence";
 import OnlinePresence from "./online-presence";
+import RetroachievementsActivityIsland from "./retroachievements-activity-island";
 import SpotifyCurrentPlayingIsland from "./spotify-current-playing-island";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Separator } from "./ui/separator";
-import { IconRocket } from "@tabler/icons-react";
-import OfflinePresence from "./offline-presence";
-import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import { Skeleton } from "./ui/skeleton";
-import { getCurrentAcordActivity } from "@/app/actions/acord";
-import AcordActivityIsland from "./acord-activity-island";
-import RetroachievementsActivityIsland from "./retroachievements-activity-island";
-import { getLastGamePlayed, getRetroachievementsUserProfile } from "@/app/actions/retroachievements";
-import { hoursSince } from "@/utils/time";
-import { cacheLife } from "next/cache";
 
 export default async function ActivitiesDialog() {
   "use cache";
@@ -25,11 +28,10 @@ export default async function ActivitiesDialog() {
   const retroachievementsUserProfile = await getRetroachievementsUserProfile();
   const lastGamePlayedInfo = await getLastGamePlayed();
 
-  const isSpotifyPlaying =
-    currentPlayingInfo && (currentPlayingInfo?.isPlaying || false);
+  const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
   const isAcordActivity = !!currentAcordActivityInfo;
   const hoursSinceLastRetroachievementsPlay = hoursSince(
-    lastGamePlayedInfo.lastPlayed,
+    lastGamePlayedInfo.lastPlayed
   );
   const isRetroachievementsActive = hoursSinceLastRetroachievementsPlay < 1;
   const isOnline =
@@ -45,22 +47,22 @@ export default async function ActivitiesDialog() {
         {isOnline ? <OnlinePresence /> : <OfflinePresence />}
       </PopoverTrigger>
       <PopoverContent
-        className="text-gra flex max-w-72 flex-col items-center gap-2"
+        className="flex max-w-72 flex-col items-center gap-2 text-gra"
         side="left"
       >
         {isOnline && (
           <>
             <IconText
               icon={
-                <IconRocket size={20} color="#9ca3af" className="opacity-65" />
+                <IconRocket className="opacity-65" color="#9ca3af" size={20} />
               }
               text="Activities"
               textClassName={`${titlesDefaultClasses} uppercase text-sm`}
             />
             {isSpotifyPlaying && (
               <SpotifyCurrentPlayingIsland
-                title="Listening to"
                 spotifyInfo={currentPlayingInfo}
+                title="Listening to"
               />
             )}
             {isAcordActivity && currentAcordActivityInfo && (

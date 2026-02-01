@@ -1,12 +1,12 @@
 "use client";
 
 import { IconArrowUp } from "@tabler/icons-react";
-import Link from "./link";
 import IconLabel from "./icon-label";
+import Link from "./link";
 
-interface ScrollTopLinkProps {
+type ScrollTopLinkProps = {
   className?: string;
-}
+};
 
 export default function ScrollTopLink({ className }: ScrollTopLinkProps) {
   function scrollToTop() {
@@ -14,7 +14,7 @@ export default function ScrollTopLink({ className }: ScrollTopLinkProps) {
   }
 
   return (
-    <Link href={"/"} onClick={scrollToTop} className={className}>
+    <Link className={className} href={"/"} onClick={scrollToTop}>
       <IconLabel icon={<IconArrowUp size={14} />}>Top</IconLabel>
     </Link>
   );

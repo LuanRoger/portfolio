@@ -1,14 +1,14 @@
 import retroachievementsLogo from "@/app/images/retroachievements.svg";
-import ActivityIsland from "./activity-island";
-import {
+import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
 } from "@/types/retroachievements";
+import ActivityIsland from "./activity-island";
 
-interface RetroachievementsActivityIslandProps {
+type RetroachievementsActivityIslandProps = {
   lastGamePlayedInfo: LastPlayedGame;
   userProfile: RetroachievementsUserProfile;
-}
+};
 
 export default function RetroachievementsActivityIsland({
   lastGamePlayedInfo,
@@ -21,15 +21,15 @@ export default function RetroachievementsActivityIsland({
 
   return (
     <ActivityIsland
-      title={title}
-      description={richPresenceMsg}
-      activityDescription={details}
-      imageSrc={imageBoxArt}
-      imageAlt={imageTitle}
-      iconSrc={retroachievementsLogo}
-      iconAlt={"Retroachievements Logo"}
-      href={retroachievementsUrl}
       accentColor={"#ffcc00"}
+      activityDescription={details}
+      description={richPresenceMsg}
+      href={retroachievementsUrl}
+      iconAlt={"Retroachievements Logo"}
+      iconSrc={retroachievementsLogo}
+      imageAlt={imageTitle}
+      imageSrc={imageBoxArt}
+      title={title}
     />
   );
 }

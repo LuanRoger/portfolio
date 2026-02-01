@@ -1,7 +1,7 @@
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import Background from "@/components/background";
 import { jsonLd } from "@/constants/json-ld";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export default function RootLayout({
@@ -12,10 +12,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://luanroger.dev/" />
+        <link href="https://luanroger.dev/" rel="canonical" />
         <script
-          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: This is required for JSON-LD
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          type="application/ld+json"
         />
       </head>
       <body className={`${GeistSans.variable} ${GeistMono.variable} dark`}>

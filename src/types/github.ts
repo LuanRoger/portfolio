@@ -1,4 +1,4 @@
-export interface GitHubUser {
+export type GitHubUser = {
   id: number;
   login: string;
   name: string;
@@ -12,9 +12,9 @@ export interface GitHubUser {
   publicGists: number;
   diskUsage: number;
   createdAt: string;
-}
+};
 
-export interface GitHubRepository {
+export type GitHubRepository = {
   id: number;
   name: string;
   fullName: string;
@@ -28,9 +28,9 @@ export interface GitHubRepository {
   stargazersCount: number;
   languagesUrl: string;
   languages?: GitHubRepositoryLanguage[];
-}
+};
 
-export interface GitHubRepositoryLanguage {
+export type GitHubRepositoryLanguage = {
   name: string;
   size: number;
-}
+};

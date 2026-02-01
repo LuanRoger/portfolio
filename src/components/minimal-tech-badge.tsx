@@ -1,12 +1,12 @@
-import { Tech } from "@/types/tech";
-import { Badge } from "./ui/badge";
-import Dot from "./dot";
+import type { Tech } from "@/types/tech";
 import { cn } from "@/utils/shadcn-utils";
+import Dot from "./dot";
+import { Badge } from "./ui/badge";
 
-interface MinimalTechBadgeProps {
+type MinimalTechBadgeProps = {
   tech: Tech;
   className?: string;
-}
+};
 
 export default function MinimalTechBadge({
   tech,

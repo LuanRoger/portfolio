@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { SpotifyCurrentPlayingTrackInfo } from "../spotify-current-playing-track-info";
+/** biome-ignore-all lint/suspicious/noExplicitAny: Can't know the type will be adapted */
+import type { SpotifyCurrentPlayingTrackInfo } from "../spotify-current-playing-track-info";
 
 export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
-  model: any,
+  model: any
 ): SpotifyCurrentPlayingTrackInfo {
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
@@ -17,7 +17,7 @@ export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
     progressMs: model.progress_ms,
     isPlaying: model.is_playing,
     href: model.item.external_urls.spotify,
-    artists: artists,
-    image: image,
+    artists,
+    image,
   };
 }

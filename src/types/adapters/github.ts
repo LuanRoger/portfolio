@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import {
+/** biome-ignore-all lint/suspicious/noExplicitAny: Can't know the type will be adapted */
+import type {
   GitHubRepository,
   GitHubRepositoryLanguage,
   GitHubUser,
@@ -17,7 +17,7 @@ export function adaptGitHubUserResponseToGitHubUser(response: any): GitHubUser {
     url: response.html_url,
     htmlUrl: response.html_url,
     avatarUrl: response.avatar_url,
-    hireable: response.hireable || false,
+    hireable: response.hireable,
     bio: response.bio || null,
     followers: response.followers || 0,
     publicRepos: response.public_repos || 0,
@@ -28,7 +28,7 @@ export function adaptGitHubUserResponseToGitHubUser(response: any): GitHubUser {
 }
 
 export function adaptGitHubRepositoryResponseToGitHubRepository(
-  response: any,
+  response: any
 ): GitHubRepository {
   if (!response || typeof response !== "object") {
     throw new Error("Invalid GitHub repository response");
@@ -38,10 +38,10 @@ export function adaptGitHubRepositoryResponseToGitHubRepository(
     id: response.id,
     name: response.name,
     fullName: response.full_name,
-    private: response.private || false,
+    private: response.private,
     htmlUrl: response.html_url,
     description: response.description || null,
-    fork: response.fork || false,
+    fork: response.fork,
     stargazersCount: response.stargazers_count || 0,
     size: response.size,
     createdAt: response.created_at || "",
@@ -51,7 +51,7 @@ export function adaptGitHubRepositoryResponseToGitHubRepository(
 }
 
 export function adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages(
-  response: any,
+  response: any
 ): GitHubRepositoryLanguage[] {
   if (!response || typeof response !== "object") {
     throw new Error("Invalid GitHub repository languages response");

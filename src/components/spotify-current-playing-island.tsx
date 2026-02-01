@@ -1,12 +1,12 @@
-import { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
-import { formatSpotifyArtistsName } from "@/utils/formater";
 import spotifyLogo from "@/app/images/spotify.svg";
+import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
+import { formatSpotifyArtistsName } from "@/utils/formater";
 import ActivityIsland from "./activity-island";
 
-interface SpotifyCurrentPlayingBadgeProps {
+type SpotifyCurrentPlayingBadgeProps = {
   title?: string | undefined;
   spotifyInfo: SpotifyCurrentPlayingTrackInfo;
-}
+};
 
 export default function SpotifyCurrentPlayingIsland({
   title,
@@ -17,15 +17,15 @@ export default function SpotifyCurrentPlayingIsland({
 
   return (
     <ActivityIsland
-      title={name}
-      description={formatedArtists}
-      activityDescription={title ?? "Listening to"}
-      iconSrc={spotifyLogo}
-      iconAlt="Spotify Logo"
-      imageSrc={image.url}
-      imageAlt={`${name} album cover`}
-      href={href}
       accentColor="#1ED760"
+      activityDescription={title ?? "Listening to"}
+      description={formatedArtists}
+      href={href}
+      iconAlt="Spotify Logo"
+      iconSrc={spotifyLogo}
+      imageAlt={`${name} album cover`}
+      imageSrc={image.url}
+      title={name}
     />
   );
 }

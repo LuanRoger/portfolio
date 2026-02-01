@@ -1,12 +1,12 @@
+import type { ReactNode } from "react";
 import { cn } from "@/utils/shadcn-utils";
-import { ReactNode } from "react";
 
-interface IconTextProps {
+type IconTextProps = {
   icon: ReactNode;
   text: string;
   className?: string;
   textClassName?: string;
-}
+};
 
 export default function IconText({
   icon,

@@ -2,10 +2,10 @@
 
 import { cn } from "@/utils/shadcn-utils";
 
-interface AnimatedBadgeProps {
+type AnimatedBadgeProps = {
   children?: React.ReactNode;
   className?: string;
-}
+};
 
 export default function AnimatedBadge({
   children,
@@ -16,8 +16,8 @@ export default function AnimatedBadge({
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
       <span
         className={cn(
-          "text-primary-foreground inline-flex h-full w-full items-center justify-center rounded-md bg-neutral-950 px-3 py-1 text-xs font-semibold backdrop-blur-3xl",
-          className,
+          "inline-flex h-full w-full items-center justify-center rounded-md bg-neutral-950 px-3 py-1 font-semibold text-primary-foreground text-xs backdrop-blur-3xl",
+          className
         )}
       >
         {children}
