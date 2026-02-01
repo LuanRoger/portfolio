@@ -3,7 +3,7 @@ import { cn } from "@/utils/shadcn-utils";
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("animate-pulse rounded-md bg-accent", className)}
+      className={cn("animate-pulse rounded-md bg-muted", className)}
       data-slot="skeleton"
       {...props}
     />

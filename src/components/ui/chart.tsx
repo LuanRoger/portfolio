@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/performance/noNamespaceImport: shadcn/ui component */
 "use client";
 
 import * as React from "react";
@@ -81,7 +80,6 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 
   return (
     <style
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: shadcn/ui chart component
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
