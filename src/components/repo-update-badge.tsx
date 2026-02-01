@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { cacheLife } from "next/cache";
+import type { ReactNode } from "react";
 import { getGitHubProfileRepository } from "@/app/actions/github";
 import { Badge } from "./ui/badge";
 import { Skeleton } from "./ui/skeleton";
-import { cacheLife } from "next/cache";
 
 interface RepoUpdateBadgeProps {
   repoName: string;

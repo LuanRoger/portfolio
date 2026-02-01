@@ -1,10 +1,10 @@
 import { IconChartBar } from "@tabler/icons-react";
-import { WakaTimeIcon } from "./svg-icons";
+import { Suspense } from "react";
 import WakatimeLanguages from "./charts/wakatime-language";
+import WakatimeRawMetrics from "./charts/wakatime-raw-metrics";
 import WakatimeSummaryCategories from "./charts/wakatime-summary";
 import Link from "./link";
-import WakatimeRawMetrics from "./charts/wakatime-raw-metrics";
-import { Suspense } from "react";
+import { WakaTimeIcon } from "./svg-icons";
 import {
   AccordionContent,
   AccordionItem,
@@ -32,19 +32,19 @@ export default function WakatimeCodingMetricsAccordionItem({
           <WakatimeSummaryCategories />
           <WakatimeRawMetrics />
         </Suspense>
-        <div className="text-muted-foreground flex justify-between text-sm">
+        <div className="flex justify-between text-muted-foreground text-sm">
           <p>
             Collecting data since 23 December 2022.
             <br />
             Some informations are not update with today&apos;s data.
           </p>
           <Link
+            className="inline-flex items-center gap-2 self-end font-medium"
             href={"https://wakatime.com"}
             isExternal
-            className="inline-flex items-center gap-2 self-end font-medium"
           >
             Powered by{" "}
-            <WakaTimeIcon className="fill-muted-foreground inline-block size-5" />
+            <WakaTimeIcon className="inline-block size-5 fill-muted-foreground" />
           </Link>
         </div>
       </AccordionContent>

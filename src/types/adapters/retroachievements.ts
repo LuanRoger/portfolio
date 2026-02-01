@@ -1,11 +1,11 @@
-import {
+import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
 } from "../retroachievements";
 
 export function adaptRetroachievementsUserProfileResponseToUserProfile(
   response: any,
-  retroachievementsBaseUrl: string,
+  retroachievementsBaseUrl: string
 ): RetroachievementsUserProfile {
   return {
     user: response.User,
@@ -29,7 +29,7 @@ export function adaptRetroachievementsUserProfileResponseToUserProfile(
 
 export function adaptLastPlayedGameResponseToLastPlayedGame(
   response: any,
-  retroachievementsBaseUrl: string,
+  retroachievementsBaseUrl: string
 ): LastPlayedGame {
   return {
     gameId: response.GameID,

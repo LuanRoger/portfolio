@@ -1,4 +1,4 @@
-import { Tech } from "@/types/tech";
+import type { Tech } from "@/types/tech";
 import { TechBadge } from "./tech-badge";
 
 interface TechGroupProps {

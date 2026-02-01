@@ -16,8 +16,8 @@ export default function WorkXp({
   return (
     <li className="space-y-1">
       <div>
-        <h2 className="text-lg font-bold">{company}</h2>
-        <span className="text-muted-foreground inline-block">
+        <h2 className="font-bold text-lg">{company}</h2>
+        <span className="inline-block text-muted-foreground">
           <p>
             {position}, {startDate} - {endDate}
           </p>

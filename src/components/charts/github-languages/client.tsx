@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
@@ -34,7 +34,7 @@ export default function GitHubLanguagesChart({
         fill: `hex(${color})`,
       },
     }),
-    {},
+    {}
   );
   const chartData = Object.entries(data).map(([name, { size, color }]) => ({
     name,
@@ -54,23 +54,23 @@ export default function GitHubLanguagesChart({
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
           className="mx-auto aspect-square max-h-[300px] w-full"
+          config={chartConfig}
         >
           <PieChart>
             <Pie data={chartData} dataKey="value" />
             <ChartLegend
-              content={<ChartLegendContent nameKey="name" />}
               className="-translate-y-2 flex-wrap gap-2"
+              content={<ChartLegendContent nameKey="name" />}
             />
             <ChartTooltip
-              cursor={false}
               content={
                 <ChartTooltipContent
                   formatter={(value) => formatBytesInMB(value as number)}
                   hideLabel={false}
                 />
               }
+              cursor={false}
             />
           </PieChart>
         </ChartContainer>

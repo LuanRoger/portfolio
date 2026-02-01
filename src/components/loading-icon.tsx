@@ -1,5 +1,5 @@
-import { cn } from "@/utils/shadcn-utils";
 import { IconLoader2 } from "@tabler/icons-react";
+import { cn } from "@/utils/shadcn-utils";
 
 interface LoadingIconProps {
   className?: string;

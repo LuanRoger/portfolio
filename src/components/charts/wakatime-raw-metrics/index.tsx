@@ -9,7 +9,7 @@ export default async function WakatimeRawMetrics() {
   const allTimeMetrics = await getWakatimeAllTimeMetrics();
   const statsData = await getWakatimeStats();
 
-  if (!allTimeMetrics || !statsData) {
+  if (!(allTimeMetrics && statsData)) {
     return <div className="text-center">No data available</div>;
   }
 
@@ -17,8 +17,8 @@ export default async function WakatimeRawMetrics() {
   const { avarengeText } = statsData;
   return (
     <div className="flex justify-between gap-4">
-      <WakatimeAllTimeChart timeText={allTimeText} className="flex-1" />
-      <WakatimeDailyAverage timeText={avarengeText} className="flex-1" />
+      <WakatimeAllTimeChart className="flex-1" timeText={allTimeText} />
+      <WakatimeDailyAverage className="flex-1" timeText={avarengeText} />
     </div>
   );
 }

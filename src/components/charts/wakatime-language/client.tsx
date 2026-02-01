@@ -1,5 +1,6 @@
 "use client";
 
+import { Label, Pie, PieChart } from "recharts";
 import { secondsToHours } from "@/utils/time";
 import {
   Card,
@@ -9,14 +10,13 @@ import {
   CardTitle,
 } from "../../ui/card";
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "../../ui/chart";
-import { Label, Pie, PieChart } from "recharts";
 
 interface LanguageChartData {
   totalInSeconds: number;
@@ -39,7 +39,7 @@ export default function WakatimeLanguagesChart({
         color: item.fill ? `hex(${item.fill})` : "hsl(var(--chart-1))",
       },
     }),
-    {},
+    {}
   );
   const hours = secondsToHours(totalInSeconds);
 
@@ -53,19 +53,19 @@ export default function WakatimeLanguagesChart({
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
           className="mx-auto aspect-square max-h-[300px] w-full"
+          config={chartConfig}
         >
           <PieChart>
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
+              cursor={false}
             />
             <Pie
               data={data}
-              nameKey="name"
               dataKey="value"
               innerRadius={60}
+              nameKey="name"
               strokeWidth={5}
             >
               <Label
@@ -73,22 +73,22 @@ export default function WakatimeLanguagesChart({
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
+                        dominantBaseline="middle"
+                        textAnchor="middle"
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
                       >
                         <tspan
+                          className="fill-foreground font-bold text-3xl"
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
                         >
                           ~{hours}
                         </tspan>
                         <tspan
+                          className="fill-muted-foreground"
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
                         >
                           Hours
                         </tspan>
@@ -99,8 +99,8 @@ export default function WakatimeLanguagesChart({
               />
             </Pie>
             <ChartLegend
-              content={<ChartLegendContent nameKey="name" />}
               className="-translate-y-2 flex-wrap gap-2"
+              content={<ChartLegendContent nameKey="name" />}
             />
           </PieChart>
         </ChartContainer>

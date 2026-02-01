@@ -10,7 +10,17 @@ export function FadeVignette({ accentColor }: FadeVignetteProps) {
   return (
     <>
       <motion.div
-        className={`absolute z-10 size-full bg-linear-to-t`}
+        animate={{
+          y: 0,
+          "--tw-gradient-from-position": "20%",
+          "--tw-gradient-to-position": "150%",
+        }}
+        className={"absolute z-10 size-full bg-linear-to-t"}
+        initial={{
+          y: 30,
+          "--tw-gradient-from-position": "100%",
+          "--tw-gradient-to-position": "100%",
+        }}
         style={
           {
             "--tw-gradient-to": accentColor,
@@ -19,16 +29,6 @@ export function FadeVignette({ accentColor }: FadeVignetteProps) {
               "var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position)",
           } as React.CSSProperties
         }
-        initial={{
-          y: 30,
-          "--tw-gradient-from-position": "100%",
-          "--tw-gradient-to-position": "100%",
-        }}
-        animate={{
-          y: 0,
-          "--tw-gradient-from-position": "20%",
-          "--tw-gradient-to-position": "150%",
-        }}
         transition={{
           duration: 1.8,
           ease: "easeInOut",

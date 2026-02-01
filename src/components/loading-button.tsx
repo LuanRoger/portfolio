@@ -1,6 +1,6 @@
 import { cn } from "@/utils/shadcn-utils";
-import { Button } from "./ui/button";
 import LoadingIcon from "./loading-icon";
+import { Button } from "./ui/button";
 
 interface LoadingButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,9 +20,9 @@ export default function LoadingButton({
 
   return (
     <Button
-      type="submit"
       className={cn("gap-2", className)}
       disabled={pending}
+      type="submit"
       {...props}
     >
       {pending && <LoadingIcon />}

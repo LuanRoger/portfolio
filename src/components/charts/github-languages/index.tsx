@@ -35,7 +35,7 @@ export default async function GitHubLanguages() {
       }
       return acc;
     },
-    {} as { [key: string]: { size: number; color: string } },
+    {} as { [key: string]: { size: number; color: string } }
   );
 
   return <GitHubLanguagesChart data={languages} />;

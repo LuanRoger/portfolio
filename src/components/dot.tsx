@@ -20,15 +20,15 @@ export default function Dot({
       {animate && (
         <span
           className={cn(
-            "animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75",
-            animationClassName,
+            "absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-green-400 opacity-75",
+            animationClassName
           )}
         />
       )}
       <span
         className={cn(
           "h-full w-full rounded-full bg-green-400 shadow-xs",
-          dotClassName,
+          dotClassName
         )}
         style={style}
       />

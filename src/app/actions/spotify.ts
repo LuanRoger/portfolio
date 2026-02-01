@@ -1,7 +1,7 @@
 "use server";
 
-import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters";
 import { cacheLife } from "next/cache";
+import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters";
 
 async function getSpotifyAccessToken() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -33,7 +33,7 @@ export async function getSpotifyCurrentPlaying() {
       headers: {
         Authorization: `Bearer ${accessToken.access_token}`,
       },
-    },
+    }
   );
   if (result.status !== 200) {
     return;

@@ -1,6 +1,6 @@
-import { cn } from "@/utils/shadcn-utils";
-import { Url } from "next/dist/shared/lib/router/router";
+import type { Url } from "next/dist/shared/lib/router/router";
 import NextLink from "next/link";
+import { cn } from "@/utils/shadcn-utils";
 
 type LinkProps = {
   href: Url;
@@ -20,10 +20,10 @@ export default function Link({
 
   return (
     <NextLink
-      target={target}
-      href={href}
       className={cn("cursor-pointer font-bold hover:underline", className)}
+      href={href}
       onClick={onClick}
+      target={target}
       {...props}
     >
       {children}

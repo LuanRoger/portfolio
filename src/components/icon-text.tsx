@@ -1,5 +1,5 @@
+import type { ReactNode } from "react";
 import { cn } from "@/utils/shadcn-utils";
-import { ReactNode } from "react";
 
 interface IconTextProps {
   icon: ReactNode;
