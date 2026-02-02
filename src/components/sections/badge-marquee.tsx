@@ -52,6 +52,7 @@ export default function BadgeMarquee() {
             alt="Mp3 Love Badge"
             height={15}
             src={Mp3LoveBadge}
+            unoptimized
             width={80}
           />
           <Image
