@@ -114,10 +114,7 @@ export async function getGithubProfileRepositories() {
   return filteredRepositories;
 }
 
-export async function getGithubRepositoryLanguages(languageUrl: string) {
-  "use cache";
-  cacheLife("days");
-
+async function getGithubRepositoryLanguages(languageUrl: string) {
   const githubToken = process.env.GITHUB_TOKEN;
   if (!githubToken) {
     return null;

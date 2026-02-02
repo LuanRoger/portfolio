@@ -39,32 +39,6 @@ export async function getWakatimeStats() {
   return statsData;
 }
 
-export async function getWakatimeLanguages() {
-  "use cache";
-  cacheLife("hours");
-
-  const wakatimeUrl = process.env.WAKATIME_URL;
-  const wakatimeKey = process.env.WAKATIME_API_KEY;
-  if (!(wakatimeUrl && wakatimeKey)) {
-    return;
-  }
-
-  const response = await fetch(`${wakatimeUrl}/program_languages`, {
-    headers: {
-      Authorization: `Basic ${wakatimeKey}`,
-    },
-  });
-  if (!response.ok) {
-    return;
-  }
-
-  const data = await response.json();
-  const languageData =
-    adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
-
-  return languageData;
-}
-
 export async function getWakatimeLastDaysCategoriesSummary() {
   "use cache";
   cacheLife("hours");
@@ -148,4 +122,27 @@ export async function getWakatimeAllTimeMetrics() {
   const metricsData = adaptWakatimeAllTimeResponseToWakatimeAllTime(data);
 
   return metricsData;
+}
+
+async function getWakatimeLanguages() {
+  const wakatimeUrl = process.env.WAKATIME_URL;
+  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  if (!(wakatimeUrl && wakatimeKey)) {
+    return;
+  }
+
+  const response = await fetch(`${wakatimeUrl}/program_languages`, {
+    headers: {
+      Authorization: `Basic ${wakatimeKey}`,
+    },
+  });
+  if (!response.ok) {
+    return;
+  }
+
+  const data = await response.json();
+  const languageData =
+    adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
+
+  return languageData;
 }
