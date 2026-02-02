@@ -1,15 +1,11 @@
 "use server";
 
-import { cacheLife } from "next/cache";
 import {
   adaptLastPlayedGameResponseToLastPlayedGame,
   adaptRetroachievementsUserProfileResponseToUserProfile,
 } from "@/types/adapters/retroachievements";
 
 export async function getRetroachievementsUserProfile() {
-  "use cache";
-  cacheLife("minutes");
-
   const baseUrl = process.env.RETROACHIEVEMENTS_BASE_URL;
   const apiUrl = process.env.RETROACHIEVEMENTS_API_URL;
   const apiKey = process.env.RETROACHIEVEMENTS_API_KEY;
@@ -35,9 +31,6 @@ export async function getRetroachievementsUserProfile() {
 }
 
 export async function getLastGamePlayed() {
-  "use cache";
-  cacheLife("minutes");
-
   const baseUrl = process.env.RETROACHIEVEMENTS_BASE_URL;
   const apiUrl = process.env.RETROACHIEVEMENTS_API_URL;
   const apiKey = process.env.RETROACHIEVEMENTS_API_KEY;
