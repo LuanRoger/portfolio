@@ -10,11 +10,9 @@ function getUIComponentsPath(): string {
   const args = process.argv.slice(2);
 
   if (args.length > 0 && args[0]) {
-    // Use the provided path argument
     return resolve(args[0]);
   }
 
-  // Fall back to default path
   return DEFAULT_UI_PATH;
 }
 
@@ -22,7 +20,6 @@ async function getComponentNames(uiPath: string): Promise<string[]> {
   try {
     const files = await readdir(uiPath);
 
-    // Filter only .tsx files and remove the extension
     const components = files
       .filter((file) => file.endsWith(".tsx"))
       .map((file) => file.replace(".tsx", ""));
@@ -44,9 +41,6 @@ async function updateComponents(components: string[]): Promise<void> {
   console.log(components.join(", "));
   console.log("");
 
-  // Execute shadcn add command with all components
-  // -y flag: auto-confirm prompts
-  // -o flag: overwrite existing files
   const componentList = components.join(" ");
 
   try {
