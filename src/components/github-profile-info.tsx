@@ -14,7 +14,7 @@ import { Avatar, AvatarImage } from "./ui/avatar";
 
 export default async function GitHubProfileInfo() {
   "use cache";
-  cacheLife("days");
+  cacheLife("github");
 
   const userData = await getGithubProfile();
   const repositoriesData = await getGithubProfileRepositories();

@@ -14,8 +14,7 @@ export default async function RepoUpdateBadge({
   repoName,
 }: RepoUpdateBadgeProps) {
   "use cache";
-  cacheLife("days");
-
+  cacheLife("github");
   const repoInfo = await getGitHubProfileRepository(repoName);
 
   if (!repoInfo) {

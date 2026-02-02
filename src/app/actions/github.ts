@@ -1,6 +1,5 @@
 "use server";
 
-import { cacheLife } from "next/cache";
 import {
   adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages,
   adaptGitHubRepositoryResponseToGitHubRepository,
@@ -9,9 +8,6 @@ import {
 import type { GitHubRepository } from "@/types/github";
 
 export async function getGithubProfile() {
-  "use cache";
-  cacheLife("days");
-
   const githubToken = process.env.GITHUB_TOKEN;
   const gitHubApiUrl = process.env.GITHUB_API_URL;
   if (!(githubToken && gitHubApiUrl)) {
@@ -34,9 +30,6 @@ export async function getGithubProfile() {
 }
 
 export async function getGitHubProfileRepository(repoName: string) {
-  "use cache";
-  cacheLife("days");
-
   const githubToken = process.env.GITHUB_TOKEN;
   const gitHubApiUrl = process.env.GITHUB_API_URL;
   const githubUserName = process.env.GITHUB_USERNAME;
@@ -63,9 +56,6 @@ export async function getGitHubProfileRepository(repoName: string) {
 }
 
 export async function getGithubProfileRepositories() {
-  "use cache";
-  cacheLife("days");
-
   const githubToken = process.env.GITHUB_TOKEN;
   const gitHubApiUrl = process.env.GITHUB_API_URL;
   if (!githubToken) {
