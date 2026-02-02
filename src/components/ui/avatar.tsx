@@ -1,7 +1,6 @@
 "use client";
 
-// biome-ignore lint/performance/noNamespaceImport: shadcn/ui component
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import { Avatar as AvatarPrimitive } from "radix-ui";
 import type * as React from "react";
 
 import { cn } from "@/utils/shadcn-utils";
@@ -16,7 +15,7 @@ function Avatar({
   return (
     <AvatarPrimitive.Root
       className={cn(
-        "group/avatar relative flex size-8 shrink-0 select-none overflow-hidden rounded-full data-[size=lg]:size-10 data-[size=sm]:size-6",
+        "group/avatar relative flex size-8 shrink-0 select-none rounded-full after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten",
         className
       )}
       data-size={size}
@@ -32,7 +31,10 @@ function AvatarImage({
 }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
     <AvatarPrimitive.Image
-      className={cn("aspect-square size-full", className)}
+      className={cn(
+        "aspect-square size-full rounded-full object-cover",
+        className
+      )}
       data-slot="avatar-image"
       {...props}
     />
@@ -59,7 +61,7 @@ function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "absolute right-0 bottom-0 z-10 inline-flex select-none items-center justify-center rounded-full bg-primary text-primary-foreground ring-2 ring-background",
+        "absolute right-0 bottom-0 z-10 inline-flex select-none items-center justify-center rounded-full bg-primary text-primary-foreground bg-blend-color ring-2 ring-background",
         "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:[&>svg]:hidden",
         "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:[&>svg]:size-2",
         "group-data-[size=lg]/avatar:size-3 group-data-[size=lg]/avatar:[&>svg]:size-2",
@@ -104,7 +106,7 @@ export {
   Avatar,
   AvatarImage,
   AvatarFallback,
-  AvatarBadge,
   AvatarGroup,
   AvatarGroupCount,
+  AvatarBadge,
 };

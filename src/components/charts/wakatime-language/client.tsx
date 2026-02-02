@@ -34,7 +34,7 @@ export default function WakatimeLanguagesChart({
   const chartConfig: ChartConfig = data.reduce((config, item) => {
     config[item.name] = {
       label: item.name,
-      color: item.fill ? `hex(${item.fill})` : "hsl(var(--chart-1))",
+      color: item.fill ? `hex(${item.fill})` : "var(--chart-1)",
     };
     return config;
   }, {} as ChartConfig);
@@ -50,7 +50,7 @@ export default function WakatimeLanguagesChart({
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          className="mx-auto aspect-square max-h-[300px] w-full"
+          className="mx-auto aspect-square max-h-75 w-full"
           config={chartConfig}
         >
           <PieChart>
