@@ -1,8 +1,12 @@
+import { cacheLife } from "next/cache";
 import { getGithubProfileRepositories } from "@/app/actions/github";
 import githubLanguageColors from "@/utils/github-languages-color.json";
 import GitHubLanguagesChart from "./client";
 
 export default async function GitHubLanguages() {
+  "use cache";
+  cacheLife("github");
+
   const repositoriesData = await getGithubProfileRepositories();
   if (!repositoriesData) {
     return <div className="text-center">No repositories available</div>;

@@ -30,7 +30,7 @@ export default function GitHubLanguagesChart({
     (acc, [name, { color }]) => {
       acc[name] = {
         label: name,
-        color: `hex(${color})`,
+        color,
       };
       return acc;
     },
@@ -66,7 +66,20 @@ export default function GitHubLanguagesChart({
             <ChartTooltip
               content={
                 <ChartTooltipContent
-                  formatter={(value) => formatBytesInMB(value as number)}
+                  formatter={(_, name, item) => (
+                    <div className="flex items-center justify-between gap-1">
+                      <div
+                        className="size-2.5 shrink-0 rounded-[2px]"
+                        style={{
+                          backgroundColor: item.payload.fill,
+                        }}
+                      />
+                      <span className="text-muted-foreground">{name}</span>
+                      <span className="font-medium font-mono text-foreground tabular-nums">
+                        {item.payload.formattedValue}
+                      </span>
+                    </div>
+                  )}
                   hideLabel={false}
                 />
               }
