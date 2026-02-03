@@ -1,10 +1,10 @@
-import { AcordCurrentActivity } from "@/types/acord-current-activity";
 import vsCodeLogo from "@/app/images/vscode.svg";
+import type { AcordCurrentActivity } from "@/types/acord-current-activity";
 import ActivityIsland from "./activity-island";
 
-interface AcordActivityIslandProps {
+type AcordActivityIslandProps = {
   acordActivity: AcordCurrentActivity;
-}
+};
 
 export default function AcordActivityIsland({
   acordActivity,
@@ -14,14 +14,14 @@ export default function AcordActivityIsland({
 
   return (
     <ActivityIsland
-      title={caption}
-      description={environment}
-      activityDescription={details}
-      imageSrc={imageUrl}
-      imageAlt={`${activity} activity image`}
-      iconSrc={vsCodeLogo}
-      iconAlt={"Visual Studio Code Logo"}
       accentColor={color}
+      activityDescription={details}
+      description={environment}
+      iconAlt={"Visual Studio Code Logo"}
+      iconSrc={vsCodeLogo}
+      imageAlt={`${activity} activity image`}
+      imageSrc={imageUrl}
+      title={caption}
     />
   );
 }

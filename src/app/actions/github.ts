@@ -4,17 +4,13 @@ import {
   adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages,
   adaptGitHubRepositoryResponseToGitHubRepository,
   adaptGitHubUserResponseToGitHubUser,
-} from "@/types/adapters";
-import { GitHubRepository } from "@/types/github";
-import { cacheLife } from "next/cache";
+} from "@/types/adapters/github";
+import type { GitHubRepository } from "@/types/github";
 
 export async function getGithubProfile() {
-  "use cache";
-  cacheLife("days");
-
   const githubToken = process.env.GITHUB_TOKEN;
   const gitHubApiUrl = process.env.GITHUB_API_URL;
-  if (!githubToken || !gitHubApiUrl) {
+  if (!(githubToken && gitHubApiUrl)) {
     return null;
   }
 
@@ -34,13 +30,10 @@ export async function getGithubProfile() {
 }
 
 export async function getGitHubProfileRepository(repoName: string) {
-  "use cache";
-  cacheLife("days");
-
   const githubToken = process.env.GITHUB_TOKEN;
   const gitHubApiUrl = process.env.GITHUB_API_URL;
   const githubUserName = process.env.GITHUB_USERNAME;
-  if (!githubToken || !gitHubApiUrl || !githubUserName) {
+  if (!(githubToken && gitHubApiUrl && githubUserName)) {
     return null;
   }
 
@@ -51,7 +44,7 @@ export async function getGitHubProfileRepository(repoName: string) {
         Authorization: `Bearer ${githubToken}`,
         Accept: "application/vnd.github+json",
       },
-    },
+    }
   );
 
   if (!result.ok) {
@@ -63,9 +56,6 @@ export async function getGitHubProfileRepository(repoName: string) {
 }
 
 export async function getGithubProfileRepositories() {
-  "use cache";
-  cacheLife("days");
-
   const githubToken = process.env.GITHUB_TOKEN;
   const gitHubApiUrl = process.env.GITHUB_API_URL;
   if (!githubToken) {
@@ -79,7 +69,7 @@ export async function getGithubProfileRepositories() {
         Authorization: `Bearer ${githubToken}`,
         Accept: "application/vnd.github+json",
       },
-    },
+    }
   );
 
   if (!result.ok) {
@@ -88,10 +78,10 @@ export async function getGithubProfileRepositories() {
 
   const jsonResult = await result.json();
   const repositories: GitHubRepository[] = jsonResult.map(
-    adaptGitHubRepositoryResponseToGitHubRepository,
+    adaptGitHubRepositoryResponseToGitHubRepository
   );
   const filteredRepositories = repositories.filter(
-    (repo) => !repo.fork && repo.private === false,
+    (repo) => !repo.fork && repo.private === false
   );
 
   const languagesResults = await Promise.all(
@@ -101,23 +91,20 @@ export async function getGithubProfileRepositories() {
         id: repo.id,
         languages: languages || [],
       };
-    }),
+    })
   );
 
-  languagesResults.forEach((result) => {
+  for (const result of languagesResults) {
     const repo = filteredRepositories.find((r) => r.id === result.id);
     if (repo && result.languages) {
       repo.languages = result.languages;
     }
-  });
+  }
 
   return filteredRepositories;
 }
 
-export async function getGithubRepositoryLanguages(languageUrl: string) {
-  "use cache";
-  cacheLife("days");
-
+async function getGithubRepositoryLanguages(languageUrl: string) {
   const githubToken = process.env.GITHUB_TOKEN;
   if (!githubToken) {
     return null;
@@ -133,7 +120,7 @@ export async function getGithubRepositoryLanguages(languageUrl: string) {
   const jsonResult = await result.json();
   const languages =
     adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages(
-      jsonResult,
+      jsonResult
     );
 
   return languages;

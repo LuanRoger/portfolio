@@ -1,17 +1,18 @@
-import {
+/** biome-ignore-all lint/suspicious/noExplicitAny: Can't know the type will be adapted */
+import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
 } from "../retroachievements";
 
 export function adaptRetroachievementsUserProfileResponseToUserProfile(
   response: any,
-  retroachievementsBaseUrl: string,
+  retroachievementsBaseUrl: string
 ): RetroachievementsUserProfile {
   return {
     user: response.User,
     ulid: response.ULID,
     userPic: `${retroachievementsBaseUrl}${response.UserPic}`,
-    memberSince: new Date(response.MemberSince + " UTC"),
+    memberSince: new Date(`${response.MemberSince} UTC"`),
     richPresenceMsg: response.RichPresenceMsg,
     lastGameId: response.LastGameID,
     contribCount: response.ContribCount,
@@ -29,7 +30,7 @@ export function adaptRetroachievementsUserProfileResponseToUserProfile(
 
 export function adaptLastPlayedGameResponseToLastPlayedGame(
   response: any,
-  retroachievementsBaseUrl: string,
+  retroachievementsBaseUrl: string
 ): LastPlayedGame {
   return {
     gameId: response.GameID,
@@ -40,7 +41,7 @@ export function adaptLastPlayedGameResponseToLastPlayedGame(
     imageTitle: `${retroachievementsBaseUrl}${response.ImageTitle}`,
     imageIngame: `${retroachievementsBaseUrl}${response.ImageIngame}`,
     imageBoxArt: `${retroachievementsBaseUrl}${response.ImageBoxArt}`,
-    lastPlayed: new Date(response.LastPlayed + " UTC"),
+    lastPlayed: new Date(`${response.LastPlayed} UTC`),
     achievementsTotal: response.AchievementsTotal,
     numPossibleAchievements: response.NumPossibleAchievements,
     possibleScore: response.PossibleScore,

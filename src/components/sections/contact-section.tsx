@@ -2,8 +2,8 @@ import Link from "../link";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="space-y-2">
-      <h2 className="text-xl font-bold">Contact</h2>
+    <section className="space-y-2" id="contact">
+      <h2 className="font-bold text-xl">Contact</h2>
       <p>
         You can reach me out at{" "}
         <Link href="mailto:luanroger.dev@gmail.com">

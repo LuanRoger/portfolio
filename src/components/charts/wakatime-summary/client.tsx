@@ -14,13 +14,13 @@ import {
   ChartTooltipContent,
 } from "../../ui/chart";
 
-interface CategoryChartData {
+type CategoryChartData = {
   data: {
     day: string;
     codingHours?: number;
     debuggingHours?: number;
   }[];
-}
+};
 
 export default function WakatimeSummaryCategoriesChart({
   data,
@@ -28,11 +28,11 @@ export default function WakatimeSummaryCategoriesChart({
   const chartConfig = {
     codingHours: {
       label: "Coding",
-      color: "hsl(var(--chart-1))",
+      color: "var(--chart-1)",
     },
     debuggingHours: {
       label: "Debugging",
-      color: "hsl(var(--chart-2))",
+      color: "var(--chart-2)",
     },
   };
 
@@ -46,20 +46,16 @@ export default function WakatimeSummaryCategoriesChart({
       </CardHeader>
       <CardContent>
         <ChartContainer
+          className="mx-auto aspect-square max-h-75 w-full"
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[300px] w-full"
         >
           <BarChart accessibilityLayer data={data}>
             <CartesianGrid vertical={false} />
-            <XAxis dataKey="day" tickLine={false} axisLine={false} />
-            <YAxis tickLine={false} axisLine={false} />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <Bar dataKey="codingHours" fill="hsl(var(--chart-1))" radius={4} />
-            <Bar
-              dataKey="debuggingHours"
-              fill="hsl(var(--chart-2))"
-              radius={4}
-            />
+            <XAxis axisLine={false} dataKey="day" tickLine={false} />
+            <YAxis axisLine={false} tickLine={false} />
+            <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
+            <Bar dataKey="codingHours" fill="var(--chart-1)" radius={4} />
+            <Bar dataKey="debuggingHours" fill="var(--chart-2)" radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>

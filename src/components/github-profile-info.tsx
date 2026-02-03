@@ -1,31 +1,31 @@
 import {
-  getGithubProfile,
-  getGithubProfileRepositories,
-} from "@/app/actions/github";
-import { Avatar, AvatarImage } from "./ui/avatar";
-import {
   IconBook2,
   IconCode,
   IconStars,
   IconUsersGroup,
 } from "@tabler/icons-react";
-import Link from "next/link";
 import { cacheLife } from "next/cache";
+import Link from "next/link";
+import {
+  getGithubProfile,
+  getGithubProfileRepositories,
+} from "@/app/actions/github";
+import { Avatar, AvatarImage } from "./ui/avatar";
 
 export default async function GitHubProfileInfo() {
   "use cache";
-  cacheLife("days");
+  cacheLife("github");
 
   const userData = await getGithubProfile();
   const repositoriesData = await getGithubProfileRepositories();
 
-  if (!userData || !repositoriesData) {
+  if (!(userData && repositoriesData)) {
     return <p className="text-red-500">Failed to load GitHub profile.</p>;
   }
 
   const stargazersCount = repositoriesData.reduce(
     (acc, repo) => acc + repo.stargazersCount,
-    0,
+    0
   );
 
   const createdAt = new Date(userData.createdAt);
@@ -41,13 +41,13 @@ export default async function GitHubProfileInfo() {
           </Avatar>
           <div>
             <Link
+              className="hover:underline"
               href={userData.htmlUrl}
               target="_blank"
-              className="hover:underline"
             >
-              <h2 className="text-lg font-semibold">{userData.name}</h2>
+              <h2 className="font-semibold text-lg">{userData.name}</h2>
             </Link>
-            <p className="text-sm text-gray-500">{userData.login}</p>
+            <p className="text-gray-500 text-sm">{userData.login}</p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -69,7 +69,7 @@ export default async function GitHubProfileInfo() {
           </span>
         </div>
       </div>
-      <p className="text-muted-foreground self-end text-sm">
+      <p className="self-end text-muted-foreground text-sm">
         Created at {formattedCreatedAt} ({creationYearsAgo} years ago)
       </p>
     </div>

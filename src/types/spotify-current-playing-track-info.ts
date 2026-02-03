@@ -1,4 +1,4 @@
-export interface SpotifyCurrentPlayingTrackInfo {
+export type SpotifyCurrentPlayingTrackInfo = {
   name: string;
   timestamp: number;
   progressMs: number;
@@ -10,4 +10,4 @@ export interface SpotifyCurrentPlayingTrackInfo {
     height: number;
     width: number;
   };
-}
+};

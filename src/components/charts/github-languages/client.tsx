@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
@@ -19,22 +19,22 @@ import {
 } from "@/components/ui/chart";
 import { formatBytesInMB } from "@/utils/formater";
 
-interface GitHubLanguagesChartProps {
+type GitHubLanguagesChartProps = {
   data: { [name: string]: { size: number; color: string } };
-}
+};
 
 export default function GitHubLanguagesChart({
   data,
 }: GitHubLanguagesChartProps) {
   const chartConfig: ChartConfig = Object.entries(data).reduce(
-    (acc, [name, { color }]) => ({
-      ...acc,
-      [name]: {
+    (acc, [name, { color }]) => {
+      acc[name] = {
         label: name,
-        fill: `hex(${color})`,
-      },
-    }),
-    {},
+        color: `hex(${color})`,
+      };
+      return acc;
+    },
+    {} as ChartConfig
   );
   const chartData = Object.entries(data).map(([name, { size, color }]) => ({
     name,
@@ -54,23 +54,23 @@ export default function GitHubLanguagesChart({
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
+          className="mx-auto aspect-square max-h-75 w-full"
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[300px] w-full"
         >
           <PieChart>
             <Pie data={chartData} dataKey="value" />
             <ChartLegend
-              content={<ChartLegendContent nameKey="name" />}
               className="-translate-y-2 flex-wrap gap-2"
+              content={<ChartLegendContent nameKey="name" />}
             />
             <ChartTooltip
-              cursor={false}
               content={
                 <ChartTooltipContent
                   formatter={(value) => formatBytesInMB(value as number)}
                   hideLabel={false}
                 />
               }
+              cursor={false}
             />
           </PieChart>
         </ChartContainer>

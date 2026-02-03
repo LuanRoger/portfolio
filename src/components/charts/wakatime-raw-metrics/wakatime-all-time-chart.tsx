@@ -7,10 +7,10 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/utils/shadcn-utils";
 
-interface WakatimeAllTimeChartProps {
+type WakatimeAllTimeChartProps = {
   className?: string;
   timeText: string;
-}
+};
 
 export default function WakatimeAllTimeChart({
   className,
@@ -23,7 +23,7 @@ export default function WakatimeAllTimeChart({
         <CardDescription>Since 23 December 2022</CardDescription>
       </CardHeader>
       <CardContent className="size-full">
-        <span className="text-lg font-bold">{timeText}</span>
+        <span className="font-bold text-lg">{timeText}</span>
       </CardContent>
     </Card>
   );

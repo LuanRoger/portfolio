@@ -1,10 +1,10 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
-import Link from "./link";
 import { cn } from "@/utils/shadcn-utils";
 import { FadeVignette } from "./fade-vignette";
+import Link from "./link";
 
-interface ActivityIslandProps {
+type ActivityIslandProps = {
   title: string;
   description: string;
   activityDescription: string;
@@ -14,7 +14,7 @@ interface ActivityIslandProps {
   imageAlt: string;
   href?: string;
   accentColor?: string;
-}
+};
 
 export default function ActivityIsland({
   title,
@@ -30,36 +30,36 @@ export default function ActivityIsland({
   const titleDefaultClasses = "text-white font-bold";
 
   return (
-    <div className="relative isolate h-40 w-full overflow-clip rounded-lg inset-shadow-xs">
+    <div className="relative inset-shadow-xs isolate h-40 w-full overflow-clip rounded-lg">
       {accentColor && <FadeVignette accentColor={accentColor} />}
       <Image
-        src={imageSrc}
-        width={300}
-        height={300}
         alt={imageAlt}
         className="absolute inset-0 z-0 size-full object-none"
+        height={300}
+        src={imageSrc}
+        width={300}
       />
       <Image
-        src={imageSrc}
-        width={30}
-        height={30}
         alt={imageAlt}
         className="absolute inset-0 -z-10 size-full object-cover blur-lg"
+        height={30}
+        src={imageSrc}
+        width={30}
       />
       <div className="absolute z-20 flex size-full flex-col justify-between p-2">
         <div className="inline-flex items-center gap-2">
           <Image
-            src={iconSrc}
-            width={18}
-            height={18}
             alt={iconAlt}
             className="invert filter"
+            height={18}
+            src={iconSrc}
+            width={18}
           />
           <h2 className="text-sm">{activityDescription}</h2>
         </div>
         <div>
-          {!!href ? (
-            <Link href={href} isExternal className={cn(titleDefaultClasses)}>
+          {href ? (
+            <Link className={cn(titleDefaultClasses)} href={href} isExternal>
               {title}
             </Link>
           ) : (

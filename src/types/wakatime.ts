@@ -1,19 +1,19 @@
-export interface WakatimeLanguageMetadata {
+export type WakatimeLanguageMetadata = {
   id: string;
   name: string;
   color: string;
-}
+};
 
-export interface WakatimeEditor {
+export type WakatimeEditor = {
   totalSeconds: number;
   name: string;
   percent: number;
   text: string;
   hours: number;
   minutes: number;
-}
+};
 
-export interface WakatimeLanguages {
+export type WakatimeLanguages = {
   name: string;
   totalSeconds: number;
   percent: number;
@@ -21,34 +21,34 @@ export interface WakatimeLanguages {
   hours: number;
   minutes: number;
   metadata?: WakatimeLanguageMetadata;
-}
+};
 
-export interface WakatimeCategory {
+export type WakatimeCategory = {
   name: string;
   text: string;
   hours: number;
   minutes: number;
   seconds: number;
   percent: number;
-}
+};
 
-export interface WakatimeDateCategory {
+export type WakatimeDateCategory = {
   date: Date;
   dateText: string;
   coding?: WakatimeCategory;
   debugging?: WakatimeCategory;
-}
+};
 
-export interface WakatimeAllTimeMetrics {
+export type WakatimeAllTimeMetrics = {
   totalSeconds: number;
   text: string;
-}
+};
 
-export interface WakatimeStats {
+export type WakatimeStats = {
   status: string;
   totalText: string;
   avarengeText: string;
   totalInSeconds: number;
   editors: WakatimeEditor[];
   languages: WakatimeLanguages[];
-}
+};

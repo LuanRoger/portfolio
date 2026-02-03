@@ -10,7 +10,7 @@ export function getLastDayDate(days: number): Date {
 }
 
 export function simpleFormatDate(date: Date): string {
-  if (!(date instanceof Date) || isNaN(date.getTime())) {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
     return "Invalid date";
   }
 

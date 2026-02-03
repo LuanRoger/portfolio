@@ -1,28 +1,27 @@
-import { ReactNode } from "react";
+import { cacheLife } from "next/cache";
+import type { ReactNode } from "react";
 import { getGitHubProfileRepository } from "@/app/actions/github";
 import { Badge } from "./ui/badge";
 import { Skeleton } from "./ui/skeleton";
-import { cacheLife } from "next/cache";
 
-interface RepoUpdateBadgeProps {
+type RepoUpdateBadgeProps = {
   repoName: string;
   prefix?: ReactNode;
-}
+};
 
 export default async function RepoUpdateBadge({
   prefix,
   repoName,
 }: RepoUpdateBadgeProps) {
   "use cache";
-  cacheLife("days");
-
+  cacheLife("github");
   const repoInfo = await getGitHubProfileRepository(repoName);
 
   if (!repoInfo) {
     return null;
   }
 
-  const currentDateTime = new Date().getTime();
+  const currentDateTime = Date.now();
   const updatedAt = new Date(repoInfo.updatedAt);
   const wasUpdatedRecently =
     (currentDateTime - updatedAt.getTime()) / (1000 * 60 * 60 * 24) <= 7;

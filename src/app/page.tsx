@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import NameHeader from "@/components/name-header";
 import { NoiseContainer } from "@/components/grayni-noise";
-import TechStack from "@/components/sections/tech-stack";
-import { Separator } from "@/components/ui/separator";
+import NameHeader from "@/components/name-header";
 import AboutSection from "@/components/sections/about-section";
+import CertificationsSection from "@/components/sections/certifications-section";
+import ContactSection from "@/components/sections/contact-section";
+import ExpirienceSection from "@/components/sections/expirience-section";
+import FooterSection from "@/components/sections/footer-section";
 import NavigationHeader from "@/components/sections/navigation-header";
 import ProjectsSection from "@/components/sections/projects-section";
-import ExpirienceSection from "@/components/sections/expirience-section";
-import ContactSection from "@/components/sections/contact-section";
-import FooterSection from "@/components/sections/footer-section";
-import CertificationsSection from "@/components/sections/certifications-section";
+import TechStack from "@/components/sections/tech-stack";
+import { Separator } from "@/components/ui/separator";
 
 const title = "Luan Roger";
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="border-border relative z-20 overflow-clip md:max-2xl:w-3/5 md:max-2xl:rounded-md md:max-2xl:border">
+    <div className="relative z-20 overflow-clip border-border md:max-2xl:w-3/5 md:max-2xl:rounded-md md:max-2xl:border">
       <div className="space-y-2 p-4">
         <NameHeader />
         <TechStack />
