@@ -1,14 +1,14 @@
 import vsCodeLogo from "@/app/images/vscode.svg";
 import type { AcordCurrentActivity } from "@/types/acord-current-activity";
-import ActivityIsland from "./activity-island";
+import ActivityIsland from "../../activity-island";
 
-type AcordActivityIslandProps = {
+type AcordActivityIslandSectionProps = {
   acordActivity: AcordCurrentActivity;
 };
 
-export default function AcordActivityIsland({
+export default function AcordActivityIslandSection({
   acordActivity,
-}: AcordActivityIslandProps) {
+}: AcordActivityIslandSectionProps) {
   const { activity, details, caption, environment, imageUrl, color } =
     acordActivity;
 

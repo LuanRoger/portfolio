@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ActivitiesDialog from "@/components/activities-dialog";
+import ActivitiesIsland from "@/components/activity-island/activities-island";
 
 export default function NameHeader() {
   return (
@@ -9,7 +9,7 @@ export default function NameHeader() {
           Luan Roger
         </h1>
         <Suspense>
-          <ActivitiesDialog />
+          <ActivitiesIsland />
         </Suspense>
       </div>
       <p className="font-mono text-sm">Full-stack developer</p>
