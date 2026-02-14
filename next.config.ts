@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "retroachievements.org",
       },
+      {
+        protocol: "https",
+        hostname: "media2.giphy.com",
+      },
     ],
   },
 };

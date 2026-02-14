@@ -1,17 +1,17 @@
 import spotifyLogo from "@/app/images/spotify.svg";
 import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
 import { formatSpotifyArtistsName } from "@/utils/formater";
-import ActivityIsland from "./activity-island";
+import ActivityIsland from "../../activity-island";
 
-type SpotifyCurrentPlayingBadgeProps = {
+type SpotifyCurrentPlayingBadgeSectionProps = {
   title?: string | undefined;
   spotifyInfo: SpotifyCurrentPlayingTrackInfo;
 };
 
-export default function SpotifyCurrentPlayingIsland({
+export default function SpotifyCurrentPlayingIslandSection({
   title,
   spotifyInfo,
-}: SpotifyCurrentPlayingBadgeProps) {
+}: SpotifyCurrentPlayingBadgeSectionProps) {
   const { name, artists, href, image } = spotifyInfo;
   const formatedArtists = formatSpotifyArtistsName(artists);
 

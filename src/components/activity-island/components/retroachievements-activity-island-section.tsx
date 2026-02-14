@@ -3,21 +3,21 @@ import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
 } from "@/types/retroachievements";
-import ActivityIsland from "./activity-island";
+import ActivityIsland from "../../activity-island";
 
-type RetroachievementsActivityIslandProps = {
+type RetroachievementsActivityIslandSectionProps = {
   lastGamePlayedInfo: LastPlayedGame;
   userProfile: RetroachievementsUserProfile;
 };
 
-export default function RetroachievementsActivityIsland({
+export default function RetroachievementsActivityIslandSection({
   lastGamePlayedInfo,
   userProfile,
-}: RetroachievementsActivityIslandProps) {
+}: RetroachievementsActivityIslandSectionProps) {
   const { title, consoleName, imageBoxArt, imageTitle } = lastGamePlayedInfo;
   const { richPresenceMsg } = userProfile;
   const details = `Playing on ${consoleName}`;
-  const retroachievementsUrl = `${process.env.RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
+  const retroachievementsUrl = `${process.env.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
 
   return (
     <ActivityIsland

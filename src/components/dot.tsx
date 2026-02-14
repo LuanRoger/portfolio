@@ -16,7 +16,7 @@ export default function Dot({
   style,
 }: DotProps) {
   return (
-    <span className={cn("relative flex h-3 w-3", className)}>
+    <span className={cn("relative inset-shadow-xs flex size-2", className)}>
       {animate && (
         <span
           className={cn(

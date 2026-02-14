@@ -1,8 +1,3 @@
-import { Suspense } from "react";
-import ActivitiesDialog, {
-  ActivitiesDialogLoading,
-} from "@/components/activities-dialog";
-
 export default function NameHeader() {
   return (
     <header>
@@ -10,9 +5,6 @@ export default function NameHeader() {
         <h1 className="cursor-default font-bold text-4xl transition-transform hover:scale-105">
           Luan Roger
         </h1>
-        <Suspense fallback={<ActivitiesDialogLoading />}>
-          <ActivitiesDialog />
-        </Suspense>
       </div>
       <p className="font-mono text-sm">Full-stack developer</p>
     </header>
