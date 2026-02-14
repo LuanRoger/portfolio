@@ -1,4 +1,3 @@
-import { IconRocket } from "@tabler/icons-react";
 import { cacheLife } from "next/cache";
 import { getCurrentAcordActivity } from "@/app/actions/acord";
 import {
@@ -8,14 +7,8 @@ import {
 import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import { hoursSince } from "@/utils/time";
 import AcordActivityIsland from "./acord-activity-island";
-import IconText from "./icon-text";
-import OfflinePresence from "./offline-presence";
-import OnlinePresence from "./online-presence";
-import RetroachievementsActivityIsland from "./retroachievements-activity-island";
+import Dot from "./dot";
 import SpotifyCurrentPlayingIsland from "./spotify-current-playing-island";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Separator } from "./ui/separator";
-import { Skeleton } from "./ui/skeleton";
 
 export default async function ActivitiesDialog() {
   "use cache";
@@ -34,55 +27,27 @@ export default async function ActivitiesDialog() {
     lastGamePlayedInfo.lastPlayed
   );
   const isRetroachievementsActive = hoursSinceLastRetroachievementsPlay < 1;
-  const isOnline =
-    isSpotifyPlaying || isAcordActivity || isRetroachievementsActive;
-
-  const statusMessage = isOnline
-    ? "I'm online! Probably doing something awesome 🚀"
-    : "I'll be back later ⏳...";
 
   return (
-    <Popover>
-      <PopoverTrigger>
-        {isOnline ? <OnlinePresence /> : <OfflinePresence />}
-      </PopoverTrigger>
-      <PopoverContent
-        className="flex max-w-72 flex-col items-center gap-2 text-gra"
-        side="left"
-      >
-        {isOnline && (
-          <>
-            <IconText
-              icon={
-                <IconRocket className="opacity-65" color="#9ca3af" size={20} />
-              }
-              text="Activities"
-              textClassName={`${titlesDefaultClasses} uppercase text-sm`}
-            />
-            {isSpotifyPlaying && (
-              <SpotifyCurrentPlayingIsland
-                spotifyInfo={currentPlayingInfo}
-                title="Listening to"
-              />
-            )}
-            {isAcordActivity && currentAcordActivityInfo && (
-              <AcordActivityIsland acordActivity={currentAcordActivityInfo} />
-            )}
-            {isRetroachievementsActive && (
-              <RetroachievementsActivityIsland
-                lastGamePlayedInfo={lastGamePlayedInfo}
-                userProfile={retroachievementsUserProfile}
-              />
-            )}
-            <Separator />
-          </>
+    <div className="inset-ring inset-ring-border inset-shadow-sm flex min-w-56 flex-col items-center rounded-md border-border bg-primary/30 p-1 shadow-2xs">
+      <ActivityDialogHeader />
+      <div className="size-full overflow-clip rounded-b-md">
+        {isSpotifyPlaying && (
+          <SpotifyCurrentPlayingIsland spotifyInfo={currentPlayingInfo} />
         )}
-        <h1 className={titlesDefaultClasses}>{statusMessage}</h1>
-      </PopoverContent>
-    </Popover>
+        {isAcordActivity && currentAcordActivityInfo && (
+          <AcordActivityIsland acordActivity={currentAcordActivityInfo} />
+        )}
+      </div>
+    </div>
   );
 }
 
-export function ActivitiesDialogLoading() {
-  return <Skeleton className="h-6 w-20 rounded-full" />;
+function ActivityDialogHeader() {
+  return (
+    <div className="inset-shadow-green-700 inset-shadow-xs flex w-full items-center justify-center gap-1 rounded-t-md bg-green-500 p-1 font-semibold text-sm text-white">
+      <Dot animate />
+      online
+    </div>
+  );
 }
