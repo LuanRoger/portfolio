@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="relative z-20 overflow-clip border-border md:max-2xl:w-3/5 md:max-2xl:rounded-md md:max-2xl:border">
+    <div className="relative z-20 overflow-clip border-border md:w-3/5 md:rounded-md md:border">
       <div className="space-y-2 p-4">
         <HeroSection />
         <Separator />
