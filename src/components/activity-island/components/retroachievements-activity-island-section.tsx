@@ -17,7 +17,7 @@ export default function RetroachievementsActivityIslandSection({
   const { title, consoleName, imageBoxArt, imageTitle } = lastGamePlayedInfo;
   const { richPresenceMsg } = userProfile;
   const details = `Playing on ${consoleName}`;
-  const retroachievementsUrl = `${process.env.RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
+  const retroachievementsUrl = `${process.env.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
 
   return (
     <ActivityIsland
