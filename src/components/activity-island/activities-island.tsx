@@ -24,6 +24,9 @@ export default async function ActivitiesIsland() {
   );
   const isRetroachievementsActive = hoursSinceLastRetroachievementsPlay < 1;
 
+  const isOnline =
+    isSpotifyPlaying || isAcordActivity || isRetroachievementsActive;
+
   return (
     <Content
       acordActivityInfo={isAcordActivity ? currentAcordActivityInfo : undefined}
@@ -36,6 +39,7 @@ export default async function ActivitiesIsland() {
           : undefined
       }
       spotifyPlayingInfo={isSpotifyPlaying ? currentPlayingInfo : undefined}
+      status={isOnline ? "online" : "offline"}
     />
   );
 }
