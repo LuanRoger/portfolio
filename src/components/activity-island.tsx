@@ -32,10 +32,10 @@ export default function ActivityIsland({
   return (
     <div className="relative h-28 w-full overflow-clip">
       <div
-        className="absolute inset-ring inset-ring-primary inset-shadow-sm z-10 size-full"
+        className="absolute inset-ring inset-ring-primary z-10 size-full"
         style={
           accentColor
-            ? { boxShadow: `inset 0 0 10px ${accentColor}` }
+            ? { boxShadow: `inset 0 0 7px ${accentColor}` }
             : undefined
         }
       />
@@ -48,7 +48,7 @@ export default function ActivityIsland({
       />
       <Image
         alt={imageAlt}
-        className="absolute inset-0 -z-10 size-full object-cover opacity-50 blur-lg"
+        className="absolute inset-0 z-0 size-full object-cover opacity-50 blur-lg"
         height={30}
         src={imageSrc}
         width={30}

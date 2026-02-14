@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import ActivitiesIsland from "../activity-island/activities-island";
 import NameHeader from "../name-header";
-import TechStack from "./tech-stack";
+import TechStack from "../tech-stack";
 
 export default function HeroSection() {
   return (

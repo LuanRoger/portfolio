@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { NoiseContainer } from "@/components/grayni-noise";
-import NameHeader from "@/components/name-header";
 import AboutSection from "@/components/sections/about-section";
 import CertificationsSection from "@/components/sections/certifications-section";
 import ContactSection from "@/components/sections/contact-section";
 import ExpirienceSection from "@/components/sections/expirience-section";
 import FooterSection from "@/components/sections/footer-section";
+import HeroSection from "@/components/sections/hero-section";
 import NavigationHeader from "@/components/sections/navigation-header";
 import ProjectsSection from "@/components/sections/projects-section";
-import TechStack from "@/components/sections/tech-stack";
 import { Separator } from "@/components/ui/separator";
 
 const title = "Luan Roger";
@@ -49,8 +48,7 @@ export default function Home() {
   return (
     <div className="relative z-20 overflow-clip border-border md:max-2xl:w-3/5 md:max-2xl:rounded-md md:max-2xl:border">
       <div className="space-y-2 p-4">
-        <NameHeader />
-        <TechStack />
+        <HeroSection />
         <Separator />
         <NavigationHeader />
         <AboutSection />
