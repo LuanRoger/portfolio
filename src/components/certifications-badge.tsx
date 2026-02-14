@@ -5,7 +5,7 @@ import TiltedCard from "./tilted-card";
 
 export default function CertificationsBadge() {
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-evenly">
+    <div className="flex flex-col md:flex-row md:justify-evenly">
       <Link
         href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/public_url"
         isExternal

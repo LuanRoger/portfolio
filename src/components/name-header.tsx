@@ -1,6 +1,3 @@
-import { Suspense } from "react";
-import ActivitiesIsland from "@/components/activity-island/activities-island";
-
 export default function NameHeader() {
   return (
     <header>
@@ -8,9 +5,6 @@ export default function NameHeader() {
         <h1 className="cursor-default font-bold text-4xl transition-transform hover:scale-105">
           Luan Roger
         </h1>
-        <Suspense>
-          <ActivitiesIsland />
-        </Suspense>
       </div>
       <p className="font-mono text-sm">Full-stack developer</p>
     </header>

@@ -22,6 +22,7 @@ type ContentProps = {
     userProfileInfo: RetroachievementsUserProfile;
     lastGamePlayedInfo: LastPlayedGame;
   };
+  className?: string;
 };
 
 export default function Content({
@@ -29,6 +30,7 @@ export default function Content({
   spotifyPlayingInfo,
   acordActivityInfo,
   retroachievementsActivityInfo,
+  className,
 }: ContentProps) {
   return (
     <motion.div
@@ -37,11 +39,12 @@ export default function Content({
         scale: 1,
       }}
       className={cn(
-        "inset-ring inset-ring-border inset-shadow-sm flex flex-col items-center rounded-md border-border p-1 shadow-2xs",
+        "inset-ring inset-ring-border inset-shadow-sm flex h-fit flex-col items-center rounded-md border-border p-1 shadow-2xs",
         {
-          "w-52": status === "online",
+          "w-full md:w-52": status === "online",
           "": status === "offline",
-        }
+        },
+        className,
       )}
       initial={{
         opacity: 0,

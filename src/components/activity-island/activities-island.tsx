@@ -8,7 +8,13 @@ import { getSpotifyCurrentPlaying } from "@/app/actions/spotify";
 import { hoursSince } from "@/utils/time";
 import Content from "./components/content";
 
-export default async function ActivitiesIsland() {
+type ActivitiesIslandProps = {
+  className?: string;
+};
+
+export default async function ActivitiesIsland({
+  className,
+}: ActivitiesIslandProps) {
   "use cache";
   cacheLife("minutes");
 
@@ -30,6 +36,7 @@ export default async function ActivitiesIsland() {
   return (
     <Content
       acordActivityInfo={isAcordActivity ? currentAcordActivityInfo : undefined}
+      className={className}
       retroachievementsActivityInfo={
         isRetroachievementsActive
           ? {
