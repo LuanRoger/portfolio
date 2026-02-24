@@ -44,7 +44,7 @@ export default function Content({
           "w-full md:w-52": status === "online",
           "": status === "offline",
         },
-        className,
+        className
       )}
       initial={{
         opacity: 0,

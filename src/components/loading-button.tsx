@@ -4,9 +4,9 @@ import { Button } from "./ui/button";
 
 interface LoadingButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
-  pendingText?: string | undefined;
   pending?: boolean;
+  pendingText?: string | undefined;
+  text: string;
 }
 
 export default function LoadingButton({
