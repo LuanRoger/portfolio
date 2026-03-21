@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   cacheLife: {
     github: {
-      stale: 60 * 60 * 12, // 12 hours
-      revalidate: 60 * 60 * 24, // 1 day
+      stale: 60 * 60 * 24, // 1 day
+      revalidate: 60 * 60 * 24 * 3, // 3 days
       expire: 60 * 60 * 24 * 7, // 7 days
     },
   },
