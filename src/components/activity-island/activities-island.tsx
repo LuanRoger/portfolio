@@ -1,5 +1,4 @@
 import { cacheLife } from "next/cache";
-import { getCurrentAcordActivity } from "@/app/actions/acord";
 import {
   getLastGamePlayed,
   getRetroachievementsUserProfile,
@@ -19,23 +18,19 @@ export default async function ActivitiesIsland({
   cacheLife("minutes");
 
   const currentPlayingInfo = await getSpotifyCurrentPlaying();
-  const currentAcordActivityInfo = await getCurrentAcordActivity();
   const retroachievementsUserProfile = await getRetroachievementsUserProfile();
   const lastGamePlayedInfo = await getLastGamePlayed();
 
   const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
-  const isAcordActivity = Boolean(currentAcordActivityInfo);
   const hoursSinceLastRetroachievementsPlay = hoursSince(
     lastGamePlayedInfo.lastPlayed
   );
   const isRetroachievementsActive = hoursSinceLastRetroachievementsPlay < 1;
 
-  const isOnline =
-    isSpotifyPlaying || isAcordActivity || isRetroachievementsActive;
+  const isOnline = isSpotifyPlaying || isRetroachievementsActive;
 
   return (
     <Content
-      acordActivityInfo={isAcordActivity ? currentAcordActivityInfo : undefined}
       className={className}
       retroachievementsActivityInfo={
         isRetroachievementsActive

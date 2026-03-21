@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { AcordCurrentActivity } from "@/types/acord-current-activity";
 import type { Presence } from "@/types/presence";
 import type {
   LastPlayedGame,
@@ -9,7 +8,6 @@ import type {
 } from "@/types/retroachievements";
 import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
 import { cn } from "@/utils/shadcn-utils";
-import AcordActivityIslandSection from "./acord-activity-island-section";
 import ActivityDialogHeader from "./header";
 import RetroachievementsActivityIslandSection from "./retroachievements-activity-island-section";
 import SpotifyCurrentPlayingIslandSection from "./spotify-current-playing-island-section";
@@ -17,7 +15,6 @@ import SpotifyCurrentPlayingIslandSection from "./spotify-current-playing-island
 type ContentProps = {
   status: Presence;
   spotifyPlayingInfo?: SpotifyCurrentPlayingTrackInfo;
-  acordActivityInfo?: AcordCurrentActivity;
   retroachievementsActivityInfo?: {
     userProfileInfo: RetroachievementsUserProfile;
     lastGamePlayedInfo: LastPlayedGame;
@@ -28,7 +25,6 @@ type ContentProps = {
 export default function Content({
   status,
   spotifyPlayingInfo,
-  acordActivityInfo,
   retroachievementsActivityInfo,
   className,
 }: ContentProps) {
@@ -58,9 +54,6 @@ export default function Content({
           <SpotifyCurrentPlayingIslandSection
             spotifyInfo={spotifyPlayingInfo}
           />
-        )}
-        {acordActivityInfo && (
-          <AcordActivityIslandSection acordActivity={acordActivityInfo} />
         )}
         {retroachievementsActivityInfo && (
           <RetroachievementsActivityIslandSection
