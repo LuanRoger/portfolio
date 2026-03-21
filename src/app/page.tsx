@@ -56,8 +56,8 @@ export default function Home() {
         <ExpirienceSection />
         <CertificationsSection />
         <ContactSection />
+        <FooterSection />
       </div>
-      <FooterSection />
       <NoiseContainer className="rounded-md" />
     </div>
   );
