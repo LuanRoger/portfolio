@@ -1,13 +1,10 @@
 import Dropnote from "~/public/images/projects/dropnote.gif";
 import ElectronShadcn from "~/public/images/projects/electron-shadcn.png";
-import TodoSync from "~/public/images/projects/todoSync.png";
-import TsPackageTemplate from "~/public/images/projects/ts-package-template.png";
 import unpluginUseWasm from "~/public/images/projects/unplugin-use-wasm.png";
 import VolumeVault from "~/public/images/projects/volumeVault.png";
 import WHMonitor from "~/public/images/projects/whmonitor.png";
 import XboxLauncher from "~/public/images/projects/xboxLauncher.png";
 import XinputGamepad from "~/public/images/projects/xinputGamepad.png";
-import Yaste from "~/public/images/projects/yaste.png";
 import type { Project } from "../types/project";
 import { getTechsByName } from "./my-stack";
 
@@ -58,33 +55,6 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "yaste",
-    description:
-      "Yet another super ₛᵢₘₚₗₑ text editor. It's a simple text editor made with React and Electron. This project is just for demo purposes.",
-    techStack: getTechsByName([
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Electron",
-    ]),
-    repoName: "yaste",
-    image: {
-      src: Yaste,
-      alt: "yaste screenshot",
-    },
-  },
-  {
-    title: "Todo Sync",
-    description:
-      "Event Soucing as synchronization mechanism using Flutter with Riverpod and Realm.",
-    techStack: getTechsByName(["Flutter", "Dart"]),
-    repoName: "todo_sync",
-    image: {
-      src: TodoSync,
-      alt: "Sync demo",
-    },
-  },
-  {
     title: "Volume Vault",
     description:
       "📖 Keep your books informations safe and sound. Book management system with no effort and beautiful.",
@@ -125,17 +95,6 @@ export const projects: Project[] = [
     image: {
       src: XboxLauncher,
       alt: "Home page screenshot",
-    },
-  },
-  {
-    title: "ts-package-template",
-    description: "Modern tools to build an NPM package with TypeScript support",
-    techStack: getTechsByName(["TypeScript", "Node.js", "Rolldown"]),
-    repoName: "ts-package-template",
-    link: "https://www.npmjs.com/package/@luanroger/ts-package-template",
-    image: {
-      src: TsPackageTemplate,
-      alt: "ts-package-template repository screenshot",
     },
   },
   {
