@@ -15,7 +15,7 @@ export default function ExpirienceSection() {
         <WorkXp
           company="Mais Informa"
           description="I have the task of developing all the solutions for disseminating information, a news portal and a newsletter, with the lowest possible operating costs. To do this, I lead two squads that develop one solution each. Some of the tools we use to maintain the newsletter were developed in-house for the exclusive use of the project, to help the news team's process."
-          endDate="Present"
+          endDate="04/2026"
           position="Tech Lead"
           startDate="01/2024"
         />
