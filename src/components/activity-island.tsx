@@ -1,5 +1,6 @@
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { cn } from "@/utils/shadcn-utils";
 import Link from "./link";
 
@@ -7,8 +8,7 @@ type ActivityIslandProps = {
   title: string;
   description: string;
   activityDescription: string;
-  iconSrc: string | StaticImport;
-  iconAlt: string;
+  icon: ReactNode;
   imageSrc: string | StaticImport;
   imageAlt: string;
   href?: string;
@@ -19,8 +19,7 @@ export default function ActivityIsland({
   title,
   description,
   activityDescription,
-  iconSrc,
-  iconAlt,
+  icon,
   imageSrc,
   imageAlt,
   href,
@@ -54,14 +53,8 @@ export default function ActivityIsland({
         width={30}
       />
       <div className="absolute z-10 flex size-full flex-col justify-between p-2">
-        <div className="inline-flex gap-1 text-xs">
-          <Image
-            alt={iconAlt}
-            className="invert filter"
-            height={12}
-            src={iconSrc}
-            width={12}
-          />
+        <div className="inline-flex items-center gap-1 text-xs">
+          {icon}
           {activityDescription}
         </div>
         <p>
@@ -72,7 +65,7 @@ export default function ActivityIsland({
           ) : (
             <span className={cn(titleDefaultClasses)}>{title}</span>
           )}
-          <span className="text-sm text-white">{description}</span>
+          <span className="text-white text-xs">{description}</span>
         </p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import spotifyLogo from "@/app/images/spotify.svg";
+import { SiSpotify } from "@icons-pack/react-simple-icons";
 import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
 import { formatSpotifyArtistsName } from "@/utils/formater";
 import ActivityIsland from "../../activity-island";
@@ -21,8 +21,7 @@ export default function SpotifyCurrentPlayingIslandSection({
       activityDescription={title ?? "Listening to"}
       description={formatedArtists}
       href={href}
-      iconAlt="Spotify Logo"
-      iconSrc={spotifyLogo}
+      icon={<SiSpotify size={16} />}
       imageAlt={`${name} album cover`}
       imageSrc={image.url}
       title={name}
