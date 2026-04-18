@@ -12,12 +12,13 @@
     "bump-ui": "bun scripts/bump-ui.ts"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.13.0",
     "@tabler/icons-react": "^3.41.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "geist": "^1.7.0",
     "motion": "^12.38.0",
-    "next": "16.2.1",
+    "next": "16.2.4",
     "posthog-js": "^1.369.3",
     "radix-ui": "^1.4.3",
     "react": "19.2.5",

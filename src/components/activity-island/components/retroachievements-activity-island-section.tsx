@@ -1,4 +1,4 @@
-import retroachievementsLogo from "@/app/images/retroachievements.svg";
+import { SiRetroachievements } from "@icons-pack/react-simple-icons";
 import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
@@ -25,8 +25,7 @@ export default function RetroachievementsActivityIslandSection({
       activityDescription={details}
       description={richPresenceMsg}
       href={retroachievementsUrl}
-      iconAlt={"Retroachievements Logo"}
-      iconSrc={retroachievementsLogo}
+      icon={<SiRetroachievements size={16} />}
       imageAlt={imageTitle}
       imageSrc={imageBoxArt}
       title={title}
