@@ -8,6 +8,7 @@ import MinimalTechBadge from "./minimal-tech-badge";
 import RepoUpdateBadge, { RepoUpdateBadgeLoading } from "./repo-update-badge";
 import { GitHubIcon } from "./svg-icons";
 import { Button } from "./ui/button";
+import { ENV } from "varlock";
 
 type ProjectListItemProps = {
   project: Project;
@@ -20,8 +21,8 @@ export default function ProjectListItem({
 }: ProjectListItemProps) {
   const { title, image, description, link, repoName, techStack } = project;
   const { src: imageSrc, alt: imageAlt, animated: isImageAnimated } = image;
-  const githubUrl = process.env.GITHUB_URL;
-  const githubUsername = process.env.GITHUB_USERNAME;
+  const githubUrl = ENV.GITHUB_URL;
+  const githubUsername = ENV.GITHUB_USERNAME;
 
   const repoLink =
     repoName && githubUrl && githubUsername

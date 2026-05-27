@@ -1,11 +1,12 @@
 "use server";
 
+import { ENV } from "varlock/env";
 import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "@/types/adapters/spotify";
 
 async function getSpotifyAccessToken() {
-  const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-  const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
+  const clientId = ENV.SPOTIFY_CLIENT_ID;
+  const clientSecret = ENV.SPOTIFY_CLIENT_SECRET;
+  const refreshToken = ENV.SPOTIFY_REFRESH_TOKEN;
 
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",

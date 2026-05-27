@@ -1,6 +1,7 @@
 "use server";
 
 import { cacheLife } from "next/cache";
+import { ENV } from "varlock/env";
 import {
   adaptWakatimeAllTimeResponseToWakatimeAllTime,
   adaptWakatimeProgramLanguageResponseToWakatimeLanguages,
@@ -14,8 +15,8 @@ export async function getWakatimeStats() {
   "use cache";
   cacheLife("hours");
 
-  const wakatimeUrl = process.env.WAKATIME_URL;
-  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  const wakatimeUrl = ENV.WAKATIME_URL;
+  const wakatimeKey = ENV.WAKATIME_API_KEY;
   if (!(wakatimeUrl && wakatimeKey)) {
     return;
   }
@@ -43,8 +44,8 @@ export async function getWakatimeLastDaysCategoriesSummary() {
   "use cache";
   cacheLife("hours");
 
-  const wakatimeUrl = process.env.WAKATIME_URL;
-  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  const wakatimeUrl = ENV.WAKATIME_URL;
+  const wakatimeKey = ENV.WAKATIME_API_KEY;
   if (!(wakatimeUrl && wakatimeKey)) {
     return;
   }
@@ -100,8 +101,8 @@ export async function getWakatimeAllTimeMetrics() {
   "use cache";
   cacheLife("hours");
 
-  const wakatimeUrl = process.env.WAKATIME_URL;
-  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  const wakatimeUrl = ENV.WAKATIME_URL;
+  const wakatimeKey = ENV.WAKATIME_API_KEY;
   if (!(wakatimeUrl && wakatimeKey)) {
     return;
   }
@@ -125,8 +126,8 @@ export async function getWakatimeAllTimeMetrics() {
 }
 
 async function getWakatimeLanguages() {
-  const wakatimeUrl = process.env.WAKATIME_URL;
-  const wakatimeKey = process.env.WAKATIME_API_KEY;
+  const wakatimeUrl = ENV.WAKATIME_URL;
+  const wakatimeKey = ENV.WAKATIME_API_KEY;
   if (!(wakatimeUrl && wakatimeKey)) {
     return;
   }
