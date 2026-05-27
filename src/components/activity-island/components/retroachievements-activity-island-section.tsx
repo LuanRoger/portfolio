@@ -1,10 +1,10 @@
 import { SiRetroachievements } from "@icons-pack/react-simple-icons";
+import { ENV } from "varlock/env";
 import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
 } from "@/types/retroachievements";
 import ActivityIsland from "../../activity-island";
-import { ENV } from "varlock/env";
 
 type RetroachievementsActivityIslandSectionProps = {
   lastGamePlayedInfo: LastPlayedGame;

@@ -2,13 +2,13 @@ import { IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import { ENV } from "varlock";
 import type { Project } from "@/types/project";
 import { cn } from "@/utils/shadcn-utils";
 import MinimalTechBadge from "./minimal-tech-badge";
 import RepoUpdateBadge, { RepoUpdateBadgeLoading } from "./repo-update-badge";
 import { GitHubIcon } from "./svg-icons";
 import { Button } from "./ui/button";
-import { ENV } from "varlock";
 
 type ProjectListItemProps = {
   project: Project;
