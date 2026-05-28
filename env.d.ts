@@ -7,8 +7,24 @@
 /* eslint-disable */
 export type CoercedEnvSchema = {
   /**
+   * **INFISICAL_CLIENT_ID**  
+   * Infiscal  
+   * ![icon](data:image/svg+xml;utf-8,Not%20found)   
+   *   
+   * 📚 {@link https://infisical.com/docs/documentation/platform/identities/machine-identities | Infisical Machine Identities}  
+   */
+  INFISICAL_CLIENT_ID: string;
+  
+  /**
+   * **INFISICAL_CLIENT_SECRET** 🔐 _sensitive_  
+   * ![icon](data:image/svg+xml;utf-8,Not%20found)   
+   *   
+   * 📚 {@link https://infisical.com/docs/documentation/platform/identities/universal-auth | Infisical Universal Auth}  
+   */
+  INFISICAL_CLIENT_SECRET: string;
+  
+  /**
    * **SPOTIFY_CLIENT_ID** 🔐 _sensitive_  
-   * Spotify  
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)   
    */
   SPOTIFY_CLIENT_ID: string;
@@ -33,7 +49,6 @@ export type CoercedEnvSchema = {
   
   /**
    * **WAKATIME_API_KEY** 🔐 _sensitive_  
-   * Wakatime  
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)   
    */
   WAKATIME_API_KEY: string;
@@ -52,7 +67,6 @@ export type CoercedEnvSchema = {
   
   /**
    * **RETROACHIEVEMENTS_API_KEY** 🔐 _sensitive_  
-   * Retroachievements  
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)   
    */
   RETROACHIEVEMENTS_API_KEY: string;
@@ -71,7 +85,6 @@ export type CoercedEnvSchema = {
   
   /**
    * **GITHUB_USERNAME**  
-   * GitHub  
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)   
    */
   GITHUB_USERNAME: string;
@@ -90,7 +103,6 @@ export type CoercedEnvSchema = {
   
   /**
    * **NEXT_PUBLIC_POSTHOG_KEY**  
-   * Posthog  
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)   
    */
   NEXT_PUBLIC_POSTHOG_KEY: string;
@@ -103,11 +115,11 @@ export type CoercedEnvSchema = {
   
 };
 
-type _CoercedEnvSchema_c6af7e58 = CoercedEnvSchema;
+type _CoercedEnvSchema_503c4e28 = CoercedEnvSchema;
 
 declare module 'varlock/env' {
-  export interface TypedEnvSchema extends Readonly<_CoercedEnvSchema_c6af7e58> {}
-  export interface PublicTypedEnvSchema extends Readonly<Pick<_CoercedEnvSchema_c6af7e58, 'WAKATIME_URL' | 'NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL' | 'RETROACHIEVEMENTS_API_URL' | 'RETROACHIEVEMENTS_USERNAME' | 'GITHUB_USERNAME' | 'GITHUB_API_URL' | 'GITHUB_URL' | 'NEXT_PUBLIC_POSTHOG_KEY' | 'NEXT_PUBLIC_POSTHOG_HOST'>> {}
+  export interface TypedEnvSchema extends Readonly<_CoercedEnvSchema_503c4e28> {}
+  export interface PublicTypedEnvSchema extends Readonly<Pick<_CoercedEnvSchema_503c4e28, 'INFISICAL_CLIENT_ID' | 'WAKATIME_URL' | 'NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL' | 'RETROACHIEVEMENTS_API_URL' | 'RETROACHIEVEMENTS_USERNAME' | 'GITHUB_USERNAME' | 'GITHUB_API_URL' | 'GITHUB_URL' | 'NEXT_PUBLIC_POSTHOG_KEY' | 'NEXT_PUBLIC_POSTHOG_HOST'>> {}
 }
 
 
@@ -117,17 +129,17 @@ export type EnvSchemaAsStrings = {
       : (CoercedEnvSchema[Property] extends boolean ? ('true' | 'false') : string)
 };
 
-type _EnvSchemaAsStrings_c6af7e58 = EnvSchemaAsStrings;
+type _EnvSchemaAsStrings_503c4e28 = EnvSchemaAsStrings;
 declare global {
 
   // add types for global import.meta.env
-  interface ImportMetaEnv extends _EnvSchemaAsStrings_c6af7e58 {}
+  interface ImportMetaEnv extends _EnvSchemaAsStrings_503c4e28 {}
   interface ImportMeta {
     readonly env: ImportMetaEnv;
   }
 
   // add types for global process.env
   namespace NodeJS {
-    interface ProcessEnv extends _EnvSchemaAsStrings_c6af7e58 {}
+    interface ProcessEnv extends _EnvSchemaAsStrings_503c4e28 {}
   }
 }

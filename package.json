@@ -15,6 +15,7 @@
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
     "@tabler/icons-react": "^3.44.0",
+    "@varlock/infisical-plugin": "^1.1.0",
     "@varlock/nextjs-integration": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
