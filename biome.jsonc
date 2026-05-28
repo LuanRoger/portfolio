@@ -5,6 +5,15 @@
     "ultracite/biome/react",
     "ultracite/biome/next"
   ],
+  "files": {
+    "includes": [
+      "/**/*",
+      "!src/components/ui/**/*",
+      "!node_modules/**/*",
+      "!.next/**/*",
+      "!*.d.ts"
+    ]
+  },
   "linter": {
     "rules": {
       "style": {

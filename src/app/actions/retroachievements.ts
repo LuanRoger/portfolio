@@ -1,15 +1,16 @@
 "use server";
 
+import { ENV } from "varlock/env";
 import {
   adaptLastPlayedGameResponseToLastPlayedGame,
   adaptRetroachievementsUserProfileResponseToUserProfile,
 } from "@/types/adapters/retroachievements";
 
 export async function getRetroachievementsUserProfile() {
-  const baseUrl = process.env.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL;
-  const apiUrl = process.env.RETROACHIEVEMENTS_API_URL;
-  const apiKey = process.env.RETROACHIEVEMENTS_API_KEY;
-  const username = process.env.RETROACHIEVEMENTS_USERNAME;
+  const baseUrl = ENV.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL;
+  const apiUrl = ENV.RETROACHIEVEMENTS_API_URL;
+  const apiKey = ENV.RETROACHIEVEMENTS_API_KEY;
+  const username = ENV.RETROACHIEVEMENTS_USERNAME;
 
   if (!(baseUrl && apiUrl && apiKey && username)) {
     throw new Error("Retroachievements environment variables are not set");
@@ -31,10 +32,10 @@ export async function getRetroachievementsUserProfile() {
 }
 
 export async function getLastGamePlayed() {
-  const baseUrl = process.env.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL;
-  const apiUrl = process.env.RETROACHIEVEMENTS_API_URL;
-  const apiKey = process.env.RETROACHIEVEMENTS_API_KEY;
-  const username = process.env.RETROACHIEVEMENTS_USERNAME;
+  const baseUrl = ENV.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL;
+  const apiUrl = ENV.RETROACHIEVEMENTS_API_URL;
+  const apiKey = ENV.RETROACHIEVEMENTS_API_KEY;
+  const username = ENV.RETROACHIEVEMENTS_USERNAME;
 
   if (!(baseUrl && apiUrl && apiKey && username)) {
     throw new Error("Retroachievements environment variables are not set");

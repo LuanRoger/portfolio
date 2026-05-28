@@ -2,6 +2,7 @@ import { IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import { ENV } from "varlock";
 import type { Project } from "@/types/project";
 import { cn } from "@/utils/shadcn-utils";
 import MinimalTechBadge from "./minimal-tech-badge";
@@ -20,8 +21,8 @@ export default function ProjectListItem({
 }: ProjectListItemProps) {
   const { title, image, description, link, repoName, techStack } = project;
   const { src: imageSrc, alt: imageAlt, animated: isImageAnimated } = image;
-  const githubUrl = process.env.GITHUB_URL;
-  const githubUsername = process.env.GITHUB_USERNAME;
+  const githubUrl = ENV.GITHUB_URL;
+  const githubUsername = ENV.GITHUB_USERNAME;
 
   const repoLink =
     repoName && githubUrl && githubUsername

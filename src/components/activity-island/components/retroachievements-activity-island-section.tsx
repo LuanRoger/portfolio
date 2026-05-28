@@ -1,4 +1,5 @@
 import { SiRetroachievements } from "@icons-pack/react-simple-icons";
+import { ENV } from "varlock/env";
 import type {
   LastPlayedGame,
   RetroachievementsUserProfile,
@@ -17,7 +18,7 @@ export default function RetroachievementsActivityIslandSection({
   const { title, consoleName, imageBoxArt, imageTitle } = lastGamePlayedInfo;
   const { richPresenceMsg } = userProfile;
   const details = `Playing on ${consoleName}`;
-  const retroachievementsUrl = `${process.env.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
+  const retroachievementsUrl = `${ENV.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL}/game/${lastGamePlayedInfo.gameId}`;
 
   return (
     <ActivityIsland

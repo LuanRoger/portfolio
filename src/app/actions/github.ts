@@ -1,5 +1,6 @@
 "use server";
 
+import { ENV } from "varlock/env";
 import {
   adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages,
   adaptGitHubRepositoryResponseToGitHubRepository,
@@ -8,8 +9,8 @@ import {
 import type { GitHubRepository } from "@/types/github";
 
 export async function getGithubProfile() {
-  const githubToken = process.env.GITHUB_TOKEN;
-  const gitHubApiUrl = process.env.GITHUB_API_URL;
+  const githubToken = ENV.GITHUB_TOKEN;
+  const gitHubApiUrl = ENV.GITHUB_API_URL;
   if (!(githubToken && gitHubApiUrl)) {
     return null;
   }
@@ -30,9 +31,9 @@ export async function getGithubProfile() {
 }
 
 export async function getGitHubProfileRepository(repoName: string) {
-  const githubToken = process.env.GITHUB_TOKEN;
-  const gitHubApiUrl = process.env.GITHUB_API_URL;
-  const githubUserName = process.env.GITHUB_USERNAME;
+  const githubToken = ENV.GITHUB_TOKEN;
+  const gitHubApiUrl = ENV.GITHUB_API_URL;
+  const githubUserName = ENV.GITHUB_USERNAME;
   if (!(githubToken && gitHubApiUrl && githubUserName)) {
     return null;
   }
@@ -56,8 +57,8 @@ export async function getGitHubProfileRepository(repoName: string) {
 }
 
 export async function getGithubProfileRepositories() {
-  const githubToken = process.env.GITHUB_TOKEN;
-  const gitHubApiUrl = process.env.GITHUB_API_URL;
+  const githubToken = ENV.GITHUB_TOKEN;
+  const gitHubApiUrl = ENV.GITHUB_API_URL;
   if (!githubToken) {
     return null;
   }
@@ -105,7 +106,7 @@ export async function getGithubProfileRepositories() {
 }
 
 async function getGithubRepositoryLanguages(languageUrl: string) {
-  const githubToken = process.env.GITHUB_TOKEN;
+  const githubToken = ENV.GITHUB_TOKEN;
   if (!githubToken) {
     return null;
   }
