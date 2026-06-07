@@ -22,7 +22,7 @@
     "geist": "^1.7.2",
     "motion": "^12.40.0",
     "next": "16.2.7",
-    "posthog-js": "^1.381.0",
+    "posthog-js": "^1.382.0",
     "radix-ui": "^1.5.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
@@ -45,5 +45,5 @@
     "typescript": "^6.0.3",
     "ultracite": "7.8.1"
   },
-  "packageManager": "pnpm@11.3.0"
+  "packageManager": "pnpm@11.5.0"
 }
