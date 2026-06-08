@@ -1,12 +1,10 @@
 import { IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { ENV } from "varlock";
 import type { Project } from "@/types/project";
 import { cn } from "@/utils/shadcn-utils";
 import MinimalTechBadge from "./minimal-tech-badge";
-import RepoUpdateBadge, { RepoUpdateBadgeLoading } from "./repo-update-badge";
 import { GitHubIcon } from "./svg-icons";
 import { Button } from "./ui/button";
 
@@ -54,16 +52,6 @@ export default function ProjectListItem({
                   target="_blank"
                 >
                   <GitHubIcon className="fill-foreground" />
-                  {repoName && (
-                    <Suspense fallback={<RepoUpdateBadgeLoading />}>
-                      <RepoUpdateBadge
-                        prefix={
-                          <span key={`${repoName}-update-separator`}>•</span>
-                        }
-                        repoName={repoName}
-                      />
-                    </Suspense>
-                  )}
                 </Link>
               </Button>
             )}
@@ -74,7 +62,7 @@ export default function ProjectListItem({
                   href={link}
                   target="_blank"
                 >
-                  <IconExternalLink className="h-5 w-5 fill-foreground" />
+                  <IconExternalLink className="size-5 fill-foreground" />
                 </Link>
               </Button>
             )}
@@ -83,7 +71,7 @@ export default function ProjectListItem({
       </div>
       <Image
         alt={imageAlt}
-        className="absolute inset-0 z-20 h-full w-full object-cover"
+        className="absolute inset-0 z-20 size-full object-cover"
         height={400}
         src={imageSrc}
         unoptimized={isImageAnimated}
@@ -91,7 +79,7 @@ export default function ProjectListItem({
       />
       <Image
         alt={imageAlt}
-        className="absolute inset-0 z-10 h-full w-full object-cover blur-md"
+        className="absolute inset-0 z-10 size-full object-cover blur-md"
         height={100}
         src={imageSrc}
         unoptimized={isImageAnimated}

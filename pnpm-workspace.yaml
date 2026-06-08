@@ -8,7 +8,6 @@ allowBuilds:
   protobufjs: false
   sharp: true
 minimumReleaseAgeExclude:
-  - "@posthog/core@1.29.10"
-  - "@posthog/types@1.376.1"
-  - posthog-js@1.376.1
-  - ultracite@7.8.0
+  - '@posthog/core@1.30.10'
+  - '@posthog/types@1.382.0'
+  - posthog-js@1.382.0

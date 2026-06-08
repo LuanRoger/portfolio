@@ -30,32 +30,6 @@ export async function getGithubProfile() {
   return adaptGitHubUserResponseToGitHubUser(jsonResult);
 }
 
-export async function getGitHubProfileRepository(repoName: string) {
-  const githubToken = ENV.GITHUB_TOKEN;
-  const gitHubApiUrl = ENV.GITHUB_API_URL;
-  const githubUserName = ENV.GITHUB_USERNAME;
-  if (!(githubToken && gitHubApiUrl && githubUserName)) {
-    return null;
-  }
-
-  const result = await fetch(
-    `${gitHubApiUrl}/repos/${githubUserName}/${repoName}`,
-    {
-      headers: {
-        Authorization: `Bearer ${githubToken}`,
-        Accept: "application/vnd.github+json",
-      },
-    }
-  );
-
-  if (!result.ok) {
-    return null;
-  }
-
-  const jsonResult = await result.json();
-  return adaptGitHubRepositoryResponseToGitHubRepository(jsonResult);
-}
-
 export async function getGithubProfileRepositories() {
   const githubToken = ENV.GITHUB_TOKEN;
   const gitHubApiUrl = ENV.GITHUB_API_URL;
