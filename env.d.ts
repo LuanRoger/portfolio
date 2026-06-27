@@ -8,20 +8,11 @@
 export type CoercedEnvSchema = {
   /**
    * **INFISICAL_CLIENT_ID**  
-   * Infiscal  
    * ![icon](data:image/svg+xml;utf-8,Not%20found)   
    *   
    * 📚 {@link https://infisical.com/docs/documentation/platform/identities/machine-identities | Infisical Machine Identities}  
    */
   INFISICAL_CLIENT_ID: string;
-  
-  /**
-   * **INFISICAL_CLIENT_SECRET** 🔐 _sensitive_  
-   * ![icon](data:image/svg+xml;utf-8,Not%20found)   
-   *   
-   * 📚 {@link https://infisical.com/docs/documentation/platform/identities/universal-auth | Infisical Universal Auth}  
-   */
-  INFISICAL_CLIENT_SECRET: string;
   
   /**
    * **SPOTIFY_CLIENT_ID** 🔐 _sensitive_  
@@ -115,11 +106,11 @@ export type CoercedEnvSchema = {
   
 };
 
-type _CoercedEnvSchema_503c4e28 = CoercedEnvSchema;
+type _CoercedEnvSchema_38944c74 = CoercedEnvSchema;
 
 declare module 'varlock/env' {
-  export interface TypedEnvSchema extends Readonly<_CoercedEnvSchema_503c4e28> {}
-  export interface PublicTypedEnvSchema extends Readonly<Pick<_CoercedEnvSchema_503c4e28, 'INFISICAL_CLIENT_ID' | 'WAKATIME_URL' | 'NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL' | 'RETROACHIEVEMENTS_API_URL' | 'RETROACHIEVEMENTS_USERNAME' | 'GITHUB_USERNAME' | 'GITHUB_API_URL' | 'GITHUB_URL' | 'NEXT_PUBLIC_POSTHOG_KEY' | 'NEXT_PUBLIC_POSTHOG_HOST'>> {}
+  export interface TypedEnvSchema extends Readonly<_CoercedEnvSchema_38944c74> {}
+  export interface PublicTypedEnvSchema extends Readonly<Pick<_CoercedEnvSchema_38944c74, 'INFISICAL_CLIENT_ID' | 'WAKATIME_URL' | 'NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL' | 'RETROACHIEVEMENTS_API_URL' | 'RETROACHIEVEMENTS_USERNAME' | 'GITHUB_USERNAME' | 'GITHUB_API_URL' | 'GITHUB_URL' | 'NEXT_PUBLIC_POSTHOG_KEY' | 'NEXT_PUBLIC_POSTHOG_HOST'>> {}
 }
 
 
@@ -129,17 +120,17 @@ export type EnvSchemaAsStrings = {
       : (CoercedEnvSchema[Property] extends boolean ? ('true' | 'false') : string)
 };
 
-type _EnvSchemaAsStrings_503c4e28 = EnvSchemaAsStrings;
+type _EnvSchemaAsStrings_38944c74 = EnvSchemaAsStrings;
 declare global {
 
   // add types for global import.meta.env
-  interface ImportMetaEnv extends _EnvSchemaAsStrings_503c4e28 {}
+  interface ImportMetaEnv extends _EnvSchemaAsStrings_38944c74 {}
   interface ImportMeta {
     readonly env: ImportMetaEnv;
   }
 
   // add types for global process.env
   namespace NodeJS {
-    interface ProcessEnv extends _EnvSchemaAsStrings_503c4e28 {}
+    interface ProcessEnv extends _EnvSchemaAsStrings_38944c74 {}
   }
 }

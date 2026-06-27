@@ -8,7 +8,7 @@ allowBuilds:
   protobufjs: false
   sharp: true
 minimumReleaseAgeExclude:
-  - '@posthog/core@1.30.10 || 1.38.0'
-  - '@posthog/types@1.382.0'
-  - posthog-js@1.382.0 || 1.395.0
+  - "@posthog/core@1.38.0"
+  - "@posthog/types@1.382.0"
+  - posthog-js@1.395.0
   - shadcn@4.12.0
