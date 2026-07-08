@@ -1,0 +1,17 @@
+---
+import type { Tech } from "@/types/tech";
+import TechBadge from "@/components/TechBadge.astro";
+
+interface Props {
+    groupTechs: Tech[];
+}
+
+const { groupTechs } = Astro.props;
+
+const category = groupTechs[0].category;
+---
+
+<h2 class="font-bold">{category}</h2>
+<div class="flex flex-wrap gap-2">
+    {groupTechs.map((tech) => <TechBadge tech={tech} />)}
+</div>

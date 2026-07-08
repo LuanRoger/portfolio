@@ -1,0 +1,20 @@
+---
+import { Button } from "@/components/ui/button";
+import type { Tech } from "@/types/tech";
+import Link from "@/components/Link.astro";
+import Icon from "@/components/Icon.astro";
+
+interface Props {
+    tech: Tech;
+}
+
+const { tech } = Astro.props;
+const { name, color, link, icon } = tech;
+---
+
+<Link class="flex" href={link} isExternal>
+    <Button style={{ backgroundColor: `${color}25` }} variant="outline">
+        <Icon name={icon} fill={color} />
+        <p>{name}</p>
+    </Button>
+</Link>

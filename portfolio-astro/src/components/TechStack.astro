@@ -1,0 +1,31 @@
+---
+import { myStack } from "@/lib/constants/my-stack";
+import TechGroup from "./TechGroup.astro";
+import { TechCategory } from "@/types/tech";
+
+const techsByCategory = myStack
+    .filter((tech) => !tech.hide)
+    .reduce(
+        (acc, tech) => {
+            if (!acc[tech.category]) {
+                acc[tech.category] = [];
+            }
+            acc[tech.category].push(tech);
+            return acc;
+        },
+        {} as Record<TechCategory, typeof myStack>,
+    );
+---
+
+<div class="flex flex-col gap-2">
+    {
+        Object.values(TechCategory).map((category) => {
+            const groupTechs = techsByCategory[category];
+            if (!groupTechs) {
+                return null;
+            }
+
+            return <TechGroup groupTechs={groupTechs} />;
+        })
+    }
+</div>
