@@ -3,14 +3,23 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
+} from "../../ui/accordion";
 import type { ReactNode } from "react";
+import WakatimeLanguagesChart from "./wakatime-languages-chart";
 
 type WakatimeCodingMetricsAccordionItemProps = {
+  languageChart: {
+    data: {
+      name: string;
+      value: number;
+      fill?: string;
+    }[];
+  }
   footer: ReactNode;
 };
 
 export default function WakatimeCodingMetricsAccordionItem({
+  languageChart,
   footer,
 }: WakatimeCodingMetricsAccordionItemProps) {
   return (
@@ -22,6 +31,7 @@ export default function WakatimeCodingMetricsAccordionItem({
         </span>
       </AccordionTrigger>
       <AccordionContent className="flex flex-col gap-4">
+        <WakatimeLanguagesChart {...languageChart} />
         <div className="flex justify-between text-muted-foreground text-sm">
           <p>
             Collecting data since 23 December 2022.

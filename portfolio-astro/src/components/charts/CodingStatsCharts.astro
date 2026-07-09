@@ -2,9 +2,25 @@
 import CodingStatsAccordion from "./coding-stats-accordion";
 import Link from "@/components/Link.astro";
 import Icon from "@/components/Icon.astro";
+import { actions } from "astro:actions";
+import { secondsToHours } from "@/lib/utils/time";
+
+const statsData = await Astro.callAction(
+    actions.wakatime.getWakatimeStats.orThrow,
+    {},
+);
+const { languages } = statsData;
+const langaugeChart = languages.map((language) => ({
+    name: language.name,
+    value: secondsToHours(language.totalSeconds),
+    fill: language.metadata?.color,
+}));
 ---
 
-<CodingStatsAccordion client:visible>
+<CodingStatsAccordion
+    client:visible
+    wakatimeLanguageChart={{ data: langaugeChart }}
+>
     <div slot="wakatimeFooter" class="contents">
         <Link
             class="inline-flex items-center gap-2 self-end font-medium"
@@ -14,7 +30,7 @@ import Icon from "@/components/Icon.astro";
             Powered by{" "}
             <Icon
                 name="wakatime"
-                class="inline-block size-5 fill-muted-foreground"
+                class="inline-block size-4 fill-muted-foreground"
             />
         </Link>
     </div>
