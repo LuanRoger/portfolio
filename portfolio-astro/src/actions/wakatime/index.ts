@@ -9,14 +9,46 @@ import {
 } from "./adapters";
 import type { WakatimeDateCategory } from "@/types/wakatime";
 import { getLastDayDate, simpleFormatDate } from "@/lib/utils/time";
-import { defineAction } from "astro:actions";
+import { ActionError, defineAction, getActionContext } from "astro:actions";
 
-export const getWakatimeStats = defineAction({
-  handler: async () => {
+async function getWakatimeLanguages() {
+  const wakatimeUrl = ENV.WAKATIME_URL;
+  const wakatimeKey = ENV.WAKATIME_API_KEY;
+  if (!(wakatimeUrl && wakatimeKey)) {
+    throw new ActionError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Wakatime URL or API key not set",
+    });
+  }
+
+  const response = await fetch(`${wakatimeUrl}/program_languages`, {
+    headers: {
+      Authorization: `Basic ${wakatimeKey}`,
+    },
+  });
+  if (!response.ok) {
+    throw new ActionError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Failed to fetch Wakatime stats",
+    });
+  }
+
+  const data = await response.json();
+  const languageData =
+    adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
+
+  return languageData;
+}
+
+const getWakatimeStats = defineAction({
+  handler: async (_, context) => {
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
     if (!(wakatimeUrl && wakatimeKey)) {
-      return;
+      throw new ActionError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Wakatime URL or API key not set",
+      });
     }
 
     const response = await fetch(`${wakatimeUrl}/users/current/stats`, {
@@ -25,11 +57,14 @@ export const getWakatimeStats = defineAction({
       },
     });
     if (!response.ok) {
-      return;
+      throw new ActionError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Failed to fetch Wakatime stats",
+      });
     }
 
     const data = await response.json();
-    const { data: languageMetadataResponse } = await getWakatimeLanguages();
+    const languageMetadataResponse = await getWakatimeLanguages();
     const statsData = adaptWakatimeResponseToWakatimeStats(
       data,
       languageMetadataResponse,
@@ -39,7 +74,7 @@ export const getWakatimeStats = defineAction({
   },
 });
 
-export const getWakatimeLastDaysCategoriesSummary = defineAction({
+const getWakatimeLastDaysCategoriesSummary = defineAction({
   handler: async () => {
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
@@ -97,7 +132,7 @@ export const getWakatimeLastDaysCategoriesSummary = defineAction({
   },
 });
 
-export const getWakatimeAllTimeMetrics = defineAction({
+const getWakatimeAllTimeMetrics = defineAction({
   handler: async () => {
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
@@ -124,27 +159,8 @@ export const getWakatimeAllTimeMetrics = defineAction({
   },
 });
 
-export const getWakatimeLanguages = defineAction({
-  handler: async () => {
-    const wakatimeUrl = ENV.WAKATIME_URL;
-    const wakatimeKey = ENV.WAKATIME_API_KEY;
-    if (!(wakatimeUrl && wakatimeKey)) {
-      return;
-    }
-
-    const response = await fetch(`${wakatimeUrl}/program_languages`, {
-      headers: {
-        Authorization: `Basic ${wakatimeKey}`,
-      },
-    });
-    if (!response.ok) {
-      return;
-    }
-
-    const data = await response.json();
-    const languageData =
-      adaptWakatimeProgramLanguageResponseToWakatimeLanguages(data);
-
-    return languageData;
-  },
-});
+export const wakatime = {
+  getWakatimeStats,
+  getWakatimeLastDaysCategoriesSummary,
+  getWakatimeAllTimeMetrics,
+};
