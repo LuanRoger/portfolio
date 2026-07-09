@@ -1,6 +1,5 @@
-export function secondsToHours(seconds: number): string {
-  const hours = Math.floor(seconds / 3600);
-  return `${hours}`;
+export function secondsToHours(seconds: number): number {
+  return seconds / 3600;
 }
 
 export function getLastDayDate(days: number): Date {
