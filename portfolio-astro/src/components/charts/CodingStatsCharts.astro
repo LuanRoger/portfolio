@@ -1,0 +1,21 @@
+---
+import CodingStatsAccordion from "./coding-stats-accordion";
+import Link from "@/components/Link.astro";
+import Icon from "@/components/Icon.astro";
+---
+
+<CodingStatsAccordion client:visible>
+    <div slot="wakatimeFooter" class="contents">
+        <Link
+            class="inline-flex items-center gap-2 self-end font-medium"
+            href={"https://wakatime.com"}
+            isExternal
+        >
+            Powered by{" "}
+            <Icon
+                name="wakatime"
+                class="inline-block size-5 fill-muted-foreground"
+            />
+        </Link>
+    </div>
+</CodingStatsAccordion>
