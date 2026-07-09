@@ -1,18 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "@/components/sections/HeroSection.astro";
+import Separator from "@/components/Separator.astro";
+import NavigationHeader from "@/components/NavigationHeader.astro";
+import AboutSection from "@/components/sections/AboutSection.astro";
 ---
 
 <Layout>
     <div
-        class="relative z-20 bg-background overflow-clip border-border md:w-3/5 md:rounded-md md:border"
+        class="relative z-20 bg-background/5 overflow-clip border-border md:w-3/5 md:rounded-md md:border"
     >
-        <div class="space-y-2 p-4">
+        <div class="space-y-3 p-4">
             <HeroSection />
-            <!--<Separator />
+            <Separator />
             <NavigationHeader />
             <AboutSection />
-            <ProjectsSection />
+            <!--<ProjectsSection />
             <ExpirienceSection />
             <CertificationsSection />
             <ContactSection />

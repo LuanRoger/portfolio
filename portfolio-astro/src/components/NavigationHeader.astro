@@ -1,0 +1,44 @@
+---
+import Link from "@/components/Link.astro";
+import IconLabel from "@/components/IconLabel.astro";
+import UserIcon from "@/assets/icons/user.svg";
+import ToolCaseIcon from "@/assets/icons/tool-case.svg";
+import BriefcaseIcon from "@/assets/icons/briefcase-business.svg";
+import MailIcon from "@/assets/icons/mail.svg";
+
+const iconClass = "size-4 stroke-foreground";
+const iconLabelClass = "text-sm font-mono";
+---
+
+<nav>
+    <ul class="flex w-full flex-row flex-wrap justify-evenly gap-2 font-mono">
+        <li>
+            <Link href="#about">
+                <IconLabel label="About" className={iconLabelClass}>
+                    <UserIcon class={iconClass} />
+                </IconLabel>
+            </Link>
+        </li>
+        <li>
+            <Link href="#projects">
+                <IconLabel label="Projects" className={iconLabelClass}>
+                    <ToolCaseIcon class={iconClass} />
+                </IconLabel>
+            </Link>
+        </li>
+        <li>
+            <Link href="#expirience">
+                <IconLabel label="Expirience" className={iconLabelClass}>
+                    <BriefcaseIcon class={iconClass} />
+                </IconLabel>
+            </Link>
+        </li>
+        <li>
+            <Link href="#contact">
+                <IconLabel label="Contact" className={iconLabelClass}>
+                    <MailIcon class={iconClass} />
+                </IconLabel>
+            </Link>
+        </li>
+    </ul>
+</nav>
