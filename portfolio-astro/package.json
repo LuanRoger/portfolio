@@ -30,6 +30,7 @@
     "clsx": "^2.1.1",
     "d3-shape": "^3.2.0",
     "lucide-react": "^1.23.0",
+    "luxon": "^3.7.2",
     "motion": "^12.42.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.10",
+    "@types/luxon": "^3.7.2",
     "@varlock/astro-integration": "^1.1.1",
     "@varlock/infisical-plugin": "^2.0.1",
     "typescript": "^6.0.3",

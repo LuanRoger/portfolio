@@ -5,22 +5,35 @@ import Icon from "@/components/Icon.astro";
 import { actions } from "astro:actions";
 import { secondsToHours } from "@/lib/utils/time";
 
-const statsData = await Astro.callAction(
+const wakatimeStatsData = await Astro.callAction(
     actions.wakatime.getWakatimeStats.orThrow,
     {},
 );
-const allTimeData = await Astro.callAction(
+const wakatimeAllTimeData = await Astro.callAction(
     actions.wakatime.getWakatimeAllTimeMetrics.orThrow,
     {},
 );
+const githubProfileData = await Astro.callAction(
+    actions.github.getGithubProfile.orThrow,
+    {},
+);
+const githubRepositoriesData = await Astro.callAction(
+    actions.github.getGithubProfileRepositories.orThrow,
+    {},
+);
 
-const { languages, avarengeText } = statsData;
+const stargazersCount = githubRepositoriesData.reduce(
+  (acc, repo) => acc + repo.stargazersCount,
+  0
+);
+
+const { languages, avarengeText } = wakatimeStatsData;
 const langaugeChart = languages.map((language) => ({
     name: language.name,
     value: secondsToHours(language.totalSeconds),
     fill: language.metadata?.color,
 }));
-const { text: allTimeText } = allTimeData;
+const { text: allTimeText } = wakatimeAllTimeData;
 ---
 
 <CodingStatsAccordion
@@ -28,8 +41,10 @@ const { text: allTimeText } = allTimeData;
     wakatimeLanguageChart={{ data: langaugeChart }}
     wakatimeAverageText={avarengeText}
     wakatimeAllTimeText={allTimeText}
+    githubProfileData={githubProfileData}
+    stargazersCount={stargazersCount}
 >
-    <div slot="wakatimeFooter" class="contents">
+    <div slot="wakatimeFooter" class="self-end text-muted-foreground">
         <Link
             class="inline-flex items-center gap-2 self-end font-medium"
             href={"https://wakatime.com"}
@@ -41,5 +56,18 @@ const { text: allTimeText } = allTimeData;
                 class="inline-block size-4 fill-muted-foreground"
             />
         </Link>
+    </div>
+    <div slot="githubIcon" class="contents">
+        <Icon name="github" class="size-4 fill-white" />
+    </div>
+    <div slot="githubFooter" class="text-muted-foreground self-end">
+      <Link
+        class="inline-flex items-center gap-2 self-end font-medium"
+        href={"https://docs.github.com/en/rest"}
+        isExternal
+      >
+        Powered by{" "}
+        <Icon name="github" class="inline-block size-4 fill-muted-foreground" />
+      </Link>
     </div>
 </CodingStatsAccordion>
