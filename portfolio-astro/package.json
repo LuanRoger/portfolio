@@ -9,10 +9,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "env:load": "varlock load"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.1",
+    "@astrojs/vercel": "^11.0.2",
     "@base-ui/react": "^1.6.0",
     "@fontsource-variable/geist": "^5.2.9",
     "@fontsource-variable/geist-mono": "^5.2.8",
@@ -25,6 +27,7 @@
     "lucide-react": "^1.23.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "recharts": "3.8.0",
     "shadcn": "^4.13.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.2",
@@ -32,6 +35,9 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.10",
-    "typescript": "^6.0.3"
+    "@varlock/astro-integration": "^1.1.1",
+    "@varlock/infisical-plugin": "^2.0.1",
+    "typescript": "^6.0.3",
+    "varlock": "^1.10.0"
   }
 }
