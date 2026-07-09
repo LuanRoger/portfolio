@@ -9,17 +9,25 @@ const statsData = await Astro.callAction(
     actions.wakatime.getWakatimeStats.orThrow,
     {},
 );
-const { languages } = statsData;
+const allTimeData = await Astro.callAction(
+    actions.wakatime.getWakatimeAllTimeMetrics.orThrow,
+    {},
+);
+
+const { languages, avarengeText } = statsData;
 const langaugeChart = languages.map((language) => ({
     name: language.name,
     value: secondsToHours(language.totalSeconds),
     fill: language.metadata?.color,
 }));
+const { text: allTimeText } = allTimeData;
 ---
 
 <CodingStatsAccordion
     client:visible
     wakatimeLanguageChart={{ data: langaugeChart }}
+    wakatimeAverageText={avarengeText}
+    wakatimeAllTimeText={allTimeText}
 >
     <div slot="wakatimeFooter" class="contents">
         <Link

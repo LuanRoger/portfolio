@@ -3,7 +3,6 @@ import { Accordion } from "../ui/accordion";
 import WakatimeCodingMetricsAccordionItem from "./wakatime/wakatime-coding-metrics-accordionItem";
 
 type CodingStatsAccordionProps = {
-  wakatimeFooter?: ReactNode;
   wakatimeLanguageChart: {
     data: {
       name: string;
@@ -11,16 +10,23 @@ type CodingStatsAccordionProps = {
       fill?: string;
     }[];
   };
+  wakatimeAverageText: string;
+  wakatimeAllTimeText: string;
+  wakatimeFooter?: ReactNode;
 };
 
 export default function CodingStatsAccordion({
-  wakatimeFooter,
   wakatimeLanguageChart,
+  wakatimeAverageText,
+  wakatimeAllTimeText,
+  wakatimeFooter,
 }: CodingStatsAccordionProps) {
   return (
     <Accordion multiple>
       <WakatimeCodingMetricsAccordionItem
         languageChart={wakatimeLanguageChart}
+        allTimeText={wakatimeAllTimeText}
+        avarengeText={wakatimeAverageText}
         footer={wakatimeFooter}
       />
     </Accordion>

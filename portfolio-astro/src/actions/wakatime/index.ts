@@ -41,7 +41,7 @@ async function getWakatimeLanguages() {
 }
 
 const getWakatimeStats = defineAction({
-  handler: async (_, context) => {
+  handler: async () => {
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
     if (!(wakatimeUrl && wakatimeKey)) {
@@ -137,7 +137,10 @@ const getWakatimeAllTimeMetrics = defineAction({
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
     if (!(wakatimeUrl && wakatimeKey)) {
-      return;
+      throw new ActionError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Wakatime URL or API key not set",
+      });
     }
 
     const response = await fetch(
@@ -149,7 +152,10 @@ const getWakatimeAllTimeMetrics = defineAction({
       },
     );
     if (!response.ok) {
-      return;
+      throw new ActionError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Failed to fetch Wakatime all-time metrics",
+      });
     }
 
     const data = await response.json();
