@@ -14,13 +14,13 @@ export default function GitHubProfileInformation({ profileData, stargazersCount 
   const createdAtDateTime = DateTime.fromISO(createdAt);
   const now = DateTime.utc();
   const creationYearsAgo = Math.floor(now.diff(createdAtDateTime, "years").years);
-  const formattedCreatedAt = createdAtDateTime.toLocaleString(DateTime.DATE_MED);
+  const formattedCreatedAt = createdAtDateTime.toFormat("yyyy/MM/dd");
 
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-row justify-evenly">
         <div className="flex flex-row items-center gap-2">
-          <Avatar className="size-12">
+          <Avatar className="size-24">
             <AvatarImage src={avatarUrl} />
           </Avatar>
           <div>
@@ -30,9 +30,9 @@ export default function GitHubProfileInformation({ profileData, stargazersCount 
               target="_blank"
               rel="noopener"
             >
-              <h3 className="font-semibold text-lg">{name}</h3>
+              <h3 className="font-semibold text-4xl">{name}</h3>
             </a>
-            <p className="text-gray-500 text-sm">{login}</p>
+            <p className="text-muted-foreground font-mono">{login}</p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">

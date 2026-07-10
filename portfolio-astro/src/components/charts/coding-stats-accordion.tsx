@@ -18,6 +18,11 @@ type CodingStatsAccordionProps = {
   githubIcon?: ReactNode;
   githubProfileData: GitHubUser;
   stargazersCount: number;
+  githubLanguagesData: {
+    label: string;
+    value: number;
+    color: string;
+  }[];
   githubFooter?: ReactNode;
 };
 
@@ -29,6 +34,7 @@ export default function CodingStatsAccordion({
   githubIcon,
   githubProfileData,
   stargazersCount,
+  githubLanguagesData,
   githubFooter,
 }: CodingStatsAccordionProps) {
   return (
@@ -39,7 +45,13 @@ export default function CodingStatsAccordion({
         avarengeText={wakatimeAverageText}
         footer={wakatimeFooter}
       />
-      <GithubMetricsAccordionItem gitHubIcon={githubIcon} githubProfileData={githubProfileData} stargazersCount={stargazersCount} footer={githubFooter} />
+      <GithubMetricsAccordionItem
+        gitHubIcon={githubIcon}
+        githubProfileData={githubProfileData}
+        stargazersCount={stargazersCount}
+        githubLanguagesData={githubLanguagesData}
+        footer={githubFooter}
+      />
     </Accordion>
   );
 }

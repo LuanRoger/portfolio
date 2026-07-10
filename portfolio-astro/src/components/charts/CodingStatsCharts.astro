@@ -4,6 +4,8 @@ import Link from "@/components/Link.astro";
 import Icon from "@/components/Icon.astro";
 import { actions } from "astro:actions";
 import { secondsToHours } from "@/lib/utils/time";
+import { getCollection } from 'astro:content';
+import type { PieData } from "./base/pie-chart/pie-context";
 
 const wakatimeStatsData = await Astro.callAction(
     actions.wakatime.getWakatimeStats.orThrow,
@@ -21,14 +23,51 @@ const githubRepositoriesData = await Astro.callAction(
     actions.github.getGithubProfileRepositories.orThrow,
     {},
 );
+const githubLanguageColors = await getCollection("githubLanguageColors");
+
+const languagesData = githubRepositoriesData.map((repo) => {
+  const { languages } = repo;
+  if (!languages || languages.length === 0) {
+    return null;
+  }
+
+  return languages;
+});
+
+const filteredLanguages = languagesData
+  .filter((lang) => lang !== null)
+  .flat();
+const languages = filteredLanguages.reduce(
+  (acc, lang) => {
+    if (acc[lang.name]) {
+      acc[lang.name].value += lang.size;
+      return acc;
+    }
+
+    const color = githubLanguageColors.find((item) => item.id === lang.name)?.data.color;
+    acc[lang.name] = {
+      label: lang.name,
+      value: lang.size,
+      color: color ?? "#808080",
+    };
+    return acc;
+  },
+  {} as { [key: string]: {
+        label: string;
+        value: number;
+        color: string;
+      } }
+);
+
+const githubLanguagesChartData = Object.values(languages);
 
 const stargazersCount = githubRepositoriesData.reduce(
   (acc, repo) => acc + repo.stargazersCount,
   0
 );
 
-const { languages, avarengeText } = wakatimeStatsData;
-const langaugeChart = languages.map((language) => ({
+const { languages: wakatimeLanguages, avarengeText } = wakatimeStatsData;
+const langaugeChart = wakatimeLanguages.map((language) => ({
     name: language.name,
     value: secondsToHours(language.totalSeconds),
     fill: language.metadata?.color,
@@ -43,6 +82,7 @@ const { text: allTimeText } = wakatimeAllTimeData;
     wakatimeAllTimeText={allTimeText}
     githubProfileData={githubProfileData}
     stargazersCount={stargazersCount}
+    githubLanguagesData={githubLanguagesChartData}
 >
     <div slot="wakatimeFooter" class="self-end text-muted-foreground">
         <Link
