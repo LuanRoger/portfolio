@@ -1,11 +1,10 @@
 ---
-import CodingStatsAccordion from "./coding-stats-accordion";
+import CodingStatsAccordion from "./react/charts/coding-stats-accordion";
 import Link from "@/components/Link.astro";
 import Icon from "@/components/Icon.astro";
 import { actions } from "astro:actions";
 import { secondsToHours } from "@/lib/utils/time";
-import { getCollection } from 'astro:content';
-import type { PieData } from "./base/pie-chart/pie-context";
+import { getCollection } from "astro:content";
 
 const wakatimeStatsData = await Astro.callAction(
     actions.wakatime.getWakatimeStats.orThrow,
@@ -26,44 +25,45 @@ const githubRepositoriesData = await Astro.callAction(
 const githubLanguageColors = await getCollection("githubLanguageColors");
 
 const languagesData = githubRepositoriesData.map((repo) => {
-  const { languages } = repo;
-  if (!languages || languages.length === 0) {
-    return null;
-  }
-
-  return languages;
-});
-
-const filteredLanguages = languagesData
-  .filter((lang) => lang !== null)
-  .flat();
-const languages = filteredLanguages.reduce(
-  (acc, lang) => {
-    if (acc[lang.name]) {
-      acc[lang.name].value += lang.size;
-      return acc;
+    const { languages } = repo;
+    if (!languages || languages.length === 0) {
+        return null;
     }
 
-    const color = githubLanguageColors.find((item) => item.id === lang.name)?.data.color;
-    acc[lang.name] = {
-      label: lang.name,
-      value: lang.size,
-      color: color ?? "#808080",
-    };
-    return acc;
-  },
-  {} as { [key: string]: {
-        label: string;
-        value: number;
-        color: string;
-      } }
+    return languages;
+});
+
+const filteredLanguages = languagesData.filter((lang) => lang !== null).flat();
+const languages = filteredLanguages.reduce(
+    (acc, lang) => {
+        if (acc[lang.name]) {
+            acc[lang.name].value += lang.size;
+            return acc;
+        }
+
+        const color = githubLanguageColors.find((item) => item.id === lang.name)
+            ?.data.color;
+        acc[lang.name] = {
+            label: lang.name,
+            value: lang.size,
+            color: color ?? "#808080",
+        };
+        return acc;
+    },
+    {} as {
+        [key: string]: {
+            label: string;
+            value: number;
+            color: string;
+        };
+    },
 );
 
 const githubLanguagesChartData = Object.values(languages);
 
 const stargazersCount = githubRepositoriesData.reduce(
-  (acc, repo) => acc + repo.stargazersCount,
-  0
+    (acc, repo) => acc + repo.stargazersCount,
+    0,
 );
 
 const { languages: wakatimeLanguages, avarengeText } = wakatimeStatsData;
@@ -101,13 +101,16 @@ const { text: allTimeText } = wakatimeAllTimeData;
         <Icon name="github" class="size-4 fill-white" />
     </div>
     <div slot="githubFooter" class="text-muted-foreground self-end">
-      <Link
-        class="inline-flex items-center gap-2 self-end font-medium"
-        href={"https://docs.github.com/en/rest"}
-        isExternal
-      >
-        Powered by{" "}
-        <Icon name="github" class="inline-block size-4 fill-muted-foreground" />
-      </Link>
+        <Link
+            class="inline-flex items-center gap-2 self-end font-medium"
+            href={"https://docs.github.com/en/rest"}
+            isExternal
+        >
+            Powered by{" "}
+            <Icon
+                name="github"
+                class="inline-block size-4 fill-muted-foreground"
+            />
+        </Link>
     </div>
 </CodingStatsAccordion>

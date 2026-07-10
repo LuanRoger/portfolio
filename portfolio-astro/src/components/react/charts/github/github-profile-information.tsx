@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/react/ui/avatar";
 import type { GitHubUser } from "@/types/github";
 import { BookIcon, Code2Icon, StarIcon, UsersIcon } from "lucide-react";
 import { DateTime } from "luxon";

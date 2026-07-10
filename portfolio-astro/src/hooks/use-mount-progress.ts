@@ -1,6 +1,6 @@
 import { animate, type Transition, useMotionValue } from "motion/react";
 import { useEffect, useRef } from "react";
-import { DEFAULT_CHART_ENTER_TRANSITION } from "../components/charts/base/animation";
+import { DEFAULT_CHART_ENTER_TRANSITION } from "@/components/react/charts/base/animation";
 
 /** Drives 0→1 enter progress using the studio motion transition (spring or tween). */
 export function useMountProgress(

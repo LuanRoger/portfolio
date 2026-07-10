@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/react/ui/accordion";
 import type { ReactNode } from "react";
 import WakatimeLanguagesChart from "./wakatime-languages-chart";
 import WakatimeRawMetrics from "./wakatime-raw-metrics";

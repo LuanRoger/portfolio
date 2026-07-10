@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Accordion } from "../ui/accordion";
+import { Accordion } from "@/components/react/ui/accordion";
 import WakatimeCodingMetricsAccordionItem from "./wakatime/wakatime-coding-metrics-accordion-item";
 import GithubMetricsAccordionItem from "./github/github-metrics-accordion-item";
 import type { GitHubUser } from "@/types/github";

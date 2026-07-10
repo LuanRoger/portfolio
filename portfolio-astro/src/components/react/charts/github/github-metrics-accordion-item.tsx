@@ -1,4 +1,4 @@
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/react/ui/accordion";
 import type { GitHubUser } from "@/types/github";
 import type { ReactNode } from "react";
 import GitHubProfileInformation from "./github-profile-information";

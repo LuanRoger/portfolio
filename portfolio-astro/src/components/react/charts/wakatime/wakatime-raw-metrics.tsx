@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/react/ui/card";
 
 type WakatimeRawMetricsProps = {
   avarengeText: string;
