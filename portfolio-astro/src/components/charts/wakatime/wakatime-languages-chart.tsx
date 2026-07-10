@@ -14,7 +14,6 @@ import {
   LegendItem,
   LegendLabel,
   LegendMarker,
-  LegendValue,
   type LegendItemData,
 } from "../base/legend";
 import { useState } from "react";

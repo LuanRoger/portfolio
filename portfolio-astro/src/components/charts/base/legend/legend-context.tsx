@@ -1,5 +1,3 @@
-"use client";
-
 import { createContext, useContext } from "react";
 
 // CSS variable references for legend theming

@@ -1,5 +1,3 @@
-"use client";
-
 import { Progress } from "@base-ui/react/progress";
 import { cn } from "@/lib/cn";
 import { useLegendItem } from "./legend-context";

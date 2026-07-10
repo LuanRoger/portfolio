@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/cn";
 import { intFmt } from "../../../../lib/utils/chart-formatters";
 import { useLegendItem } from "./legend-context";
