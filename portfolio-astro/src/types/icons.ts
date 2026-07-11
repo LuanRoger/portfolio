@@ -9,6 +9,7 @@ export type IconName =
   | "docker"
   | "dotnet"
   | "electron"
+  | "external-link"
   | "firebase"
   | "flutter"
   | "git"
