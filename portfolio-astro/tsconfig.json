@@ -6,6 +6,9 @@
     "strictNullChecks": true,
     "allowJs": true,
     "paths": {
+      "~/*": [
+        "./*"
+      ],
       "@/*": [
         "./src/*"
       ]
