@@ -1,0 +1,93 @@
+---
+import type { Project } from "@/types/project";
+import { ENV } from "varlock/env";
+import { Button } from "./react/ui/button";
+import Link from "@/components/Link.astro";
+import Icon from "@/components/Icon.astro";
+import { Image } from "astro:assets";
+import MinimalTechBadge from "@/components/MinimalTechBadge.astro";
+import {
+    Card,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "./react/ui/card";
+
+interface Props {
+    project: Project;
+    className?: string;
+}
+
+const { project, className } = Astro.props;
+const { title, image, description, link, repoName, techStack } = project;
+const { src: imageSrc, alt: imageAlt } = image;
+const githubUrl = ENV.GITHUB_URL;
+const githubUsername = ENV.GITHUB_USERNAME;
+
+const repoLink =
+    repoName && githubUrl && githubUsername
+        ? `${githubUrl}/${githubUsername}/${repoName}`
+        : undefined;
+---
+
+<div
+    class:list={[
+        "flex h-96 overflow-clip rounded-md flex-col border border-border",
+        className,
+    ]}
+>
+    <div class="relative flex-1">
+        <div
+            class="absolute top-0 z-30 flex w-full flex-row flex-wrap gap-2 p-2"
+        >
+            {techStack.map((tech) => <MinimalTechBadge tech={tech} />)}
+        </div>
+        <div
+            class="absolute -top-5 z-20 bg-linear-180 from-background w-full blur-md h-20"
+        >
+        </div>
+        <Image
+            alt={imageAlt}
+            class="absolute inset-0 z-10 size-full object-cover"
+            src={imageSrc}
+        />
+    </div>
+    <Card size="sm" className="rounded-t-none rounded-b-md flex-none">
+        <CardHeader>
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
+        </CardHeader>
+        <CardFooter className="flex gap-2">
+            {
+                repoLink && (
+                    <Button size="icon" variant="secondary">
+                        <Link
+                            aria-label={`GitHub repository for ${repoName}`}
+                            href={repoLink}
+                            target="_blank"
+                        >
+                            <Icon name="github" class="fill-foreground" />
+                        </Link>
+                    </Button>
+                )
+            }
+            {
+                link && (
+                    <Button size="icon" variant="secondary">
+                        <Link
+                            aria-label={`Project link to ${title}`}
+                            href={link}
+                            target="_blank"
+                        >
+                            <Icon
+                                name="external-link"
+                                class="stroke-foreground fill-transparent"
+                            />
+                        </Link>
+                    </Button>
+                )
+            }
+        </CardFooter>
+    </Card>
+</div>

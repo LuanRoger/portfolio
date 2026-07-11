@@ -6,12 +6,12 @@ interface Props extends HTMLAttributes<"a"> {
     isExternal?: boolean;
 }
 
-const { href, isExternal, ...props } = Astro.props;
+const { href, isExternal, class: className, ...props } = Astro.props;
 ---
 
 <a
     href={href}
-    class="cursor-pointer font-bold hover:underline"
+    class:list={[className, "cursor-pointer font-bold hover:underline"]}
     target={isExternal ? "_blank" : undefined}
     rel={isExternal ? "noopener" : undefined}
     {...props}

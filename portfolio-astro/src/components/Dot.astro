@@ -1,0 +1,30 @@
+---
+interface Props {
+    className?: string;
+    animate?: boolean;
+    animationClass?: string;
+    dotClassName?: string;
+    style?: React.CSSProperties | undefined;
+}
+
+const { className, animate, animationClass, dotClassName, style } = Astro.props;
+---
+
+<span class:list={["relative inset-shadow-xs flex size-2", className]}>
+    {
+        animate && (
+            <span
+                class:list={[
+                    "absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-green-400 opacity-75",
+                    animationClass,
+                ]}
+            />
+        )
+    }
+    <span
+        class:list={[
+            "h-full w-full rounded-full bg-green-400 shadow-xs",
+            dotClassName,
+        ]}
+        style={style}></span>
+</span>
