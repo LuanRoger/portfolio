@@ -1,0 +1,57 @@
+---
+import { DateTime } from "luxon";
+
+interface Props {
+    company: string;
+    companyDescription: string;
+    possitions: {
+        title: string;
+        type: string;
+        startDate: DateTime;
+        endDate: DateTime | "now";
+        responsibilities: string[];
+    }[];
+}
+
+const { company, companyDescription, possitions } = Astro.props;
+---
+
+<li class="flex flex-col">
+    <div>
+        <h3>{company}</h3>
+        <p>{companyDescription}</p>
+    </div>
+    <ul>
+        {
+            possitions.map(
+                ({ title, responsibilities, startDate, endDate, type }) => {
+                    const formattedStartDate = startDate.toLocaleString(
+                        DateTime.DATE_MED,
+                        { locale: "en-US" },
+                    );
+                    const formattedEndDate =
+                        endDate === "now"
+                            ? "Present"
+                            : endDate.toLocaleString(DateTime.DATE_MED, {
+                                  locale: "en-US",
+                              });
+
+                    return (
+                        <li class="list-none">
+                            <h4 class="font-bold text-md">{title}</h4>
+                            <p class="text-sm">
+                                {type} | {formattedStartDate} -{" "}
+                                {formattedEndDate}
+                            </p>
+                            <ul class="list-disc">
+                                {responsibilities.map((responsibility) => (
+                                    <li>{responsibility}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    );
+                },
+            )
+        }
+    </ul>
+</li>
