@@ -15,6 +15,7 @@ export type IconName =
   | "git"
   | "github"
   | "grafana"
+  | "mais-informa"
   | "minio"
   | "mongodb"
   | "mysql"
