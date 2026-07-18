@@ -7,10 +7,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 import vercel from '@astrojs/vercel';
 
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
+  site: 'https://luanroger.dev',
   output: 'server',
   adapter: vercel(),
-  integrations: [varlockAstroIntegration(), react()],
+  integrations: [varlockAstroIntegration(), react(), sitemap()],
   vite: {
     plugins: [tailwindcss()]
   },
