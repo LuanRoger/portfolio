@@ -16,5 +16,13 @@ export const hmsTimeFmt = new Intl.DateTimeFormat("en-US", {
   hour12: false,
 });
 
-// `Intl.NumberFormat.prototype.format` is a bound getter — safe to extract.
 export const intFmt = new Intl.NumberFormat("en-US").format;
+
+export function formatSpotifyArtistsName(artists: string[]) {
+  return artists.map((artist) => artist).join(", ");
+}
+
+export function formatBytesInMB(bytes: number) {
+  const megabytes = bytes / (1024 * 1024);
+  return `${megabytes.toFixed(2)} MB`;
+}

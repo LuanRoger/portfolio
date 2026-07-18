@@ -1,5 +1,5 @@
 import { cn } from "@/lib/cn";
-import { intFmt } from "@/lib/utils/chart-formatters";
+import { intFmt } from "~/src/lib/utils/formatters";
 import { useLegendItem } from "./legend-context";
 
 export interface LegendValueProps {
