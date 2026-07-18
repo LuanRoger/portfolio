@@ -11,7 +11,6 @@ import { Image } from "astro:assets";
     <ul>
         <WorkXp
             company="Aramis"
-            companyDescription="Aramis is a menswear brand that has been on the market for almost 30 years. I work as a full-stack developer, helping the brand achieve its goal of technological revolution, creating and maintaining large-scale distributed micro-services, as well as developing dynamic UIs that provide an intuitive and efficient user experience, connecting customers and partners to the brand in an innovative and personalized way."
             possitions={[
                 {
                     title: "Full-Stack Developer",
@@ -21,7 +20,7 @@ import { Image } from "astro:assets";
                     responsabilities: [
                         "Helped build micro-frontends to be part of the brand's digital ecosystem",
                         "Developed micro-service to handle heavy read request from MongoDB",
-                        "Developed TypeScript package to provide observability and monitoring tools for services",
+                        "Developed TypeScript package to provide observability and monitoring tools for services using Open Telemetry",
                         "Improved MongoDB queries performance by about 30% by optimizing indexes and aggregation pipelines",
                         "Implemented observability with Prometheus and Loki in back-end services and Next.js",
                         "Helped implement payment integrations with VTEX into the brand's e-commerce mobile platform",
@@ -36,7 +35,6 @@ import { Image } from "astro:assets";
         </WorkXp>
         <WorkXp
             company="Mais Informa"
-            companyDescription="I have the task of developing all the solutions for disseminating information, a news portal and a newsletter, with the lowest possible operating costs. To do this, I lead two squads that develop one solution each. Some of the tools we use to maintain the newsletter were developed in-house for the exclusive use of the project, to help the news team's process."
             possitions={[
                 {
                     title: "Tech Lead",
@@ -44,7 +42,12 @@ import { Image } from "astro:assets";
                     endDate: DateTime.fromISO("2026-04-01"),
                     startDate: DateTime.fromISO("2024-01-01"),
                     responsabilities: [
-                        
+                        "Architected the newsletter sending a tooling",
+                        "Managed squads in charge of developing the newsletter solution",
+                        "Architected the news portal",
+                        "Helped to develop the e-mail sending engine that powers the newsletter",
+                        "Developed integrations and APIs with Notion to be used as a CMS",
+                        "Created a proprietary Astro loader for Notion",
                     ],
                 },
             ]}
@@ -53,14 +56,18 @@ import { Image } from "astro:assets";
         </WorkXp>
         <WorkXp
             company="LearningLab"
-            companyDescription="LearningLab offers a comprehensive experience to computer science students through hands-on courses, lectures given by professionals in the field, and activities in areas such as development, research, and outreach."
             possitions={[
                 {
                     title: "Back-end developer",
                     type: "Volunteer",
                     endDate: DateTime.fromISO("2024-10-01"),
                     startDate: DateTime.fromISO("2023-08-01"),
-                    responsabilities: [""],
+                    responsabilities: [
+                        "Developed the authentication and authorization flows",
+                        "Developed the user management related features",
+                        "Developed the load tests with K6",
+                        "Integrated Open Telemetry for distributed tracing",
+                    ],
                 },
             ]}
         >
