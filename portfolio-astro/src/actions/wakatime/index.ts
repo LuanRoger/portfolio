@@ -9,7 +9,7 @@ import {
 } from "./adapters";
 import type { WakatimeDateCategory } from "@/types/wakatime";
 import { getLastDayDate, simpleFormatDate } from "@/lib/utils/time";
-import { ActionError, defineAction, getActionContext } from "astro:actions";
+import { ActionError, defineAction } from "astro:actions";
 
 async function getWakatimeLanguages() {
   const wakatimeUrl = ENV.WAKATIME_URL;
