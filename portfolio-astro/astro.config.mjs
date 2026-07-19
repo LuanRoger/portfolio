@@ -5,18 +5,20 @@ import varlockAstroIntegration from '@varlock/astro-integration';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
-import vercel from '@astrojs/vercel';
-
 import sitemap from '@astrojs/sitemap';
+
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://luanroger.dev',
   output: 'server',
-  adapter: vercel(),
+  adapter: cloudflare(),
   integrations: [varlockAstroIntegration(), react(), sitemap()],
+
   vite: {
     plugins: [tailwindcss()]
   },
+
   experimental: {
     svgOptimizer: svgoOptimizer()
   },
