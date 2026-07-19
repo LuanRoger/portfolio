@@ -1,4 +1,4 @@
-import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify-current-playing-track-info";
+import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify";
 
 export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
   model: any

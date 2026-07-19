@@ -1,3 +1,7 @@
+export type SpotifyAuthResponse = {
+  access_token: string;
+};
+
 export type SpotifyCurrentPlayingTrackInfo = {
   name: string;
   timestamp: number;

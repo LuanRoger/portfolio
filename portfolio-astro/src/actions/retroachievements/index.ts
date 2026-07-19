@@ -6,7 +6,12 @@ import {
 import { defineAction } from "astro:actions";
 
 const getRetroachievementsUserProfile = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 300,
+      swr: 60,
+    });
+
     const baseUrl = ENV.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL;
     const apiUrl = ENV.RETROACHIEVEMENTS_API_URL;
     const apiKey = ENV.RETROACHIEVEMENTS_API_KEY;
@@ -33,7 +38,12 @@ const getRetroachievementsUserProfile = defineAction({
 });
 
 const getLastGamePlayed = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 300,
+      swr: 60,
+    });
+
     const baseUrl = ENV.NEXT_PUBLIC_RETROACHIEVEMENTS_BASE_URL;
     const apiUrl = ENV.RETROACHIEVEMENTS_API_URL;
     const apiKey = ENV.RETROACHIEVEMENTS_API_KEY;
@@ -50,7 +60,7 @@ const getLastGamePlayed = defineAction({
       },
     );
 
-    const response = await result.json();
+    const response: unknown[] = await result.json();
 
     return adaptLastPlayedGameResponseToLastPlayedGame(response[0], baseUrl);
   },

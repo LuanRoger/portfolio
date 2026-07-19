@@ -37,7 +37,12 @@ async function getGithubRepositoryLanguages(languageUrl: string) {
 }
 
 const getGithubProfile = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 86400,
+      swr: 14400,
+    });
+
     const githubToken = ENV.GITHUB_TOKEN;
     const gitHubApiUrl = ENV.GITHUB_API_URL;
     if (!(githubToken && gitHubApiUrl)) {
@@ -68,7 +73,12 @@ const getGithubProfile = defineAction({
 });
 
 const getGithubProfileRepositories = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 86400,
+      swr: 14400,
+    });
+
     const githubToken = ENV.GITHUB_TOKEN;
     const gitHubApiUrl = ENV.GITHUB_API_URL;
     if (!githubToken) {

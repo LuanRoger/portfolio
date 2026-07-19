@@ -1,6 +1,7 @@
 import { ENV } from "varlock/env";
 import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "./adapters";
 import { defineAction } from "astro:actions";
+import type { SpotifyAuthResponse } from "@/types/spotify";
 
 async function getSpotifyAccessToken() {
   const clientId = ENV.SPOTIFY_CLIENT_ID;
@@ -15,13 +16,16 @@ async function getSpotifyAccessToken() {
     body: `grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${clientId}&client_secret=${clientSecret}`,
   });
 
-  const response = await result.json();
-
-  return response;
+  return await result.json() as SpotifyAuthResponse;
 }
 
 const getSpotifyCurrentPlaying = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 300,
+      swr: 60,
+    });
+
     const accessToken = await getSpotifyAccessToken();
 
     const result = await fetch(

@@ -41,7 +41,12 @@ async function getWakatimeLanguages() {
 }
 
 const getWakatimeStats = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 86400,
+      swr: 14400,
+    });
+
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
     if (!(wakatimeUrl && wakatimeKey)) {
@@ -75,7 +80,12 @@ const getWakatimeStats = defineAction({
 });
 
 const getWakatimeLastDaysCategoriesSummary = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 86400,
+      swr: 14400,
+    });
+
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
     if (!(wakatimeUrl && wakatimeKey)) {
@@ -133,7 +143,12 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
 });
 
 const getWakatimeAllTimeMetrics = defineAction({
-  handler: async () => {
+  handler: async (_, context) => {
+    context.cache.set({
+      maxAge: 86400,
+      swr: 14400,
+    });
+
     const wakatimeUrl = ENV.WAKATIME_URL;
     const wakatimeKey = ENV.WAKATIME_API_KEY;
     if (!(wakatimeUrl && wakatimeKey)) {
