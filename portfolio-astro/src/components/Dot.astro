@@ -22,9 +22,6 @@ const { className, animate, animationClass, dotClassName, style } = Astro.props;
         )
     }
     <span
-        class:list={[
-            "h-full w-full rounded-full bg-green-400 shadow-xs",
-            dotClassName,
-        ]}
+        class:list={["h-full w-full rounded-full shadow-xs", dotClassName]}
         style={style}></span>
 </span>

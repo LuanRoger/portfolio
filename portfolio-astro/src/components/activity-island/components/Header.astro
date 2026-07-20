@@ -1,5 +1,5 @@
 ---
-import { cn } from "~/src/lib/cn";
+import { cn } from "@/lib/cn";
 import type { Presence } from "@/types/presence";
 import Dot from "@/components/Dot.astro";
 
@@ -22,10 +22,7 @@ const { status } = Astro.props;
 >
     <Dot
         animate={status === "online"}
-        dotClassName={cn({
-            "bg-green-400": status === "online",
-            "bg-gray-400": status === "offline",
-        })}
+        dotClassName={status === "online" ? "bg-green-400" : "bg-gray-400"}
     />
     {status.toString()}
 </div>
