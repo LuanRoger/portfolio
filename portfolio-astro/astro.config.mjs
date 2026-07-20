@@ -8,16 +8,12 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 import cloudflare from "@astrojs/cloudflare";
-import { cacheCloudflare } from "@astrojs/cloudflare/cache";
 
 export default defineConfig({
   site: "https://luanroger.dev",
   output: "server",
   adapter: cloudflare(),
   integrations: [varlockAstroIntegration(), react(), sitemap()],
-  cache: {
-    provider: cacheCloudflare(),
-  },
   vite: {
     plugins: [tailwindcss()],
   },
