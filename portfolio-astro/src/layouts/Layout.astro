@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css";
 import Background from "@/components/Background.astro";
+import { Font } from "astro:assets";
 
 const title = "Luan Roger | Full-Stack Software Engineer";
 const description =
@@ -128,6 +129,7 @@ const structuredData = {
             type="application/ld+json"
             set:html={JSON.stringify(structuredData)}
         />
+        <Font cssVariable="--font-groutpix" />
     </head>
     <body class="dark">
         <div class="relative">
