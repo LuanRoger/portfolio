@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, svgoOptimizer } from "astro/config";
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 import varlockAstroIntegration from "@varlock/astro-integration";
 
 import react from "@astrojs/react";
@@ -17,6 +17,22 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "Pixelta",
+      cssVariable: "--font-pixelta",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/PixeltaRegular.ttf"],
+            weight: "normal",
+            style: "normal",
+          },
+        ],
+      },
+    },
+  ],
   experimental: {
     svgOptimizer: svgoOptimizer(),
   },
