@@ -1,4 +1,6 @@
 ---
+import Grainient from "./react/grainient";
+
 interface Props {
     className?: string;
 }
@@ -7,12 +9,30 @@ const { className } = Astro.props;
 ---
 
 <div class:list={["absolute top-0 h-full w-full", className]}>
-    <div
-        class:list={[
-            "absolute top-0 left-0 isolate -z-10 size-full",
-            className,
-        ]}
-    >
-        <div class="noise"></div>
-    </div>
+    <Grainient
+        className="absolute inset-0 z-10 opacity-50"
+        client:only="react"
+        color1="#0a0a0a"
+        color2="#363636"
+        color3="#515151"
+        timeSpeed={0.4}
+        colorBalance={-1}
+        warpStrength={1}
+        warpFrequency={5}
+        warpSpeed={1.5}
+        warpAmplitude={5}
+        blendAngle={180}
+        blendSoftness={1}
+        rotationAmount={500}
+        noiseScale={2}
+        grainAmount={0.1}
+        grainScale={2}
+        grainAnimated={false}
+        contrast={1.5}
+        gamma={1}
+        saturation={1}
+        centerX={0}
+        centerY={0}
+        zoom={0.9}
+    />
 </div>
