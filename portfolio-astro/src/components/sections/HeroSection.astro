@@ -12,11 +12,13 @@ const isMobileUA = mobileUserAgentsRegex.test(userAgent);
 const isMobile = clientHintMobile === "?1" || isMobileUA;
 ---
 
-<section class="flex justify-between">
-    <div class="flex flex-col gap-2">
-        <NameHeader />
-        {isMobile ? <ActivitiesIsland server:defer /> : null}
-        <TechStack />
+<section class="flex flex-col gap-4">
+    <NameHeader />
+    <div class="flex justify-between">
+        <div class="flex flex-col gap-2">
+            {isMobile ? <ActivitiesIsland server:defer /> : null}
+            <TechStack />
+        </div>
+        {!isMobile ? <ActivitiesIsland server:defer /> : null}
     </div>
-    {!isMobile ? <ActivitiesIsland server:defer /> : null}
 </section>

@@ -11,7 +11,7 @@ const { className } = Astro.props;
 <div class:list={["absolute top-0 h-full w-full", className]}>
     <Grainient
         className="absolute inset-0 z-10 opacity-50"
-        client:only="react"
+        client:load
         color1="#0a0a0a"
         color2="#363636"
         color3="#515151"
