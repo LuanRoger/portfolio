@@ -43,13 +43,9 @@ const repoLink =
         >
             {techStack.map((tech) => <MinimalTechBadge tech={tech} />)}
         </div>
-        <div
-            class="absolute -top-5 z-20 bg-linear-180 from-background w-full blur-md h-20"
-        >
-        </div>
         <Image
             alt={imageAlt}
-            class="absolute inset-0 z-10 size-full object-cover"
+            class="absolute inset-0 z-10 size-full object-cover mask-t-from-75%"
             src={imageSrc}
         />
     </div>
