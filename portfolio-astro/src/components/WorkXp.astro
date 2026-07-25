@@ -23,7 +23,7 @@ const { company, companyDescription, possitions } = Astro.props;
             <div class="p-1 border border-border rounded-md bg-card">
                 <slot name="companyLogo" />
             </div>
-            <h2 class="font-bold text-lg">{company}</h2>
+            <h3 class="font-bold text-lg">{company}</h3>
         </div>
         {companyDescription && <p class="text-sm">{companyDescription}</p>}
     </div>

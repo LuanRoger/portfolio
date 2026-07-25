@@ -57,31 +57,39 @@ const repoLink =
         <CardFooter className="flex gap-2">
             {
                 repoLink && (
-                    <Button size="icon" variant="secondary">
-                        <Link
+                    <Link
+                        aria-label={`GitHub repository for ${repoName}`}
+                        href={repoLink}
+                        target="_blank"
+                    >
+                        <Button
+                            size="icon"
+                            variant="secondary"
                             aria-label={`GitHub repository for ${repoName}`}
-                            href={repoLink}
-                            target="_blank"
                         >
                             <Icon name="github" class="fill-foreground" />
-                        </Link>
-                    </Button>
+                        </Button>
+                    </Link>
                 )
             }
             {
                 link && (
-                    <Button size="icon" variant="secondary">
-                        <Link
+                    <Link
+                        aria-label={`Project link to ${title}`}
+                        href={link}
+                        target="_blank"
+                    >
+                        <Button
+                            size="icon"
+                            variant="secondary"
                             aria-label={`Project link to ${title}`}
-                            href={link}
-                            target="_blank"
                         >
                             <Icon
                                 name="external-link"
                                 class="stroke-foreground fill-transparent"
                             />
-                        </Link>
-                    </Button>
+                        </Button>
+                    </Link>
                 )
             }
         </CardFooter>

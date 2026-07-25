@@ -14,8 +14,8 @@ const { status } = Astro.props;
     class={cn(
         "inset-shadow-xs flex w-full items-center justify-center gap-1 rounded-t-md px-2 py-1 font-semibold text-sm text-white",
         {
-            "inset-shadow-green-700 bg-green-500": status === "online",
-            "inset-shadow-gray-700 rounded-b-md bg-gray-500":
+            "inset-shadow-green-700 bg-green-700": status === "online",
+            "inset-shadow-gray-700 rounded-b-md bg-gray-700":
                 status === "offline",
         },
     )}
