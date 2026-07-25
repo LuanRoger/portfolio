@@ -18,7 +18,7 @@ export default function GitHubProfileInformation({ profileData, stargazersCount 
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-row justify-evenly">
+      <div className="flex flex-col lg:flex-row justify-evenly gap-2">
         <div className="flex flex-row items-center gap-2">
           <Avatar className="size-24">
             <AvatarImage src={avatarUrl} />
@@ -36,19 +36,19 @@ export default function GitHubProfileInformation({ profileData, stargazersCount 
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <span className="inline-flex items-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <BookIcon className="size-4" />
             {publicRepos} Repositories
           </span>
-          <span className="inline-flex items-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <UsersIcon className="size-4" />
             {followers} Followers
           </span>
-          <span className="inline-flex items-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <StarIcon className="size-4" />
             {stargazersCount} Stars
           </span>
-          <span className="inline-flex items-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <Code2Icon className="size-4" />
             {publicGists} Gists
           </span>
