@@ -3,22 +3,15 @@ import NameHeader from "@/components/NameHeader.astro";
 import TechStack from "@/components/TechStack.astro";
 import ActivitiesIsland from "@/components/activity-island/ActivityIsland.astro";
 import { mobileUserAgentsRegex } from "@/lib/constants/mobile";
-
-const clientHintMobile = Astro.request.headers.get("sec-ch-ua-mobile");
-
-const userAgent = Astro.request.headers.get("user-agent") || "";
-const isMobileUA = mobileUserAgentsRegex.test(userAgent);
-
-const isMobile = clientHintMobile === "?1" || isMobileUA;
 ---
 
 <section class="flex flex-col gap-4">
     <NameHeader />
     <div class="flex justify-between">
         <div class="flex flex-col gap-2">
-            {isMobile ? <ActivitiesIsland server:defer /> : null}
+            <ActivitiesIsland className="block lg:hidden" server:defer />
             <TechStack />
         </div>
-        {!isMobile ? <ActivitiesIsland server:defer /> : null}
+        <ActivitiesIsland className="hidden lg:block" server:defer />
     </div>
 </section>
