@@ -6,12 +6,13 @@
   ],
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": [
-      "/**/*",
-      "!src/components/ui/**/*",
-      "!node_modules/**/*",
-      "!.next/**/*",
-      "!*.d.ts"
-    ]
+    "includes": ["/**/*", "!node_modules/**/*", "!*.d.ts"]
+  },
+  "linter": {
+    "rules": {
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      }
+    }
   }
 }
