@@ -1,9 +1,5 @@
 packages:
   - .
-overrides:
-  "@next/env": "npm:@varlock/nextjs-integration"
 allowBuilds:
-  core-js: true
-  sharp: true
-minimumReleaseAgeExclude:
-  - shadcn@4.12.0
+  esbuild: true
+  workerd: false

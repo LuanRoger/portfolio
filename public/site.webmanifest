@@ -1,0 +1,21 @@
+{
+  "name": "Luan Roger | Full-Stack Software Engineer",
+  "short_name": "Luan Roger",
+  "description": "Portfolio of Luan Roger, a full-stack software engineer in Brazil.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

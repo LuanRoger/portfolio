@@ -1,0 +1,13 @@
+---
+import ActivitiesIsland from "@/components/activity-island/ActivityIsland.astro";
+import NameHeader from "@/components/NameHeader.astro";
+import TechStack from "@/components/TechStack.astro";
+---
+
+<section class="flex flex-col gap-4">
+  <NameHeader />
+  <div class="flex flex-col-reverse lg:flex-row justify-between gap-2">
+    <TechStack />
+    <ActivitiesIsland className="self-start w-full lg:w-56" server:defer />
+  </div>
+</section>

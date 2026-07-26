@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import Link from "@/components/Link.astro";
+import { cn } from "@/lib/cn";
+
+interface Props {
+  accentColor?: string;
+  activityDescription: string;
+  description: string;
+  href?: string;
+  imageAlt: string;
+  imageSrc: string;
+  title: string;
+}
+
+const titleDefaultClasses =
+  "text-white font-bold text-sm text-ellipsis line-clamp-2";
+
+const {
+  title,
+  description,
+  activityDescription,
+  imageSrc,
+  imageAlt,
+  href,
+  accentColor,
+} = Astro.props;
+---
+
+<div class="relative w-full h-32"
+style={accentColor
+        ? { boxShadow: `inset 0 0 7px ${accentColor}` }
+        : undefined}
+>
+  <Image
+    alt={imageAlt}
+    class="absolute inset-0 z-10 size-full object-cover opacity-50"
+    height={300}
+    loading="eager"
+    src={imageSrc}
+    width={300}
+  />
+  <Image
+    alt={`${imageAlt} Background Blur`}
+    class="absolute inset-0 z-0 size-full object-fill opacity-50 blur-lg"
+    height={30}
+    loading="eager"
+    src={imageSrc}
+    width={30}
+  />
+  <div class="absolute z-10 flex size-full flex-col justify-between p-2">
+    <div class="inline-flex items-center gap-1 text-xs">
+      <slot name="icon" />
+      {activityDescription}
+    </div>
+    <p>
+      {href ? (
+                    <Link
+                        class={cn(titleDefaultClasses)}
+                        href={href}
+                        isExternal
+                    >
+                        {title}
+                    </Link>
+                ) : (
+                    <span class={cn(titleDefaultClasses)}>{title}</span>
+                )}
+      <span class="text-white text-xs">{description}</span>
+    </p>
+  </div>
+</div>

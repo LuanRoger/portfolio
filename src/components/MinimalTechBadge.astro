@@ -1,0 +1,22 @@
+---
+import Dot from "@/components/Dot.astro";
+import { Badge } from "@/components/react/ui/badge";
+import { cn } from "@/lib/cn";
+import type { Tech } from "@/types/tech";
+
+interface Props {
+  className?: string;
+  tech: Tech;
+}
+
+const { tech, className } = Astro.props;
+const { name, color } = tech;
+---
+
+<Badge
+  className={cn("w-fit cursor-default gap-1", className)}
+  variant={"outline"}
+>
+  <Dot style={{ backgroundColor: color }} />
+  {name}
+</Badge>

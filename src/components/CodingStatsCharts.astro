@@ -1,0 +1,105 @@
+---
+import { actions } from "astro:actions";
+import { getCollection } from "astro:content";
+import Icon from "@/components/Icon.astro";
+import Link from "@/components/Link.astro";
+import { secondsToHours } from "@/lib/utils/time";
+import CodingStatsAccordion from "./react/charts/coding-stats-accordion";
+
+const [
+  wakatimeStatsData,
+  wakatimeAllTimeData,
+  githubProfileData,
+  githubRepositoriesData,
+] = await Promise.all([
+  Astro.callAction(actions.wakatime.getWakatimeStats.orThrow, {}),
+  Astro.callAction(actions.wakatime.getWakatimeAllTimeMetrics.orThrow, {}),
+  Astro.callAction(actions.github.getGithubProfile.orThrow, {}),
+  Astro.callAction(actions.github.getGithubProfileRepositories.orThrow, {}),
+]);
+const githubLanguageColors = await getCollection("githubLanguageColors");
+
+const languagesData = githubRepositoriesData.map((repo) => {
+  const { languages } = repo;
+  if (!languages || languages.length === 0) {
+    return null;
+  }
+
+  return languages;
+});
+
+const filteredLanguages = languagesData.filter((lang) => lang !== null).flat();
+const languages = filteredLanguages.reduce(
+  (acc, lang) => {
+    if (acc[lang.name]) {
+      acc[lang.name].value += lang.size;
+      return acc;
+    }
+
+    const color = githubLanguageColors.find((item) => item.id === lang.name)
+      ?.data.color;
+    acc[lang.name] = {
+      color: color ?? "#808080",
+      label: lang.name,
+      value: lang.size,
+    };
+    return acc;
+  },
+  {} as {
+    [key: string]: {
+      label: string;
+      value: number;
+      color: string;
+    };
+  }
+);
+
+const githubLanguagesChartData = Object.values(languages);
+
+const stargazersCount = githubRepositoriesData.reduce(
+  (acc, repo) => acc + repo.stargazersCount,
+  0
+);
+
+const { languages: wakatimeLanguages, avarengeText } = wakatimeStatsData;
+const langaugeChart = wakatimeLanguages.map((language) => ({
+  fill: language.metadata?.color,
+  name: language.name,
+  value: secondsToHours(language.totalSeconds),
+}));
+const { text: allTimeText } = wakatimeAllTimeData;
+---
+
+<CodingStatsAccordion
+  githubLanguagesData={githubLanguagesChartData}
+  githubProfileData={githubProfileData}
+  stargazersCount={stargazersCount}
+  wakatimeAllTimeText={allTimeText}
+  wakatimeAverageText={avarengeText}
+  wakatimeLanguageChart={{ data: langaugeChart }}
+  client:visible
+>
+  <div class="self-end text-muted-foreground" slot="wakatimeFooter">
+    <Link
+      class="inline-flex items-center gap-2 self-end font-medium"
+      href={"https://wakatime.com"}
+      isExternal
+    >
+      Powered by{" "}
+      <Icon class="inline-block size-4 fill-muted-foreground" name="wakatime" />
+    </Link>
+  </div>
+  <div class="contents" slot="githubIcon">
+    <Icon class="size-4 fill-white" name="github" />
+  </div>
+  <div class="text-muted-foreground self-end" slot="githubFooter">
+    <Link
+      class="inline-flex items-center gap-2 self-end font-medium"
+      href={"https://docs.github.com/en/rest"}
+      isExternal
+    >
+      Powered by{" "}
+      <Icon class="inline-block size-4 fill-muted-foreground" name="github" />
+    </Link>
+  </div>
+</CodingStatsAccordion>

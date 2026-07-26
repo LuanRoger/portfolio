@@ -1,37 +1,37 @@
-export type RetroachievementsUserProfile = {
-  user: string;
-  ulid: string;
-  userPic: string;
-  memberSince: Date;
-  richPresenceMsg: string;
-  lastGameId: number;
+export interface RetroachievementsUserProfile {
   contribCount: number;
   contribYield: number;
+  id: number;
+  lastGameId: number;
+  memberSince: Date;
+  motto: string;
+  permissions: number;
+  richPresenceMsg: string;
   totalPoints: number;
   totalSoftcorePoints: number;
   totalTruePoints: number;
-  permissions: number;
+  ulid: string;
   untracked: number;
-  id: number;
+  user: string;
+  userPic: string;
   userWallActive: boolean;
-  motto: string;
-};
+}
 
-export type LastPlayedGame = {
-  gameId: number;
+export interface LastPlayedGame {
+  achievementsTotal: number;
   consoleId: number;
   consoleName: string;
-  title: string;
-  imageIcon: string;
-  imageTitle: string;
-  imageIngame: string;
+  gameId: number;
   imageBoxArt: string;
+  imageIcon: string;
+  imageIngame: string;
+  imageTitle: string;
   lastPlayed: Date;
-  achievementsTotal: number;
+  numAchieved: number;
+  numAchievedHardcore: number;
   numPossibleAchievements: number;
   possibleScore: number;
-  numAchieved: number;
   scoreAchieved: number;
-  numAchievedHardcore: number;
   scoreAchievedHardcore: number;
-};
+  title: string;
+}
