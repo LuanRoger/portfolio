@@ -29,6 +29,7 @@ export default defineConfig({
     },
   ],
   integrations: [varlockAstroIntegration(), react(), sitemap()],
+  output: "server",
   site: "https://luanroger.dev",
   vite: {
     plugins: [tailwindcss()],

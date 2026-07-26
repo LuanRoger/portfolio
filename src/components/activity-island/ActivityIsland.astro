@@ -32,8 +32,8 @@ const isOnline = isSpotifyPlaying || isRetroachievementsActive;
   className={className}
   retroachievementsActivityInfo={isRetroachievementsActive
         ? {
-              userProfileInfo: retroachievementsUserProfile,
               lastGamePlayedInfo,
+              userProfileInfo: retroachievementsUserProfile,
           }
         : undefined}
   spotifyPlayingInfo={isSpotifyPlaying ? currentPlayingInfo : undefined}

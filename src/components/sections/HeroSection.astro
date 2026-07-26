@@ -6,11 +6,8 @@ import TechStack from "@/components/TechStack.astro";
 
 <section class="flex flex-col gap-4">
   <NameHeader />
-  <div class="flex justify-between">
-    <div class="flex flex-col gap-2">
-      <ActivitiesIsland className="block lg:hidden" server:defer />
-      <TechStack />
-    </div>
-    <ActivitiesIsland className="hidden lg:block" server:defer />
+  <div class="flex flex-col-reverse lg:flex-row justify-between">
+    <TechStack />
+    <ActivitiesIsland server:defer />
   </div>
 </section>
