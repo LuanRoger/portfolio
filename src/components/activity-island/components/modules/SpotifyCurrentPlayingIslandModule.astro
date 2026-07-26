@@ -1,0 +1,28 @@
+---
+import SpotifyIcon from "@/assets/icons/spotify.svg";
+import { formatSpotifyArtistsName } from "@/lib/utils/formatters";
+import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify";
+import Base from "./Base.astro";
+
+interface Props {
+  spotifyInfo: SpotifyCurrentPlayingTrackInfo;
+  title?: string | undefined;
+}
+
+const { title, spotifyInfo } = Astro.props;
+
+const { name, artists, href, image } = spotifyInfo;
+const formatedArtists = formatSpotifyArtistsName(artists);
+---
+
+<Base
+  accentColor="#1ED760"
+  activityDescription={title ?? "Listening to"}
+  description={formatedArtists}
+  href={href}
+  imageAlt={`${name} album cover`}
+  imageSrc={image.url}
+  title={name}
+>
+  <SpotifyIcon class="size-4 fill-foreground" slot="icon" />
+</Base>

@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import { DateTime } from "luxon";
+import LearningLabLogo from "@/assets/images/learning-lab-logo.png";
+import Icon from "@/components/Icon.astro";
+import WorkXp from "@/components/WorkXp.astro";
+---
+
+<section class="flex flex-col gap-2" id="expirience">
+  <h2 class="font-bold text-xl">Expirience</h2>
+  <ul>
+    <WorkXp
+      company="Aramis"
+      possitions={[
+                {
+                    title: "Full-Stack Developer",
+                    endDate: "now",
+                    startDate: DateTime.fromISO("2024-10-01"),
+                    type: "Full-Time",
+                    responsabilities: [
+                        "Helped build micro-frontends to be part of the brand's digital ecosystem",
+                        "Developed micro-service to handle heavy read request from MongoDB",
+                        "Developed TypeScript package to provide observability and monitoring tools for services using Open Telemetry",
+                        "Improved MongoDB queries performance by about 30% by optimizing indexes and aggregation pipelines",
+                        "Implemented observability with Prometheus and Loki in back-end services and Next.js",
+                        "Helped implement payment integrations with VTEX into the brand's e-commerce mobile platform",
+                        "Developed a CMS to manages the brand's training content",
+                        "Helped to develop microservices to power the seller's mobile platform",
+                        "Developed end-to-end features in the brand's multi-brand platform",
+                    ],
+                },
+            ]}
+    >
+      <Icon class="size-6" name="aramis-logo" slot="companyLogo" />
+    </WorkXp>
+    <WorkXp
+      company="Mais Informa"
+      possitions={[
+                {
+                    title: "Tech Lead",
+                    type: "Internship",
+                    endDate: DateTime.fromISO("2026-04-01"),
+                    startDate: DateTime.fromISO("2024-01-01"),
+                    responsabilities: [
+                        "Architected the newsletter sending a tooling",
+                        "Managed squads in charge of developing the newsletter solution",
+                        "Architected the news portal",
+                        "Helped to develop the e-mail sending engine that powers the newsletter",
+                        "Developed integrations and APIs with Notion to be used as a CMS",
+                        "Created a proprietary Astro loader for Notion",
+                    ],
+                },
+            ]}
+    >
+      <Icon class="size-6" name="mais-informa" slot="companyLogo" />
+    </WorkXp>
+    <WorkXp
+      company="LearningLab"
+      possitions={[
+                {
+                    title: "Back-end developer",
+                    type: "Volunteer",
+                    endDate: DateTime.fromISO("2024-10-01"),
+                    startDate: DateTime.fromISO("2023-08-01"),
+                    responsabilities: [
+                        "Developed the authentication and authorization flows",
+                        "Developed the user management related features",
+                        "Developed the load tests with K6",
+                        "Integrated Open Telemetry for distributed tracing",
+                    ],
+                },
+            ]}
+    >
+      <Image
+        alt="LearningLab logo"
+        class="size-6 object-scale-down"
+        slot="companyLogo"
+        src={LearningLabLogo}
+      />
+    </WorkXp>
+  </ul>
+  <p class="text-sm">
+    💡 In addition to my professional work, I also maintain open-source projects
+    and libraries, that together, have more than 200 stars in repositories and
+    8,000 downloads.
+  </p>
+</section>

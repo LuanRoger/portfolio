@@ -1,29 +1,30 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": [
     "ultracite/biome/core",
     "ultracite/biome/react",
-    "ultracite/biome/next"
+    "ultracite/biome/astro"
   ],
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
     "includes": [
       "/**/*",
-      "!src/components/ui/**/*",
       "!node_modules/**/*",
-      "!.next/**/*",
       "!*.d.ts"
     ]
   },
+  "html": {
+    "experimentalFullSupportEnabled": true
+  },
   "linter": {
     "rules": {
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      },
+      "suspicious": {
+        "noUnknownAttribute": "off"
+      },
       "style": {
-        "useConsistentTypeDefinitions": {
-          "fix": "safe",
-          "level": "error",
-          "options": {
-            "style": "type"
-          }
-        }
+        "useFilenamingConvention": "off"
       }
     }
   }

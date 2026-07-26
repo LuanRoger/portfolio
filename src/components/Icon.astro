@@ -1,0 +1,57 @@
+---
+import type { IconName } from "@/types/icons";
+
+interface Props {
+  class?: string;
+  fill?: string;
+  name: IconName;
+  style?: string;
+}
+
+const { name, fill, class: className, style } = Astro.props;
+
+const icons = {
+  "aramis-logo": (await import("@/assets/icons/aramis-logo.svg")).default,
+  astro: (await import("@/assets/icons/astro.svg")).default,
+  bun: (await import("@/assets/icons/bun.svg")).default,
+  cloudflare: (await import("@/assets/icons/cloudflare.svg")).default,
+  csharp: (await import("@/assets/icons/csharp.svg")).default,
+  dart: (await import("@/assets/icons/dart.svg")).default,
+  "digital-ocean": (await import("@/assets/icons/digital-ocean.svg")).default,
+  docker: (await import("@/assets/icons/docker.svg")).default,
+  dotnet: (await import("@/assets/icons/dotnet.svg")).default,
+  electron: (await import("@/assets/icons/electron.svg")).default,
+  "external-link": (await import("@/assets/icons/external-link.svg")).default,
+  firebase: (await import("@/assets/icons/firebase.svg")).default,
+  flutter: (await import("@/assets/icons/flutter.svg")).default,
+  git: (await import("@/assets/icons/git.svg")).default,
+  github: (await import("@/assets/icons/github.svg")).default,
+  grafana: (await import("@/assets/icons/grafana.svg")).default,
+  "mais-informa": (await import("@/assets/icons/mais-informa.svg")).default,
+  minio: (await import("@/assets/icons/minio.svg")).default,
+  mongodb: (await import("@/assets/icons/mongodb.svg")).default,
+  mysql: (await import("@/assets/icons/mysql.svg")).default,
+  nextjs: (await import("@/assets/icons/nextjs.svg")).default,
+  node: (await import("@/assets/icons/node.svg")).default,
+  postgresql: (await import("@/assets/icons/postgresql.svg")).default,
+  prometheus: (await import("@/assets/icons/prometheus.svg")).default,
+  python: (await import("@/assets/icons/python.svg")).default,
+  rabbitmq: (await import("@/assets/icons/rabbitmq.svg")).default,
+  react: (await import("@/assets/icons/react.svg")).default,
+  redis: (await import("@/assets/icons/redis.svg")).default,
+  rolldown: (await import("@/assets/icons/rolldown.svg")).default,
+  rust: (await import("@/assets/icons/rust.svg")).default,
+  shadcn: (await import("@/assets/icons/shadcn.svg")).default,
+  strapi: (await import("@/assets/icons/strapi.svg")).default,
+  tailwind: (await import("@/assets/icons/tailwind.svg")).default,
+  turborepo: (await import("@/assets/icons/turborepo.svg")).default,
+  typescript: (await import("@/assets/icons/typescript.svg")).default,
+  vercel: (await import("@/assets/icons/vercel.svg")).default,
+  vite: (await import("@/assets/icons/vite.svg")).default,
+  wakatime: (await import("@/assets/icons/wakatime.svg")).default,
+} as const;
+
+const IconComponent = icons[name];
+---
+
+<IconComponent class={className} fill={fill} style={style} />

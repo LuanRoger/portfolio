@@ -1,0 +1,42 @@
+---
+import Link from "@/components/Link.astro";
+---
+
+<section class="flex flex-col gap-2" id="contact">
+  <h2 class="font-bold text-xl">Contact</h2>
+  <p>
+    You can reach me out at{" "}
+    <Link href="mailto:luanroger.dev@gmail.com"> luanroger.dev@gmail.com </Link>
+    , or keep in touch with me on:
+  </p>
+  <div class="flex flex-row justify-evenly">
+    <Link
+      class="text-muted-foreground"
+      href="https://linkedin.com/in/luan-roger"
+      isExternal
+    >
+      <h2>LinkedIn</h2>
+    </Link>
+    <Link
+      class="text-muted-foreground"
+      href="https://github.com/LuanRoger"
+      isExternal
+    >
+      <h2>GitHub</h2>
+    </Link>
+    <Link
+      class="text-muted-foreground"
+      href="https://discordapp.com/users/226491187463192576"
+      isExternal
+    >
+      <h2>Discord</h2>
+    </Link>
+    <Link
+      class="text-muted-foreground"
+      href="https://blog.luanroger.dev"
+      isExternal
+    >
+      <h2>LR Tech Blog</h2>
+    </Link>
+  </div>
+</section>
