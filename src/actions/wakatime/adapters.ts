@@ -1,3 +1,5 @@
+// biome-ignore-all lint/suspicious/noExplicitAny: Need to handle raw responses
+
 import type {
   WakatimeAllTimeMetrics,
   WakatimeCategory,
@@ -13,7 +15,7 @@ export function adaptWakatimeResponseToWakatimeStats(
   if (!model || typeof model !== "object") {
     throw new Error("Invalid model: expected an object");
   }
-  const data = model.data;
+  const { data } = model;
 
   const editors: WakatimeEditor[] = data.editors.map((editor: any) => ({
     hours: editor.hours,
@@ -57,7 +59,7 @@ export function adaptWakatimeProgramLanguageResponseToWakatimeLanguages(
     throw new Error("Invalid model: expected an object");
   }
 
-  const data = model.data;
+  const { data } = model;
 
   return data.map((language: any) => ({ ...language }));
 }
@@ -88,7 +90,7 @@ export function adaptWakatimeAllTimeResponseToWakatimeAllTime(
     throw new Error("Invalid model: expected an object");
   }
 
-  const data = model.data;
+  const { data } = model;
 
   return {
     text: data.text,

@@ -1,3 +1,5 @@
+// biome-ignore-all lint/suspicious/noExplicitAny: Need to handle raw responses
+
 import type {
   LastPlayedGame,
   RetroachievementsUserProfile,

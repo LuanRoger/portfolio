@@ -124,10 +124,12 @@ const getGithubProfileRepositories = defineAction({
       })
     );
 
-    for (const result of languagesResults) {
-      const repo = filteredRepositories.find((r) => r.id === result.id);
-      if (repo && result.languages) {
-        repo.languages = result.languages;
+    for (const languagesResult of languagesResults) {
+      const repo = filteredRepositories.find(
+        (r) => r.id === languagesResult.id
+      );
+      if (repo && languagesResult.languages) {
+        repo.languages = languagesResult.languages;
       }
     }
 

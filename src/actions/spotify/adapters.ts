@@ -1,3 +1,5 @@
+// biome-ignore-all lint/suspicious/noExplicitAny: Need to handle raw responses
+
 import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify";
 
 export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
@@ -7,13 +9,12 @@ export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
     throw new Error("Invalid model: expected an object");
   }
 
-  const image = model.item.album.images[0];
   const artists = model.item.album.artists.map((artist: any) => artist.name);
 
   return {
     artists,
     href: model.item.external_urls.spotify,
-    image,
+    image: model.item.album.images[0],
     isPlaying: model.is_playing,
     name: model.item.name,
     progressMs: model.progress_ms,

@@ -12,6 +12,9 @@
     "rules": {
       "a11y": {
         "noSvgWithoutTitle": "off"
+      },
+      "suspicious": {
+        "noUnknownAttribute": "off"
       }
     }
   }

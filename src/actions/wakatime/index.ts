@@ -80,7 +80,7 @@ const getWakatimeStats = defineAction({
 });
 
 const getWakatimeLastDaysCategoriesSummary = defineAction({
-  handler: async (_, context) => {
+  handler: async (_input, context) => {
     context.cache.set({
       maxAge: 86_400,
       swr: 14_400,
@@ -117,11 +117,12 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
         }
 
         const data = await response.json();
-        const category = adaptWakatimeSummaryResponseToWakatimeCategories(data);
-        const coddingCategory = category.find(
+        const categories =
+          adaptWakatimeSummaryResponseToWakatimeCategories(data);
+        const coddingCategory = categories.find(
           (category) => category.name === "Coding"
         );
-        const debuggingCategory = category.find(
+        const debuggingCategory = categories.find(
           (category) => category.name === "Debugging"
         );
         return {
