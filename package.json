@@ -53,5 +53,6 @@
     "typescript": "^6.0.3",
     "ultracite": "7.9.4",
     "varlock": "^1.13.0"
-  }
+  },
+  "packageManager": "pnpm@11.17.0"
 }
