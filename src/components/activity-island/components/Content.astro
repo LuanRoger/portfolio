@@ -26,13 +26,13 @@ const { status, spotifyPlayingInfo, retroachievementsActivityInfo, className } =
 
 <div
   class={cn(
-        "inset-shadow-sm flex w-56 flex-col items-center rounded-md border-border p-1 shadow-2xs opacity-0",
+        "flex flex-col items-center opacity-0",
         className,
     )}
   id="activity-island"
 >
   <Header status={status} />
-  <div class="size-full overflow-hidden rounded-b-md">
+  <div class="overflow-hidden rounded-b-md size-full">
     {spotifyPlayingInfo && (
                 <SpotifyCurrentPlayingIslandModule
                     spotifyInfo={spotifyPlayingInfo}

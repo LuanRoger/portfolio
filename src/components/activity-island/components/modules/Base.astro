@@ -27,16 +27,14 @@ const {
 } = Astro.props;
 ---
 
-<div class="relative h-28 size-full">
-  <div
-    class="absolute inset-ring inset-ring-primary z-10 size-full"
-    style={accentColor
-            ? { boxShadow: `inset 0 0 7px ${accentColor}` }
-            : undefined}
-  ></div>
+<div class="relative w-full h-32"
+style={accentColor
+        ? { boxShadow: `inset 0 0 7px ${accentColor}` }
+        : undefined}
+>
   <Image
     alt={imageAlt}
-    class="absolute inset-0 z-10 size-full object-none opacity-50"
+    class="absolute inset-0 z-10 size-full object-cover opacity-50"
     height={300}
     loading="eager"
     src={imageSrc}
@@ -44,7 +42,7 @@ const {
   />
   <Image
     alt={`${imageAlt} Background Blur`}
-    class="absolute inset-0 z-0 size-full object-cover opacity-50 blur-lg"
+    class="absolute inset-0 z-0 size-full object-fill opacity-50 blur-lg"
     height={30}
     loading="eager"
     src={imageSrc}
