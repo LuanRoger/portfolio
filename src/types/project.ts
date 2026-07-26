@@ -1,4 +1,3 @@
-import type { StaticImageData } from "next/image";
 import type { Tech } from "./tech";
 
 export type Project = {
@@ -6,7 +5,7 @@ export type Project = {
   description: string;
   techStack: Tech[];
   image: {
-    src: string | StaticImageData;
+    src: ImageMetadata;
     alt: string;
     animated?: boolean;
   };

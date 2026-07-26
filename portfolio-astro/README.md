@@ -1,3 +1,0 @@
-# LR Portfolio
-
-my portfolio.

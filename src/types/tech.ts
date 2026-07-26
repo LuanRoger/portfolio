@@ -1,9 +1,11 @@
+import type { IconName } from "@/types/icons";
+
 export type Tech = {
   name: string;
   link: string;
   color: string;
   category: TechCategory;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: IconName;
   hide?: boolean;
 };
 
