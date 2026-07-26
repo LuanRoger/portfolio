@@ -3,10 +3,10 @@ import { DateTime } from "luxon";
 import { Avatar, AvatarImage } from "@/components/react/ui/avatar";
 import type { GitHubUser } from "@/types/github";
 
-type GitHubProfileInformationProps = {
+interface GitHubProfileInformationProps {
   profileData: GitHubUser;
   stargazersCount: number;
-};
+}
 
 export default function GitHubProfileInformation({
   profileData,

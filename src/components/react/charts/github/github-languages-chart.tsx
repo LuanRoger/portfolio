@@ -17,9 +17,9 @@ import PieChart from "../base/pie-chart/pie-chart";
 import type { PieData } from "../base/pie-chart/pie-context";
 import PieSlice from "../base/pie-chart/pie-slice";
 
-type GithubLanguagesMetricsChartProps = {
+interface GithubLanguagesMetricsChartProps {
   data: PieData[] & LegendItemData[];
-};
+}
 
 export default function GithubLanguagesMetricsChart({
   data,

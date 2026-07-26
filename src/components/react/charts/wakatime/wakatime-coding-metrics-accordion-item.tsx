@@ -8,7 +8,10 @@ import {
 import WakatimeLanguagesChart from "./wakatime-languages-chart";
 import WakatimeRawMetrics from "./wakatime-raw-metrics";
 
-type WakatimeCodingMetricsAccordionItemProps = {
+interface WakatimeCodingMetricsAccordionItemProps {
+  allTimeText: string;
+  avarengeText: string;
+  footer: ReactNode;
   languageChart: {
     data: {
       name: string;
@@ -16,10 +19,7 @@ type WakatimeCodingMetricsAccordionItemProps = {
       fill?: string;
     }[];
   };
-  avarengeText: string;
-  allTimeText: string;
-  footer: ReactNode;
-};
+}
 
 export default function WakatimeCodingMetricsAccordionItem({
   languageChart,

@@ -1,13 +1,13 @@
 import type { IconName } from "@/types/icons";
 
-export type Tech = {
-  name: string;
-  link: string;
-  color: string;
+export interface Tech {
   category: TechCategory;
-  icon: IconName;
+  color: string;
   hide?: boolean;
-};
+  icon: IconName;
+  link: string;
+  name: string;
+}
 
 export const TechCategory = {
   Backend: "Backend",

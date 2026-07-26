@@ -4,7 +4,19 @@ import type { GitHubUser } from "@/types/github";
 import GithubMetricsAccordionItem from "./github/github-metrics-accordion-item";
 import WakatimeCodingMetricsAccordionItem from "./wakatime/wakatime-coding-metrics-accordion-item";
 
-type CodingStatsAccordionProps = {
+interface CodingStatsAccordionProps {
+  githubFooter?: ReactNode;
+  githubIcon?: ReactNode;
+  githubLanguagesData: {
+    label: string;
+    value: number;
+    color: string;
+  }[];
+  githubProfileData: GitHubUser;
+  stargazersCount: number;
+  wakatimeAllTimeText: string;
+  wakatimeAverageText: string;
+  wakatimeFooter?: ReactNode;
   wakatimeLanguageChart: {
     data: {
       name: string;
@@ -12,19 +24,7 @@ type CodingStatsAccordionProps = {
       fill?: string;
     }[];
   };
-  wakatimeAverageText: string;
-  wakatimeAllTimeText: string;
-  wakatimeFooter?: ReactNode;
-  githubIcon?: ReactNode;
-  githubProfileData: GitHubUser;
-  stargazersCount: number;
-  githubLanguagesData: {
-    label: string;
-    value: number;
-    color: string;
-  }[];
-  githubFooter?: ReactNode;
-};
+}
 
 export default function CodingStatsAccordion({
   wakatimeLanguageChart,

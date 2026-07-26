@@ -8,17 +8,17 @@ import type { GitHubUser } from "@/types/github";
 import GithubLanguagesMetricsChart from "./github-languages-chart";
 import GitHubProfileInformation from "./github-profile-information";
 
-type GithubMetricsAccordionItemProps = {
+interface GithubMetricsAccordionItemProps {
+  footer: ReactNode;
   gitHubIcon: ReactNode;
-  githubProfileData: GitHubUser;
-  stargazersCount: number;
   githubLanguagesData: {
     label: string;
     value: number;
     color: string;
   }[];
-  footer: ReactNode;
-};
+  githubProfileData: GitHubUser;
+  stargazersCount: number;
+}
 
 export default function GithubMetricsAccordionItem({
   gitHubIcon,

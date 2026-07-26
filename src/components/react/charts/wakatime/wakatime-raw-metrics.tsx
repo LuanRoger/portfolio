@@ -5,10 +5,10 @@ import {
   CardTitle,
 } from "@/components/react/ui/card";
 
-type WakatimeRawMetricsProps = {
-  avarengeText: string;
+interface WakatimeRawMetricsProps {
   allTimeText: string;
-};
+  avarengeText: string;
+}
 
 export default function WakatimeRawMetrics({
   avarengeText,

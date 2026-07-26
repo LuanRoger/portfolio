@@ -133,11 +133,11 @@ void main(){
 
 // Keep renderer/program alive across re-renders so Effect 2 can update
 // uniforms without ever rebuilding the WebGL context.
-type GrainientCtx = {
-  renderer: InstanceType<typeof Renderer>;
-  program: InstanceType<typeof Program>;
+interface GrainientCtx {
   mesh: InstanceType<typeof Mesh>;
-};
+  program: InstanceType<typeof Program>;
+  renderer: InstanceType<typeof Renderer>;
+}
 const ctxMap = new WeakMap<HTMLDivElement, GrainientCtx>();
 
 const Grainient: React.FC<GrainientProps> = ({

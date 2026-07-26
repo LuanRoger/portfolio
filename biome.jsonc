@@ -6,7 +6,14 @@
   ],
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["/**/*", "!node_modules/**/*", "!*.d.ts"]
+    "includes": [
+      "/**/*",
+      "!node_modules/**/*",
+      "!*.d.ts"
+    ]
+  },
+  "html": {
+    "experimentalFullSupportEnabled": true
   },
   "linter": {
     "rules": {
@@ -15,6 +22,9 @@
       },
       "suspicious": {
         "noUnknownAttribute": "off"
+      },
+      "style": {
+        "useFilenamingConvention": "off"
       }
     }
   }

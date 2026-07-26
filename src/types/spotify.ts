@@ -1,17 +1,17 @@
-export type SpotifyAuthResponse = {
+export interface SpotifyAuthResponse {
   access_token: string;
-};
+}
 
-export type SpotifyCurrentPlayingTrackInfo = {
-  name: string;
-  timestamp: number;
-  progressMs: number;
-  isPlaying: boolean;
-  href: string;
+export interface SpotifyCurrentPlayingTrackInfo {
   artists: string[];
+  href: string;
   image: {
     url: string;
     height: number;
     width: number;
   };
-};
+  isPlaying: boolean;
+  name: string;
+  progressMs: number;
+  timestamp: number;
+}

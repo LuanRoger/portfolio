@@ -2,15 +2,15 @@ import type { SpringOptions } from "motion";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { type ReactNode, useRef, useState } from "react";
 
-type TiltedCardProps = {
+interface TiltedCardProps {
   children: ReactNode;
+  displayOverlayContent?: boolean;
   imageHeight?: React.CSSProperties["height"];
   imageWidth?: React.CSSProperties["width"];
-  scaleOnHover?: number;
-  rotateAmplitude?: number;
   overlayContent?: React.ReactNode;
-  displayOverlayContent?: boolean;
-};
+  rotateAmplitude?: number;
+  scaleOnHover?: number;
+}
 
 const springValues: SpringOptions = {
   damping: 30,

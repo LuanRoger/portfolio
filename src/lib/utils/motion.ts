@@ -36,13 +36,13 @@ export function springOptionsFromTransition(
         : fallback.damping;
     return {
       damping:
-        bounce == null
+        bounce === null
           ? baseDamping
           : Math.max(8, baseDamping * (1 - bounce * 0.25)),
       mass:
         typeof transition.mass === "number" ? transition.mass : fallback.mass,
       stiffness:
-        bounce == null
+        bounce === null
           ? baseStiffness
           : Math.min(400, Math.max(80, baseStiffness * (1 + bounce * 0.35))),
     };

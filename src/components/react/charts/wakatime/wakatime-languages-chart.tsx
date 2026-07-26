@@ -18,13 +18,13 @@ import PieChart from "../base/pie-chart/pie-chart";
 import type { PieData } from "../base/pie-chart/pie-context";
 import PieSlice from "../base/pie-chart/pie-slice";
 
-type LanguageChartData = {
+interface LanguageChartData {
   data: {
     name: string;
     value: number;
     fill?: string;
   }[];
-};
+}
 
 export default function WakatimeLanguagesChart({ data }: LanguageChartData) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

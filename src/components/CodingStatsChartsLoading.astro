@@ -3,14 +3,12 @@ import { Skeleton } from "./react/ui/skeleton";
 import Separator from "./Separator.astro";
 ---
 
-{Array.from({ length: 2 }).map((_, index) => {
-        return (
-            <Fragment>
-                <div class="flex gap-2 items-center">
-                    <Skeleton className="size-5" />
-                    <Skeleton className="h-5 w-28" />
-                </div>
-                {index !== 1 && <Separator />}
-            </Fragment>
-        );
-    })}
+{Array.from({ length: 2 }).map((_, index) => (
+<>
+    <div class="flex items-center gap-2">
+        <Skeleton className="size-5" />
+        <Skeleton className="h-5 w-28" />
+    </div>
+    {index !== 1 && <Separator />}
+</>
+))}
