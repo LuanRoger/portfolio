@@ -10,19 +10,19 @@ export type Tech = {
 };
 
 export const TechCategory = {
-  Language: "Languages",
-  Frontend: "Frontend",
-  Styling: "Styling",
-  Runtime: "Runtimes",
   Backend: "Backend",
+  BackendServices: "Backend Services",
+  BuildTools: "Build Tools",
+  CloudHosting: "Cloud & Hosting",
   CrossPlatform: "Cross-Platform",
   Database: "Databases",
-  Infrastructure: "Infrastructure",
-  BuildTools: "Build Tools",
   DevOps: "DevOps",
-  CloudHosting: "Cloud & Hosting",
-  BackendServices: "Backend Services",
+  Frontend: "Frontend",
+  Infrastructure: "Infrastructure",
+  Language: "Languages",
   Observability: "Observability",
+  Runtime: "Runtimes",
+  Styling: "Styling",
 } as const;
 
 export type TechCategory = (typeof TechCategory)[keyof typeof TechCategory];

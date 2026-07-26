@@ -1,16 +1,10 @@
 ---
-import ScrollToTopLink from "@/components/ScrollToTopLink.astro";
 import { Image } from "astro:assets";
 import LRLogo from "@/assets/images/lr-logo.png";
+import ScrollToTopLink from "@/components/ScrollToTopLink.astro";
 ---
 
 <div class="flex flex-row items-end justify-between">
-    <ScrollToTopLink />
-    <Image
-        alt="LR Logo"
-        class="opacity-60"
-        src={LRLogo}
-        width={50}
-        height={50}
-    />
+  <ScrollToTopLink />
+  <Image alt="LR Logo" class="opacity-60" height={50} src={LRLogo} width={50} />
 </div>

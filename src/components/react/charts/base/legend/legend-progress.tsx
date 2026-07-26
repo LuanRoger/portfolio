@@ -3,12 +3,12 @@ import { cn } from "@/lib/cn";
 import { useLegendItem } from "./legend-context";
 
 export interface LegendProgressProps {
-  /** Track class name */
-  trackClassName?: string;
-  /** Indicator class name */
-  indicatorClassName?: string;
   /** Track height. Default: "h-1.5" */
   height?: string;
+  /** Indicator class name */
+  indicatorClassName?: string;
+  /** Track class name */
+  trackClassName?: string;
 }
 
 export function LegendProgress({

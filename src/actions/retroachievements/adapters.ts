@@ -5,48 +5,48 @@ import type {
 
 export function adaptRetroachievementsUserProfileResponseToUserProfile(
   response: any,
-  retroachievementsBaseUrl: string,
+  retroachievementsBaseUrl: string
 ): RetroachievementsUserProfile {
   return {
-    user: response.User,
-    ulid: response.ULID,
-    userPic: `${retroachievementsBaseUrl}${response.UserPic}`,
-    memberSince: new Date(`${response.MemberSince} UTC"`),
-    richPresenceMsg: response.RichPresenceMsg,
-    lastGameId: response.LastGameID,
     contribCount: response.ContribCount,
     contribYield: response.ContribYield,
+    id: response.ID,
+    lastGameId: response.LastGameID,
+    memberSince: new Date(`${response.MemberSince} UTC"`),
+    motto: response.Motto,
+    permissions: response.Permissions,
+    richPresenceMsg: response.RichPresenceMsg,
     totalPoints: response.TotalPoints,
     totalSoftcorePoints: response.TotalSoftcorePoints,
     totalTruePoints: response.TotalTruePoints,
-    permissions: response.Permissions,
+    ulid: response.ULID,
     untracked: response.Untracked,
-    id: response.ID,
+    user: response.User,
+    userPic: `${retroachievementsBaseUrl}${response.UserPic}`,
     userWallActive: response.UserWallActive,
-    motto: response.Motto,
   };
 }
 
 export function adaptLastPlayedGameResponseToLastPlayedGame(
   response: any,
-  retroachievementsBaseUrl: string,
+  retroachievementsBaseUrl: string
 ): LastPlayedGame {
   return {
-    gameId: response.GameID,
+    achievementsTotal: response.AchievementsTotal,
     consoleId: response.ConsoleID,
     consoleName: response.ConsoleName,
-    title: response.Title,
-    imageIcon: `${retroachievementsBaseUrl}${response.ImageIcon}`,
-    imageTitle: `${retroachievementsBaseUrl}${response.ImageTitle}`,
-    imageIngame: `${retroachievementsBaseUrl}${response.ImageIngame}`,
+    gameId: response.GameID,
     imageBoxArt: `${retroachievementsBaseUrl}${response.ImageBoxArt}`,
+    imageIcon: `${retroachievementsBaseUrl}${response.ImageIcon}`,
+    imageIngame: `${retroachievementsBaseUrl}${response.ImageIngame}`,
+    imageTitle: `${retroachievementsBaseUrl}${response.ImageTitle}`,
     lastPlayed: new Date(`${response.LastPlayed} UTC`),
-    achievementsTotal: response.AchievementsTotal,
+    numAchieved: response.NumAchieved,
+    numAchievedHardcore: response.NumAchievedHardcore,
     numPossibleAchievements: response.NumPossibleAchievements,
     possibleScore: response.PossibleScore,
-    numAchieved: response.NumAchieved,
     scoreAchieved: response.ScoreAchieved,
-    numAchievedHardcore: response.NumAchievedHardcore,
     scoreAchievedHardcore: response.ScoreAchievedHardcore,
+    title: response.Title,
   };
 }

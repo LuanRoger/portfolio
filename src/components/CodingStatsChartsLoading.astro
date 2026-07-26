@@ -3,8 +3,7 @@ import { Skeleton } from "./react/ui/skeleton";
 import Separator from "./Separator.astro";
 ---
 
-{
-    Array.from({ length: 2 }).map((_, index) => {
+{Array.from({ length: 2 }).map((_, index) => {
         return (
             <Fragment>
                 <div class="flex gap-2 items-center">
@@ -14,5 +13,4 @@ import Separator from "./Separator.astro";
                 {index !== 1 && <Separator />}
             </Fragment>
         );
-    })
-}
+    })}

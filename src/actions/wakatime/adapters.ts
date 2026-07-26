@@ -16,12 +16,12 @@ export function adaptWakatimeResponseToWakatimeStats(
   const data = model.data;
 
   const editors: WakatimeEditor[] = data.editors.map((editor: any) => ({
-    totalSeconds: editor.total_seconds,
+    hours: editor.hours,
+    minutes: editor.minutes,
     name: editor.name,
     percent: editor.percent,
     text: editor.text,
-    hours: editor.hours,
-    minutes: editor.minutes,
+    totalSeconds: editor.total_seconds,
   }));
 
   const languages = data.languages.map((language: any) => {
@@ -30,23 +30,23 @@ export function adaptWakatimeResponseToWakatimeStats(
     );
 
     return {
+      hours: language.hours,
+      metadata,
+      minutes: language.minutes,
       name: language.name,
-      totalSeconds: language.total_seconds,
       percent: language.percent,
       text: language.text,
-      hours: language.hours,
-      minutes: language.minutes,
-      metadata,
+      totalSeconds: language.total_seconds,
     };
   });
 
   return {
-    status: data.status,
-    totalText: data.human_readable_total_including_other_language,
     avarengeText: data.human_readable_daily_average_including_other_language,
-    totalInSeconds: data.total_seconds,
     editors,
     languages,
+    status: data.status,
+    totalInSeconds: data.total_seconds,
+    totalText: data.human_readable_total_including_other_language,
   };
 }
 
@@ -72,12 +72,12 @@ export function adaptWakatimeSummaryResponseToWakatimeCategories(
   const data = model.data[0].categories;
 
   return data.map((category: any) => ({
-    name: category.name,
-    text: category.text,
     hours: category.hours,
     minutes: category.minutes,
-    seconds: category.seconds,
+    name: category.name,
     percent: category.percent,
+    seconds: category.seconds,
+    text: category.text,
   }));
 }
 
@@ -91,7 +91,7 @@ export function adaptWakatimeAllTimeResponseToWakatimeAllTime(
   const data = model.data;
 
   return {
-    totalSeconds: data.total_seconds,
     text: data.text,
+    totalSeconds: data.total_seconds,
   };
 }

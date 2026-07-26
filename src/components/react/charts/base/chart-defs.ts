@@ -56,7 +56,7 @@ export function partitionChartDefNodes(defNodes: ReactElement[]): {
     }
   }
 
-  return { patternDefNodes, gradientDefNodes };
+  return { gradientDefNodes, patternDefNodes };
 }
 
 export function collectChartDefsChildren(children: ReactNode): ReactElement[] {

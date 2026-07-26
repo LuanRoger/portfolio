@@ -1,6 +1,6 @@
 import type { SpringOptions } from "motion";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import { useRef, useState, type ReactNode } from "react";
+import { type ReactNode, useRef, useState } from "react";
 
 type TiltedCardProps = {
   children: ReactNode;
@@ -14,8 +14,8 @@ type TiltedCardProps = {
 
 const springValues: SpringOptions = {
   damping: 30,
-  stiffness: 100,
   mass: 2,
+  stiffness: 100,
 };
 
 export default function TiltedCard({
@@ -35,9 +35,9 @@ export default function TiltedCard({
   const scale = useSpring(1, springValues);
   const opacity = useSpring(0);
   const rotateFigcaption = useSpring(0, {
-    stiffness: 350,
     damping: 30,
     mass: 1,
+    stiffness: 350,
   });
 
   const [lastY, setLastY] = useState(0);
@@ -90,18 +90,18 @@ export default function TiltedCard({
       <motion.div
         className="transform-3d relative"
         style={{
-          width: imageWidth,
           height: imageHeight,
           rotateX,
           rotateY,
           scale,
+          width: imageWidth,
         }}
       >
         <motion.div
           className="transform-[translateZ(0)] absolute top-0 left-0 rounded-[15px] object-cover will-change-transform"
           style={{
-            width: imageWidth,
             height: imageHeight,
+            width: imageWidth,
           }}
         >
           {children}

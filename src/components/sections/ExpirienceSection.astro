@@ -1,17 +1,17 @@
 ---
-import WorkXp from "@/components/WorkXp.astro";
-import Icon from "@/components/Icon.astro";
-import LearningLabLogo from "@/assets/images/learning-lab-logo.png";
-import { DateTime } from "luxon";
 import { Image } from "astro:assets";
+import { DateTime } from "luxon";
+import LearningLabLogo from "@/assets/images/learning-lab-logo.png";
+import Icon from "@/components/Icon.astro";
+import WorkXp from "@/components/WorkXp.astro";
 ---
 
 <section class="flex flex-col gap-2" id="expirience">
-    <h2 class="font-bold text-xl">Expirience</h2>
-    <ul>
-        <WorkXp
-            company="Aramis"
-            possitions={[
+  <h2 class="font-bold text-xl">Expirience</h2>
+  <ul>
+    <WorkXp
+      company="Aramis"
+      possitions={[
                 {
                     title: "Full-Stack Developer",
                     endDate: "now",
@@ -30,12 +30,12 @@ import { Image } from "astro:assets";
                     ],
                 },
             ]}
-        >
-            <Icon name="aramis-logo" slot="companyLogo" class="size-6" />
-        </WorkXp>
-        <WorkXp
-            company="Mais Informa"
-            possitions={[
+    >
+      <Icon class="size-6" name="aramis-logo" slot="companyLogo" />
+    </WorkXp>
+    <WorkXp
+      company="Mais Informa"
+      possitions={[
                 {
                     title: "Tech Lead",
                     type: "Internship",
@@ -51,12 +51,12 @@ import { Image } from "astro:assets";
                     ],
                 },
             ]}
-        >
-            <Icon name="mais-informa" slot="companyLogo" class="size-6" />
-        </WorkXp>
-        <WorkXp
-            company="LearningLab"
-            possitions={[
+    >
+      <Icon class="size-6" name="mais-informa" slot="companyLogo" />
+    </WorkXp>
+    <WorkXp
+      company="LearningLab"
+      possitions={[
                 {
                     title: "Back-end developer",
                     type: "Volunteer",
@@ -70,18 +70,18 @@ import { Image } from "astro:assets";
                     ],
                 },
             ]}
-        >
-            <Image
-                src={LearningLabLogo}
-                alt="LearningLab logo"
-                slot="companyLogo"
-                class="size-6 object-scale-down"
-            />
-        </WorkXp>
-    </ul>
-    <p class="text-sm">
-        💡 In addition to my professional work, I also maintain open-source
-        projects and libraries, that together, have more than 200 stars in
-        repositories and 8,000 downloads.
-    </p>
+    >
+      <Image
+        alt="LearningLab logo"
+        class="size-6 object-scale-down"
+        slot="companyLogo"
+        src={LearningLabLogo}
+      />
+    </WorkXp>
+  </ul>
+  <p class="text-sm">
+    💡 In addition to my professional work, I also maintain open-source projects
+    and libraries, that together, have more than 200 stars in repositories and
+    8,000 downloads.
+  </p>
 </section>

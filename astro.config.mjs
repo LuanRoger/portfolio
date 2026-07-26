@@ -1,39 +1,36 @@
 // @ts-check
-import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 import react from "@astrojs/react";
-import tailwindcss from "@tailwindcss/vite";
-
 import sitemap from "@astrojs/sitemap";
-
 import vercel from "@astrojs/vercel";
-
-import varlockAstroIntegration from '@varlock/astro-integration';
+import tailwindcss from "@tailwindcss/vite";
+import varlockAstroIntegration from "@varlock/astro-integration";
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 export default defineConfig({
-  site: "https://luanroger.dev",
   adapter: vercel(),
-  integrations: [varlockAstroIntegration(), react(), sitemap()],
-  vite: {
-    plugins: [tailwindcss()],
+  experimental: {
+    svgOptimizer: svgoOptimizer(),
   },
   fonts: [
     {
-      provider: fontProviders.local(),
-      name: "Pixelta",
       cssVariable: "--font-pixelta",
+      name: "Pixelta",
       options: {
         variants: [
           {
             src: ["./src/assets/fonts/PixeltaRegular.ttf"],
-            weight: "normal",
             style: "normal",
+            weight: "normal",
           },
         ],
       },
+      provider: fontProviders.local(),
     },
   ],
-  experimental: {
-    svgOptimizer: svgoOptimizer(),
+  integrations: [varlockAstroIntegration(), react(), sitemap()],
+  site: "https://luanroger.dev",
+  vite: {
+    plugins: [tailwindcss()],
   },
 });

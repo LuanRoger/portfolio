@@ -1,15 +1,15 @@
 "use server";
 
+import { ActionError, defineAction } from "astro:actions";
 import { ENV } from "varlock/env";
+import { getLastDayDate, simpleFormatDate } from "@/lib/utils/time";
+import type { WakatimeDateCategory } from "@/types/wakatime";
 import {
   adaptWakatimeAllTimeResponseToWakatimeAllTime,
   adaptWakatimeProgramLanguageResponseToWakatimeLanguages,
   adaptWakatimeResponseToWakatimeStats,
   adaptWakatimeSummaryResponseToWakatimeCategories,
 } from "./adapters";
-import type { WakatimeDateCategory } from "@/types/wakatime";
-import { getLastDayDate, simpleFormatDate } from "@/lib/utils/time";
-import { ActionError, defineAction } from "astro:actions";
 
 async function getWakatimeLanguages() {
   const wakatimeUrl = ENV.WAKATIME_URL;
@@ -43,8 +43,8 @@ async function getWakatimeLanguages() {
 const getWakatimeStats = defineAction({
   handler: async (_, context) => {
     context.cache.set({
-      maxAge: 86400,
-      swr: 14400,
+      maxAge: 86_400,
+      swr: 14_400,
     });
 
     const wakatimeUrl = ENV.WAKATIME_URL;
@@ -72,7 +72,7 @@ const getWakatimeStats = defineAction({
     const languageMetadataResponse = await getWakatimeLanguages();
     const statsData = adaptWakatimeResponseToWakatimeStats(
       data,
-      languageMetadataResponse,
+      languageMetadataResponse
     );
 
     return statsData;
@@ -82,8 +82,8 @@ const getWakatimeStats = defineAction({
 const getWakatimeLastDaysCategoriesSummary = defineAction({
   handler: async (_, context) => {
     context.cache.set({
-      maxAge: 86400,
-      swr: 14400,
+      maxAge: 86_400,
+      swr: 14_400,
     });
 
     const wakatimeUrl = ENV.WAKATIME_URL;
@@ -110,7 +110,7 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
             headers: {
               Authorization: `Basic ${wakatimeKey}`,
             },
-          },
+          }
         );
         if (!response.ok) {
           return;
@@ -119,23 +119,23 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
         const data = await response.json();
         const category = adaptWakatimeSummaryResponseToWakatimeCategories(data);
         const coddingCategory = category.find(
-          (category) => category.name === "Coding",
+          (category) => category.name === "Coding"
         );
         const debuggingCategory = category.find(
-          (category) => category.name === "Debugging",
+          (category) => category.name === "Debugging"
         );
         return {
+          coding: coddingCategory,
           date,
           dateText: formattedDate,
-          coding: coddingCategory,
           debugging: debuggingCategory,
         } satisfies WakatimeDateCategory;
-      },
+      }
     );
 
     const categories = Promise.all(last7DaysCategories);
     const validCategories = (await categories).filter(
-      (category) => category !== undefined,
+      (category) => category !== undefined
     ) as WakatimeDateCategory[];
 
     return validCategories;
@@ -145,8 +145,8 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
 const getWakatimeAllTimeMetrics = defineAction({
   handler: async (_, context) => {
     context.cache.set({
-      maxAge: 86400,
-      swr: 14400,
+      maxAge: 86_400,
+      swr: 14_400,
     });
 
     const wakatimeUrl = ENV.WAKATIME_URL;
@@ -164,7 +164,7 @@ const getWakatimeAllTimeMetrics = defineAction({
         headers: {
           Authorization: `Basic ${wakatimeKey}`,
         },
-      },
+      }
     );
     if (!response.ok) {
       throw new ActionError({
@@ -181,7 +181,7 @@ const getWakatimeAllTimeMetrics = defineAction({
 });
 
 export const wakatime = {
-  getWakatimeStats,
-  getWakatimeLastDaysCategoriesSummary,
   getWakatimeAllTimeMetrics,
+  getWakatimeLastDaysCategoriesSummary,
+  getWakatimeStats,
 };

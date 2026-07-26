@@ -125,10 +125,10 @@ export function decimateOhlcData<T extends Record<string, unknown>>(
 
     sampled.push({
       ...last,
-      open: first.open,
+      close: last.close,
       high: Number.isFinite(high) ? high : last.high,
       low: Number.isFinite(low) ? low : last.low,
-      close: last.close,
+      open: first.open,
     } as T);
   }
 

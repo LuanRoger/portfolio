@@ -1,10 +1,10 @@
 import { ChartBarIcon } from "lucide-react";
+import type { ReactNode } from "react";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/react/ui/accordion";
-import type { ReactNode } from "react";
 import WakatimeLanguagesChart from "./wakatime-languages-chart";
 import WakatimeRawMetrics from "./wakatime-raw-metrics";
 
@@ -38,8 +38,8 @@ export default function WakatimeCodingMetricsAccordionItem({
       <AccordionContent className="flex flex-col gap-4">
         <WakatimeLanguagesChart {...languageChart} />
         <WakatimeRawMetrics
-          avarengeText={avarengeText}
           allTimeText={allTimeText}
+          avarengeText={avarengeText}
         />
         <div className="flex justify-between text-muted-foreground text-sm">
           <p>

@@ -1,17 +1,17 @@
 ---
+import Dot from "@/components/Dot.astro";
 import { cn } from "@/lib/cn";
 import type { Presence } from "@/types/presence";
-import Dot from "@/components/Dot.astro";
 
 interface Props {
-    status: Presence;
+  status: Presence;
 }
 
 const { status } = Astro.props;
 ---
 
 <div
-    class={cn(
+  class={cn(
         "inset-shadow-xs flex w-full items-center justify-center gap-1 rounded-t-md px-2 py-1 font-semibold text-sm text-white",
         {
             "inset-shadow-green-700 bg-green-700": status === "online",
@@ -20,9 +20,9 @@ const { status } = Astro.props;
         },
     )}
 >
-    <Dot
-        animate={status === "online"}
-        dotClassName={status === "online" ? "bg-green-400" : "bg-gray-400"}
-    />
-    {status.toString()}
+  <Dot
+    animate={status === "online"}
+    dotClassName={status === "online" ? "bg-green-400" : "bg-gray-400"}
+  />
+  {status.toString()}
 </div>

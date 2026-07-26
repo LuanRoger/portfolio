@@ -4,27 +4,24 @@ import { hoursSince } from "@/lib/utils/time";
 import Content from "./components/Content.astro";
 
 interface Props {
-    className?: string;
+  className?: string;
 }
 
 const { className } = Astro.props as Props;
 
 const [currentPlayingInfo, retroachievementsUserProfile, lastGamePlayedInfo] =
-    await Promise.all([
-        Astro.callAction(actions.spotify.getSpotifyCurrentPlaying.orThrow, {}),
-        Astro.callAction(
-            actions.retroachievements.getRetroachievementsUserProfile.orThrow,
-            {},
-        ),
-        Astro.callAction(
-            actions.retroachievements.getLastGamePlayed.orThrow,
-            {},
-        ),
-    ]);
+  await Promise.all([
+    Astro.callAction(actions.spotify.getSpotifyCurrentPlaying.orThrow, {}),
+    Astro.callAction(
+      actions.retroachievements.getRetroachievementsUserProfile.orThrow,
+      {}
+    ),
+    Astro.callAction(actions.retroachievements.getLastGamePlayed.orThrow, {}),
+  ]);
 
 const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
 const hoursSinceLastRetroachievementsPlay = hoursSince(
-    lastGamePlayedInfo.lastPlayed,
+  lastGamePlayedInfo.lastPlayed
 );
 const isRetroachievementsActive = hoursSinceLastRetroachievementsPlay < 1;
 
@@ -32,13 +29,13 @@ const isOnline = isSpotifyPlaying || isRetroachievementsActive;
 ---
 
 <Content
-    className={className}
-    retroachievementsActivityInfo={isRetroachievementsActive
+  className={className}
+  retroachievementsActivityInfo={isRetroachievementsActive
         ? {
               userProfileInfo: retroachievementsUserProfile,
               lastGamePlayedInfo,
           }
         : undefined}
-    spotifyPlayingInfo={isSpotifyPlaying ? currentPlayingInfo : undefined}
-    status={isOnline ? "online" : "offline"}
+  spotifyPlayingInfo={isSpotifyPlaying ? currentPlayingInfo : undefined}
+  status={isOnline ? "online" : "offline"}
 />

@@ -3,10 +3,10 @@ import { cn } from "@/lib/cn";
 import { useLegend, useLegendItem } from "./legend-context";
 
 export interface LegendItemProps {
-  /** Container class name */
-  className?: string;
   /** Children components (LegendMarker, LegendLabel, LegendValue, LegendProgress) */
   children: ReactNode;
+  /** Container class name */
+  className?: string;
 }
 
 export function LegendItem({ className = "", children }: LegendItemProps) {

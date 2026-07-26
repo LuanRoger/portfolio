@@ -1,59 +1,59 @@
 ---
-import Link from "@/components/Link.astro";
 import { Image } from "astro:assets";
-import TiltedCard from "@/components/react/tilted-card.tsx";
 import GitHubActions from "@/assets/images/github-actions.png";
-import MongoCertification from "@/assets/images/mongodb-associate-developer.png";
 import GitHubFoundations from "@/assets/images/github-foundations.png";
+import MongoCertification from "@/assets/images/mongodb-associate-developer.png";
+import Link from "@/components/Link.astro";
+import TiltedCard from "@/components/react/tilted-card.tsx";
 ---
 
 <div class="flex flex-col md:flex-row md:justify-evenly">
-    <Link
-        href="https://www.credly.com/badges/940e60e3-96b1-4595-96ee-9830d87081aa/public_url"
-        isExternal
+  <Link
+    href="https://www.credly.com/badges/940e60e3-96b1-4595-96ee-9830d87081aa/public_url"
+    isExternal
+  >
+    <TiltedCard
+      imageHeight={150}
+      imageWidth={150}
+      rotateAmplitude={30}
+      scaleOnHover={1.3}
+      client:visible
     >
-        <TiltedCard
-            client:visible
-            imageHeight={150}
-            imageWidth={150}
-            rotateAmplitude={30}
-            scaleOnHover={1.3}
-        >
-            <Image
-                src={MongoCertification}
-                alt="MongoDB Associate Developer Certificate Badge"
-            />
-        </TiltedCard>
-    </Link>
-    <Link
-        href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/public_url"
-        isExternal
+      <Image
+        alt="MongoDB Associate Developer Certificate Badge"
+        src={MongoCertification}
+      />
+    </TiltedCard>
+  </Link>
+  <Link
+    href="https://www.credly.com/badges/765dfe92-ebdf-4c5d-8839-75b674a8360f/public_url"
+    isExternal
+  >
+    <TiltedCard
+      imageHeight={150}
+      imageWidth={150}
+      rotateAmplitude={30}
+      scaleOnHover={1.3}
+      client:visible
     >
-        <TiltedCard
-            client:visible
-            imageHeight={150}
-            imageWidth={150}
-            rotateAmplitude={30}
-            scaleOnHover={1.3}
-        >
-            <Image
-                src={GitHubFoundations}
-                alt="GitHub Foundations Certificate Badge"
-            />
-        </TiltedCard>
-    </Link>
-    <Link
-        href="https://learn.microsoft.com/api/credentials/share/en-us/LuanRoger-6971/FF6CF442470AE07?sharingId=58975929453A7CF5"
-        isExternal
+      <Image
+        alt="GitHub Foundations Certificate Badge"
+        src={GitHubFoundations}
+      />
+    </TiltedCard>
+  </Link>
+  <Link
+    href="https://learn.microsoft.com/api/credentials/share/en-us/LuanRoger-6971/FF6CF442470AE07?sharingId=58975929453A7CF5"
+    isExternal
+  >
+    <TiltedCard
+      imageHeight={150}
+      imageWidth={150}
+      rotateAmplitude={30}
+      scaleOnHover={1.3}
+      client:visible
     >
-        <TiltedCard
-            client:visible
-            imageHeight={150}
-            imageWidth={150}
-            rotateAmplitude={30}
-            scaleOnHover={1.3}
-        >
-            <Image src={GitHubActions} alt="GitHub Actions Certificate Badge" />
-        </TiltedCard>
-    </Link>
+      <Image alt="GitHub Actions Certificate Badge" src={GitHubActions} />
+    </TiltedCard>
+  </Link>
 </div>

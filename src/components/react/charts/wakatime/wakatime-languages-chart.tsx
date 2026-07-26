@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -5,18 +6,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/react/ui/card";
-import PieChart from "../base/pie-chart/pie-chart";
-import PieSlice from "../base/pie-chart/pie-slice";
-import type { PieData } from "../base/pie-chart/pie-context";
-import PieCenter from "../base/pie-chart/pie-center";
 import {
   Legend,
   LegendItem,
+  type LegendItemData,
   LegendLabel,
   LegendMarker,
-  type LegendItemData,
 } from "../base/legend";
-import { useState } from "react";
+import PieCenter from "../base/pie-chart/pie-center";
+import PieChart from "../base/pie-chart/pie-chart";
+import type { PieData } from "../base/pie-chart/pie-context";
+import PieSlice from "../base/pie-chart/pie-slice";
 
 type LanguageChartData = {
   data: {
@@ -29,10 +29,10 @@ type LanguageChartData = {
 export default function WakatimeLanguagesChart({ data }: LanguageChartData) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const chartData: PieData[] & LegendItemData[] = data.map((item) => ({
-    label: item.name,
-    value: item.value,
     color: item.fill ?? "var(--chart-1)",
     fill: item.fill,
+    label: item.name,
+    value: item.value,
   }));
 
   return (
@@ -43,27 +43,27 @@ export default function WakatimeLanguagesChart({ data }: LanguageChartData) {
           How many hours I spent on each language in the last 7 days
         </CardDescription>
       </CardHeader>
-      <CardContent className="mx-auto w-full flex flex-col items-center justify-center">
+      <CardContent className="mx-auto flex w-full flex-col items-center justify-center">
         <PieChart
           data={chartData}
-          size={280}
-          innerRadius={90}
           hoveredIndex={hoveredIndex}
+          innerRadius={90}
           onHoverChange={setHoveredIndex}
+          size={280}
         >
           {chartData.map((_, index) => (
-            <PieSlice key={index} index={index} />
+            <PieSlice index={index} key={index} />
           ))}
           <PieCenter
+            formatOptions={{}}
             suffix=" hours"
             valueClassName="text-2xl font-bold"
-            formatOptions={{}}
           />
         </PieChart>
         <Legend
-          items={chartData}
-          className="flex flex-row flex-wrap justify-center items-center w-full"
+          className="flex w-full flex-row flex-wrap items-center justify-center"
           hoveredIndex={hoveredIndex}
+          items={chartData}
           onHoverChange={setHoveredIndex}
         >
           <LegendItem className="flex flex-row items-center gap-1">

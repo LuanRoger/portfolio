@@ -2,19 +2,19 @@
 import Grainient from "./react/grainient";
 
 interface Props {
-    className?: string;
+  className?: string;
 }
 
 const { className } = Astro.props;
 ---
 
 <div class:list={["absolute top-0 h-full w-full", className]}>
-    <div
-        class:list={[
+  <div
+    class:list={[
             "absolute top-0 left-0 isolate -z-10 size-full",
             className,
         ]}
-    >
-        <div class="noise"></div>
-    </div>
+  >
+    <div class="noise"></div>
+  </div>
 </div>

@@ -1,12 +1,12 @@
 ---
+import SpotifyIcon from "@/assets/icons/spotify.svg";
+import { formatSpotifyArtistsName } from "@/lib/utils/formatters";
 import type { SpotifyCurrentPlayingTrackInfo } from "@/types/spotify";
 import Base from "./Base.astro";
-import { formatSpotifyArtistsName } from "@/lib/utils/formatters";
-import SpotifyIcon from "@/assets/icons/spotify.svg";
 
 interface Props {
-    title?: string | undefined;
-    spotifyInfo: SpotifyCurrentPlayingTrackInfo;
+  spotifyInfo: SpotifyCurrentPlayingTrackInfo;
+  title?: string | undefined;
 }
 
 const { title, spotifyInfo } = Astro.props;
@@ -16,13 +16,13 @@ const formatedArtists = formatSpotifyArtistsName(artists);
 ---
 
 <Base
-    accentColor="#1ED760"
-    activityDescription={title ?? "Listening to"}
-    description={formatedArtists}
-    href={href}
-    imageAlt={`${name} album cover`}
-    imageSrc={image.url}
-    title={name}
+  accentColor="#1ED760"
+  activityDescription={title ?? "Listening to"}
+  description={formatedArtists}
+  href={href}
+  imageAlt={`${name} album cover`}
+  imageSrc={image.url}
+  title={name}
 >
-    <SpotifyIcon class="size-4 fill-foreground" slot="icon" />
+  <SpotifyIcon class="size-4 fill-foreground" slot="icon" />
 </Base>

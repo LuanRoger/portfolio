@@ -4,23 +4,23 @@ import { cn } from "@/lib/cn";
 
 /** Subset of `Intl.NumberFormatOptions` supported by NumberFlow */
 export interface ChartStatFlowFormat {
-  notation?: "standard" | "compact";
   compactDisplay?: "short" | "long";
-  minimumFractionDigits?: number;
-  maximumFractionDigits?: number;
-  minimumIntegerDigits?: number;
-  minimumSignificantDigits?: number;
-  maximumSignificantDigits?: number;
-  style?: "decimal" | "percent" | "currency";
   currency?: string;
   currencyDisplay?: "symbol" | "narrowSymbol" | "code" | "name";
+  maximumFractionDigits?: number;
+  maximumSignificantDigits?: number;
+  minimumFractionDigits?: number;
+  minimumIntegerDigits?: number;
+  minimumSignificantDigits?: number;
+  notation?: "standard" | "compact";
+  style?: "decimal" | "percent" | "currency";
   unit?: string;
   unitDisplay?: "short" | "long" | "narrow";
 }
 
 export const defaultChartStatFlowFormat: ChartStatFlowFormat = {
-  notation: "standard",
   maximumFractionDigits: 0,
+  notation: "standard",
 };
 
 function formatStatValue(
@@ -61,14 +61,14 @@ function useNumberFlowElementReady(): boolean {
 }
 
 export interface ChartStatFlowProps {
-  value: number;
-  label: string;
   formatOptions?: ChartStatFlowFormat;
+  icon?: ReactNode;
+  label: string;
+  labelClassName?: string;
   prefix?: string;
   suffix?: string;
+  value: number;
   valueClassName?: string;
-  labelClassName?: string;
-  icon?: ReactNode;
 }
 
 /**

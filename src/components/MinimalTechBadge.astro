@@ -1,12 +1,12 @@
 ---
-import { Badge } from "@/components/react/ui/badge";
-import type { Tech } from "@/types/tech";
-import { cn } from "@/lib/cn";
 import Dot from "@/components/Dot.astro";
+import { Badge } from "@/components/react/ui/badge";
+import { cn } from "@/lib/cn";
+import type { Tech } from "@/types/tech";
 
 interface Props {
-    tech: Tech;
-    className?: string;
+  className?: string;
+  tech: Tech;
 }
 
 const { tech, className } = Astro.props;
@@ -14,9 +14,9 @@ const { name, color } = tech;
 ---
 
 <Badge
-    className={cn("w-fit cursor-default gap-1", className)}
-    variant={"outline"}
+  className={cn("w-fit cursor-default gap-1", className)}
+  variant={"outline"}
 >
-    <Dot style={{ backgroundColor: color }} />
-    {name}
+  <Dot style={{ backgroundColor: color }} />
+  {name}
 </Badge>

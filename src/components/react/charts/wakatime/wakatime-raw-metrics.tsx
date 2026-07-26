@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/react/ui/card";
@@ -22,7 +21,7 @@ export default function WakatimeRawMetrics({
           <CardTitle>Total time coding</CardTitle>
         </CardHeader>
         <CardContent>
-          <span className="text-2xl font-bold">{allTimeText}</span>
+          <span className="font-bold text-2xl">{allTimeText}</span>
         </CardContent>
       </Card>
       <Card className="flex-1">
@@ -30,7 +29,7 @@ export default function WakatimeRawMetrics({
           <CardTitle>Daily average</CardTitle>
         </CardHeader>
         <CardContent>
-          <span className="text-2xl font-bold">{avarengeText}</span>
+          <span className="font-bold text-2xl">{avarengeText}</span>
         </CardContent>
       </Card>
     </div>

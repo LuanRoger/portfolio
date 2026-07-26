@@ -1,9 +1,9 @@
+import { defineAction } from "astro:actions";
 import { ENV } from "varlock/env";
 import {
   adaptLastPlayedGameResponseToLastPlayedGame,
   adaptRetroachievementsUserProfileResponseToUserProfile,
 } from "./adapters";
-import { defineAction } from "astro:actions";
 
 const getRetroachievementsUserProfile = defineAction({
   handler: async (_, context) => {
@@ -25,14 +25,14 @@ const getRetroachievementsUserProfile = defineAction({
       `${apiUrl}/API_GetUserProfile.php?u=${username}&y=${apiKey}`,
       {
         method: "GET",
-      },
+      }
     );
 
     const response = await result.json();
 
     return adaptRetroachievementsUserProfileResponseToUserProfile(
       response,
-      baseUrl,
+      baseUrl
     );
   },
 });
@@ -57,7 +57,7 @@ const getLastGamePlayed = defineAction({
       `${apiUrl}/API_GetUserRecentlyPlayedGames.php?u=${username}&c=1&y=${apiKey}`,
       {
         method: "GET",
-      },
+      }
     );
 
     const response: unknown[] = await result.json();
@@ -67,6 +67,6 @@ const getLastGamePlayed = defineAction({
 });
 
 export const retroachievements = {
-  getRetroachievementsUserProfile,
   getLastGamePlayed,
+  getRetroachievementsUserProfile,
 };

@@ -1,8 +1,12 @@
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/react/ui/accordion";
-import type { GitHubUser } from "@/types/github";
 import type { ReactNode } from "react";
-import GitHubProfileInformation from "./github-profile-information";
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/react/ui/accordion";
+import type { GitHubUser } from "@/types/github";
 import GithubLanguagesMetricsChart from "./github-languages-chart";
+import GitHubProfileInformation from "./github-profile-information";
 
 type GithubMetricsAccordionItemProps = {
   gitHubIcon: ReactNode;
@@ -12,7 +16,7 @@ type GithubMetricsAccordionItemProps = {
     label: string;
     value: number;
     color: string;
-    }[];
+  }[];
   footer: ReactNode;
 };
 
@@ -32,7 +36,10 @@ export default function GithubMetricsAccordionItem({
         </span>
       </AccordionTrigger>
       <AccordionContent className="flex flex-col gap-4">
-        <GitHubProfileInformation profileData={githubProfileData} stargazersCount={stargazersCount} />
+        <GitHubProfileInformation
+          profileData={githubProfileData}
+          stargazersCount={stargazersCount}
+        />
         <GithubLanguagesMetricsChart data={githubLanguagesData} />
         {footer}
       </AccordionContent>

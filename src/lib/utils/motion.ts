@@ -11,14 +11,14 @@ export function transitionWithDelay(
 }
 
 export interface SpringOptions {
-  stiffness: number;
   damping: number;
   mass?: number;
+  stiffness: number;
 }
 
 export function springOptionsFromTransition(
   transition?: Transition,
-  fallback: SpringOptions = { stiffness: 60, damping: 20 }
+  fallback: SpringOptions = { damping: 20, stiffness: 60 }
 ): SpringOptions {
   if (!transition) {
     return fallback;
@@ -35,16 +35,16 @@ export function springOptionsFromTransition(
         ? transition.damping
         : fallback.damping;
     return {
-      stiffness:
-        bounce == null
-          ? baseStiffness
-          : Math.min(400, Math.max(80, baseStiffness * (1 + bounce * 0.35))),
       damping:
         bounce == null
           ? baseDamping
           : Math.max(8, baseDamping * (1 - bounce * 0.25)),
       mass:
         typeof transition.mass === "number" ? transition.mass : fallback.mass,
+      stiffness:
+        bounce == null
+          ? baseStiffness
+          : Math.min(400, Math.max(80, baseStiffness * (1 + bounce * 0.35))),
     };
   }
   const duration =
@@ -52,7 +52,7 @@ export function springOptionsFromTransition(
       ? transition.duration
       : 0.8;
   return {
-    stiffness: Math.min(500, Math.max(40, 280 / duration)),
     damping: Math.min(40, Math.max(12, 18 + duration * 4)),
+    stiffness: Math.min(500, Math.max(40, 280 / duration)),
   };
 }

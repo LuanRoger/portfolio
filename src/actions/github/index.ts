@@ -1,14 +1,14 @@
 "use server";
 
+import { ActionError, defineAction } from "astro:actions";
 import { ENV } from "varlock/env";
+import { GITHUB_USER_AGENTS } from "@/lib/constants/github";
+import type { GitHubRepository } from "@/types/github";
 import {
   adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages,
   adaptGitHubRepositoryResponseToGitHubRepository,
   adaptGitHubUserResponseToGitHubUser,
 } from "./adapters";
-import type { GitHubRepository } from "@/types/github";
-import { ActionError, defineAction } from "astro:actions";
-import { GITHUB_USER_AGENTS } from "@/lib/constants/github";
 
 async function getGithubRepositoryLanguages(languageUrl: string) {
   const githubToken = ENV.GITHUB_TOKEN;
@@ -21,8 +21,8 @@ async function getGithubRepositoryLanguages(languageUrl: string) {
 
   const result = await fetch(languageUrl, {
     headers: {
-      Authorization: `Bearer ${githubToken}`,
       Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${githubToken}`,
       "User-Agent": GITHUB_USER_AGENTS,
     },
   });
@@ -30,7 +30,7 @@ async function getGithubRepositoryLanguages(languageUrl: string) {
   const jsonResult = await result.json();
   const languages =
     adaptGitHubRepositoryLanguagesResponseToGitHubRepositoryLanguages(
-      jsonResult,
+      jsonResult
     );
 
   return languages;
@@ -39,8 +39,8 @@ async function getGithubRepositoryLanguages(languageUrl: string) {
 const getGithubProfile = defineAction({
   handler: async (_, context) => {
     context.cache.set({
-      maxAge: 86400,
-      swr: 14400,
+      maxAge: 86_400,
+      swr: 14_400,
     });
 
     const githubToken = ENV.GITHUB_TOKEN;
@@ -54,8 +54,8 @@ const getGithubProfile = defineAction({
 
     const result = await fetch(`${gitHubApiUrl}/user`, {
       headers: {
-        Authorization: `Bearer ${githubToken}`,
         Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${githubToken}`,
         "User-Agent": GITHUB_USER_AGENTS,
       },
     });
@@ -75,8 +75,8 @@ const getGithubProfile = defineAction({
 const getGithubProfileRepositories = defineAction({
   handler: async (_, context) => {
     context.cache.set({
-      maxAge: 86400,
-      swr: 14400,
+      maxAge: 86_400,
+      swr: 14_400,
     });
 
     const githubToken = ENV.GITHUB_TOKEN;
@@ -92,11 +92,11 @@ const getGithubProfileRepositories = defineAction({
       `${gitHubApiUrl}/user/repos?sort=updated&per_page=100`,
       {
         headers: {
-          Authorization: `Bearer ${githubToken}`,
           Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${githubToken}`,
           "User-Agent": GITHUB_USER_AGENTS,
         },
-      },
+      }
     );
 
     if (!result.ok) {
@@ -108,10 +108,10 @@ const getGithubProfileRepositories = defineAction({
 
     const jsonResult: unknown[] = await result.json();
     const repositories: GitHubRepository[] = jsonResult.map(
-      adaptGitHubRepositoryResponseToGitHubRepository,
+      adaptGitHubRepositoryResponseToGitHubRepository
     );
     const filteredRepositories = repositories.filter(
-      (repo) => !repo.fork && repo.private === false,
+      (repo) => !repo.fork && repo.private === false
     );
 
     const languagesResults = await Promise.all(
@@ -121,7 +121,7 @@ const getGithubProfileRepositories = defineAction({
           id: repo.id,
           languages: languages || [],
         };
-      }),
+      })
     );
 
     for (const result of languagesResults) {

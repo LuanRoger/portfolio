@@ -25,8 +25,8 @@ export function simpleFormatDate(date: Date): string {
 
 export function formatDateAsHumanReadable(date: Date): string {
   const options: Intl.DateTimeFormatOptions = {
-    month: "long",
     day: "numeric",
+    month: "long",
   };
 
   return date.toLocaleDateString("en-US", options);

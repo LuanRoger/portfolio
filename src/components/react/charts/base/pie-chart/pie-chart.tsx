@@ -28,62 +28,62 @@ import {
 export const DEFAULT_HOVER_OFFSET = 10;
 
 export interface PieChartProps {
-  /** Data array - each item represents a slice */
-  data: PieData[];
-  /** Chart size in pixels. If not provided, uses parent container size */
-  size?: number;
-  /** Inner radius for donut charts. Default: 0 (solid pie) */
-  innerRadius?: number;
-  /** Padding angle between slices in radians. Default: 0 */
-  padAngle?: number;
-  /** Corner radius for rounded slice edges. Default: 0 */
-  cornerRadius?: number;
-  /** Start angle in radians. Default: -PI/2 (top) */
-  startAngle?: number;
-  /** End angle in radians. Default: 3*PI/2 (full circle from top) */
-  endAngle?: number;
+  /** Child components (PieSlice, PieCenter, patterns, gradients, etc.) */
+  children: ReactNode;
   /** Additional class name for the container */
   className?: string;
+  /** Corner radius for rounded slice edges. Default: 0 */
+  cornerRadius?: number;
+  /** Data array - each item represents a slice */
+  data: PieData[];
+  /** End angle in radians. Default: 3*PI/2 (full circle from top) */
+  endAngle?: number;
+  /** Scales slice stagger delays (1 = default). */
+  enterStaggerScale?: number;
+  /** Framer Motion transition for slice enter animation */
+  enterTransition?: Transition;
+  /**
+   * High-frequency geometry updates (e.g. studio NumberField scrub).
+   * Uses plain SVG paths instead of Motion `d` / spring hover morphing.
+   */
+  geometryScrubbing?: boolean;
   /** Controlled hover state - index of hovered slice */
   hoveredIndex?: number | null;
-  /** Callback when hover state changes */
-  onHoverChange?: (index: number | null) => void;
   /**
    * Hover offset in pixels for slice hover effects.
    * This also determines the padding around the chart to prevent clipping.
    * Default: 10
    */
   hoverOffset?: number;
-  /** Child components (PieSlice, PieCenter, patterns, gradients, etc.) */
-  children: ReactNode;
-  /** Framer Motion transition for slice enter animation */
-  enterTransition?: Transition;
-  /** Scales slice stagger delays (1 = default). */
-  enterStaggerScale?: number;
-  /**
-   * High-frequency geometry updates (e.g. studio NumberField scrub).
-   * Uses plain SVG paths instead of Motion `d` / spring hover morphing.
-   */
-  geometryScrubbing?: boolean;
+  /** Inner radius for donut charts. Default: 0 (solid pie) */
+  innerRadius?: number;
+  /** Callback when hover state changes */
+  onHoverChange?: (index: number | null) => void;
+  /** Padding angle between slices in radians. Default: 0 */
+  padAngle?: number;
+  /** Chart size in pixels. If not provided, uses parent container size */
+  size?: number;
+  /** Start angle in radians. Default: -PI/2 (top) */
+  startAngle?: number;
 }
 
 interface PieChartInnerProps {
-  width: number;
-  height: number;
-  data: PieData[];
-  innerRadius: number;
-  padAngle: number;
-  cornerRadius: number;
-  startAngle: number;
-  endAngle: number;
-  hoverOffset: number;
   children: ReactNode;
   containerRef: React.RefObject<HTMLDivElement | null>;
-  hoveredIndexProp?: number | null;
-  onHoverChange?: (index: number | null) => void;
-  enterTransition?: Transition;
+  cornerRadius: number;
+  data: PieData[];
+  endAngle: number;
   enterStaggerScale: number;
+  enterTransition?: Transition;
   geometryScrubbing: boolean;
+  height: number;
+  hoveredIndexProp?: number | null;
+  hoverOffset: number;
+  innerRadius: number;
+  onHoverChange?: (index: number | null) => void;
+  padAngle: number;
+  startAngle: number;
+  width: number;
 }
 
 function generatePieArcPath(
@@ -95,12 +95,12 @@ function generatePieArcPath(
   padAngle: number
 ): string {
   const generator = arcGenerator<unknown>({
+    cornerRadius,
     innerRadius,
     outerRadius,
-    cornerRadius,
     padAngle,
   });
-  return generator({ startAngle, endAngle } as unknown as null) || "";
+  return generator({ endAngle, startAngle } as unknown as null) || "";
 }
 
 // Helper to check if a child is a PieCenter component
@@ -238,10 +238,10 @@ const PieChartCore = memo(function PieChartCore({
 
     return computed.map((arc, index) => ({
       data: arc.data,
-      index,
-      startAngle: arc.startAngle,
       endAngle: arc.endAngle,
+      index,
       padAngle: arc.padAngle,
+      startAngle: arc.startAngle,
       value: arc.value,
     })) as PieArcData[];
   }, [data, startAngle, endAngle, padAngle]);
@@ -293,16 +293,15 @@ const PieChartCore = memo(function PieChartCore({
       } else if (isDefsComponent(child)) {
         defsNodes.push(child);
       } else if (geometryScrubbing && isPieSlice(child)) {
-        return;
       } else {
         svgNodes.push(child);
       }
     });
 
     return {
-      svgChildren: svgNodes,
       centerChildren: centerNodes,
       defsChildren: defsNodes,
+      svgChildren: svgNodes,
     };
   }, [children, geometryScrubbing]);
 
@@ -315,27 +314,27 @@ const PieChartCore = memo(function PieChartCore({
 
   const contextValue: PieContextValue = useMemo(
     () => ({
-      data,
-      arcs,
-      size,
-      center,
-      outerRadius,
-      innerRadius,
-      padAngle,
-      cornerRadius,
-      hoverOffset,
-      hoveredIndex,
-      setHoveredIndex,
       animationKey,
-      isLoaded: effectiveIsLoaded,
-      enterTransition,
-      enterStaggerScale,
+      arcs,
+      center,
       containerRef,
-      totalValue,
+      cornerRadius,
+      data,
+      enterStaggerScale,
+      enterTransition,
+      geometryScrubbing,
       getColor,
       getFill,
-      geometryScrubbing,
+      hoveredIndex,
+      hoverOffset,
+      innerRadius,
+      isLoaded: effectiveIsLoaded,
+      outerRadius,
+      padAngle,
       scrubSlicePaths,
+      setHoveredIndex,
+      size,
+      totalValue,
     }),
     [
       data,
@@ -371,15 +370,15 @@ const PieChartCore = memo(function PieChartCore({
         style={{
           gridTemplateColumns: "1fr",
           gridTemplateRows: "1fr",
-          width: size,
           height: size,
+          width: size,
         }}
       >
         {/* SVG layer with pie slices */}
         <svg
           aria-hidden="true"
           height={size}
-          style={{ gridArea: "1 / 1", contain: "layout style paint" }}
+          style={{ contain: "layout style paint", gridArea: "1 / 1" }}
           width={size}
         >
           {/* Defs for patterns and gradients */}
@@ -464,7 +463,7 @@ export function PieChart({
       <div
         className={cn("relative flex items-center justify-center", className)}
         ref={containerRef}
-        style={{ width: fixedSize, height: fixedSize }}
+        style={{ height: fixedSize, width: fixedSize }}
       >
         <PieChartInner
           containerRef={containerRef}

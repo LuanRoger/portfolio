@@ -10,34 +10,34 @@ export const legendCssVars = {
 };
 
 export interface LegendItemData {
-  /** Display label */
-  label: string;
-  /** Current value */
-  value: number;
-  /** Maximum value (for progress/percentage calculation) */
-  maxValue?: number;
   /** Item color */
   color: string;
+  /** Display label */
+  label: string;
+  /** Maximum value (for progress/percentage calculation) */
+  maxValue?: number;
+  /** Current value */
+  value: number;
 }
 
 export interface LegendContextValue {
-  /** All legend items */
-  items: LegendItemData[];
   /** Currently hovered index */
   hoveredIndex: number | null;
+  /** All legend items */
+  items: LegendItemData[];
   /** Set hovered index */
   setHoveredIndex: (index: number | null) => void;
 }
 
 export interface LegendItemContextValue {
-  /** The current item data */
-  item: LegendItemData;
   /** Index of this item */
   index: number;
-  /** Whether this item is hovered */
-  isHovered: boolean;
   /** Whether this item is faded (another item is hovered) */
   isFaded: boolean;
+  /** Whether this item is hovered */
+  isHovered: boolean;
+  /** The current item data */
+  item: LegendItemData;
   /** Percentage value (value / maxValue * 100) */
   percentage: number;
 }

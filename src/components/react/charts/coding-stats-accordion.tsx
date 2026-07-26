@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { Accordion } from "@/components/react/ui/accordion";
-import WakatimeCodingMetricsAccordionItem from "./wakatime/wakatime-coding-metrics-accordion-item";
-import GithubMetricsAccordionItem from "./github/github-metrics-accordion-item";
 import type { GitHubUser } from "@/types/github";
+import GithubMetricsAccordionItem from "./github/github-metrics-accordion-item";
+import WakatimeCodingMetricsAccordionItem from "./wakatime/wakatime-coding-metrics-accordion-item";
 
 type CodingStatsAccordionProps = {
   wakatimeLanguageChart: {
@@ -40,17 +40,17 @@ export default function CodingStatsAccordion({
   return (
     <Accordion multiple>
       <WakatimeCodingMetricsAccordionItem
-        languageChart={wakatimeLanguageChart}
         allTimeText={wakatimeAllTimeText}
         avarengeText={wakatimeAverageText}
         footer={wakatimeFooter}
+        languageChart={wakatimeLanguageChart}
       />
       <GithubMetricsAccordionItem
+        footer={githubFooter}
         gitHubIcon={githubIcon}
+        githubLanguagesData={githubLanguagesData}
         githubProfileData={githubProfileData}
         stargazersCount={stargazersCount}
-        githubLanguagesData={githubLanguagesData}
-        footer={githubFooter}
       />
     </Accordion>
   );

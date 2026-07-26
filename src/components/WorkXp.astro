@@ -3,33 +3,32 @@ import type { SvgComponent } from "astro/types";
 import { DateTime } from "luxon";
 
 interface Props {
-    company: string;
-    companyDescription?: string;
-    possitions: {
-        title: string;
-        type: string;
-        startDate: DateTime;
-        endDate: DateTime | "now";
-        responsabilities: string[];
-    }[];
+  company: string;
+  companyDescription?: string;
+  possitions: {
+    title: string;
+    type: string;
+    startDate: DateTime;
+    endDate: DateTime | "now";
+    responsabilities: string[];
+  }[];
 }
 
 const { company, companyDescription, possitions } = Astro.props;
 ---
 
 <li class="flex flex-col gap-2">
-    <div class="flex flex-col gap-2">
-        <div class="flex items-center gap-2">
-            <div class="p-1 border border-border rounded-md bg-card">
-                <slot name="companyLogo" />
-            </div>
-            <h3 class="font-bold text-lg">{company}</h3>
-        </div>
-        {companyDescription && <p class="text-sm">{companyDescription}</p>}
+  <div class="flex flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <div class="p-1 border border-border rounded-md bg-card">
+        <slot name="companyLogo" />
+      </div>
+      <h3 class="font-bold text-lg">{company}</h3>
     </div>
-    <ul class="ml-2">
-        {
-            possitions.map(
+    {companyDescription && <p class="text-sm">{companyDescription}</p>}
+  </div>
+  <ul class="ml-2">
+    {possitions.map(
                 ({ title, responsabilities, startDate, endDate, type }) => {
                     const formattedStartDate = startDate.toLocaleString(
                         DateTime.DATE_MED,
@@ -59,7 +58,6 @@ const { company, companyDescription, possitions } = Astro.props;
                         </li>
                     );
                 },
-            )
-        }
-    </ul>
+            )}
+  </ul>
 </li>

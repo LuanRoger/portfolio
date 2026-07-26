@@ -1,7 +1,7 @@
-import { ENV } from "varlock/env";
-import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "./adapters";
 import { defineAction } from "astro:actions";
+import { ENV } from "varlock/env";
 import type { SpotifyAuthResponse } from "@/types/spotify";
+import { adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo } from "./adapters";
 
 async function getSpotifyAccessToken() {
   const clientId = ENV.SPOTIFY_CLIENT_ID;
@@ -9,14 +9,14 @@ async function getSpotifyAccessToken() {
   const refreshToken = ENV.SPOTIFY_REFRESH_TOKEN;
 
   const result = await fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
+    body: `grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${clientId}&client_secret=${clientSecret}`,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${clientId}&client_secret=${clientSecret}`,
+    method: "POST",
   });
 
-  return await result.json() as SpotifyAuthResponse;
+  return (await result.json()) as SpotifyAuthResponse;
 }
 
 const getSpotifyCurrentPlaying = defineAction({
@@ -34,7 +34,7 @@ const getSpotifyCurrentPlaying = defineAction({
         headers: {
           Authorization: `Bearer ${accessToken.access_token}`,
         },
-      },
+      }
     );
     if (result.status !== 200) {
       return;

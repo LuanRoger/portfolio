@@ -13,10 +13,6 @@ import {
 import { usePieHover, usePieStable } from "./pie-context";
 
 export interface PieCenterProps {
-  /** Label shown below the value. Default: "Total" when not hovering */
-  defaultLabel?: string;
-  /** Format options for NumberFlow. Default: standard notation */
-  formatOptions?: ChartStatFlowFormat;
   /** Custom render function for complete control over center content */
   children?: (props: {
     value: number;
@@ -26,14 +22,18 @@ export interface PieCenterProps {
   }) => ReactNode;
   /** Additional class name for the container */
   className?: string;
-  /** Class name for the value text. Scales with center size via container queries. */
-  valueClassName?: string;
+  /** Label shown below the value. Default: "Total" when not hovering */
+  defaultLabel?: string;
+  /** Format options for NumberFlow. Default: standard notation */
+  formatOptions?: ChartStatFlowFormat;
   /** Class name for the label text. Scales with center size via container queries. */
   labelClassName?: string;
   /** Prefix to show before the number (e.g., "$") */
   prefix?: string;
   /** Suffix to show after the number (e.g., "%") */
   suffix?: string;
+  /** Class name for the value text. Scales with center size via container queries. */
+  valueClassName?: string;
 }
 
 /**
@@ -83,13 +83,13 @@ export function PieCenter({
           "flex items-center justify-center",
           className
         )}
-        style={{ width: centerSize, height: centerSize }}
+        style={{ height: centerSize, width: centerSize }}
       >
         {children({
-          value: displayValue,
-          label: displayLabel,
-          isHovered: effectiveHoveredIndex !== null,
           data: hoveredData,
+          isHovered: effectiveHoveredIndex !== null,
+          label: displayLabel,
+          value: displayValue,
         })}
       </div>
     );
@@ -104,7 +104,7 @@ export function PieCenter({
         "flex flex-col items-center justify-center text-center",
         className
       )}
-      style={{ width: centerSize, height: centerSize }}
+      style={{ height: centerSize, width: centerSize }}
     >
       <ChartStatFlow
         formatOptions={formatOptions}

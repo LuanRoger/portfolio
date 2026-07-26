@@ -31,23 +31,23 @@ export const defaultPieColors = [
 ];
 
 export interface PieData {
-  /** Display label for the slice */
-  label: string;
-  /** Value for the slice (determines slice size relative to total) */
-  value: number;
   /** Optional color override - falls back to palette */
   color?: string;
   /** Optional fill override for patterns/gradients (e.g., "url(#patternId)") */
   fill?: string;
+  /** Display label for the slice */
+  label: string;
+  /** Value for the slice (determines slice size relative to total) */
+  value: number;
 }
 
 /** Arc data computed by visx Pie */
 export interface PieArcData {
   data: PieData;
-  index: number;
-  startAngle: number;
   endAngle: number;
+  index: number;
   padAngle: number;
+  startAngle: number;
   value: number;
 }
 
@@ -57,38 +57,18 @@ export interface PieHoverContextValue {
 }
 
 export interface PieStableContextValue {
-  // Data
-  data: PieData[];
-  arcs: PieArcData[];
-
-  // Dimensions
-  size: number;
-  center: number;
-  outerRadius: number;
-  innerRadius: number;
-  padAngle: number;
-  cornerRadius: number;
-
-  // Hover effect
-  hoverOffset: number;
-
   // Animation state
   animationKey: number;
-  isLoaded: boolean;
-  enterTransition?: Transition;
-  enterStaggerScale: number;
+  arcs: PieArcData[];
+  center: number;
 
   // Container ref for portals
   containerRef: RefObject<HTMLDivElement | null>;
-
-  // Computed values
-  totalValue: number;
-
-  // Get color for a slice index
-  getColor: (index: number) => string;
-
-  // Get fill for a slice index (supports patterns/gradients)
-  getFill: (index: number) => string;
+  cornerRadius: number;
+  // Data
+  data: PieData[];
+  enterStaggerScale: number;
+  enterTransition?: Transition;
 
   /**
    * Studio geometry scrub — skip Motion path morphing and use plain SVG paths.
@@ -96,8 +76,27 @@ export interface PieStableContextValue {
    */
   geometryScrubbing: boolean;
 
+  // Get color for a slice index
+  getColor: (index: number) => string;
+
+  // Get fill for a slice index (supports patterns/gradients)
+  getFill: (index: number) => string;
+
+  // Hover effect
+  hoverOffset: number;
+  innerRadius: number;
+  isLoaded: boolean;
+  outerRadius: number;
+  padAngle: number;
+
   /** Precomputed slice paths during geometry scrub (one per arc). */
   scrubSlicePaths: readonly string[] | null;
+
+  // Dimensions
+  size: number;
+
+  // Computed values
+  totalValue: number;
 }
 
 export type PieContextValue = PieStableContextValue & PieHoverContextValue;
@@ -114,25 +113,25 @@ export function PieProvider({
 }) {
   const stable = useMemo<PieStableContextValue>(
     () => ({
-      data: value.data,
-      arcs: value.arcs,
-      size: value.size,
-      center: value.center,
-      outerRadius: value.outerRadius,
-      innerRadius: value.innerRadius,
-      padAngle: value.padAngle,
-      cornerRadius: value.cornerRadius,
-      hoverOffset: value.hoverOffset,
       animationKey: value.animationKey,
-      isLoaded: value.isLoaded,
-      enterTransition: value.enterTransition,
-      enterStaggerScale: value.enterStaggerScale,
+      arcs: value.arcs,
+      center: value.center,
       containerRef: value.containerRef,
-      totalValue: value.totalValue,
+      cornerRadius: value.cornerRadius,
+      data: value.data,
+      enterStaggerScale: value.enterStaggerScale,
+      enterTransition: value.enterTransition,
+      geometryScrubbing: value.geometryScrubbing,
       getColor: value.getColor,
       getFill: value.getFill,
-      geometryScrubbing: value.geometryScrubbing,
+      hoverOffset: value.hoverOffset,
+      innerRadius: value.innerRadius,
+      isLoaded: value.isLoaded,
+      outerRadius: value.outerRadius,
+      padAngle: value.padAngle,
       scrubSlicePaths: value.scrubSlicePaths,
+      size: value.size,
+      totalValue: value.totalValue,
     }),
     [
       value.data,

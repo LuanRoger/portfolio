@@ -12,20 +12,20 @@ import {
 } from "./legend-context";
 
 export interface LegendProps {
-  /** Legend items data */
-  items: LegendItemData[];
+  /** Children - should contain a single LegendItem that will be mapped for each item */
+  children: ReactElement;
+  /** Container class name */
+  className?: string;
   /** Controlled hover state */
   hoveredIndex?: number | null;
+  /** Legend items data */
+  items: LegendItemData[];
   /** Hover state change callback */
   onHoverChange?: (index: number | null) => void;
   /** Title shown above the legend */
   title?: string;
   /** Title class name */
   titleClassName?: string;
-  /** Container class name */
-  className?: string;
-  /** Children - should contain a single LegendItem that will be mapped for each item */
-  children: ReactElement;
 }
 
 export function Legend({
@@ -55,8 +55,8 @@ export function Legend({
   };
 
   const contextValue = {
-    items,
     hoveredIndex,
+    items,
     setHoveredIndex,
   };
 
@@ -76,10 +76,10 @@ export function Legend({
             : 0;
 
           const itemContext = {
-            item,
             index,
-            isHovered,
             isFaded,
+            isHovered,
+            item,
             percentage,
           };
 

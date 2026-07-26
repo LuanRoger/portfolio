@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface ScheduledTooltipControls<T> {
-  tooltipData: T | null;
-  setTooltipData: React.Dispatch<React.SetStateAction<T | null>>;
-  scheduleTooltip: (tooltip: T, dedupeKey?: string) => void;
   clearTooltip: () => void;
   resetTooltipDedupe: () => void;
+  scheduleTooltip: (tooltip: T, dedupeKey?: string) => void;
+  setTooltipData: React.Dispatch<React.SetStateAction<T | null>>;
+  tooltipData: T | null;
 }
 
 function defaultDedupeKey<T>(tooltip: T): string {
@@ -31,13 +31,14 @@ export function useScheduledTooltip<T>(): ScheduledTooltipControls<T> {
   const rafRef = useRef<number | null>(null);
   const pendingKeyRef = useRef<string | null>(null);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (rafRef.current !== null) {
         cancelAnimationFrame(rafRef.current);
       }
-    };
-  }, []);
+    },
+    []
+  );
 
   const commitTooltip = useCallback((tooltip: T, dedupeKey: string) => {
     if (dedupeKey === lastKeyRef.current) {
@@ -86,10 +87,10 @@ export function useScheduledTooltip<T>(): ScheduledTooltipControls<T> {
   }, []);
 
   return {
-    tooltipData,
-    setTooltipData,
-    scheduleTooltip,
     clearTooltip,
     resetTooltipDedupe,
+    scheduleTooltip,
+    setTooltipData,
+    tooltipData,
   };
 }

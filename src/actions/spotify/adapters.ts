@@ -11,12 +11,12 @@ export function adaptCurrentPlayingReponseToSpotifyCurrentPlayingTrackInfo(
   const artists = model.item.album.artists.map((artist: any) => artist.name);
 
   return {
-    name: model.item.name,
-    timestamp: model.timestamp,
-    progressMs: model.progress_ms,
-    isPlaying: model.is_playing,
-    href: model.item.external_urls.spotify,
     artists,
+    href: model.item.external_urls.spotify,
     image,
+    isPlaying: model.is_playing,
+    name: model.item.name,
+    progressMs: model.progress_ms,
+    timestamp: model.timestamp,
   };
 }

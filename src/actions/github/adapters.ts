@@ -10,19 +10,19 @@ export function adaptGitHubUserResponseToGitHubUser(response: any): GitHubUser {
   }
 
   return {
+    avatarUrl: response.avatar_url,
+    bio: response.bio || null,
+    createdAt: response.created_at || "",
+    diskUsage: response.disk_usage || 0,
+    followers: response.followers || 0,
+    hireable: response.hireable,
+    htmlUrl: response.html_url,
     id: response.id,
     login: response.login,
     name: response.name,
-    url: response.html_url,
-    htmlUrl: response.html_url,
-    avatarUrl: response.avatar_url,
-    hireable: response.hireable,
-    bio: response.bio || null,
-    followers: response.followers || 0,
-    publicRepos: response.public_repos || 0,
     publicGists: response.public_gists || 0,
-    diskUsage: response.disk_usage || 0,
-    createdAt: response.created_at || "",
+    publicRepos: response.public_repos || 0,
+    url: response.html_url,
   };
 }
 
@@ -34,18 +34,18 @@ export function adaptGitHubRepositoryResponseToGitHubRepository(
   }
 
   return {
-    id: response.id,
-    name: response.name,
-    fullName: response.full_name,
-    private: response.private,
-    htmlUrl: response.html_url,
+    createdAt: response.created_at || "",
     description: response.description || null,
     fork: response.fork,
-    stargazersCount: response.stargazers_count || 0,
-    size: response.size,
-    createdAt: response.created_at || "",
-    updatedAt: response.updated_at || "",
+    fullName: response.full_name,
+    htmlUrl: response.html_url,
+    id: response.id,
     languagesUrl: response.languages_url || "",
+    name: response.name,
+    private: response.private,
+    size: response.size,
+    stargazersCount: response.stargazers_count || 0,
+    updatedAt: response.updated_at || "",
   };
 }
 

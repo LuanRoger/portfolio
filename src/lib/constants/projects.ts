@@ -10,8 +10,12 @@ import { getTechsByName } from "./my-stack";
 
 export const projects: Project[] = [
   {
-    title: "electron-shadcn",
     description: "Electron Forge with shadcn-ui (Vite + Typescript)",
+    image: {
+      alt: "Template demo",
+      src: ElectronShadcn,
+    },
+    repoName: "electron-shadcn",
     techStack: getTechsByName([
       "React",
       "TypeScript",
@@ -20,28 +24,28 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "shadcn-ui",
     ]),
-    repoName: "electron-shadcn",
-    image: {
-      src: ElectronShadcn,
-      alt: "Template demo",
-    },
+    title: "electron-shadcn",
   },
   {
-    title: "Dropnote",
     description: "Create, edit and share text instantly.",
-    techStack: getTechsByName(["Next.js", "React", "MongoDB", "TypeScript"]),
-    repoName: "dropnote",
-    link: "https://dropnote.luanroger.dev",
     image: {
-      src: Dropnote,
       alt: "Dropnote demo",
       animated: true,
+      src: Dropnote,
     },
+    link: "https://dropnote.luanroger.dev",
+    repoName: "dropnote",
+    techStack: getTechsByName(["Next.js", "React", "MongoDB", "TypeScript"]),
+    title: "Dropnote",
   },
   {
-    title: "WHMonitor",
     description:
       "A hardware monitor made with Web technologies and C#. Powered by Tauri.",
+    image: {
+      alt: "WHMonitor screenshot",
+      src: WHMonitor,
+    },
+    repoName: "WHMonitor",
     techStack: getTechsByName([
       "React",
       "TypeScript",
@@ -49,16 +53,16 @@ export const projects: Project[] = [
       "C#",
       "Tailwind CSS",
     ]),
-    repoName: "WHMonitor",
-    image: {
-      src: WHMonitor,
-      alt: "WHMonitor screenshot",
-    },
+    title: "WHMonitor",
   },
   {
-    title: "Volume Vault",
     description:
       "📖 Keep your books informations safe and sound. Book management system with no effort and beautiful.",
+    image: {
+      alt: "Home page screenshot",
+      src: VolumeVault,
+    },
+    repoName: "VolumeVault",
     techStack: getTechsByName([
       "Flutter",
       "Dart",
@@ -70,44 +74,40 @@ export const projects: Project[] = [
       "AWS",
       "DigitalOcean",
     ]),
-    repoName: "VolumeVault",
-    image: {
-      src: VolumeVault,
-      alt: "Home page screenshot",
-    },
+    title: "Volume Vault",
   },
   {
-    title: "xinput_gamepad",
     description: "🎮 Add support to XInput controllers with Win32 API.",
-    techStack: getTechsByName(["Dart"]),
+    image: {
+      alt: "GitHub repository's page",
+      src: XinputGamepad,
+    },
     link: "https://pub.dev/packages/xinput_gamepad",
     repoName: "xinput_gamepad",
-    image: {
-      src: XinputGamepad,
-      alt: "GitHub repository's page",
-    },
+    techStack: getTechsByName(["Dart"]),
+    title: "xinput_gamepad",
   },
   {
-    title: "Xbox Launcher",
     description:
       "Launcher with the Xbox Series X/S's dashboard to play Xbox Cloud Gaming (XCloud) games.",
-    techStack: getTechsByName(["Flutter", "Dart", "Python"]),
-    repoName: "xbox_launcher",
     image: {
-      src: XboxLauncher,
       alt: "Home page screenshot",
+      src: XboxLauncher,
     },
+    repoName: "xbox_launcher",
+    techStack: getTechsByName(["Flutter", "Dart", "Python"]),
+    title: "Xbox Launcher",
   },
   {
-    title: "unplugin-use-wasm",
     description:
       'Plugin for Vite to add support to "use wasm" directive. The file with this directive will be compiled to WebAssembly.',
-    techStack: getTechsByName(["TypeScript", "Vite", "Rolldown"]),
-    repoName: "unplugin-use-wasm",
-    link: "https://www.npmjs.com/package/unplugin-use-wasm",
     image: {
-      src: unpluginUseWasm,
       alt: "unplugin-use-wasm repository screenshot",
+      src: unpluginUseWasm,
     },
+    link: "https://www.npmjs.com/package/unplugin-use-wasm",
+    repoName: "unplugin-use-wasm",
+    techStack: getTechsByName(["TypeScript", "Vite", "Rolldown"]),
+    title: "unplugin-use-wasm",
   },
 ];

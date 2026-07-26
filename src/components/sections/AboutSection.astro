@@ -1,40 +1,38 @@
 ---
-import Link from "@/components/Link.astro";
-import Icon from "@/components/Icon.astro";
-import CodingStatsChartsLoading from "@/components/CodingStatsChartsLoading.astro";
 import CodingStatsAccordion from "@/components/CodingStatsCharts.astro";
+import CodingStatsChartsLoading from "@/components/CodingStatsChartsLoading.astro";
+import Icon from "@/components/Icon.astro";
+import Link from "@/components/Link.astro";
 ---
 
-<section id="about" class="flex flex-col gap-2">
-    <h2 class="font-bold text-xl">About Me</h2>
-    <p>
-        I&apos;m Luan Roger, a software engineer and full-stack developer based
-        in Brazil 🇧🇷. I currently work as a Software Engineer at{" "}
-        <Link href="https://www.aramis.com.br">
-            <Icon name="aramis-logo" class="inline-block scale-95" /> Aramis
-        </Link>
-        , while pursuing my Bachelor&apos;s degree in Software Engineering at UFC
-        (Universidade Federal do Ceará).
-        <br />I actively contribute to the open-source community, developing and
-        maintaining projects with{" "}
-        <Icon name="nextjs" class="inline-block h-5 w-5 fill-foreground" /> Next.js,{
-            " "
-        }
-        <Icon name="electron" class="inline-block h-5 w-5 fill-foreground" />{
-            " "
-        }
-        Electron and other modern technologies. In parallel, I am expanding my expertise
-        in{" "}
-        <Icon name="rust" class="inline-block h-5 w-5 fill-foreground" /> Rust and
-        regularly share my knowledge through technical articles and tutorials published
-        on my blog.
-        <br />
-        Beyond coding, I often play some RPGs, particularly, the Final Fantasy series,
-        Chrono Trigger, and The Legend of Zelda. I&apos;m continually seeking new
-        challenges and opportunities to expand my expertise while contributing to
-        the developer community.
-    </p>
-    <CodingStatsAccordion server:defer>
-        <CodingStatsChartsLoading slot="fallback" />
-    </CodingStatsAccordion>
+<section class="flex flex-col gap-2" id="about">
+  <h2 class="font-bold text-xl">About Me</h2>
+  <p>
+    I&apos;m Luan Roger, a software engineer and full-stack developer based in
+    Brazil 🇧🇷. I currently work as a Software Engineer at{" "}
+    <Link href="https://www.aramis.com.br">
+      <Icon class="inline-block scale-95" name="aramis-logo" />
+      Aramis
+    </Link>
+    , while pursuing my Bachelor&apos;s degree in Software Engineering at UFC
+    (Universidade Federal do Ceará).
+    <br>I actively contribute to the open-source community, developing and
+    maintaining projects with{" "}
+    <Icon class="inline-block h-5 w-5 fill-foreground" name="nextjs" />
+    Next.js,{" "}
+    <Icon class="inline-block h-5 w-5 fill-foreground" name="electron" />{" "}
+    Electron and other modern technologies. In parallel, I am expanding my
+    expertise in{" "}
+    <Icon class="inline-block h-5 w-5 fill-foreground" name="rust" />
+    Rust and regularly share my knowledge through technical articles and
+    tutorials published on my blog.
+    <br>
+    Beyond coding, I often play some RPGs, particularly, the Final Fantasy
+    series, Chrono Trigger, and The Legend of Zelda. I&apos;m continually
+    seeking new challenges and opportunities to expand my expertise while
+    contributing to the developer community.
+  </p>
+  <CodingStatsAccordion server:defer>
+    <CodingStatsChartsLoading slot="fallback" />
+  </CodingStatsAccordion>
 </section>
