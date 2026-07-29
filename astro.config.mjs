@@ -1,5 +1,6 @@
 // @ts-check
 
+import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
@@ -32,6 +33,6 @@ export default defineConfig({
   output: "server",
   site: "https://luanroger.dev",
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), partytown()],
   },
 });
