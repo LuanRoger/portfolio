@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-astro",
+  "name": "portfolio",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,6 +12,7 @@
   "type": "module",
   "version": "0.0.1",
   "dependencies": {
+    "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^6.0.1",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.3",
