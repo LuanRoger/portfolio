@@ -10,6 +10,9 @@ import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 export default defineConfig({
   adapter: vercel(),
+  build: {
+    inlineStylesheets: "always",
+  },
   experimental: {
     svgOptimizer: svgoOptimizer(),
   },

@@ -7,7 +7,7 @@ import PostHog from "@/components/PostHog.astro";
 const title = "Luan Roger | Full-Stack Developer";
 const description =
   "Portfolio of Luan Roger, a full-stack software engineer in Brazil building scalable web platforms, APIs, microservices, and open-source project and tools.";
-const canonicalURL = "https://luanroger.dev";
+const canonicalURL = Astro.url.href;
 const socialImageURL = new URL(
   "/web-app-manifest-512x512.png",
   Astro.site ?? Astro.url.origin
