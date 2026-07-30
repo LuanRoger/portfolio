@@ -32,10 +32,10 @@ export default defineConfig({
       provider: fontProviders.local(),
     },
   ],
-  integrations: [varlockAstroIntegration(), react(), sitemap()],
+  integrations: [varlockAstroIntegration(), react(), partytown(), sitemap()],
   output: "server",
   site: "https://luanroger.dev",
   vite: {
-    plugins: [tailwindcss(), partytown()],
+    plugins: [tailwindcss()],
   },
 });
