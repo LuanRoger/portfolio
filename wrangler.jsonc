@@ -1,9 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "compatibility_date": "2026-08-15",
-  "compatibility_flags": [
-    "global_fetch_strictly_public"
-  ],
+  "compatibility_flags": ["global_fetch_strictly_public"],
   "name": "portfolio",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "assets": {
@@ -15,6 +13,6 @@
   },
   "limits": {
     "cpu_ms": 100,
-    "subrequests": 10000,
-  },
+    "subrequests": 10000
+  }
 }
