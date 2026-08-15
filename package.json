@@ -4,7 +4,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && varlock-wrangler deploy",
+    "deploy": "varlock-wrangler deploy",
     "astro": "astro",
     "check": "ultracite check",
     "fix": "ultracite fix",
