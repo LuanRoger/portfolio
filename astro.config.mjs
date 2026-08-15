@@ -1,15 +1,15 @@
 // @ts-check
 
+import cloudflare from "@astrojs/cloudflare";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import varlockAstroIntegration from "@varlock/astro-integration";
 import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 export default defineConfig({
-  adapter: vercel(),
+  adapter: cloudflare(),
   build: {
     inlineStylesheets: "always",
   },
