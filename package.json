@@ -6,9 +6,10 @@
     "preview": "astro preview",
     "deploy": "astro build && varlock-wrangler deploy",
     "astro": "astro",
-    "env:load": "varlock load",
     "check": "ultracite check",
-    "fix": "ultracite fix"
+    "fix": "ultracite fix",
+    "env:load": "varlock load",
+    "generate-types": "wrangler types"
   },
   "type": "module",
   "version": "0.0.1",
