@@ -3,3 +3,5 @@ packages:
 allowBuilds:
   esbuild: true
   workerd: false
+minimumReleaseAgeExclude:
+  - ultracite@7.10.5
