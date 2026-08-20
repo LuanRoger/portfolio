@@ -1,7 +1,6 @@
 // @ts-check
 
 import cloudflare from "@astrojs/cloudflare";
-import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
@@ -32,7 +31,7 @@ export default defineConfig({
       provider: fontProviders.local(),
     },
   ],
-  integrations: [varlockAstroIntegration(), react(), partytown(), sitemap()],
+  integrations: [varlockAstroIntegration(), react(), sitemap()],
   output: "server",
   site: "https://luanroger.dev",
   vite: {
