@@ -28,14 +28,14 @@ const {
 ---
 
 <div
-  class="relative w-full h-32"
+  class="relative h-32 w-full overflow-hidden"
   style={accentColor
         ? { boxShadow: `inset 0 0 7px ${accentColor}` }
         : undefined}
 >
   <Image
     alt={imageAlt}
-    class="absolute inset-0 z-10 size-full object-cover opacity-50"
+    class="absolute top-1/2 left-0 z-10 aspect-square h-auto w-full -translate-y-1/2 object-cover opacity-50"
     height={300}
     loading="eager"
     src={imageSrc}
@@ -43,7 +43,7 @@ const {
   />
   <Image
     alt={`${imageAlt} Background Blur`}
-    class="absolute inset-0 z-0 size-full object-fill opacity-50 blur-lg"
+    class="absolute top-1/2 left-0 z-0 aspect-square h-auto w-full -translate-y-1/2 object-cover opacity-50 blur-lg"
     height={30}
     loading="eager"
     src={imageSrc}
