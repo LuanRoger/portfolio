@@ -1,17 +1,17 @@
 {
   "name": "portfolio",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "deploy": "varlock-wrangler deploy",
     "astro": "astro",
+    "build": "astro build",
     "check": "ultracite check",
-    "fix": "ultracite fix",
+    "deploy": "varlock-wrangler deploy",
+    "dev": "astro dev",
     "env:load": "varlock load",
-    "generate-types": "wrangler types"
+    "fix": "ultracite fix",
+    "generate-types": "wrangler types",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.2.5",
