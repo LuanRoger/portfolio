@@ -1,5 +1,7 @@
 {
   "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -11,8 +13,6 @@
     "env:load": "varlock load",
     "generate-types": "wrangler types"
   },
-  "type": "module",
-  "version": "0.0.1",
   "dependencies": {
     "@astrojs/cloudflare": "^14.2.1",
     "@astrojs/react": "^6.0.2",
@@ -58,5 +58,5 @@
     "ultracite": "7.10.5",
     "varlock": "^1.16.1"
   },
-  "packageManager": "pnpm@11.17.0"
+  "packageManager": "pnpm@12.1.0"
 }
