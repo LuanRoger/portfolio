@@ -1,9 +1,9 @@
 import { arc as arcGenerator } from "@visx/shape";
 import { motion, useSpring, useTransform } from "motion/react";
 import { memo, useEffect } from "react";
-import { usePieHover, usePieStable } from "./pie-context";
 import { useEnterComplete } from "@/hooks/use-enter-complete";
 import { useMountProgress } from "@/hooks/use-mount-progress";
+import { usePieHover, usePieStable } from "./pie-context";
 
 // Helper to generate arc path using d3 arc generator
 function generateArcPath(
@@ -15,12 +15,12 @@ function generateArcPath(
   padAngle: number
 ): string {
   const generator = arcGenerator<unknown>({
+    cornerRadius,
     innerRadius,
     outerRadius,
-    cornerRadius,
     padAngle,
   });
-  return generator({ startAngle, endAngle } as unknown as null) || "";
+  return generator({ endAngle, startAngle } as unknown as null) || "";
 }
 
 // Calculate the translation offset for a slice to "pop out" along its radial axis
@@ -43,16 +43,14 @@ function getSliceOffset(
 export type PieSliceHoverEffect = "translate" | "grow" | "none";
 
 export interface PieSliceProps {
-  /** Index of the slice in the data array */
-  index: number;
+  /** Animate the slice on mount. Default: true */
+  animate?: boolean;
+  /** Additional CSS class */
+  className?: string;
   /** Optional color override - falls back to data color or palette */
   color?: string;
   /** Optional fill override for patterns/gradients (e.g., "url(#patternId)") */
   fill?: string;
-  /** Animate the slice on mount. Default: true */
-  animate?: boolean;
-  /** Show glow effect on hover. Default: true */
-  showGlow?: boolean;
   /**
    * Hover effect type. Default: "translate"
    * - "translate": Slice moves outward along its radial axis
@@ -62,25 +60,27 @@ export interface PieSliceProps {
   hoverEffect?: PieSliceHoverEffect;
   /** Distance in pixels for hover effect (translate distance or grow amount). Defaults to PieChart's hoverOffset */
   hoverOffset?: number;
-  /** Additional CSS class */
-  className?: string;
+  /** Index of the slice in the data array */
+  index: number;
+  /** Show glow effect on hover. Default: true */
+  showGlow?: boolean;
 }
 
 interface AnimatedSliceTranslateProps {
+  animationKey: number;
+  color: string;
+  cornerRadius: number;
+  endAngle: number;
+  fill: string;
+  hoverOffset: number;
   index: number;
   innerRadius: number;
-  outerRadius: number;
-  startAngle: number;
-  endAngle: number;
-  cornerRadius: number;
-  padAngle: number;
-  fill: string;
-  color: string;
-  isHovered: boolean;
   isFaded: boolean;
-  animationKey: number;
+  isHovered: boolean;
+  outerRadius: number;
+  padAngle: number;
   showGlow: boolean;
-  hoverOffset: number;
+  startAngle: number;
 }
 
 function AnimatedSliceTranslate({
@@ -158,8 +158,8 @@ function AnimatedSliceTranslate({
         }}
         transition={{
           opacity: { duration: 0.15 },
-          x: { type: "spring", stiffness: 400, damping: 25 },
-          y: { type: "spring", stiffness: 400, damping: 25 },
+          x: { damping: 25, stiffness: 400, type: "spring" },
+          y: { damping: 25, stiffness: 400, type: "spring" },
         }}
       />
     );
@@ -182,28 +182,28 @@ function AnimatedSliceTranslate({
       }}
       transition={{
         opacity: { duration: 0.15 },
-        x: { type: "spring", stiffness: 400, damping: 25 },
-        y: { type: "spring", stiffness: 400, damping: 25 },
+        x: { damping: 25, stiffness: 400, type: "spring" },
+        y: { damping: 25, stiffness: 400, type: "spring" },
       }}
     />
   );
 }
 
 interface AnimatedSliceGrowProps {
+  animationKey: number;
+  color: string;
+  cornerRadius: number;
+  endAngle: number;
+  fill: string;
+  hoverOffset: number;
   index: number;
   innerRadius: number;
-  outerRadius: number;
-  startAngle: number;
-  endAngle: number;
-  cornerRadius: number;
-  padAngle: number;
-  fill: string;
-  color: string;
-  isHovered: boolean;
   isFaded: boolean;
-  animationKey: number;
+  isHovered: boolean;
+  outerRadius: number;
+  padAngle: number;
   showGlow: boolean;
-  hoverOffset: number;
+  startAngle: number;
 }
 
 function AnimatedSliceGrow({
@@ -236,8 +236,8 @@ function AnimatedSliceGrow({
   const enterComplete = useEnterComplete(mountProgress);
 
   const growSpring = useSpring(outerRadius, {
-    stiffness: 400,
     damping: 25,
+    stiffness: 400,
   });
 
   useEffect(() => {
@@ -278,8 +278,8 @@ function AnimatedSliceGrow({
     return (
       <motion.path
         animate={{
-          opacity: isFaded ? 0.4 : 1,
           d: grownPath,
+          opacity: isFaded ? 0.4 : 1,
         }}
         d={grownPath}
         fill={fill}
@@ -291,8 +291,8 @@ function AnimatedSliceGrow({
               : "none",
         }}
         transition={{
+          d: { damping: 25, stiffness: 400, type: "spring" },
           opacity: { duration: 0.15 },
-          d: { type: "spring", stiffness: 400, damping: 25 },
         }}
       />
     );
@@ -441,8 +441,8 @@ export const PieSlice = memo(function PieSlice({
       return (
         <motion.path
           animate={{
-            opacity: isFaded ? 0.4 : 1,
             d: grownPath,
+            opacity: isFaded ? 0.4 : 1,
           }}
           d={hitboxPath}
           fill={fill}
@@ -452,8 +452,8 @@ export const PieSlice = memo(function PieSlice({
               showGlow && isHovered ? `drop-shadow(0 0 12px ${color})` : "none",
           }}
           transition={{
+            d: { damping: 25, stiffness: 400, type: "spring" },
             opacity: { duration: 0.15 },
-            d: { type: "spring", stiffness: 400, damping: 25 },
           }}
         />
       );
@@ -480,8 +480,8 @@ export const PieSlice = memo(function PieSlice({
         }}
         transition={{
           opacity: { duration: 0.15 },
-          x: { type: "spring", stiffness: 400, damping: 25 },
-          y: { type: "spring", stiffness: 400, damping: 25 },
+          x: { damping: 25, stiffness: 400, type: "spring" },
+          y: { damping: 25, stiffness: 400, type: "spring" },
         }}
       />
     );
