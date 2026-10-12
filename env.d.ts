@@ -6,7 +6,6 @@
 export type CoercedEnvSchema = {
   /**
    * **INFISICAL_CLIENT_ID**  
-   * ![icon](data:image/svg+xml;utf-8,Not%20found)   
    *   
    * 📚 {@link https://infisical.com/docs/documentation/platform/identities/machine-identities | Infisical Machine Identities}  
    */
