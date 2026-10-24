@@ -13,7 +13,7 @@ import {
 
 async function getWakatimeLanguages() {
   const wakatimeUrl = ENV.WAKATIME_URL;
-  const wakatimeKey = ENV.WAKATIME_API_KEY;
+  const wakatimeKey = ENV.WAKATIME_OAUTH;
   if (!(wakatimeUrl && wakatimeKey)) {
     throw new ActionError({
       code: "INTERNAL_SERVER_ERROR",
@@ -21,11 +21,12 @@ async function getWakatimeLanguages() {
     });
   }
 
-  const response = await fetch(`${wakatimeUrl}/program_languages`, {
-    headers: {
-      Authorization: `Basic ${wakatimeKey}`,
-    },
+  const params = new URLSearchParams({
+    api_key: wakatimeKey,
   });
+  const response = await fetch(
+    `${wakatimeUrl}/program_languages?${params.toString()}`
+  );
   if (!response.ok) {
     throw new ActionError({
       code: "INTERNAL_SERVER_ERROR",
@@ -48,7 +49,7 @@ const getWakatimeStats = defineAction({
     });
 
     const wakatimeUrl = ENV.WAKATIME_URL;
-    const wakatimeKey = ENV.WAKATIME_API_KEY;
+    const wakatimeKey = ENV.WAKATIME_OAUTH;
     if (!(wakatimeUrl && wakatimeKey)) {
       throw new ActionError({
         code: "INTERNAL_SERVER_ERROR",
@@ -56,11 +57,12 @@ const getWakatimeStats = defineAction({
       });
     }
 
-    const response = await fetch(`${wakatimeUrl}/users/current/stats`, {
-      headers: {
-        Authorization: `Basic ${wakatimeKey}`,
-      },
+    const params = new URLSearchParams({
+      api_key: wakatimeKey,
     });
+    const response = await fetch(
+      `${wakatimeUrl}/users/current/stats?${params.toString()}`
+    );
     if (!response.ok) {
       throw new ActionError({
         code: "INTERNAL_SERVER_ERROR",
@@ -87,7 +89,7 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
     });
 
     const wakatimeUrl = ENV.WAKATIME_URL;
-    const wakatimeKey = ENV.WAKATIME_API_KEY;
+    const wakatimeKey = ENV.WAKATIME_OAUTH;
     if (!(wakatimeUrl && wakatimeKey)) {
       return;
     }
@@ -104,13 +106,13 @@ const getWakatimeLastDaysCategoriesSummary = defineAction({
 
     const last7DaysCategories = last7Days.map(
       async ({ formattedDate, date }) => {
+        const params = new URLSearchParams({
+          api_key: wakatimeKey,
+          end: formattedDate,
+          start: formattedDate,
+        });
         const response = await fetch(
-          `${wakatimeUrl}/users/current/summaries?start=${formattedDate}&end=${formattedDate}`,
-          {
-            headers: {
-              Authorization: `Basic ${wakatimeKey}`,
-            },
-          }
+          `${wakatimeUrl}/users/current/summaries?${params.toString()}`
         );
         if (!response.ok) {
           return;
@@ -151,7 +153,7 @@ const getWakatimeAllTimeMetrics = defineAction({
     });
 
     const wakatimeUrl = ENV.WAKATIME_URL;
-    const wakatimeKey = ENV.WAKATIME_API_KEY;
+    const wakatimeKey = ENV.WAKATIME_OAUTH;
     if (!(wakatimeUrl && wakatimeKey)) {
       throw new ActionError({
         code: "INTERNAL_SERVER_ERROR",
@@ -159,13 +161,11 @@ const getWakatimeAllTimeMetrics = defineAction({
       });
     }
 
+    const params = new URLSearchParams({
+      api_key: wakatimeKey,
+    });
     const response = await fetch(
-      `${wakatimeUrl}/users/current/all_time_since_today`,
-      {
-        headers: {
-          Authorization: `Basic ${wakatimeKey}`,
-        },
-      }
+      `${wakatimeUrl}/users/current/all_time_since_today?${params.toString()}`
     );
     if (!response.ok) {
       throw new ActionError({
