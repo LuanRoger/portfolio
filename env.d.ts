@@ -3,9 +3,14 @@
 // 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑 🛑
 // @ts-nocheck
 /* eslint-disable */
+
+// NOTE: the `process.env` augmentation was skipped because worker-configuration.d.ts
+// already declares NodeJS.ProcessEnv, and two declarations of it cannot both apply.
+// Use `ENV` for the full types, or set `processEnv=strict` on @generateTsTypes to override.
 export type CoercedEnvSchema = {
   /**
    * **INFISICAL_CLIENT_ID**  
+   * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23808080%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20d%3D%22M477.8%20173.6c-22.1-22.2-51.5-34.5-82.7-34.5c-29.5%200-59.5%2012.8-89.4%2038.1c-21.2%2017.9-38%2038.6-49.7%2055.2c-10.2-13.7-26.2-33.2-46.6-51.3c-14.9-13.4-29.8-23.9-44.2-31.2c-16.7-8.5-32.9-12.8-48-12.8c-31.3%200-60.8%2012.2-82.9%2034.5S0%20223.5%200%20255s12.2%2061.2%2034.3%2083.5c22.2%2022.2%2051.6%2034.5%2082.9%2034.5c35.4%200%2070.7-25.2%2094.1-46.3c20.5-18.6%2035.9-37.5%2045-49.7c16.2%2022.3%2035%2046.1%2055.4%2063.9c26.7%2023.3%2053.2%2034.1%2083.4%2034.1c31.2%200%2060.5-12.3%2082.7-34.6c22.1-22.2%2034.3-51.9%2034.3-83.4s-12.2-61.1-34.3-83.4M180.8%20293c-24.4%2022-47.5%2034.6-63.6%2034.6c-39.6%200-71.8-32.6-71.8-72.6s32.2-72.6%2071.8-72.6c16.5%200%2038.5%2011.6%2062%2032.5c12.6%2011.2%2025.5%2025.3%2036.9%2040c-10.5%2013.4-23%2027-35.3%2038.1M395%20329.5c-18.8%200-35.4-7-53.6-22.9C328%20295%20314.1%20279%20296%20254.5c12.1-16.6%2025.4-31.2%2039-42.9c21.1-17.8%2041.9-27.3%2060-27.3c39.5%200%2071.6%2032.6%2071.6%2072.6s-32.1%2072.6-71.6%2072.6%22%2F%3E%3C%2Fsvg%3E)   
    *   
    * 📚 {@link https://infisical.com/docs/documentation/platform/identities/machine-identities | Infisical Machine Identities}  
    */
@@ -113,8 +118,8 @@ declare module 'varlock/env' {
 
 export type EnvSchemaAsStrings = {
   [Property in keyof CoercedEnvSchema]:
-    CoercedEnvSchema[Property] extends string ? CoercedEnvSchema[Property]
-      : (CoercedEnvSchema[Property] extends boolean ? ('true' | 'false') : string)
+    NonNullable<CoercedEnvSchema[Property]> extends string ? NonNullable<CoercedEnvSchema[Property]>
+      : (NonNullable<CoercedEnvSchema[Property]> extends boolean ? ('true' | 'false') : string)
 };
 
 type _EnvSchemaAsStrings_38944c74 = EnvSchemaAsStrings;
@@ -124,10 +129,5 @@ declare global {
   interface ImportMetaEnv extends _EnvSchemaAsStrings_38944c74 {}
   interface ImportMeta {
     readonly env: ImportMetaEnv;
-  }
-
-  // add types for global process.env
-  namespace NodeJS {
-    interface ProcessEnv extends _EnvSchemaAsStrings_38944c74 {}
   }
 }
