@@ -21,7 +21,7 @@ export default function WakatimeRawMetrics({
           <CardTitle>Total time coding</CardTitle>
         </CardHeader>
         <CardContent>
-          <span className="font-bold text-2xl">{allTimeText}</span>
+          <span className="text-2xl font-bold">{allTimeText}</span>
         </CardContent>
       </Card>
       <Card className="flex-1">
@@ -29,7 +29,7 @@ export default function WakatimeRawMetrics({
           <CardTitle>Daily average</CardTitle>
         </CardHeader>
         <CardContent>
-          <span className="font-bold text-2xl">{avarengeText}</span>
+          <span className="text-2xl font-bold">{avarengeText}</span>
         </CardContent>
       </Card>
     </div>

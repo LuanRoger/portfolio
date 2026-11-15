@@ -19,11 +19,11 @@ const techsByCategory = myStack
 
 <div class="flex flex-col gap-2">
   {Object.values(TechCategory).map((category) => {
-            const groupTechs = techsByCategory[category];
-            if (!groupTechs) {
-                return null;
-            }
+    const groupTechs = techsByCategory[category];
+    if (!groupTechs) {
+      return null;
+    }
 
-            return <TechGroup groupTechs={groupTechs} />;
-        })}
+    return <TechGroup groupTechs={groupTechs} />;
+  })}
 </div>

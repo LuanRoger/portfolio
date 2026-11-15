@@ -6,7 +6,13 @@
   ],
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["/**/*", "!node_modules/**/*", "!*.d.ts"]
+    "includes": [
+      "/**/*",
+      "!node_modules/**/*",
+      "!*.d.ts",
+      "!src/components/react/ui/**/*",
+      "!src/components/react/charts/base/**/*"
+    ]
   },
   "html": {
     "experimentalFullSupportEnabled": true

@@ -44,31 +44,31 @@ export default function GitHubProfileInformation({
               rel="noopener"
               target="_blank"
             >
-              <h3 className="font-semibold text-4xl">{name}</h3>
+              <h3 className="text-4xl font-semibold">{name}</h3>
             </a>
-            <p className="font-mono text-muted-foreground">{login}</p>
+            <p className="text-muted-foreground font-mono">{login}</p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <span className="items-center-safe inline-flex justify-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <BookIcon className="size-4" />
             {publicRepos} Repositories
           </span>
-          <span className="items-center-safe inline-flex justify-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <UsersIcon className="size-4" />
             {followers} Followers
           </span>
-          <span className="items-center-safe inline-flex justify-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <StarIcon className="size-4" />
             {stargazersCount} Stars
           </span>
-          <span className="items-center-safe inline-flex justify-center gap-1 font-bold">
+          <span className="inline-flex items-center-safe justify-center gap-1 font-bold">
             <Code2Icon className="size-4" />
             {publicGists} Gists
           </span>
         </div>
       </div>
-      <p className="self-end text-muted-foreground text-sm">
+      <p className="text-muted-foreground self-end text-sm">
         Created at {formattedCreatedAt} ({creationYearsAgo} years ago)
       </p>
     </div>

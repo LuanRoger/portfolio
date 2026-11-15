@@ -33,9 +33,9 @@ const repoLink =
 
 <div
   class:list={[
-        "flex h-96 overflow-clip rounded-md flex-col border border-border",
-        className,
-    ]}
+    "border-border flex h-96 flex-col overflow-clip rounded-md border",
+    className,
+  ]}
 >
   <div class="relative flex-1">
     <div class="absolute top-0 z-30 flex w-full flex-row flex-wrap gap-2 p-2">
@@ -43,51 +43,51 @@ const repoLink =
     </div>
     <Image
       alt={imageAlt}
-      class="absolute inset-0 z-10 size-full object-cover mask-t-from-75%"
+      class="absolute inset-0 z-10 size-full mask-t-from-75% object-cover"
       height={300}
       src={imageSrc}
       width={500}
     />
   </div>
-  <Card className="rounded-t-none rounded-b-md flex-none" size="sm">
+  <Card className="flex-none rounded-t-none rounded-b-md" size="sm">
     <CardHeader>
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
     </CardHeader>
     <CardFooter className="flex gap-2">
       {repoLink && (
-                    <Link
-                        aria-label={`GitHub repository for ${repoName}`}
-                        href={repoLink}
-                        target="_blank"
-                    >
-                        <Button
-                            size="icon"
-                            variant="secondary"
-                            aria-label={`GitHub repository for ${repoName}`}
-                        >
-                            <Icon name="github" class="fill-foreground" />
-                        </Button>
-                    </Link>
-                )}
+        <Link
+          aria-label={`GitHub repository for ${repoName}`}
+          href={repoLink}
+          target="_blank"
+        >
+          <Button
+            aria-label={`GitHub repository for ${repoName}`}
+            size="icon"
+            variant="secondary"
+          >
+            <Icon class="fill-foreground" name="github" />
+          </Button>
+        </Link>
+      )}
       {link && (
-                    <Link
-                        aria-label={`Project link to ${title}`}
-                        href={link}
-                        target="_blank"
-                    >
-                        <Button
-                            size="icon"
-                            variant="secondary"
-                            aria-label={`Project link to ${title}`}
-                        >
-                            <Icon
-                                name="external-link"
-                                class="stroke-foreground fill-transparent"
-                            />
-                        </Button>
-                    </Link>
-                )}
+        <Link
+          aria-label={`Project link to ${title}`}
+          href={link}
+          target="_blank"
+        >
+          <Button
+            aria-label={`Project link to ${title}`}
+            size="icon"
+            variant="secondary"
+          >
+            <Icon
+              class="stroke-foreground fill-transparent"
+              name="external-link"
+            />
+          </Button>
+        </Link>
+      )}
     </CardFooter>
   </Card>
 </div>

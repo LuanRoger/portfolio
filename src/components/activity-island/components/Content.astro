@@ -25,27 +25,20 @@ const { status, spotifyPlayingInfo, retroachievementsActivityInfo, className } =
 ---
 
 <div
-  class={cn(
-        "flex flex-col items-center opacity-0",
-        className,
-    )}
+  class={cn("flex flex-col items-center opacity-0", className)}
   id="activity-island"
 >
   <Header status={status} />
-  <div class="overflow-hidden rounded-b-md size-full">
+  <div class="size-full overflow-hidden rounded-b-md">
     {spotifyPlayingInfo && (
-                <SpotifyCurrentPlayingIslandModule
-                    spotifyInfo={spotifyPlayingInfo}
-                />
-            )}
+      <SpotifyCurrentPlayingIslandModule spotifyInfo={spotifyPlayingInfo} />
+    )}
     {retroachievementsActivityInfo && (
-                <RetroachievementsActivityIslandModule
-                    lastGamePlayedInfo={
-                        retroachievementsActivityInfo.lastGamePlayedInfo
-                    }
-                    userProfile={retroachievementsActivityInfo.userProfileInfo}
-                />
-            )}
+      <RetroachievementsActivityIslandModule
+        lastGamePlayedInfo={retroachievementsActivityInfo.lastGamePlayedInfo}
+        userProfile={retroachievementsActivityInfo.userProfileInfo}
+      />
+    )}
   </div>
 </div>
 

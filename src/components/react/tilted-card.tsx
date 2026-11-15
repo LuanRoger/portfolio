@@ -81,14 +81,14 @@ export default function TiltedCard({
   return (
     // biome-ignore lint/a11y/noNoninteractiveElementInteractions: Needed for hover effect
     <figure
-      className="perspective-midrange relative flex flex-col items-center justify-center"
+      className="relative flex flex-col items-center justify-center perspective-midrange"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouse}
       ref={ref}
     >
       <motion.div
-        className="transform-3d relative"
+        className="relative transform-3d"
         style={{
           height: imageHeight,
           rotateX,
@@ -98,7 +98,7 @@ export default function TiltedCard({
         }}
       >
         <motion.div
-          className="transform-[translateZ(0)] absolute top-0 left-0 rounded-[15px] object-cover will-change-transform"
+          className="absolute top-0 left-0 transform-[translateZ(0)] rounded-[15px] object-cover will-change-transform"
           style={{
             height: imageHeight,
             width: imageWidth,
@@ -108,7 +108,7 @@ export default function TiltedCard({
         </motion.div>
 
         {displayOverlayContent && overlayContent && (
-          <motion.div className="transform-[translateZ(30px)] absolute top-0 left-0 z-2 will-change-transform">
+          <motion.div className="absolute top-0 left-0 z-2 transform-[translateZ(30px)] will-change-transform">
             {overlayContent}
           </motion.div>
         )}
