@@ -24,7 +24,7 @@ export function decimateTimeSeries<T extends Record<string, unknown>>(
       const val = point[key];
       if (typeof val === "number") {
         sum += val;
-        count++;
+        count += 1;
       }
     }
     return count > 0 ? sum / count : index;
@@ -34,7 +34,7 @@ export function decimateTimeSeries<T extends Record<string, unknown>>(
   const bucketSize = (len - 2) / (maxPoints - 2);
   let previousIndex = 0;
 
-  for (let i = 0; i < maxPoints - 2; i++) {
+  for (let i = 0; i < maxPoints - 2; i += 1) {
     const rangeStart = Math.floor((i + 1) * bucketSize) + 1;
     const rangeEnd = Math.min(Math.floor((i + 2) * bucketSize) + 1, len - 1);
 
@@ -47,7 +47,7 @@ export function decimateTimeSeries<T extends Record<string, unknown>>(
     if (nextCount > 0) {
       avgX = 0;
       avgY = 0;
-      for (let j = nextRangeStart; j < nextRangeEnd; j++) {
+      for (let j = nextRangeStart; j < nextRangeEnd; j += 1) {
         avgX += j;
         avgY += getY(data[j] as T, j);
       }
@@ -62,7 +62,7 @@ export function decimateTimeSeries<T extends Record<string, unknown>>(
     let maxArea = -1;
     let maxIndex = rangeStart;
 
-    for (let j = rangeStart; j < rangeEnd; j++) {
+    for (let j = rangeStart; j < rangeEnd; j += 1) {
       const area =
         Math.abs(
           (ax - avgX) * (getY(data[j] as T, j) - ay) - (ax - j) * (avgY - ay)
@@ -99,7 +99,7 @@ export function decimateOhlcData<T extends Record<string, unknown>>(
   const bucketSize = len / maxPoints;
   const sampled: T[] = [];
 
-  for (let i = 0; i < maxPoints; i++) {
+  for (let i = 0; i < maxPoints; i += 1) {
     const start = Math.floor(i * bucketSize);
     const end = Math.min(len, Math.floor((i + 1) * bucketSize));
     if (start >= end) {

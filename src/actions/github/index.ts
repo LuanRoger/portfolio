@@ -119,7 +119,7 @@ const getGithubProfileRepositories = defineAction({
         const languages = await getGithubRepositoryLanguages(repo.languagesUrl);
         return {
           id: repo.id,
-          languages: languages || [],
+          languages,
         };
       })
     );

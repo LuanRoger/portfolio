@@ -107,11 +107,11 @@ export default function TiltedCard({
           {children}
         </motion.div>
 
-        {displayOverlayContent && overlayContent && (
+        {displayOverlayContent && overlayContent ? (
           <motion.div className="absolute top-0 left-0 z-2 transform-[translateZ(30px)] will-change-transform">
             {overlayContent}
           </motion.div>
-        )}
+        ) : null}
       </motion.div>
     </figure>
   );

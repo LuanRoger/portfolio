@@ -18,7 +18,7 @@ const { className } = Astro.props;
 
 <script>
   document
-    .getElementById("scroll-to-top-link")
+    .querySelector("#scroll-to-top-link")
     ?.addEventListener("click", (event) => {
       event.preventDefault();
       window.scrollTo(0, 0);

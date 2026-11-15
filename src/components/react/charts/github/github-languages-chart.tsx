@@ -42,8 +42,8 @@ export default function GithubLanguagesMetricsChart({
           onHoverChange={setHoveredIndex}
           size={280}
         >
-          {data.map((_, index) => (
-            <PieSlice index={index} key={index} />
+          {data.map((item, index) => (
+            <PieSlice index={index} key={item.label} />
           ))}
         </PieChart>
         <Legend

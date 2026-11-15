@@ -51,8 +51,8 @@ export default function WakatimeLanguagesChart({ data }: LanguageChartData) {
           onHoverChange={setHoveredIndex}
           size={280}
         >
-          {chartData.map((_, index) => (
-            <PieSlice index={index} key={index} />
+          {chartData.map((item, index) => (
+            <PieSlice index={index} key={item.label} />
           ))}
           <PieCenter
             formatOptions={{}}

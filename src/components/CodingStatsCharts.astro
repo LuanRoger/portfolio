@@ -29,30 +29,23 @@ const languagesData = githubRepositoriesData.map((repo) => {
 });
 
 const filteredLanguages = languagesData.filter((lang) => lang !== null).flat();
-const languages = filteredLanguages.reduce(
-  (acc, lang) => {
-    if (acc[lang.name]) {
-      acc[lang.name].value += lang.size;
-      return acc;
-    }
-
-    const color = githubLanguageColors.find((item) => item.id === lang.name)
-      ?.data.color;
-    acc[lang.name] = {
-      color: color ?? "#808080",
-      label: lang.name,
-      value: lang.size,
-    };
+const languages = filteredLanguages.reduce<
+  Record<string, { label: string; value: number; color: string }>
+>((acc, lang) => {
+  if (acc[lang.name]) {
+    acc[lang.name].value += lang.size;
     return acc;
-  },
-  {} as {
-    [key: string]: {
-      label: string;
-      value: number;
-      color: string;
-    };
   }
-);
+
+  const color = githubLanguageColors.find((item) => item.id === lang.name)?.data
+    .color;
+  acc[lang.name] = {
+    color: color ?? "#808080",
+    label: lang.name,
+    value: lang.size,
+  };
+  return acc;
+}, {});
 
 const githubLanguagesChartData = Object.values(languages);
 

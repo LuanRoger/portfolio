@@ -45,7 +45,7 @@ const { status, spotifyPlayingInfo, retroachievementsActivityInfo, className } =
 <script>
   import { animate } from "motion/mini";
 
-  const element = document.getElementById("activity-island");
+  const element = document.querySelector<HTMLElement>("#activity-island");
   if (element) {
     animate(
       element,
