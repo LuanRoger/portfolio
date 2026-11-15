@@ -14,6 +14,12 @@
   },
   "languages": {
     "JavaScript": {
+      "language_servers": [
+        "tsrs",
+        "biome",
+        "!oxfmt",
+        "!oxlint"
+      ],
       "formatter": {
         "language_server": {
           "name": "biome"
@@ -25,6 +31,12 @@
       }
     },
     "TypeScript": {
+      "language_servers": [
+        "tsrs",
+        "biome",
+        "!oxfmt",
+        "!oxlint"
+      ],
       "formatter": {
         "language_server": {
           "name": "biome"
@@ -36,6 +48,12 @@
       }
     },
     "TSX": {
+      "language_servers": [
+        "tsrs",
+        "biome",
+        "!oxfmt",
+        "!oxlint"
+      ],
       "formatter": {
         "language_server": {
           "name": "biome"
