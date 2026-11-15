@@ -49,6 +49,7 @@
     "@astrojs/ts-plugin": "^1.11.0",
     "@biomejs/biome": "2.6.7",
     "@tailwindcss/typography": "^0.5.20",
+    "@types/d3-shape": "^3.2.0",
     "@types/luxon": "^3.7.6",
     "@varlock/astro-integration": "^1.4.6",
     "@varlock/infisical-plugin": "^2.1.3",
