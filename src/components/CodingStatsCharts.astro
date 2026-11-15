@@ -29,30 +29,23 @@ const languagesData = githubRepositoriesData.map((repo) => {
 });
 
 const filteredLanguages = languagesData.filter((lang) => lang !== null).flat();
-const languages = filteredLanguages.reduce(
-  (acc, lang) => {
-    if (acc[lang.name]) {
-      acc[lang.name].value += lang.size;
-      return acc;
-    }
-
-    const color = githubLanguageColors.find((item) => item.id === lang.name)
-      ?.data.color;
-    acc[lang.name] = {
-      color: color ?? "#808080",
-      label: lang.name,
-      value: lang.size,
-    };
+const languages = filteredLanguages.reduce<
+  Record<string, { label: string; value: number; color: string }>
+>((acc, lang) => {
+  if (acc[lang.name]) {
+    acc[lang.name].value += lang.size;
     return acc;
-  },
-  {} as {
-    [key: string]: {
-      label: string;
-      value: number;
-      color: string;
-    };
   }
-);
+
+  const color = githubLanguageColors.find((item) => item.id === lang.name)?.data
+    .color;
+  acc[lang.name] = {
+    color: color ?? "#808080",
+    label: lang.name,
+    value: lang.size,
+  };
+  return acc;
+}, {});
 
 const githubLanguagesChartData = Object.values(languages);
 
@@ -79,14 +72,14 @@ const { text: allTimeText } = wakatimeAllTimeData;
   wakatimeLanguageChart={{ data: langaugeChart }}
   client:visible
 >
-  <div class="self-end text-muted-foreground" slot="wakatimeFooter">
+  <div class="text-muted-foreground self-end" slot="wakatimeFooter">
     <Link
       class="inline-flex items-center gap-2 self-end font-medium"
       href={"https://wakatime.com"}
       isExternal
     >
       Powered by{" "}
-      <Icon class="inline-block size-4 fill-muted-foreground" name="wakatime" />
+      <Icon class="fill-muted-foreground inline-block size-4" name="wakatime" />
     </Link>
   </div>
   <div class="contents" slot="githubIcon">
@@ -99,7 +92,7 @@ const { text: allTimeText } = wakatimeAllTimeData;
       isExternal
     >
       Powered by{" "}
-      <Icon class="inline-block size-4 fill-muted-foreground" name="github" />
+      <Icon class="fill-muted-foreground inline-block size-4" name="github" />
     </Link>
   </div>
 </CodingStatsAccordion>

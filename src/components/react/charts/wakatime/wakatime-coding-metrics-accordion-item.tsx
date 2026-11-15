@@ -41,7 +41,7 @@ export default function WakatimeCodingMetricsAccordionItem({
           allTimeText={allTimeText}
           avarengeText={avarengeText}
         />
-        <div className="flex justify-between text-muted-foreground text-sm">
+        <div className="text-muted-foreground flex justify-between text-sm">
           <p>
             Collecting data since 23 December 2022.
             <br />

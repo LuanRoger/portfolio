@@ -7,7 +7,7 @@ interface Props {
 const { label, className } = Astro.props;
 ---
 
-<div class:list={["flex gap-2 items-center", className]}>
+<div class:list={["flex items-center gap-2", className]}>
   <slot />
   <span>{label}</span>
 </div>

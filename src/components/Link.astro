@@ -16,5 +16,5 @@ const { href, isExternal, class: className, ...props } = Astro.props;
   class:list={[className, "cursor-pointer font-bold hover:underline"]}
   {...props}
 >
-  <slot />
+  <slot>{href}</slot>
 </a>

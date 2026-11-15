@@ -1,5 +1,5 @@
 import type { Transition } from "motion/react";
-import { DEFAULT_CHART_ENTER_TRANSITION } from "../../components/charts/base/animation";
+import { DEFAULT_CHART_ENTER_TRANSITION } from "../../components/react/charts/base/animation";
 
 export function transitionWithDelay(
   transition: Transition | undefined,
@@ -36,13 +36,13 @@ export function springOptionsFromTransition(
         : fallback.damping;
     return {
       damping:
-        bounce === null
+        bounce === undefined
           ? baseDamping
           : Math.max(8, baseDamping * (1 - bounce * 0.25)),
       mass:
         typeof transition.mass === "number" ? transition.mass : fallback.mass,
       stiffness:
-        bounce === null
+        bounce === undefined
           ? baseStiffness
           : Math.min(400, Math.max(80, baseStiffness * (1 + bounce * 0.35))),
     };

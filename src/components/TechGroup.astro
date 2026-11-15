@@ -8,7 +8,7 @@ interface Props {
 
 const { groupTechs } = Astro.props;
 
-const category = groupTechs[0].category;
+const { category } = groupTechs[0];
 ---
 
 <h2 class="font-bold">{category}</h2>
