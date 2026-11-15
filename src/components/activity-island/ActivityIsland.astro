@@ -2,6 +2,7 @@
 import { actions } from "astro:actions";
 import { hoursSince } from "@/lib/utils/time";
 import Content from "./components/Content.astro";
+import { getSpotifyCurrentPlaying } from "@/services/spotify";
 
 interface Props {
   className?: string;
@@ -11,13 +12,14 @@ const { className } = Astro.props as Props;
 
 const [currentPlayingInfo, retroachievementsUserProfile, lastGamePlayedInfo] =
   await Promise.all([
-    Astro.callAction(actions.spotify.getSpotifyCurrentPlaying.orThrow, {}),
+    getSpotifyCurrentPlaying(),
     Astro.callAction(
       actions.retroachievements.getRetroachievementsUserProfile.orThrow,
       {}
     ),
     Astro.callAction(actions.retroachievements.getLastGamePlayed.orThrow, {}),
   ]);
+
 
 const isSpotifyPlaying = currentPlayingInfo?.isPlaying;
 const hoursSinceLastRetroachievementsPlay = hoursSince(
