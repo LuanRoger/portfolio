@@ -266,6 +266,9 @@ importers:
       '@types/luxon':
         specifier: ^3.7.6
         version: 3.7.6
+      '@types/node':
+        specifier: ^26.6.6
+        version: 26.6.6
       '@varlock/astro-integration':
         specifier: ^1.4.6
         version: 1.4.6(@varlock/cloudflare-integration@1.6.4(@cloudflare/vite-plugin@1.69.1(@types/node@26.6.6)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(workerd@1.20261113.1)(wrangler@4.162.0(@types/node@26.6.6)))(varlock@1.25.0)(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(wrangler@4.162.0(@types/node@26.6.6)))(astro@7.4.12(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(varlock@1.25.0)
