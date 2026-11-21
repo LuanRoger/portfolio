@@ -26,7 +26,7 @@ export interface LastPlayedGame {
   imageIcon: string;
   imageIngame: string;
   imageTitle: string;
-  lastPlayed: Date;
+  lastPlayed: string;
   numAchieved: number;
   numAchievedHardcore: number;
   numPossibleAchievements: number;
